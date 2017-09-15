@@ -1,0 +1,12 @@
+digraph "ebvolcor::VolumeCorrector"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="ebvolcor::VolumeCorrector",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ginfo" ,fontname="Helvetica"];
+  Node2 [label="GeomInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGeomInfo.html",tooltip="a container for organizing meta data about the geometries "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" geom_tree" ,fontname="Helvetica"];
+  Node3 [label="Node",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" source_opts\ngen_opts" ,fontname="Helvetica"];
+  Node4 [label="ebvolcor::Options",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classebvolcor_1_1Options.html",tooltip="Volume correction initialization helper class. "];
+}

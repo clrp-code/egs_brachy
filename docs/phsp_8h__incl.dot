@@ -1,0 +1,24 @@
+digraph "/home/randlet/projects/egs/egs_brachy_release/egs_brachy/phsp.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/phsp.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="egs_functions.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="egs_input.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="egs_advanced_application.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="egs_transformations.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="pubsub.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pubsub_8h.html",tooltip="A simple pub/sub module to allow various egs_brachy classes to subscribe to particle events..."];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="map",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="iaea_phsp.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

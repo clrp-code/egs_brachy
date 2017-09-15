@@ -70,14 +70,14 @@ for simulations with a large number of regions defined.
 
 There are currently three different run modes available in egs_brachy:
 
-1. 'normal' (default):  a regular simulation. For an example see [tests/seeds_in_xyz/seeds_in_xyz.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/seeds_in_xyz/seeds_in_xyz.egsinp).
+1. 'normal' (default):  a regular simulation. For an example see [tests/seeds_in_xyz/seeds_in_xyz.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/seeds_in_xyz/seeds_in_xyz.egsinp).
 2. 'superposition' : This type of simulation requires the used of an
 EGS_ASwitchedEnvelope as the simulation geometry. At the start of every
 history only a single inscribed geometry will be activated. This allows
 you to explore the effects of intersource attenuation by performing TG-43
-dose superposition type calculations. For an example see [tests/tg43mode/tg43mode.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/tg43mode/tg43mode.egsinp).
+dose superposition type calculations. For an example see [tests/tg43mode/tg43mode.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/tg43mode/tg43mode.egsinp).
 3. 'volume correction only': Just run the volume correction routines, print
-the results and then quit. No actual dose calculations will be done. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/volume_correction/vc.egsinp).
+the results and then quit. No actual dose calculations will be done. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp).
 
 
 The run mode is set using a 'run mode' input block:
@@ -99,7 +99,7 @@ stack at the location of the chosen source and the original particle is
 killed).
 
 This behaviour can be disabled by setting `single generator = no` in the run
-mode block (see [tests/single_generator/single_generator.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/single_generator/single_generator.egsinp)).
+mode block (see [tests/single_generator/single_generator.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/single_generator/single_generator.egsinp)).
 
 \verbatim
 
@@ -110,7 +110,7 @@ mode block (see [tests/single_generator/single_generator.egsinp](https://github.
 
 \endverbatim
 
-Disabling the single generator (see [tests/single_generator/multiple_generator.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/single_generator/multiple_generator.egsinp)) mode may be slightly faster for some simulations
+Disabling the single generator (see [tests/single_generator/multiple_generator.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/single_generator/multiple_generator.egsinp)) mode may be slightly faster for some simulations
 (there is an extra call to howfar for every particle escaping the source
  geometry in single generator mode). Note that in some situations (particle
  recycling for example) single generator will always be enabled by egs_brachy.
@@ -134,8 +134,8 @@ There are three egs_brachy specific input keys that are required for the
 2. 'phantom geometries': this tells egs_brachy which geometries to score dose
    in (1 or more phantom geometries are required).  Currently 3 geometry types
    are allowed to be used as phantoms:
-    1. EGS_XYZGeometry (library egs_ndgeometry, see [tests/seeds_in_xyz/seeds_in_xyz.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/seeds_in_xyz/seeds_in_xyz.egsinp))
-    2. EGS_RZGeometry (library egs_rz, see [tests/stepped_source/stepped.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy../tests/stepped_source/stepped.egsinp))
+    1. EGS_XYZGeometry (library egs_ndgeometry, see [tests/seeds_in_xyz/seeds_in_xyz.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/seeds_in_xyz/seeds_in_xyz.egsinp))
+    2. EGS_RZGeometry (library egs_rz, see [tests/stepped_source/stepped.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy../tests/stepped_source/stepped.egsinp))
     3. EGS_cSpheres (library egs_spheres, see [tests/scatter/scatter.egsinp](../tests/scatter/scatter.egsinp))
 
 3. 'source envelope geometry':  this input is only required for
@@ -313,24 +313,24 @@ The 'scoring options' input block currently has the following keys:
 - 'score energy deposition' : (Optional) Controls whether dose from particle
   interactions is scored in the phantom geometries. The choices are 'yes' or
   'no' (default). See
-  [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for an
+  [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for an
   example
 
 - 'score scatter dose' : (Optional) Controls whether scatter dose (normalized
   to total radiant energy) is scored in the phantom geometries. The choices are
   'yes' or 'no' (default). See
-  [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/scatter/scatter.egsinp) for an example.
+  [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
 
 - 'spectrum scoring': (Optional) zero or more input blocks specifying spectra
   to score (described below). See
-  [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_absolute/spec_absolute.egsinp),
-  [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_eflu/spec_eflu.egsinp), and
-  [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_vox/spec_vox.egsinp) for
+  [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp),
+  [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_eflu/spec_eflu.egsinp), and
+  [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_vox/spec_vox.egsinp) for
   examples.
 
 - 'phsp scoring': (Optional) zero or one input block specifying whether to
   score a phase space on the surface of the source (described below). See
-  [tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
+  [tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
     for an example.
 
 - 'dose file format': (Optional) Controls whether 3dddose files are
@@ -345,7 +345,7 @@ The 'scoring options' input block currently has the following keys:
 - 'output voxel info files': (Optional) Controls whether voxel info files are
   created for scoring phantoms. Options are 'no' (default) and 'yes'. See below
   for a description of these files. See
-  [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/volume_correction/vc.egsinp) for
+  [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp) for
   an example.
 
 - 'voxel info file format': (Optional) Controls whether voxel info
@@ -367,7 +367,7 @@ The 'scoring options' input block currently has the following keys:
   calculation if the required statistical uncertainty is reached. Defaults to
   region 0 of the first phantom object.  Currently the result of the
   tracklength dose scoring is always used. See
-  [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for an
+  [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for an
   example.
 
 - 'dose scaling factor': (Optional) Allows you to scale all dose files output by
@@ -438,7 +438,7 @@ eliminating the redundant calculation of volume corrections by every job in
 your parallel run.
 
 The input file
-[tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/volume_correction/vc.egsinp)
+[tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp)
     demonstrates this feature.
 
 
@@ -446,9 +446,9 @@ The input file
 
 egs\_brachy can currently score three different type of spectra:
 
-1. Absolute counts of particles escaping the surface of the source (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
-2. Energy weighted spectra of particles on the surface of the source (See [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_eflu/spec_eflu.egsinp))
-3. Photon energy fluence in a single geometry region (See [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/spec_vox/spec_vox.egsinp))
+1. Absolute counts of particles escaping the surface of the source (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
+2. Energy weighted spectra of particles on the surface of the source (See [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_eflu/spec_eflu.egsinp))
+3. Photon energy fluence in a single geometry region (See [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_vox/spec_vox.egsinp))
 
 To score a spectrum, add one or more 'spectrum scoring' input blocks to the
 'scoring options' block (you may add an arbitrary number of 'spectrum scoring'
@@ -536,9 +536,9 @@ A complete phsp scoring block looks like:
 \endverbatim
 
 See
-[tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
+[tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
 for an example of scoring a phase space and
-[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/phsp_run/phsp_run.egsinp) for an
+[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_run/phsp_run.egsinp) for an
 example of running a phase space source.
 
 #### Limitations
@@ -678,13 +678,13 @@ particles originating in a source.  If the `source weights` input is missing
 all sources are given equal weighting.  If the number of inputs for source
 weights is less than the number of sources, the missing inputs will be assumed
 to be 1.  See
-[tests/variable_activity/variable.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/variable_activity/variable.egsinp)
+[tests/variable_activity/variable.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/variable_activity/variable.egsinp)
 for an example.
 
 When the `superposition` run mode is used, the `source weights` input
 represents relative dwell times (e.g. for a stepped Ir192 HDR source) rather
 than different activity levels.  See
-[tests/stepped_source/stepped.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/stepped_source/stepped.egsinp)
+[tests/stepped_source/stepped.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/stepped_source/stepped.egsinp)
     for an example of this feature.
 
 
@@ -715,7 +715,7 @@ setting the `source` input block to use the eb_iaeaphsp_source type like so:
 \endverbatim
 
 See the eb_iaeaphsp_source documenation for more information on the inputs and
-[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/phsp_run/phsp_run.egsinp) input file
+[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_run/phsp_run.egsinp) input file
 for an example of this feature.
 
 It should be noted that phase space sources are treated slightly differently
@@ -745,7 +745,7 @@ egs_brachy has a couple of extra optional transport parameters.
 2. `Source ECUT` & `Source PCUT` these two transport parameters allow you to
    set ECUT and PCUT to different values within the source compared to elsewhere. This is required
    for x-ray source simulations (see e.g.
-       [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/brem_cyl/brem_cyl.egsinp)).
+       [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/brem_cyl/brem_cyl.egsinp)).
 
 \verbatim
 
@@ -795,10 +795,10 @@ by an arbitrary angle about the z-axis prior to being reused. (If
 enforced).
 
 Examples of particle recycling may be seen in the following test files:
-[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/phsp_run/phsp_run.egsinp),
-[tests/recycling/recycling.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/recycling/recycling.egsinp),
-[tests/tg43mode_recycle/tg43mode_recycling.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/tg43mode_recycle/tg43mode_recycling.egsinp),
-[tests/variable_w_recycling/variable_w_recycling.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/variable_w_recycling/variable_w_recycling.egsinp).
+[tests/phsp_run/phsp_run.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_run/phsp_run.egsinp),
+[tests/recycling/recycling.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/recycling/recycling.egsinp),
+[tests/tg43mode_recycle/tg43mode_recycling.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/tg43mode_recycle/tg43mode_recycling.egsinp),
+[tests/variable_w_recycling/variable_w_recycling.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/variable_w_recycling/variable_w_recycling.egsinp).
 
 
 #### Particle Recycling with PHSP Sources
@@ -858,7 +858,7 @@ something greater than 1 in the `variance reduction` block.
 
 \endverbatim
 
-See [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for
+See [tests/brem_cyl/brem_cyl.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/brem_cyl/brem_cyl.egsinp) for
 an input file that uses brem splitting.
 
 \subsubsection bcse Bremsstrahlung Cross Section Enhancement
@@ -885,7 +885,7 @@ can be used for larger volumes with multiple overlapping phantom geometries. In
 addition to those two methods, corrected voxel volumes can be precomputed (either
 manually or by egs\_brachy) and read from a file.
 
-See [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/volume_correction/vc.egsinp) for
+See [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp) for
 examples of the fast & general volume correction methods.
 
 \subsubsection sourcevc Fast voxel volume corrections for sources
@@ -1093,7 +1093,7 @@ the code is still performing as expected after making modifications
 or updating the egsnrc version.
 
 Geometries required for the tests are either defined within the .egsinp
-files or within [tests/test_geoms](https://github.com/clrp-code/egs_brachy/egs_brachy/tests/test_geoms).
+files or within [tests/test_geoms](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/test_geoms).
 
 \subsection setup Setup
 
