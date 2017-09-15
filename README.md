@@ -49,7 +49,7 @@ Brief installation instructions can be accessed in the html technical
 documentation at
 [https://clrp-code.github.io/egs_brachy/](https://clrp-code.github.io/egs_brachy/)
 with more detailed instructions avaialable in the egs_brachy user manual pdf
-[https://clrp-code.github.io/egs_brachy/](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manualpdf) .
+[https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf) .
 
 ## Contact
 
