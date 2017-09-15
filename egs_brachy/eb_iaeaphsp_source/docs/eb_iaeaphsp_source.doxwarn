@@ -1,0 +1,19 @@
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:10: warning: found more than one \mainpage comment block! Skipping this block.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:76: warning: Member getNextParticle(EGS_RandomGenerator *rndm, int &q, int &latch, EGS_Float &E, EGS_Float &wt, EGS_Vector &x, EGS_Vector &u) (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:80: warning: Member getEmax() const  (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:82: warning: Member getFluence() const  (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:84: warning: Member setSimulationChunk(EGS_I64 nstart, EGS_I64 nrun) (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:85: warning: Member storeState(ostream &data) const  (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:86: warning: Member setState(istream &data) (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:87: warning: Member addState(istream &data) (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:88: warning: Member resetCounter() (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:90: warning: Member isValid() const  (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:118: warning: Member openPHSPFile() (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:119: warning: Member initSourceParams() (function) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:95: warning: Member is_valid (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:99: warning: Member source_id (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:100: warning: Member p_source_id (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:115: warning: Member n_parallel (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:116: warning: Member i_parallel (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:121: warning: Member next_source_id (variable) of class EB_IAEASource is not documented.
+/home/randlet/egs/HEN_HOUSE/egs++/sources/eb_iaeaphsp_source/eb_iaeaphsp_source.h:123: warning: Member iaea_header_ext (variable) of class EB_IAEASource is not documented.

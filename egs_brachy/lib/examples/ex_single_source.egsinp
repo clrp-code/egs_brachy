@@ -1,0 +1,159 @@
+##############################################################################
+#
+# A single Pd-103 TheraSeed200 seed in a 30x30x30 cm^3 water phantom.
+# Dose is scored in a 2x2x2 cm^3 volume made up of (1 mm)^3 voxels.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e6
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    # egs_brachy has 3 run modes: 
+    #        'normal', 'superposition', and 'volume correction only'
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+# This input block allows 'pegsless' runs
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+    
+    material data file = lib/media/material.dat    
+    #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    # A water box that will hold the entire geometry
+    :start geometry:
+        name = box
+        library = egs_glib	#this is a brachy_dose addition to egs++
+				#which allows files to be included into the
+				#input file. Very useful for defining
+				#commonly used geometries.
+        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+    :stop geometry:
+
+    # The volume in which we want to score dose
+    :start geometry:
+        name = phantom
+        library = egs_glib
+        include file = lib/geometry/phantoms/2.0cmx2.0cmx2.0cm_1mm_xyz_water.geom
+        #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+    :stop geometry:
+
+    # The source geometry
+    :start geometry:
+        name = seed
+        library = egs_glib
+        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
+        #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+    :stop geometry:
+
+    # Inscribe the seed in the scoring phantom
+    :start geometry:
+        name = phantom_with_seed
+        library = egs_genvelope
+        base geometry = phantom
+        inscribed geometries = seed
+    :stop geometry:
+
+    # Inscribe the phantom+seed in the large water box
+    :start geometry:
+        name = final
+        library = egs_genvelope
+        base geometry = box
+        inscribed geometries = phantom_with_seed
+    :stop geometry:
+
+    # Source, phantom, and simulation geometries all need to be explicitly 
+    # specified to egs_brachy
+
+    source geometries = seed
+
+    phantom geometries = phantom
+
+    simulation geometry = final
+
+:stop geometry definition:
+
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    # Scoring voxels which contain source geometries need to have their 
+    # volumes corrected to accurately score dose
+  :start source volume correction:
+      correction type = correct
+      density of random points (cm^-3) = 1E8
+
+      # This include file statement defines a shape that encompasses the 
+      # entire source geometry.
+      # Volume correction will only occur within the boundaries of this shape.
+      include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
+      #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+  :stop source volume correction:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    # Typical egs++ source input block
+    :start source:
+        library = egs_isotropic_source
+        name = TheraSeed200
+        charge = 0
+
+        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
+        #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/Pd103_NNDC_2.6_line.spectrum
+            #to run in batch, insert value of $EGS_HOME/egs_brachy/ before lib
+        :stop spectrum:
+    :stop source:
+
+    # The position of the source
+    :start transformations:
+        include file = lib/geometry/transformations/single_seed_at_origin
+        #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+    :stop transformations:
+
+    # The source needs to be explicitly specified to egs_brachy. 
+    # This should be the same as the 'name' defined in source input block above.
+    simulation source = TheraSeed200
+
+:stop source definition:
+
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+       # Many scoring options are available in egs_brachy. 
+       # Please see the documentation for a full list.
+   
+       # The path to a file containing mass-energy absorption data for the 
+       # relevant media in the simulation    
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+       #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+       # Specify which media dose is scored in
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+#-------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default
+#to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+

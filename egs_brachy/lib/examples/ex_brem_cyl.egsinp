@@ -1,0 +1,183 @@
+##############################################################################
+# This is an egs_brachy input file for benchmarking against
+# a dosrznrc x-ray source calculations, i.e. it uses the eg_rz geometry.
+#
+# It is a 1 cm^2 parallel beam passing thru 1 cm of air and then incident 
+# on a 0.0001 cm target of Ti10W90.
+# Tracklength and energy deposition doses are scored in  r=5.0cm / dz=0.1 cm 
+# slabs of  water extending 4 mm . There is no electron transport in the
+# water so electrons coming from the target deposit all their energy in the
+# first water slab. Note that the tracklength dose in the z = 0.0 to 0.1 cm 
+# voxel scored by egs_brachy will significantly underestimate this dose
+# since it is not captured. The dose in the air will also be significantly
+# underestimated since only photon dose is captured by tracklength scoring.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 100000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    source geometries = source
+
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+    :start geometry:
+        name = phantom
+        library = egs_rz
+        radii = 5          #there could be more than 1
+        z-planes = -1.001 0 0.1 0.2 0.3 0.4
+
+	#initially everything is water. This is overridden below
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+    :stop geometry
+
+    # note that below we use 1E-8 rather than 0 as the last bound here to ensure
+    # electrons at z=0 don't get deposited in region 0 of phantom rather than
+    # region 1 (if boundary was exactly 0 and particle exactly at z=0 then it
+    # is ambiguous whether it is in the source object or the phantom object)
+    #
+    :start geometry: 
+        name = source        #note that source region includes the air and TiW
+        library = egs_rz
+
+        radii = 5
+        z-planes = -1 -0.0001 1E-8
+
+        :start media input:
+            media = AIR_TG43_LD Ti10W90
+            set medium = 0 0
+            set medium = 1 1
+        :stop media input:
+
+    :stop geometry
+
+    :start geometry:
+
+        library = egs_genvelope
+        name = phantom_w_source
+
+        base geometry = phantom
+        inscribed geometries = source     #must be completely inside, not 
+  					  #touching the base geometry
+
+    :stop geometry:
+
+:stop geometry definition:
+
+:start volume correction:
+    # don't need volume correction since seed is really only in reg 0 of phantom
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+# Particle sources definition
+:start source definition:
+
+    :start source:
+
+        library = egs_parallel_beam
+        name = cyl_source
+
+        :start shape:
+
+            name = target
+            type = cylinder
+            radius = 0.5641917075 # 1cm^2 area
+            height = 0.0001
+            midpoint = 0 0 -0.99995
+	    #source is from -1.00000 to 0.99990 in the air region
+
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+        direction = 0 0 1		#heading in z direction
+        charge = -1
+
+    :stop source:
+
+    simulation source = cyl_source
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    score tracklength dose = yes         # this is default, creates an
+                                         # ex_brem_cyl_phantom.3ddose file
+                                         # above does not score dose from
+                                         #  e- transport
+    score energy deposition = yes	 # default is no. yes=> scores energy
+                                         # from e- transport. Creates 
+                                         # brem_cyl.phantom.edep.3ddose
+    score scatter dose = no		 # default is no. Does not score scatter
+					 # dose separately, but it is included.
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+    current result phantom region = phantom 1
+
+:stop scoring options:
+
+:start ausgab object definition:
+:stop ausgab object definition:
+
+#-------------------------------------------------------------------------------
+# Transport parameters
+:start MC transport parameter:
+    Global ECUT                    = 1.512	#e- not transported in the water
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.512    	#needed so e- transported in 
+						#source region
+    Source PCUT                    = 0.001
+    Global SMAX                    = 1e10
+    Bound Compton Scattering       = On
+    Rayleigh Scattering            = On
+    Atomic Relaxations             = On
+    Photoelectron Angular Sampling = On
+    Electron Impact Ionization     = On
+    Brems Angular Sampling         = KM
+    Brems Cross Sections           = nist
+    Pair Angular Sampling          = Off
+    ESTEPE                         = 0.25
+    XIMAX                          = 0.5
+    Skin Depth for BCA             = 3.0
+    Boundary Crossing Algorithm    = EXACT
+    Electron-Step Algorithm        = PRESTA-II
+    Spin Effects                   = On
+    Radiative Compton Corrections  = Off
+    Photon Cross Sections          = xcom
+    Fluorescent Photon Cutoff      = 0.001
+:stop MC transport parameter:
+
+:start variance reduction:
+    split brem photons = 100	#uniform bremsstrahlung splitting.
+:stop variance reduction:

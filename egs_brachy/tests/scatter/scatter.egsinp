@@ -1,0 +1,138 @@
+:start run control:
+    ncase = 4000000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+
+        name = phantom
+
+        library = egs_spheres
+        radii = 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+
+        library = egs_spheres
+        name = source
+        radii = 0.002
+
+        :start media input:
+            media = AIR_TG43
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = phantom_w_source
+        base geometry = phantom
+        inscribed geometries = source
+    :stop geometry:
+
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = source
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+:stop geometry definition:
+
+:start volume correction:
+
+
+:stop volume correction:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = point_source
+        charge = 0
+
+        :start shape:
+
+            type = sphere
+            position = 0 0 0
+            radius = 0.001
+
+        :stop shape:
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/Ir192_bare_1993.spectrum
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0, 0, 0
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = point_source
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = no
+    score energy deposition = yes
+    score scatter dose =  yes
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+:Start MC Transport Parameter:
+
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Global SMAX                    = 1e10
+    Bound Compton Scattering       = On
+    Rayleigh Scattering            = On
+    Atomic Relaxations             = On
+    Photoelectron Angular Sampling = On
+    Electron Impact Ionization     = On
+    Brems Angular Sampling         = KM
+    Brems Cross Sections           = nist
+    Pair Angular Sampling          = Off
+    ESTEPE                         = 0.25
+    XIMAX                          = 0.5
+    Skin Depth for BCA             = 0.3
+    Boundary Crossing Algorithm    = EXACT
+    Electron-Step Algorithm        = PRESTA-II
+    Spin Effects                   = On
+    Radiative Compton Corrections  = Off
+    Photon Cross Sections          = xcom
+    Fluorescent Photon Cutoff      = 0.001
+
+:Stop MC Transport Parameter:

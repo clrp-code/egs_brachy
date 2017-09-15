@@ -1,0 +1,13 @@
+<map id="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/phantom.h" name="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/phantom.h">
+<area shape="rect" id="node3" href="$eb__volcor_8h.html" title="Volume correction routines for egs_brachy. " alt="" coords="69,229,232,293"/>
+<area shape="rect" id="node7" href="$egs__brachy_8h.html" title="the main egs_brachy application header file " alt="" coords="208,341,381,405"/>
+<area shape="rect" id="node11" href="$ginfo_8h.html" title="ginfo contains classes for organizing information about the geometries present in an egs_brachy simul..." alt="" coords="307,117,443,181"/>
+<area shape="rect" id="node28" href="$phantom_8cpp.html" title="Implementation of phantom objects. " alt="" coords="467,117,637,181"/>
+<area shape="rect" id="node5" href="$eb__volcor_8cpp.html" title="Main implementation of volume correction routines. " alt="" coords="5,341,184,405"/>
+<area shape="rect" id="node9" href="$egs__brachy_8cpp.html" title="the main egs_brachy application implementation file " alt="" coords="200,453,389,517"/>
+<area shape="rect" id="node15" href="$spec__scoring_8h.html" title="Definition of spectrum scoring classes. " alt="" coords="357,229,541,293"/>
+<area shape="rect" id="node20" href="$recycle_8h.html" title="class definitions for recycling " alt="" coords="565,229,715,293"/>
+<area shape="rect" id="node25" href="$ginfo_8cpp.html" title="implementation of Geometry Info class. " alt="" coords="739,229,888,293"/>
+<area shape="rect" id="node18" href="$spec__scoring_8cpp.html" title="implementation of spectrum scoring classes. " alt="" coords="405,341,603,405"/>
+<area shape="rect" id="node23" href="$recycle_8cpp.html" title="class imlementations for recycling " alt="" coords="627,341,789,405"/>
+</map>

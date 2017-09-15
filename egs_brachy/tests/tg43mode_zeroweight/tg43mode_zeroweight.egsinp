@@ -1,0 +1,169 @@
+#------------------------------------------------------------------------------------
+:start run control:
+    ncase = 20000000
+    nbatch = 1
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = superposition
+:stop run mode:
+
+
+#------------------------------------------------------------------------------------
+:start geometry definition:
+
+    source geometries = seed
+
+    phantom geometries = phantom
+
+    source envelope geometry = phantom_and_seed
+
+    simulation geometry = phantom_and_seed
+
+
+    :start geometry:
+
+        name = phantom
+        library = egs_rz
+
+        radii = 0.05, 1
+        z-planes = -1.1 -0.275 -0.225 -0.175 -0.125 -0.075 -0.025 0.025 0.075 0.125 0.175 0.225 0.275 1.1
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+        name = seed
+
+        library = egs_rz
+
+        radii = 0.1
+        z-planes = -0.05 0.05
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+
+    :stop geometry
+
+    :start geometry:
+        name = phantom_and_seed
+        library = egs_autoenvelope
+        type = EGS_ASwitchedEnvelope
+        base geometry = phantom
+
+        :start inscribed geometry:
+            inscribed geometry name = seed
+
+            :start transformations:
+                :start transformation:
+                    translation = 0 0 -0.1
+                :stop transformation:
+                :start transformation:
+                    translation = 0 0 0.1
+                :stop transformation:
+            :stop transformations:
+
+            :start region discovery:
+                action = discover and correct volume
+                density of random points (cm^-3) = 1E8
+
+                :start shape:
+
+                    type = cylinder
+                    radius = 0.11
+                    height = 0.11
+
+                :stop shape:
+
+            :stop region discovery:
+        :stop inscribed geometry:
+    :stop geometry:
+
+:stop geometry definition:
+
+
+:start volume correction:
+
+    :start source volume correction:
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+
+        :start shape:
+
+            type = cylinder
+            radius = 0.11
+            height = 0.11
+
+        :stop shape:
+
+    :stop source volume correction:
+
+:stop volume correction:
+
+
+#------------------------------------------------------------------------------------
+# Particle sources definition
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = point
+        charge = 0
+
+        :start shape:
+            type = point
+            position = 0 0 0
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations:
+        :start transformation:
+            translation = 0 0 -0.1
+        :stop transformation:
+        :start transformation:
+            translation = 0 0 0.1
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = point
+
+    source weights = 1 0
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = yes
+    output volume correction files for phantoms = phantom
+    score energy deposition = yes
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+include file = lib/transport/low_energy_default

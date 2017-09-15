@@ -1,0 +1,8 @@
+# This defines the radioactivity distribution within the source. 
+:start shape:
+
+    type = cylinder
+    radius = 0.03
+    height = 0.35
+
+:stop shape:

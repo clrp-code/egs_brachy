@@ -1,0 +1,13 @@
+Sample Monte Carlo transport parameters for various simulations.
+
+electron_transport_10kev: turns on electron transport in the source and in the phantom, with electron cutoff energy set to 10 keV; photon cutoff energy is 1 keV.
+
+high_energy_default: default MC parameters for high energy sources; electron cutoff energy 1.5 MeV, photon cutoff energy 1 keV.
+
+high_energy_sk_calc: recommended for air-kerma strength calculations of high energy sources; electron cutoff energy 1.5 MeV, photon cutoff energy 10 keV.
+
+high_energy_default: default MC parameters for low energy sources; electron cutoff energy 1 MeV, photon cutoff energy 1 keV.
+
+low_energy_sk_calc: recommended for air-kerma strength calculations of low energy sources; electron cutoff energy 1 MeV, photon cutoff energy 5 keV.
+
+xray_source: recommended for x-ray source simulations; electron cutoff energy 1 keV in the source geometry only (1 MeV elsewhere), photon cutoff energy 1 keV.

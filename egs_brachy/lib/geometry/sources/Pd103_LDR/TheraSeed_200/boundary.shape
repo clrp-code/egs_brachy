@@ -1,0 +1,8 @@
+# This defines the bounding volume for volume correction and region discovery
+:start shape:
+
+    type = cylinder
+    radius = 0.0413
+    height = 0.46
+
+:stop shape:

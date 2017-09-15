@@ -1,0 +1,18 @@
+<map id="EB_Application" name="EB_Application">
+<area shape="rect" id="node4" href="$structebvolcor_1_1Results.html" title="Struct used to collect and output results about a volume correction run. " alt="" coords="577,60,700,89"/>
+<area shape="rect" id="node6" href="$structebvolcor_1_1FileResults.html" title="ebvolcor::FileResults" alt="" coords="567,113,711,143"/>
+<area shape="rect" id="node8" href="$classEB__TimingTree.html" title="EB_TimingTree" alt="" coords="583,167,695,196"/>
+<area shape="rect" id="node10" href="$classRecycleOpts.html" title="RecycleOpts" alt="" coords="589,220,688,249"/>
+<area shape="rect" id="node12" href="$classGeomInfo.html" title="a container for organizing meta data about the geometries " alt="" coords="600,273,677,303"/>
+<area shape="rect" id="node14" href="$classNode.html" title="Node" alt="" coords="356,260,409,289"/>
+<area shape="rect" id="node16" href="$classogzstream.html" title="ogzstream" alt="" coords="597,380,680,409"/>
+<area shape="rect" id="node18" href="$classgzstreambase.html" title="gzstreambase" alt="" coords="331,367,435,396"/>
+<area shape="rect" id="node32" href="$classigzstream.html" title="igzstream" alt="" coords="600,327,677,356"/>
+<area shape="rect" id="node22" href="$classgzstreambuf.html" title="gzstreambuf" alt="" coords="164,393,257,423"/>
+<area shape="rect" id="node28" href="$classEnergyScoringStats.html" title="a class to use for scoring information about total energy initialzed, escaping sources etc ..." alt="" coords="569,487,708,516"/>
+<area shape="rect" id="node30" href="$classSubscriber.html" title="Subscriber" alt="" coords="341,504,424,533"/>
+<area shape="rect" id="node37" href="$classLatch.html" title="A class for handling latch bits relevant to egs_brachy. The Latch class listens for particle events a..." alt="" coords="612,433,665,463"/>
+<area shape="rect" id="node42" href="$classEB__Phantom.html" title="A class to represent a single phantom for scoring dose in egs_brachy. " alt="" coords="589,593,688,623"/>
+<area shape="rect" id="node46" href="$classPHSPControl.html" title="PHSPControl" alt="" coords="588,540,689,569"/>
+<area shape="rect" id="node40" href="$classPublisher.html" title="Publisher" alt="" coords="345,624,420,653"/>
+</map>

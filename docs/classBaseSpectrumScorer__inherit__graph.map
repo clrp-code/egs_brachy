@@ -1,0 +1,6 @@
+<map id="BaseSpectrumScorer" name="BaseSpectrumScorer">
+<area shape="rect" id="node5" href="$classEnergyFluenceSpectrumInVoxel.html" title="A class for scoring the energy weighted spectrum (normalized to total radiant energy) of particles on..." alt="" coords="5,160,213,189"/>
+<area shape="rect" id="node7" href="$classEnergyWeightedSurfaceSpectrum.html" title="A class for scoring the energy weighted spectrum (normalized to total radiant energy) of particles on..." alt="" coords="237,160,456,189"/>
+<area shape="rect" id="node9" href="$classSurfaceCountSpectrum.html" title="A class for scoring a histogram of the number of particles escaping a source geometry. " alt="" coords="480,160,637,189"/>
+<area shape="rect" id="node2" href="$classSubscriber.html" title="Subscriber" alt="" coords="305,5,388,35"/>
+</map>

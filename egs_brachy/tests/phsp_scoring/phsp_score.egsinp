@@ -1,0 +1,157 @@
+:start run control:
+    ncase = 1000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+
+        name = phantom
+
+        library = egs_spheres
+        radii = 0.1
+
+        :start media input:
+            media = AIR_TG43
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+
+        library = egs_spheres
+        name = source
+        radii = 0.1
+
+        :start media input:
+            media = AIR_TG43_LD
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = phantom_w_source
+        base geometry = phantom
+        inscribed geometries = source
+    :stop geometry:
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = source
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+:stop geometry definition:
+
+:start volume correction:
+
+:stop volume correction:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_point_source
+        name = point_source_photon
+        position = 0 0 0
+        charge = 0
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.025
+        :stop spectrum:
+
+    :stop source:
+
+    :start source:
+
+        library = egs_point_source
+        name = point_source_electron
+        position = 0 0 0
+        charge = -1
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+    :stop source:
+
+    :start source:
+        library = egs_source_collection
+        name = mixed_point_source
+        source names =  point_source_electron point_source_photon
+        weights = 1  9
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0, 0, 0
+        :stop transformation:
+    :stop transformations:
+
+
+    simulation source = mixed_point_source
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = no
+    score energy deposition = no
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = AIR_TG43
+
+    :start phsp scoring:
+        phsp output directory = .
+        access mode = write
+        print header = yes
+        kill after scoring = no
+    :stop phsp scoring:
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+:start MC transport parameter:
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.512
+    Source PCUT                    = 0.001
+    Global SMAX                    = 1e10
+    Bound Compton Scattering       = On
+    Rayleigh Scattering            = On
+    Atomic Relaxations             = On
+    Photoelectron Angular Sampling = On
+    Electron Impact Ionization     = On
+    Brems Angular Sampling         = KM
+    Brems Cross Sections           = nist
+    Pair Angular Sampling          = Off
+    ESTEPE                         = 0.25
+    XIMAX                          = 0.5
+    Skin Depth for BCA             = 3.0
+    Boundary Crossing Algorithm    = EXACT
+    Electron-Step Algorithm        = PRESTA-II
+    Spin Effects                   = On
+    Radiative Compton Corrections  = Off
+    Photon Cross Sections          = xcom
+    Fluorescent Photon Cutoff      = 0.001
+:stop MC transport parameter:

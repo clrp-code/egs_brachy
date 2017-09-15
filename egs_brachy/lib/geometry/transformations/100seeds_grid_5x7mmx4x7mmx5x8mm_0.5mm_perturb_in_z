@@ -1,0 +1,400 @@
+:start transformation:
+	translation = -1.40, -1.05, -1.61
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -1.05, -0.81
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -1.05, 0.01
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -1.05, 0.84
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -1.05, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -0.35, -1.60
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -0.35, -0.77
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -0.35, 0.00
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -0.35, 0.82
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, -0.35, 1.58
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 0.35, -1.59
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 0.35, -0.81
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 0.35, -0.01
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 0.35, 0.83
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 0.35, 1.57
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 1.05, -1.55
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 1.05, -0.83
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 1.05, -0.01
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 1.05, 0.77
+:stop transformation:
+
+:start transformation:
+	translation = -1.40, 1.05, 1.56
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -1.05, -1.59
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -1.05, -0.78
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -1.05, -0.04
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -1.05, 0.77
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -1.05, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -0.35, -1.60
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -0.35, -0.81
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -0.35, 0.03
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -0.35, 0.76
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, -0.35, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 0.35, -1.57
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 0.35, -0.77
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 0.35, -0.00
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 0.35, 0.82
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 0.35, 1.62
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 1.05, -1.59
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 1.05, -0.77
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 1.05, -0.05
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 1.05, 0.83
+:stop transformation:
+
+:start transformation:
+	translation = -0.70, 1.05, 1.62
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -1.05, -1.63
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -1.05, -0.84
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -1.05, -0.04
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -1.05, 0.84
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -1.05, 1.64
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -0.35, -1.64
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -0.35, -0.83
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -0.35, -0.05
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -0.35, 0.83
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, -0.35, 1.57
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 0.35, -1.64
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 0.35, -0.82
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 0.35, -0.03
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 0.35, 0.77
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 0.35, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 1.05, -1.56
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 1.05, -0.84
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 1.05, -0.01
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 1.05, 0.79
+:stop transformation:
+
+:start transformation:
+	translation = 0.00, 1.05, 1.56
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -1.05, -1.59
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -1.05, -0.77
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -1.05, -0.04
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -1.05, 0.83
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -1.05, 1.62
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -0.35, -1.60
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -0.35, -0.79
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -0.35, -0.01
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -0.35, 0.82
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, -0.35, 1.64
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 0.35, -1.59
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 0.35, -0.76
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 0.35, -0.00
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 0.35, 0.79
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 0.35, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 1.05, -1.61
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 1.05, -0.85
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 1.05, 0.02
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 1.05, 0.81
+:stop transformation:
+
+:start transformation:
+	translation = 0.70, 1.05, 1.58
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -1.05, -1.61
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -1.05, -0.83
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -1.05, -0.02
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -1.05, 0.80
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -1.05, 1.60
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -0.35, -1.64
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -0.35, -0.84
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -0.35, 0.01
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -0.35, 0.85
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, -0.35, 1.56
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 0.35, -1.63
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 0.35, -0.79
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 0.35, -0.00
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 0.35, 0.75
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 0.35, 1.57
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 1.05, -1.63
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 1.05, -0.78
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 1.05, -0.03
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 1.05, 0.78
+:stop transformation:
+
+:start transformation:
+	translation = 1.40, 1.05, 1.62
+:stop transformation:
+

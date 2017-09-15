@@ -1,0 +1,152 @@
+##############################################################################
+#
+# Simple x-ray source consisting of an isotropic, monoenergetic, electron point
+# source impinging on a thin spherical tungsten target. Electron transport is 
+# enabled within the source geometry. 
+# Variance reduction techniques are used to # improve the efficiency of 
+# the simulation.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e4              #takes about 10s on 3GHz cpu
+    geometry error limit = 100
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+    #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib/
+
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    :start geometry:
+        name = phantom
+        library = egs_spheres
+        radii = 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+
+        :start media input:
+            media = WATER_0.998    #by default, 1st medium fills entire geometry
+        :stop media input:
+
+    :stop geometry:
+
+    # a thin spherical tungsten target
+    :start geometry:
+        name = source
+        library = egs_spheres
+        radii = 0.085 0.089
+        boundary tolerance = 1e-6
+
+        :start media input:
+            media = AIR_TG43_LD, W
+            set medium = 0 0    #set region 0(1st) to medium 0(1st)
+            set medium = 1 1	#set region 1(wall here) to medium 1(W)
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+        name = phantom_with_source
+        library = egs_genvelope  #insert inscribed geometries into base geometry
+        base geometry = phantom
+        inscribed geometries = source  #could be more than one
+    :stop geometry:
+
+    #following are the 3 mandatory geometries that must be defined
+    #
+    source geometries = source
+
+    phantom geometries = phantom
+
+    simulation geometry = phantom_with_source
+
+:stop geometry definition:
+
+
+#------------------------------------------------------------------------------------
+:start volume correction:
+    :start source volume correction:
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+
+        :start shape:
+            type = box
+            box size = 0.19
+        :stop shape:
+    :stop source volume correction:
+:stop volume correction:
+
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    # a simple isotropic, monoenergetic electron point source, impinging 
+    # on a spherical tungsten target (see geometry definition above)
+    :start source:
+        name = point_source
+        library = egs_isotropic_source
+        charge = -1 # generate electrons instead of photons
+
+        :start shape:
+            type = sphere
+            position = 0 0 0
+            radius = 0.0000001
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations:
+        include file = lib/geometry/transformations/single_seed_at_origin
+        # although not technically necessary for sources at the origin, if this
+        # input is missing, a warning will be generated when the simulation is
+        # launched
+    :stop transformations:
+
+    simulation source = point_source
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+    current result phantom region = phantom 1 
+    # by default, egs_brachy reports the intermediate results from region 
+    # 0 of the phantom; in this case, this region is partially occupied 
+    # by the source, so instead we request intermediate results from region 1
+
+:stop scoring options:
+
+#-------------------------------------------------------------------------------
+:start variance reduction:
+    split brem photons = 50 # uniform bremsstrahlung splitting
+    bcse medium = W 100     # bremsstrahlung cross-section enhancement factor 
+                            # of 100 in the tungsten target
+:stop variance reduction:
+
+#--------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/xray_source
+

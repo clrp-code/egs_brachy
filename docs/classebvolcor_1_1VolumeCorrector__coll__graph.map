@@ -1,0 +1,5 @@
+<map id="ebvolcor::VolumeCorrector" name="ebvolcor::VolumeCorrector">
+<area shape="rect" id="node2" href="$classGeomInfo.html" title="a container for organizing meta data about the geometries " alt="" coords="5,101,83,131"/>
+<area shape="rect" id="node4" href="$classNode.html" title="Node" alt="" coords="17,5,71,35"/>
+<area shape="rect" id="node6" href="$classebvolcor_1_1Options.html" title="Volume correction initialization helper class. " alt="" coords="107,101,229,131"/>
+</map>

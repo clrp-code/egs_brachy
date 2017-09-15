@@ -1,0 +1,167 @@
+#
+# egs_brachy example egsinp file
+#
+# Breast egsphant with HDR 192Ir MBDCA-WG source stepping through
+# Based on case 3 of Peppa et al, Brachytherapy 15 (2016).
+# WGMBDCA test case
+# material.dat includes required media definitions
+# egsphant PeppaBreastHDR192Ir_MBDCA-WG.egsphant
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e2  #1e10 used for production run
+    nbatch = 1
+    nchunk = 1
+    calculation = first
+    geometry error limit = 2500
+    egsdat file format = gzip  #to reduce file size
+:stop run control:
+
+#-------------------------------------------------------------------------------
+# This input block allows 'pegsless' runs
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = superposition       #use "superposition" run mode to model 
+                                   #source stepping through positions
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    source geometries = MBDCA-WG
+
+    phantom geometries = phantom
+    
+    source envelope geometry = final
+
+    simulation geometry = final
+
+    :start geometry:             #phantom will be defined by the egsphant file 
+                                 #(derived from DICOM-CT data from test case)
+        name = phantom
+        library = egs_glib
+        type = egsphant
+        egsphant file = lib/geometry/phantoms/egsphant/PeppaBreastHDR192Ir_MBDCA-WG.egsphant.gz
+	density file = lib/media/material.dat    
+             # the .medialist file lists all media in the egsphant, 
+             # along with their nominal densities (note that voxel-by-voxel 
+             # densities may vary).
+    :stop geometry:
+
+    :start geometry:         #source is MBDCA-WG Ir-192 source
+        name = MBDCA-WG
+        library = egs_glib
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
+    :stop geometry:
+
+    :start geometry:        #define wrapper - wrapping the source reduces 
+                            #geometry errors
+        name = wrapper
+	library = egs_rz
+	radii = 0.05010
+	z-planes = -0.4651, 0.2351
+	:start media input:
+		media = WATER_0.998
+	:stop media input:
+    :stop geometry:
+
+    :start geometry:        #put source in wrapper
+	name = wrapped
+	library = egs_genvelope
+	base geometry = wrapper
+	inscribed geometries = MBDCA-WG
+    :stop geometry:	
+
+
+    :start geometry:        #put wrapped source in geometry
+        name = final
+        library = egs_autoenvelope
+        type = EGS_ASwitchedEnvelope
+        base geometry = phantom
+
+        :start inscribed geometry:
+            inscribed geometry name = wrapped
+
+            :start transformations:        #file defines dwell positions and 
+                                           #source orientations
+                include file = lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
+            :stop transformations:
+
+            :start region discovery:
+                action = region discovery #default
+                density of random points (cm^-3) = 1E8
+                include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+            :stop region discovery:
+        :stop inscribed geometry:
+    :stop geometry:
+
+:stop geometry definition:
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    :start source volume correction:
+        correction type = none        # MBDCA-WG comparisons revealed best 
+                                      # agreement with Peppa et al MCNP 
+                                      # results with no volume correction 
+        density of random points (cm^-3) = 1E8
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+    :stop source volume correction:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    :start source:
+        library = egs_isotropic_source
+        name = MBDCA-WG
+        charge = 0
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/Ir192_NNDC_2.6_line.spectrum
+        :stop spectrum:
+    :stop source:
+
+    :start transformations:       #specify source locations - use same file 
+                                  #as for source geometry position and 
+                                  #orientation (above)
+		include file = lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
+    :stop transformations:
+
+    source weights = 0.0138,0.0156,0.0184,0.0144,0.0179,0.0173,0.0248,0.0138,0.0086,0.0063,0.0058,0.0086,0.0092,0.0063,0.0069,0.0058,0.0161,0.0265,0.0138,0.0046,0.0046,0.0086,0.0092,0.0127,0.0121,0.0144,0.0248,0.0363,0.0449,0.0138,0.0144,0.0190,0.0179,0.0213,0.0219,0.0161,0.0167,0.01325,0.0184,0.0230,0.0173,0.0104,0.0104,0.0098,0.0052,0.0086,0.01325,0.0156,0.0075,0.0058,0.0012,0.0023,0.0006,0.0012,0.0075,0.0161,0.0173,0.0092,0.0058,0.0058,0.0081,0.0104,0.0138,0.0109,0.0035,0.0323,0.0058,0.0127,0.0115,0.0040,0.0035,0.0069,0.0075,0.0115,0.0248,0.0127,0.0075,0.0092,0.0150
+    simulation source = MBDCA-WG
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    score energy deposition = yes
+    muen file = lib/muen/PeppaBreastHDR192Ir_MBDCA-WG_muen.muendat
+    muen for media = SKIN_1.09,AIR_0.0012,EXTERNAL_1.00,HEART_1.05,LUNGS_0.26,PTV_1.02,RIBS_1.92
+    dose scaling factor = 7.60e+12 #=SK,ref*t_tot*w_max/(air kerma per hist)/100 --> will give dose in Gy
+	#note air kerma per hist  = (1.1592+/-0.0007)E-13 
+	#SK,ref = 40700 cGy cm^2/h
+	#t_tot = 173.6 s = 173.6 s / (3600 s/hr)
+	#TRAK = SK,ref * t_tot = 1962.6 cGy cm^2
+	#w_max = 0.0449
+	#SK,ref*t_tot*w_max/(air kerma per hist)/100 = 
+	# 40700*(173.6/3600)*0.0449/(1.1592E-13)/100 = 1.76E+12
+    
+:stop scoring options:
+
+
+#-------------------------------------------------------------------------------
+include file = lib/transport/high_energy_default
+

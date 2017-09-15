@@ -1,0 +1,9 @@
+# This defines the bounding volume for volume correction and region discovery
+:start shape:
+    type = box
+    box size = 0.0901 0.0901 0.6501
+    midpoint = 0 0 -0.125
+    :start transformation:
+        translation = 0, 0, -0.125
+    :stop transformation:
+:stop shape:

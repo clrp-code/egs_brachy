@@ -1,0 +1,17 @@
+This is the egs_brachy library. Contents of each folder is as follows:
+
+examples: suite of example input files distributed with egs_brachy.  A great place for new users to start learning egs_brachy.  See the User Manual for egs_brachy for a brief description of each egsinp file and a recommended/logical order for proceeding through the examples, as well as looking at each file's in-line documentation.
+
+geometry: collection of pre-defined egs++ geometries (applicators, eye plaques, phantoms, sources, and transformations for seed locations).
+
+media: material definitions for pegsless runs.
+
+muen: mass energy absorption coefficients for a large number of brachytherapy-relevant media
+
+phsp: sample IAEA-style phase-space data for phase-space source simulations
+
+spectra: collection of spectra for various radionuclides
+
+transport: sample Monte Carlo transport parameters for various simulations
+
+utils: utilities for egs_brachy users; reserved for potential future use

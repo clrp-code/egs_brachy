@@ -1,0 +1,29 @@
+# three spherical shell sources for 6702 Source
+:start shape:
+
+    library = egs_shape_collection
+
+    :start shape:
+        library = egs_spherical_shell
+        inner radius = 0.0299
+        outer radius = 0.03
+        midpoint = 0, 0, -0.11
+    :stop shape:
+
+    :start shape:
+        library = egs_spherical_shell
+        inner radius = 0.0299
+        outer radius = 0.03
+        midpoint = 0, 0, 0
+    :stop shape:
+
+    :start shape:
+        library = egs_spherical_shell
+        inner radius = 0.0299
+        outer radius = 0.03
+        midpoint = 0, 0, 0.11
+    :stop shape:
+
+    probabilities = 1 1 1
+
+:stop shape:

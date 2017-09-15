@@ -1,0 +1,82 @@
+# This defines the radioactivity distribution within the source. 
+# for the TheraSeed 200 source model
+:start shape:
+
+    library = egs_shape_collection
+
+    # midpoints of sources at -0.10575, 0.10575
+
+    :start shape:
+        # source 1 end cap 1 - V = 0.00022*PI*0.02822**2 = 5.504103E-7
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+        :stop shape:
+#
+        extension = -0.15047, -0.15025  #-0.04472 -0.10575, -0.0445 -0.10575
+    :stop shape:
+
+    :start shape:
+        # source 1 end cap 2 - V = 0.00022*PI*0.02822**2 = 5.504103E-7
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+        :stop shape:
+
+        extension = -0.06125, -0.06103 # -0.10575 + 0.0445 -0.10575 + 0.04472
+    :stop shape:
+
+    :start shape:
+        # source 1 centre - V = (0.15025-0.06125)*PI*(0.02822**2-0.028**2) = 3.458226E-6
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+            inner radius = 0.028
+        :stop shape:
+
+        extension = -0.15025, -0.06125 # -(0.10575 + 0.0445), -(0.10575 - 0.0445)
+    :stop shape:
+
+    :start shape:
+        # source 2 end cap 1 - V = 0.00022*PI*0.02822**2 = 5.504103E-7
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+        :stop shape:
+
+        extension = 0.06103, 0.06125
+    :stop shape:
+
+    :start shape:
+        # source 2 end cap 2 - V = 0.00022*PI*0.02822**2 = 5.504103E-7
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+        :stop shape:
+
+        extension = 0.15025, 0.15047
+    :stop shape:
+
+    :start shape:
+        # source 2 centre - V = (0.15025-0.06125)*PI*(0.02822**2-0.028**2) = 3.458226E-6
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822
+            inner radius = 0.028
+        :stop shape:
+
+        extension = 0.06125, 0.15025 # 0.10575 - 0.0445), 0.10575 + 0.0445
+
+    :stop shape:
+
+
+    probabilities = 5.504103E-7 5.504103E-7 3.458226E-6 5.504103E-7 5.504103E-7 3.458226E-6
+
+:stop shape:
+

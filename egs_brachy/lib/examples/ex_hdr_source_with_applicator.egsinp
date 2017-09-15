@@ -1,0 +1,138 @@
+##############################################################################
+#
+# Generic MBDCA working group source with generic shielded applicator. This
+# example reads in the volume correction data created by
+# ex_hdr_source_with_applicator_create_volume_correction.egsinp
+# This speeds up initialization when volume correction has to be done 
+# over a large volume.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e5
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+    
+    material data file = lib/media/material.dat    
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    :start geometry:
+        library = egs_glib
+        name = air_box
+        include file = lib/geometry/phantoms/50cmx50cmx50cm_box_xyz_air.geom
+    :stop geometry:
+
+    :start geometry:
+        library = egs_glib
+        name = phantom
+        include file = lib/geometry/phantoms/20.1cmx20.1cmx20.1cm_1mm_xyz_water.geom
+    :stop geometry:
+
+    :start geometry:
+        library = egs_glib
+        name = applicator
+        include file = lib/geometry/applicators/TG186/TG186_applicator.geom
+    :stop geometry:
+
+    :start geometry:
+        library = egs_glib
+        name = seed
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
+    :stop geometry:
+
+    :start geometry:
+        name = applicator_with_seed
+        library = egs_genvelope
+        base geometry = applicator
+        inscribed geometries = seed
+    :stop geometry:
+
+    :start geometry:
+        name = phantom_with_applicator
+        library = egs_genvelope
+        base geometry = phantom
+        inscribed geometries = applicator_with_seed
+    :stop geometry:
+
+    :start geometry:
+        name = final
+        library = egs_genvelope
+        base geometry = air_box
+        inscribed geometries = phantom_with_applicator
+    :stop geometry:
+
+    source geometries = seed
+
+    phantom geometries = phantom
+
+    simulation geometry = final
+
+:stop geometry definition:
+
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    # the 'volume correction from file' input block reads in the 
+    # volume correction data from a previous run
+
+    :start volume correction from file:
+        phantom file = phantom ex06a_hdr_source_with_applicator_volume_correction.phantom.volcor 
+            # the volume corrections will be applied to the 'phantom' geometry
+    :stop volume correction from file:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = MBDCA-WG
+        charge = 0
+
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/Ir192_NNDC_2.6_line.spectrum
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations:
+        include file = lib/geometry/transformations/single_seed_at_origin
+    :stop transformations:
+
+    simulation source = MBDCA-WG
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+#-------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/high_energy_default
+

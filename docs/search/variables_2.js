@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['b',['b',['../docs_2jquery_8js.html#aa4026ad5544b958e54ce5e106fa1c805',1,'b():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#aa4026ad5544b958e54ce5e106fa1c805',1,'b():&#160;jquery.js']]],
+  ['base_5fgeom',['base_geom',['../classebvolcor_1_1VolumeCorrector.html#a47e818008f6c159a72fd8949fd54ee36',1,'ebvolcor::VolumeCorrector']]],
+  ['base_5ftransform',['base_transform',['../classebvolcor_1_1VolumeCorrector.html#ad42675ffe68ac5a25b51f8b3d4358a18',1,'ebvolcor::VolumeCorrector::base_transform()'],['../classEB__Application.html#aa3f0da1d63aaab0ae41c6995abc1a5a8',1,'EB_Application::base_transform()']]],
+  ['base_5ftransform_5finv',['base_transform_inv',['../classebvolcor_1_1VolumeCorrector.html#a5c8edf83741a7ce56dd4774192a41d21',1,'ebvolcor::VolumeCorrector::base_transform_inv()'],['../classEB__Application.html#ab2fa0ae403b76d2aa6b4f75c942b59a8',1,'EB_Application::base_transform_inv()']]],
+  ['bb',['bb',['../docs_2jquery_8js.html#a1d6558865876e1c8cca029fce41a4bdb',1,'bb():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#a1d6558865876e1c8cca029fce41a4bdb',1,'bb():&#160;jquery.js']]],
+  ['bcse_5ffactor',['bcse_factor',['../classEB__Application.html#a696702c60b1ab3a58f9bc2cfbe670450',1,'EB_Application']]],
+  ['bcse_5fmed_5fnum',['bcse_med_num',['../classEB__Application.html#a78b0615d21da30fb8bd6464fcbd5494e',1,'EB_Application']]],
+  ['benchmark_5fdoses',['BENCHMARK_DOSES',['../namespacetests_1_1variable__w__recycling_1_1test.html#ae5a7fb41cc10a14b9173f93dcf70de5e',1,'tests::variable_w_recycling::test']]],
+  ['bin_5fwidth',['bin_width',['../classBaseSpectrumScorer.html#a42b83966022a5804fdfe53c5aa5ab418',1,'BaseSpectrumScorer::bin_width()'],['../namespacetests_1_1spec__eflu_1_1test.html#a1b19cad519a4ddd6203e4c279827c0ee',1,'tests.spec_eflu.test.BIN_WIDTH()'],['../namespacetests_1_1spec__vox_1_1test.html#a72adf3cd03606d6d07c2b9db8cbdc0be',1,'tests.spec_vox.test.BIN_WIDTH()']]],
+  ['bins',['bins',['../classBaseSpectrumScorer.html#a1a8cefbaf18e686e0770fe0f501b2cd2',1,'BaseSpectrumScorer']]],
+  ['boston',['Boston',['../LICENSE_8txt.html#a3dac873712fa6d5ecb3e1250dc3da8c2',1,'LICENSE.txt']]],
+  ['boundary_5fstep',['boundary_step',['../classPHSPControl.html#afa206009dac020aed428c7f17888bb5c',1,'PHSPControl']]],
+  ['bounds',['bounds',['../classebvolcor_1_1Options.html#a54f2e085587d16166627cc87221c1e6a',1,'ebvolcor::Options']]],
+  ['bounds_5fvolume',['bounds_volume',['../classebvolcor_1_1Options.html#aa75ed93f61981f1d65326c1f40c252c6',1,'ebvolcor::Options::bounds_volume()'],['../structebvolcor_1_1Results.html#aa7c41ba066ceb1487d23a1b1bed3ab2e',1,'ebvolcor::Results::bounds_volume()']]],
+  ['bq',['bq',['../docs_2jquery_8js.html#af6ee77c71b2c89bdb365145ac5ad1219',1,'bq():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#af6ee77c71b2c89bdb365145ac5ad1219',1,'bq():&#160;jquery.js']]],
+  ['bs',['bs',['../docs_2jquery_8js.html#ae77642f8ef73fb9c20c2a737d956acda',1,'bs():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#ae77642f8ef73fb9c20c2a737d956acda',1,'bs():&#160;jquery.js']]],
+  ['buf',['buf',['../classgzstreambase.html#a131e2a0d578c43cb4eb34d668bf75fdb',1,'gzstreambase']]],
+  ['buffer',['buffer',['../classgzstreambuf.html#afea1535417524acb188dc4390d918269',1,'gzstreambuf']]],
+  ['buffersize',['bufferSize',['../classgzstreambuf.html#a46652e438b6c4e9174ca79c171b1a140',1,'gzstreambuf']]],
+  ['bv',['bv',['../all__5_8js.html#a11f855c0c602c95a6344c390afc80a03',1,'bv():&#160;all_5.js'],['../functions__5_8js.html#a11f855c0c602c95a6344c390afc80a03',1,'bv():&#160;functions_5.js']]],
+  ['bw',['bw',['../all__5_8js.html#a1bd960fa33b3573f8bd561f4d9104a4a',1,'bw():&#160;all_5.js'],['../functions__5_8js.html#a1bd960fa33b3573f8bd561f4d9104a4a',1,'bw():&#160;functions_5.js']]]
+];

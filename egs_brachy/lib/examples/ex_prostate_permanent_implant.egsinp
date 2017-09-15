@@ -1,0 +1,175 @@
+################################################################################
+#
+# 100 LDR seeds in a phantom made of prostate-tissue material with particle
+# recycling and rotation of recycled particle turned ON
+#
+################################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e5
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+    #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    :start geometry:
+       name = box
+       library = egs_glib
+       include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_prostate.geom
+    :stop geometry:
+
+    :start geometry:
+       name = phantom
+       library = egs_glib
+       include file = lib/geometry/phantoms/ptv_3.4cmx2.8cmx3.8cm_2mm_xyz_prostate.geom
+    :stop geometry:
+
+    :start geometry:
+        name = seed
+        library = egs_glib
+        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
+    :stop geometry:
+
+    # The egs_autoenvelope library allows for more efficient simulations with 
+    # multiple copies of the same source
+    :start geometry:
+        name = phantom_and_seeds
+        library = egs_autoenvelope
+        base geometry = phantom # typically the scoring phantom
+
+        :start inscribed geometry:
+            inscribed geometry name = seed # typically the source geometry
+
+            # it is recommended to define transformations (i.e., seed locations)
+            # in an external file since the information needs to be repeated in 
+            # the 'source' input block below
+            
+            :start transformations:
+                include file = lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
+                #the above file lists 100 transformations and thus
+                #inserts 100 seeds
+            :stop transformations:
+
+            # egs_autoenvelope automatically detects which voxels of the base 
+            # geometry contain inscribed geometries, which allows for 
+            # faster transport
+
+            :start region discovery:
+                action = discover # volume correction could be done here, but 
+				  #egs_brachy actually implements its own volume
+				  #correction (see input further down)
+                density of random points (cm^-3) = 1E8
+
+                # define shape which defines boundaries of volume of interest 
+                # where egs_autoenvelope will search for inscribed geometries
+                include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+            :stop region discovery:
+
+        :stop inscribed geometry:
+    :stop geometry:
+
+    # in general, egs_genvelope is more efficient than egs_gunion, thus 
+    # composite geometries should favour egs_genvelope where possible
+    :start geometry:
+        name = final
+        library = egs_genvelope
+        base geometry = box
+        inscribed geometries = phantom_and_seeds
+    :stop geometry:
+
+    source geometries = seed
+
+    phantom geometries = phantom
+
+    simulation geometry = final
+
+:stop geometry definition:
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    # the built-in egs_brachy volume correction for scoring voxels 
+    # which contain inscribed source geometries
+    :start source volume correction:
+        correction type = correct # other options are 'none' or 'zero dose', 
+                                  #which sets the dose to zero in voxels 
+                                  #containing source geometries
+        density of random points (cm^-3) = 1E8
+
+        # shape which defines the boundaries of the volume of interest 
+        # where egs_brachy will search for inscribed source geometries
+        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+    :stop source volume correction:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = 6711
+        charge = 0
+
+        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/I125_NCRP_line.spectrum
+        :stop spectrum:
+
+    :stop source:
+
+    # the source transformations should usually be identical to the 
+    # transformations used in autoenvelope
+    :start transformations:
+        include file = lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
+    :stop transformations:
+
+    simulation source = 6711
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = PROSTATE_WW86 # we score in prostate tissue, 
+                                   #instead of water
+
+:stop scoring options:
+
+
+#-------------------------------------------------------------------------------
+:start variance reduction:
+    :start particle recycling:
+        times to reuse recycled particles = 1 # each particle will be recycled
+                                              # once at each source location
+        rotate recycled particles = yes # recycled particles are rotated along
+                                        # each source's longitudinal axis
+    :stop particle recycling:
+:stop variance reduction:
+
+
+#-------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default
+

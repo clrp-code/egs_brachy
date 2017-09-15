@@ -1,0 +1,41 @@
+# This defines the radioactivity distribution within the source. 
+:start shape:
+    library = egs_conical_shell
+    midpoint = 0 0 -0.140
+    name    = source
+
+    # source end cylinder
+    :start layer:
+        thickness    = 0.000175
+        top radii    = 0.0175
+        bottom radii = 0.017675
+    :stop layer:
+
+    # source end cone
+    :start layer:
+        thickness    = 0.007325
+        top radii = 0.0175 0.017675
+        bottom radii = 0.024825 0.025
+    :stop layer:
+
+    # mid source
+    :start layer:
+        thickness    = 0.265
+        bottom radii = 0.024825 0.025
+    :stop layer:
+
+    # source end cone
+    :start layer:
+        thickness    = 0.007325
+        bottom radii = 0.0175 0.017675
+    :stop layer:
+
+    # source end cylinder
+    :start layer:
+        thickness    = 0.000175
+        top radii    = 0.017675
+        bottom radii = 0.0175
+    :stop layer:
+
+
+:stop shape:

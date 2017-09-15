@@ -1,0 +1,9 @@
+# This defines the radioactivity distribution within the source. 
+# for the eshell source model
+:start shape:
+
+    type = sphere
+    position = 0 0 0
+    radius = 0.00001
+
+:stop shape:

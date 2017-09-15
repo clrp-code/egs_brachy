@@ -1,0 +1,136 @@
+TITLE= brem target
+
+# This is a dosrznrc input file for benchmarking
+# egs_brachy x-ray source calculations.
+#
+# It is a 1cm^2 parallel beam incident on 0.0001cm target of Ti10W90
+# scored in a r=5.0cm / dz=0.1cm slabs.  Note that the tracklength
+# dose in the z = 0.05cm voxel scored by egs_brachy will be
+# significantly underestimated due to electrons passing through
+# the target and being deposited in the first scoring voxel
+
+##########################
+:start I/O control:
+
+IWATCH= 0
+STORE INITIAL RANDOM NUMBERS= no
+IRESTART= first
+STORE DATA ARRAYS= yes
+OUTPUT OPTIONS= dose summary
+ELECTRON TRANSPORT= normal
+DOSE ZBOUND MIN= 1
+DOSE ZBOUND MAX= 60
+DOSE RBOUND MIN= 0
+DOSE RBOUND MAX= 20
+
+:stop I/O control:
+#########################
+
+##########################
+:start Monte Carlo inputs:
+
+NUMBER OF HISTORIES= 100000000
+
+INITIAL RANDOM NO. SEEDS= 1, 3
+MAX CPU HOURS ALLOWED= 90.000
+IFULL= dose and stoppers
+STATISTICAL ACCURACY SOUGHT= 0.0000
+SCORE KERMA= no
+
+:stop Monte Carlo inputs:
+#########################
+
+##########################
+:start geometrical inputs:
+
+METHOD OF INPUT= groups
+Z OF FRONT FACE= -1
+NSLAB= 1, 1, 4
+SLAB THICKNESS= 0.9999, 0.0001, 0.1
+RADII= 5
+MEDIA= AIR_TG43_LD, Ti10W90, WATER_0.998;
+
+DESCRIPTION BY= planes
+MEDNUM= 1, 2, 3
+START ZSLAB= 1, 2, 3
+STOP ZSLAB= 1, 2, 6
+START RING= 1, 1, 1
+STOP RING= 1, 1, 1
+
+:stop geometrical inputs:
+#########################
+
+##########################
+:start source inputs:
+
+INCIDENT PARTICLE= electron
+SOURCE NUMBER= 0
+SOURCE OPTIONS= 0.5641917075, 0, 0, 1
+INCIDENT ENERGY= monoenergetic
+INCIDENT KINETIC ENERGY(MEV)= 0.05
+
+:stop source inputs:
+#########################
+
+##########################
+:start MC transport parameter:
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Global SMAX                    = 1e10
+    Bound Compton Scattering       = On
+    Rayleigh Scattering            = On
+    Atomic Relaxations             = On
+    Photoelectron Angular Sampling = On
+    Electron Impact Ionization     = On
+    Brems Angular Sampling         = KM
+    Brems Cross Sections           = nist
+    Pair Angular Sampling          = Off
+    ESTEPE                         = 0.25
+    XIMAX                          = 0.5
+    Skin Depth for BCA             = 3.0
+    Boundary Crossing Algorithm    = EXACT
+    Electron-Step Algorithm        = PRESTA-II
+    Spin Effects                   = On
+    Radiative Compton Corrections  = Off
+    Photon Cross Sections          = xcom
+
+    Set ECUT= 0.512
+    Set ECUT start region= 2
+    Set ECUT stop region= 3
+
+:stop MC transport parameter:
+#########################
+
+##########################
+:start variance reduction:
+
+BREM SPLITTING= on
+NUMBER OF BREMS PER EVENT= 100
+CHARGED PARTICLE RUSSIAN ROULETTE= off
+ELECTRON RANGE REJECTION= off
+ESAVEIN= 0.0
+RUSSIAN ROULETTE DEPTH= 0.0000
+RUSSIAN ROULETTE FRACTION= 0.0000
+EXPONENTIAL TRANSFORM C= 0.0000
+PHOTON FORCING= on
+START FORCING= 1
+STOP FORCING AFTER= 1
+CS ENHANCEMENT FACTOR= 1
+CS ENHANCEMENT START REGION= 1, 1
+CS ENHANCEMENT STOP REGION= 1, 1
+
+:stop variance reduction:
+#########################
+
+##########################
+:start plot control:
+
+PLOTTING= off
+LINE PRINTER OUTPUT= off
+EXTERNAL PLOTTER OUTPUT= off
+PLOT RADIAL REGION IX= 1
+PLOT PLANAR REGION IZ= 1
+
+:stop plot control:
+#########################
+

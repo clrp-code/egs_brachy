@@ -1,0 +1,121 @@
+:start run control:
+    ncase = 3000000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+
+        name = phantom
+
+        library = egs_spheres
+        radii = 0.1
+
+        :start media input:
+            media = AIR_TG43
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+
+        library = egs_spheres
+        name = source
+        radii = 0.001
+
+        :start media input:
+            media = AIR_TG43_LD
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = phantom_w_source
+        base geometry = phantom
+        inscribed geometries = source
+    :stop geometry:
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = source
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+:stop geometry definition:
+
+:start volume correction:
+
+:stop volume correction:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = point_source
+        charge = 0
+
+        :start shape:
+
+            type = sphere
+            position = 0 0 0
+            radius = 0.0000001
+
+        :stop shape:
+
+        :start spectrum:
+            type = uniform
+            range = 0.015 0.025
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0, 0, 0
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = point_source
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = no
+    score energy deposition = no
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = AIR_TG43
+
+    :start spectrum scoring:
+        type = surface count
+        particle type = photon
+        minimum energy = 0.000
+        maximum energy = 0.050
+        number of bins = 50
+        output format = csv
+    :stop spectrum scoring:
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default

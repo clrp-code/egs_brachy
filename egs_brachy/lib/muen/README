@@ -1,0 +1,7 @@
+Mass energy absorption coefficients (muen) for egs_brachy.
+
+Data were calculated with a custom version of the EGSnrc application 'g'.
+
+Muen data are available for energies between 1 keV and 1.5 MeV, for a large number of media.
+
+'brachy_xcom_1.5MeV.muendat' is recommended for most users.

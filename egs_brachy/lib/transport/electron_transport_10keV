@@ -1,0 +1,15 @@
+## Turns on electron transport in the source and in the phantom, with electron
+## cutoff energy set to 10 keV; photon cutoff energy is 1 keV.
+
+:start MC transport parameter:
+    Global ECUT                    = 0.521
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.521
+    Source PCUT                    = 0.001
+    Fluorescent Photon Cutoff      = 0.001
+    Brems Cross Sections           = NRC
+    Rayleigh Scattering            = On
+    Electron Impact Ionization     = On
+:stop MC transport parameter:
+
+

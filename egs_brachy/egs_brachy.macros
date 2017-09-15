@@ -1,0 +1,172 @@
+/*
+
+egs_brachy egs_brachy.macros
+Copyright (C) 2016 Rowan Thomson, Dave Rogers, Randle Taylor, and Marc
+Chamberland
+
+This file is part of egs_brachy
+
+egs_brachy is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+egs_brachy is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Affero General Public License for more details:
+<http://www.gnu.org/licenses/>.
+
+When egs_brachy is used for publications, please cite our paper:
+M. J. P. Chamberland, R. E. P. Taylor, D. W. O. Rogers, and R. M. Thomson,
+egs brachy: a versatile and fast Monte Carlo code for brachytherapy,
+Phys. Med. Biol. 61, 8214-8231 (2016).
+
+Author:        Randle Taylor, 2016
+
+Contributors:  Marc Chamberland
+               Dave Rogers
+               Rowan Thomson
+
+*/
+
+/*! \file egs_brachy.macros
+ * \author Randle Taylor (randle.taylor@gmail.com)
+ * \brief mortran macros & subroutines for egs_brachy
+ */
+
+
+/* do not forget to adjust corresponding values in array_sizes.h
+then make clean; make */
+REPLACE {$MXSTACK} WITH {200000};
+REPLACE {$MXMED} WITH {50};
+
+/*
+   Range rejection/Russian roulette
+*/
+REPLACE {$RANGE-DISCARD;} WITH {;
+    IF( i_do_rr  = 1 & e(np) < e_max_rr & tperp >= range ) [
+        idisc = 50 + 49*iq(np); "1 for electrons, 99 for positrons"
+        go to :USER-ELECTRON-DISCARD: ;
+    ]
+};
+
+
+/* Use explicit M and N-shell atomic transitions */
+REPLACE {$EADL_RELAX} WITH {.true.}
+
+"============================================================================="
+"  scale elastic scattering strength by a given factor                        "
+"============================================================================="
+subroutine egs_scale_bc(imed,factor);
+implicit none;
+$INTEGER imed;
+$REAL    factor;
+$declare_max_medium;
+;COMIN/ELECIN,MEDIA/;
+IF( imed > 0 & imed <= nmed ) [ blcc(imed) = blcc(imed)*factor; ]
+return; end;
+
+;
+
+subroutine egs_bcse(medium, bcse_factor);
+
+implicit none;
+
+;COMIN/ELECIN,MEDIA/;
+
+$INTEGER medium;
+$REAL    bcse_factor;
+
+$REAL EIL,SIGT_OLD,BR_OLD,SIGB_NEW,
+         SIGT_NEW_I,SIGT_NEW_II,BR_NEW_I,BR_NEW_II,
+         SIGE_I,SIGE_II,EDEDX;
+
+$INTEGER NEKE,I,LEIL;
+
+
+SIGE_II = 1E-15;
+NEKE=MEKE(MEDIUM);
+
+DO I = 1,NEKE [
+   LEIL = I;
+   EIL = (FLOAT(I)-EKE0(MEDIUM))/EKE1(MEDIUM);
+   $EVALUATE SIGT_OLD USING ESIG(EIL);
+   $EVALUATE BR_OLD USING EBR1(EIL);
+   IF(SIGT_OLD < 0) SIGT_OLD = 0.;
+   IF(BR_OLD < 0) BR_OLD = 0.;
+   IF(BR_OLD > 1) BR_OLD = 1.;
+
+   SIGB_NEW = BR_OLD*SIGT_OLD*BCSE_FACTOR;
+
+   IF(I = 1) [
+      SIGT_NEW_II = SIGT_OLD*(1-BR_OLD)+SIGB_NEW;
+      BR_NEW_II= SIGB_NEW/SIGT_NEW_II;
+     ]
+   ELSE [
+      SIGT_NEW_I = SIGT_NEW_II;
+      BR_NEW_I = BR_NEW_II;
+
+      SIGT_NEW_II = SIGT_OLD*(1-BR_OLD)+SIGB_NEW;
+      BR_NEW_II = SIGB_NEW/SIGT_NEW_II;
+
+      ESIG1(I-1,MEDIUM) = (SIGT_NEW_II-SIGT_NEW_I)*EKE1(MEDIUM);
+      ESIG0(I-1,MEDIUM) = SIGT_NEW_II-ESIG1(I-1,MEDIUM)*EIL;
+      EBR11(I-1,MEDIUM) = (BR_NEW_II-BR_NEW_I)*EKE1(MEDIUM);
+      EBR10(I-1,MEDIUM) = BR_NEW_II-EBR11(I-1,MEDIUM)*EIL;
+   ]
+
+   $EVALUATE EDEDX USING EDEDX(EIL);
+   SIGE_I = SIGT_NEW_II/EDEDX;
+   IF(SIGE_I > SIGE_II) [SIGE_II = SIGE_I;]
+]
+
+ESIG1(NEKE,MEDIUM) = ESIG1(NEKE-1,MEDIUM);
+ESIG0(NEKE,MEDIUM) = ESIG0(NEKE-1,MEDIUM);
+EBR11(NEKE,MEDIUM) = EBR11(NEKE-1,MEDIUM);
+EBR10(NEKE,MEDIUM) = EBR10(NEKE-1,MEDIUM);
+
+ESIG_E(MEDIUM) = SIGE_II;
+IF(SIGE_II > ESIGE_MAX) [ESIGE_MAX = SIGE_II;]
+return;
+end;;
+
+
+subroutine egs_uniform_photons(nsample,energy);
+implicit none;
+
+$INTEGER nsample;
+$REAL energy;
+
+;COMIN/STACK,RANDOM,EGS-IO/;
+$REAL ro,d,rnno,weight,cost,sint,xx,yy,cphi,sphi,phi;
+
+$INTEGER i;
+
+
+weight = wt(npold)/nsample;
+np=np-1;
+
+DO i=1,nsample [
+    np = np+1;
+    $CHECK-STACK(np,'uniform_photons');
+    $TRANSFER PROPERTIES TO (np) FROM (NPold);
+    e(np) = energy; iq(np) = 0; wt(np) = weight;
+
+    $RANDOMSET rnno;
+    phi=3.1415927*(2.0*rnno-1.0);
+
+    $RANDOMSET rnno;
+    w(np)=2.0*rnno-1.0;
+    sint = 1.0-w(np)*w(np);
+    IF( sint > 0 ) [ sint = sqrt(sint); ] ELSE [ sint = 0; ]
+
+    u(np)=sint*cos(phi);
+    v(np)=sint*sin(phi);
+
+]
+
+
+return; end;;
+
+

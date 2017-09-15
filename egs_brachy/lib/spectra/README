@@ -1,0 +1,20 @@
+Spectra for various radionuclides relevant to brachytherapy.
+
+Recommended spectra are as follows:
+
+Cobalt 60: bareco60_line.spectrum
+
+Cesium 131: Cs131_NNDC_2.6_line.spectrum
+
+Cesium 137: Cs137_NNDC_2.6_line.spectrum
+
+Iodine 125: I125_NCRP_line.spectrum
+
+Iridium 192: Ir192_NNDC_2.6_line.spectrum
+
+Palladium 103: Pd103_NNDC_2.6_line.spectrum
+
+Rhodium 106: Rh106_ICRU72_line.spectrum
+
+Ytterbium 169: Yb169_NNDC_2.6_line.spectrum
+

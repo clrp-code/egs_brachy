@@ -1,0 +1,9 @@
+# This defines the bounding volume for volume correction and region discovery
+# for the OncoSeed_6711 source model
+:start shape:
+
+    type = cylinder
+    radius = 0.04
+    height = 0.46
+
+:stop shape:

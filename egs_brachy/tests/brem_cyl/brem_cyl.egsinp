@@ -1,0 +1,177 @@
+##############################################################################
+# This is an egs_brachy input file for benchmarking against
+# a dosrznrc x-ray source calculations.
+#
+# It is a 1cm^2 parallel beam incident on 0.0001cm target of Ti10W90
+# scored in a r=5.0cm / dz=0.1cm slabs.  Note that the tracklength
+# dose in the z = 0.05cm voxel scored by egs_brachy will be
+# significantly underestimated due to electrons passing through
+# the target and being deposited in the first scoring voxel
+#
+##############################################################################
+
+#------------------------------------------------------------------------------------
+:start run control:
+    ncase = 100000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+
+#------------------------------------------------------------------------------------
+:start geometry definition:
+
+    source geometries = source
+
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+    :start geometry:
+        library = egs_rz
+        radii = 5
+        z-planes = -1 0 0.1 0.2 0.3 0.4
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+        name = phantom
+    :stop geometry
+
+    # note that we use 1E-8 rather than 0 as the last bound here to ensure
+    # electrons at z=0 don't get deposited in region 0 of phantom rather than
+    # region 1 (if boundary was exactly 0 and particle was exactly at z=0 then it
+    # is ambiguous whether it is in the source object or the phantom object)
+    :start geometry: name = source
+
+        library = egs_rz
+
+        radii = 5
+        z-planes = -1 -0.0001 1E-8
+
+        :start media input:
+            media = AIR_TG43_LD Ti10W90
+            set medium = 0 0
+            set medium = 1 1
+        :stop media input:
+
+    :stop geometry
+
+
+    :start geometry:
+
+        library = egs_genvelope
+        name = phantom_w_source
+
+        base geometry = phantom
+        inscribed geometries = source
+
+    :stop geometry:
+
+:stop geometry definition:
+
+
+:start volume correction:
+    # don't need volume correction since seed is really only in reg 0 of phantom
+:stop volume correction:
+
+
+#------------------------------------------------------------------------------------
+# Particle sources definition
+:start source definition:
+
+    :start source:
+
+        library = egs_parallel_beam
+        name = cyl_source
+
+        :start shape:
+
+            name = target
+            type = cylinder
+            radius = 0.5641917075 # 1cm^2 area
+            height = 0.0001
+            midpoint = 0 0 -0.99995
+
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+        direction = 0 0 1
+        charge = -1
+
+    :stop source:
+
+    simulation source = cyl_source
+
+:stop source definition:
+
+
+#------------------------------------------------------------------------------------
+:start scoring options:
+
+    score tracklength dose = yes
+    score energy deposition = yes
+    score scatter dose = no
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+    current result phantom region = phantom 1
+
+:stop scoring options:
+
+:start ausgab object definition:
+:stop ausgab object definition:
+
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+:start MC transport parameter:
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.512
+    Source PCUT                    = 0.001
+    Global SMAX                    = 1e10
+    Bound Compton Scattering       = On
+    Rayleigh Scattering            = On
+    Atomic Relaxations             = On
+    Photoelectron Angular Sampling = On
+    Electron Impact Ionization     = On
+    Brems Angular Sampling         = KM
+    Brems Cross Sections           = nist
+    Pair Angular Sampling          = Off
+    ESTEPE                         = 0.25
+    XIMAX                          = 0.5
+    Skin Depth for BCA             = 3.0
+    Boundary Crossing Algorithm    = EXACT
+    Electron-Step Algorithm        = PRESTA-II
+    Spin Effects                   = On
+    Radiative Compton Corrections  = Off
+    Photon Cross Sections          = xcom
+    Fluorescent Photon Cutoff      = 0.001
+:stop MC transport parameter:
+
+
+:start variance reduction:
+
+    split brem photons = 100
+
+:stop variance reduction:

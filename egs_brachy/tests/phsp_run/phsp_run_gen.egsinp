@@ -1,0 +1,129 @@
+:start run control:
+    ncase = 100000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+
+        name = phantom
+        library = egs_ndgeometry
+        type    = EGS_XYZGeometry
+
+        x-planes = -1 ,-0.75, -0.25, 0.25, 0.75, 1
+        y-planes = -1, -0.75, -0.25, 0.25, 0.75, 1
+        z-planes = -1, -0.75, -0.25, 0.25, 0.75, 1
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+        library = egs_glib
+        name = seed
+        include file = tests/test_geoms/6702/6702.geom
+    :stop geometry
+
+    :start geometry:
+
+        library = egs_autoenvelope
+        name = phantom_w_source
+        base geometry = phantom
+
+        :start inscribed geometry:
+
+            inscribed geometry name = seed
+
+            :start transformations:
+                :start transformation:
+                    translation = 0 0 0
+                :stop transformation:
+            :stop transformations:
+
+            :start region discovery:
+
+                density of random points (cm^-3) = 1E6
+
+                include file = tests/test_geoms/6702/boundary.shape
+
+            :stop region discovery:
+
+        :stop inscribed geometry:
+
+    :stop geometry:
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = seed
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+:stop geometry definition:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = 6702_spheres
+        charge = 0
+
+        include file = tests/test_geoms/6702/6702.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/I125_TG43.spectrum
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0 0 0
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = 6702_spheres
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = no
+    score energy deposition = no
+
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+    :start phsp scoring:
+        phsp output directory = .
+        access mode = write
+        print header = yes
+        kill after scoring = no
+    :stop phsp scoring:
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default

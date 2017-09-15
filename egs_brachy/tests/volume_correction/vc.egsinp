@@ -1,0 +1,224 @@
+#A sample input file for testing volume correction
+#
+#  Source volume correction details
+#
+#     source volume  :        V = 4/3*PI*0.1*0.1*0.1
+#                               = 4.1888E-3
+#     bounding shape volume:  V = 4/3*PI*0.11*0.11*0.11
+#                               = 5.5573E-3
+#
+#  Extra volume correction details
+#
+#     bounding shape volume:  V = 8*8*8
+#                               = 512
+#
+#  The volumes of the phantom(reg) should be as follows
+#
+#     box(0):          V = Vbox(0) - Vphantom
+#                        = 10*10*10 - 6*6*6
+#                        = 784
+#
+#     phantom(0) :     V = Vphantom(0) - 1/2*Vsph_phantom
+#                        = 6*6*3 - 1/2*(4/3*PI*1*1*1)
+#                        = 105.9056
+#     phantom(1) :     V = Vphantom(0) - 1/2*Vsph_phantom
+#                        = 6*6*3 - 1/2*(4/3*PI*1*1*1)
+#                        = 105.9056
+#
+#     sph_phantom(0) : V = Vsph(0) - Vseed
+#                        = 4/3*PI*(0.3*0.3*0.3 -0.1*0.1*0.1)
+#                        = 0.1089
+#     sph_phantom(1) : V = Vsph(1)
+#                        = 4/3*PI*(1*1*1 - 0.3*0.3*0.3)
+#                            = 4.0757
+#
+
+
+:start run control:
+    ncase = 1
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = volume correction only # normal, superposition, or volume correction only
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+        name = box
+
+        library = egs_ndgeometry
+        type    = EGS_XYZGeometry
+
+        x-planes = -5, 5
+        y-planes = -5, 5
+        z-planes = -5, 5
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+
+        name = phantom
+
+        library = egs_ndgeometry
+        type    = EGS_XYZGeometry
+
+        x-planes = -3, 3
+        y-planes = -3, 3
+        z-planes = -3, 0, 3
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+
+        name = sph_phantom
+
+        library = egs_spheres
+        radii = 0.3, 1
+
+        :start media input:
+            media = WATER_0.998
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+
+        library = egs_spheres
+        name = source
+        radii = 0.1
+
+        :start media input:
+            media = WATER_0.998
+            set medium = 0 0
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = phantom_w_seed
+        base geometry = sph_phantom
+        inscribed geometries = source
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = phantom_w_phantom
+        base geometry = phantom
+        inscribed geometries = phantom_w_seed
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = final
+        base geometry = box
+        inscribed geometries = phantom_w_phantom
+    :stop geometry:
+
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = source
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = box phantom sph_phantom
+
+    simulation geometry = final
+
+:stop geometry definition:
+
+:start volume correction:
+
+    :start source volume correction:
+        correction type = correct # correct, none, zero dose
+        density of random points (cm^-3) = 1E8
+
+        :start shape:
+
+            type = sphere
+            radius = 0.11
+            midpoint = 0 0 0
+
+        :stop shape:
+
+    :stop source volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct # correct, none, zero dose
+        density of random points (cm^-3) = 1E5
+
+        :start shape:
+
+            type = box
+            box size = 8
+            midpoint = 0 0 0
+
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = point_source
+        charge = 0
+
+        :start shape:
+
+            type = sphere
+            position = 0 0 0
+            radius = 0.0000001
+
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0, 0, 0
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = point_source
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files =  yes
+    score energy deposition = no
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default
+

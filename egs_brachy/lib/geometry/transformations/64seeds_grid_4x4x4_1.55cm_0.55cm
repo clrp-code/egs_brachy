@@ -1,0 +1,256 @@
+:start transformation:
+    translation = -1.55, -1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, -0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -1.55, 1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, -0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = -0.55, 1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, -0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 0.55, 1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -1.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, -0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 0.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 0.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 0.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 0.55, 1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 1.55, -1.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 1.55, -0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 1.55, 0.55
+:stop transformation:
+
+:start transformation:
+    translation = 1.55, 1.55, 1.55
+:stop transformation:
+

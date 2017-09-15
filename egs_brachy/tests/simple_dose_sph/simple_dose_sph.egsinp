@@ -1,0 +1,159 @@
+:start run control:
+    ncase = 5000000
+    geometry error limit=100
+:stop run control:
+
+:start media definition:
+    AE = 0.512
+    UE = 2.011
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+
+:stop media definition:
+
+#------------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+:start geometry definition:
+
+    :start geometry:
+
+        name = phantom
+
+        library = egs_spheres
+        radii = 0.1 0.2 0.3 0.4 0.5
+
+        :start media input:
+            media = WATER_0.998, AIR_TG43
+            set medium = 0 0
+            set medium = 1 1
+            set medium = 2 0
+            set medium = 3 1
+            set medium = 4 0
+        :stop media input:
+
+    :stop geometry:
+
+    :start geometry:
+
+        library = egs_spheres
+        name = source
+        radii = 0.035 0.04
+
+        :start media input:
+            media = AIR_TG43, Ti
+            set medium = 0 0
+            set medium = 1 1
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_autoenvelope
+        name = phantom_w_source
+        base geometry = phantom
+
+        :start inscribed geometry:
+            inscribed geometry name = source
+
+            :start region discovery:
+
+                density of random points (cm^-3) = 1E6
+
+                :start shape:
+
+                    type = sphere
+                    radius = 0.05
+                    midpoint = 0 0 0
+
+                :stop shape:
+
+            :stop region discovery:
+
+        :stop inscribed geometry:
+
+    :stop geometry:
+
+
+    # tell egs_brachy which is the seed geometry
+    source geometries = source
+
+    # tell egs_brachy which geometries are phantoms
+    phantom geometries = phantom
+
+    simulation geometry = phantom_w_source
+
+:stop geometry definition:
+
+:start volume correction:
+
+    :start source volume correction:
+
+        correction type = correct # correct, none, zero dose
+        density of random points (cm^-3) = 1E8
+
+        :start shape:
+
+            type = sphere
+            radius = 0.05
+            midpoint = 0 0 0
+
+        :stop shape:
+
+    :stop source volume correction:
+
+:stop volume correction:
+
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = point_source
+        charge = 0
+
+        :start shape:
+
+            type = sphere
+            position = 0 0 0
+            radius = 0.0000001
+
+        :stop shape:
+
+        :start spectrum:
+            type = monoenergetic
+            energy = 0.05
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        :start transformation:
+            translation = 0, 0, 0
+        :stop transformation:
+    :stop transformations:
+
+    simulation source = point_source
+
+:stop source definition:
+
+:start scoring options:
+
+    output voxel info files = no
+    score energy deposition = yes
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998, AIR_TG43
+
+:stop scoring options:
+
+#------------------------------------------------------------------------------------
+# Transport parameters
+include file = lib/transport/low_energy_default
+
+:start rng definition:
+    type = ranmar
+    initial seeds = 28 29
+:stop rng definition:

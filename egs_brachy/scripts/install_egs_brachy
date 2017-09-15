@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+tmp_dir=$EGS_HOME/egs_brachy_install
+
+#eb_url=https://api.github.com/repos/randlet/egs-brachy/tarball/feature-geometries
+eb_url=https://bitbucket.org/randlet/clrp-egs-brachy/get/master.tar.gz
+eb_archive=egs_brachy.tar.gz
+
+eb_extras_url=https://api.github.com/repos/randlet/EGSnrc/tarball/feature-geometries
+eb_extras_archive=extras.tar
+
+
+mkdir -p $tmp_dir
+cd $tmp_dir
+rm -rf randlet-clrp-egs-brachy-*
+rm -rf randlet-EGSnrc-*
+
+
+# -- Grab all source files and unpack ---------------------------------
+
+printf "\n\nDownloading egs_brachy...\n"
+wget --no-check-certificate --user=randlet --password='HJWVApzmpFqVPJ2h9y3w' $eb_url -O $eb_archive
+if [ $? -ne 0 ]; then
+    echo "Unable to download egs_brachy"
+    exit
+fi
+
+printf "\n\nUnpacking egs_brachy...\n"
+tar xzf $eb_archive
+if [ $? -ne 0 ]; then
+    echo "Unable to unpack egs_brachy archive"
+    exit
+fi
+
+
+printf "\n\nDownloading egs_brachy extras...\n"
+wget --no-check-certificate $eb_extras_url -O $eb_extras_archive
+if [ $? -ne 0 ]; then
+    echo "Unable to download additional egs++ features"
+    exit
+fi
+
+printf "\n\nUnpacking egs_brachy extras...\n"
+tar xf $eb_extras_archive
+if [ $? -ne 0 ]; then
+    echo "Unable to unpack egs_brachy extras archive"
+    exit
+fi
+
+
+# -- Copy and compile extras ------------------------------------------
+
+set -e
+
+extras_dir=$(ls -d $(pwd)/*/*/egs++)
+extra_geoms=("egs_autoenvelope" "egs_rz" "egs_glib" "egs_spheres")
+extra_shapes=("egs_spherical_shell" "egs_conical_shell")
+
+printf "\n\nCompiling egs_brachy extra geometries:\n"
+for i in "${extra_geoms[@]}"; do
+    cp -r $extras_dir/geometry/$i $HEN_HOUSE/egs++/geometry/
+    cd "$HEN_HOUSE/egs++/geometry/$i"
+    printf "Compiling $i..."
+    make
+done
+
+printf "\n\nCompiling egs_brachy extra shapes:\n"
+printf "==================================\n"
+for i in "${extra_shapes[@]}"; do
+    cp -r $extras_dir/shapes/$i $HEN_HOUSE/egs++/shapes/
+    cd "$HEN_HOUSE/egs++/shapes/$i"
+    printf "Compiling $i..."
+    make
+done
+
+# -- Copy and compile egs_brachy --------------------------------------
+
+cd $tmp_dir
+eb_dir=$(ls -d $(pwd)/randlet-clrp-egs-brachy*/)
+cp -r $eb_dir/egs_brachy $EGS_HOME
+# Make egs_brachy
+cd $EGS_HOME/egs_brachy && make
+
+
+
+
+

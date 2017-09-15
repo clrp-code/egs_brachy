@@ -1,0 +1,137 @@
+##############################################################################
+#
+#  Generic Ir192 HDR source in water, displaced 7 cm in the x-direction.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e5
+    # in simulations with fairly large phantoms, a significant amount of CPU 
+    # time is spent writing intermediate results to .egsdat files. The values 
+    # of nbatch and nchunk can be reduced to mitigate this effect, at the 
+    # expense of monitoring intermediate results and restarting the simulation 
+    # (if nbatch and nchunk are set to 1) in case it stops prematurely
+    nbatch = 1
+    nchunk = 1
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+
+    material data file = lib/media/material.dat
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    :start geometry:
+        name = air_box
+        library = egs_glib
+        include file = lib/geometry/phantoms/50cmx50cmx50cm_box_xyz_air.geom
+    :stop geometry:
+
+    :start geometry:
+        name = phantom
+        library = egs_glib
+        include file = lib/geometry/phantoms/20.1cmx20.1cmx20.1cm_1mm_xyz_water.geom
+    :stop geometry:
+
+    :start geometry:
+        name = seed
+        library = egs_glib
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
+    :stop geometry:
+
+    :start geometry:
+        name = phantom_w_seed
+        library = egs_autoenvelope
+        base geometry = phantom
+
+        :start inscribed geometry:
+            inscribed geometry name = seed
+            :start transformations:
+                include file = lib/geometry/transformations/single_seed_at_x7cm
+            :stop transformations:
+
+            :start region discovery:
+                action = discover
+                density of random points (cm^-3) = 1E8
+                include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+            :stop region discovery:
+        :stop inscribed geometry:
+    :stop geometry:
+
+    :start geometry:
+        name = final
+        library = egs_genvelope
+        base geometry = air_box
+        inscribed geometries = phantom_w_seed
+    :stop geometry:
+
+    source geometries = seed
+
+    phantom geometries = phantom
+
+    simulation geometry = final
+
+:stop geometry definition:
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    :start source volume correction:
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+    :stop source volume correction:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    :start source:
+        name = MBDCA-WG
+        library = egs_isotropic_source
+        charge = 0
+
+        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = lib/spectra/Ir192_NNDC_2.6_line.spectrum
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations:
+        include file = lib/geometry/transformations/single_seed_at_x7cm
+    :stop transformations:
+
+    simulation source = MBDCA-WG
+
+:stop source definition:
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    score energy deposition = no
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+
+:stop scoring options:
+
+#-------------------------------------------------------------------------------
+include file = lib/transport/high_energy_default
+

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['gcr_5fphantom',['gcr_phantom',['../classEB__Application.html#a7bd791ae1bec595c120da42f729d5c45',1,'EB_Application']]],
+  ['gcr_5fphantom_5freg',['gcr_phantom_reg',['../classEB__Application.html#a540e2dcdb8c55d1e92e56d73ff8e31bc',1,'EB_Application']]],
+  ['gen_5fopts',['gen_opts',['../classebvolcor_1_1VolumeCorrector.html#a7122e274276d7e23f6174c2863ad0482',1,'ebvolcor::VolumeCorrector']]],
+  ['gen_5fvc_5fresults',['gen_vc_results',['../classEB__Application.html#ab289d60c9899017d6da28f981e51fc32',1,'EB_Application']]],
+  ['general',['GENERAL',['../LICENSE_8txt.html#a0bb3213ee1b083288e16fd41e9fc062d',1,'LICENSE.txt']]],
+  ['geom',['geom',['../namespacegen__geom.html#aa8b9827c2a164544002b998e10efe7ed',1,'gen_geom']]],
+  ['geom_5fto_5fregioninfo',['geom_to_regioninfo',['../classGeomInfo.html#a06218402cdf14e31c23723bfe5ea7939',1,'GeomInfo']]],
+  ['geom_5ftree',['geom_tree',['../classGeomInfo.html#ac5afe6d024aa6696290a7b9276d5838a',1,'GeomInfo']]],
+  ['geometry',['geometry',['../classEB__Phantom.html#a354f9d3bb4d6d855220abcf906291f23',1,'EB_Phantom::geometry()'],['../classEnergyFluenceSpectrumInVoxel.html#a912101464f83bd796769d19f92512418',1,'EnergyFluenceSpectrumInVoxel::geometry()']]],
+  ['ginfo',['ginfo',['../classebvolcor_1_1VolumeCorrector.html#a01ea327236d06e1c6a68d1cc1e4e237e',1,'ebvolcor::VolumeCorrector::ginfo()'],['../classEB__Application.html#adb31e393ca05894a5ece744be20fdb1a',1,'EB_Application::ginfo()']]],
+  ['global_5fe_5fmax_5frr',['global_e_max_rr',['../classEB__Application.html#a4e37bafac82d17685ddf50bb6507124b',1,'EB_Application']]],
+  ['global_5fecut',['global_ecut',['../classEB__Application.html#aeb0e721561c88874df5774274cfd6f37',1,'EB_Application']]],
+  ['global_5fi_5fdo_5frr',['global_i_do_rr',['../classEB__Application.html#a6362a9ab8859500749f7589fcebbc5d9',1,'EB_Application']]],
+  ['global_5fir_5fto_5fgeom',['global_ir_to_geom',['../classGeomInfo.html#a244ddb74addb7bc79c12df40b65e1365',1,'GeomInfo']]],
+  ['global_5fir_5fto_5flocal_5fir',['global_ir_to_local_ir',['../classGeomInfo.html#a1c3c9ded2b831353be1bde9e7162fd1b',1,'GeomInfo']]],
+  ['global_5fir_5fto_5fphant',['global_ir_to_phant',['../classGeomInfo.html#a9eb0896e8d9a1ac3a9a3fc7b967c69ad',1,'GeomInfo']]],
+  ['global_5fir_5fto_5fsource',['global_ir_to_source',['../classGeomInfo.html#a6f47d43821d31e8ea24d89d65970f2e2',1,'GeomInfo']]],
+  ['global_5fpcut',['global_pcut',['../classEB__Application.html#a74030f2f8f6e7a473ef1722600f511c8',1,'EB_Application']]],
+  ['global_5freg_5fstart',['global_reg_start',['../classEB__Phantom.html#a48e1e47c0dbbbc32def814aa69e8bab4',1,'EB_Phantom']]],
+  ['global_5freg_5fstop',['global_reg_stop',['../classEB__Phantom.html#a1bb8d4bc12779b2a4d1d2fb5fae6bd83',1,'EB_Phantom']]],
+  ['global_5fregions',['global_regions',['../classEB__Phantom.html#ae858108660e1242a6c2df36081f539e3',1,'EB_Phantom']]],
+  ['globber',['globber',['../namespacegen__tests.html#a54f9c70cbe929e44299cf6ab6b089753',1,'gen_tests']]],
+  ['gmap',['gmap',['../classGeomInfo.html#a221e90c8c5091a097dac28dab4d9f67c',1,'GeomInfo']]],
+  ['gz_5fdata_5fin',['gz_data_in',['../classEB__Application.html#a4a9b6c9223099b508524ea2b6b7370b0',1,'EB_Application']]],
+  ['gz_5fdata_5fout',['gz_data_out',['../classEB__Application.html#aaccea22d03d09b4bafae49515ba2dee0',1,'EB_Application']]]
+];

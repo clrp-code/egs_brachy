@@ -1,0 +1,12 @@
+<map id="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/egs_brachy.h" name="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/egs_brachy.h">
+<area shape="rect" id="node31" href="$pubsub_8h.html" title="A simple pub/sub module to allow various egs_brachy classes to subscribe to particle events..." alt="" coords="904,387,979,416"/>
+<area shape="rect" id="node38" href="$ginfo_8h.html" title="ginfo contains classes for organizing information about the geometries present in an egs_brachy simul..." alt="" coords="1720,223,1781,252"/>
+<area shape="rect" id="node47" href="$phantom_8h.html" title="Header file for phantom objects. " alt="" coords="1591,309,1673,339"/>
+<area shape="rect" id="node56" href="$muen_8h.html" title="Functions for loading muen data from a file. " alt="" coords="2417,223,2481,252"/>
+<area shape="rect" id="node76" href="$eb__volcor_8h.html" title="Volume correction routines for egs_brachy. " alt="" coords="1299,127,1387,156"/>
+<area shape="rect" id="node88" href="$timing_8h.html" title="timing.h" alt="" coords="2160,223,2227,252"/>
+<area shape="rect" id="node97" href="$spec__scoring_8h.html" title="Definition of spectrum scoring classes. " alt="" coords="1957,127,2067,156"/>
+<area shape="rect" id="node107" href="$recycle_8h.html" title="class definitions for recycling " alt="" coords="683,127,757,156"/>
+<area shape="rect" id="node119" href="$latch_8h.html" title="handle particles latch bits for egs_brachy " alt="" coords="245,223,307,252"/>
+<area shape="rect" id="node124" href="$phsp_8h.html" title="Definition of the PHSPControl object. " alt="" coords="533,223,595,252"/>
+</map>

@@ -1,0 +1,16 @@
+## Recommended for x-ray source simulations; electron cutoff energy 1 keV in
+## the source geometry only (1 MeV elsewhere), photon cutoff energy 1 keV.
+
+:start MC transport parameter:
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.512
+    Source PCUT                    = 0.001
+    Fluorescent Photon Cutoff      = 0.001
+    Brems Cross Sections           = NRC
+    Rayleigh Scattering            = On
+    Electron Impact Ionization     = On
+    Pair Angular Sampling          = Off
+:stop MC transport parameter:
+
+

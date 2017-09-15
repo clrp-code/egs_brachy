@@ -1,0 +1,15 @@
+## Recommended for air-kerma strength calculations of high energy sources;
+## electron cutoff energy 1.5 MeV, photon cutoff energy 10 keV.
+
+:start MC transport parameter:
+    Global ECUT                    = 2.012
+    Global PCUT                    = 0.010
+    Source ECUT                    = 2.012
+    Source PCUT                    = 0.010
+    Fluorescent Photon Cutoff      = 0.001
+    Brems Cross Sections           = NRC
+    Rayleigh Scattering            = On
+    Electron Impact Ionization     = On
+:stop MC transport parameter:
+
+

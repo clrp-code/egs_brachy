@@ -1,0 +1,19 @@
+<map id="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/pubsub.h" name="/home/randlet/clrp/gh/clrp&#45;egs&#45;brachy/egs_brachy/pubsub.h">
+<area shape="rect" id="node3" href="$phantom_8h.html" title="Header file for phantom objects. " alt="" coords="289,117,446,181"/>
+<area shape="rect" id="node9" href="$egs__brachy_8h.html" title="the main egs_brachy application header file " alt="" coords="253,453,426,517"/>
+<area shape="rect" id="node17" href="$spec__scoring_8h.html" title="Definition of spectrum scoring classes. " alt="" coords="466,341,650,405"/>
+<area shape="rect" id="node22" href="$recycle_8h.html" title="class definitions for recycling " alt="" coords="674,341,824,405"/>
+<area shape="rect" id="node35" href="$latch_8h.html" title="handle particles latch bits for egs_brachy " alt="" coords="786,117,922,181"/>
+<area shape="rect" id="node42" href="$phsp_8h.html" title="Definition of the PHSPControl object. " alt="" coords="978,117,1114,181"/>
+<area shape="rect" id="node47" href="$pubsub_8cpp.html" title="/home/randlet/clrp\l/gh/clrp&#45;egs&#45;brachy\l/egs_brachy/pubsub.cpp" alt="" coords="1138,117,1301,181"/>
+<area shape="rect" id="node5" href="$eb__volcor_8h.html" title="Volume correction routines for egs_brachy. " alt="" coords="56,341,218,405"/>
+<area shape="rect" id="node13" href="$ginfo_8h.html" title="ginfo contains classes for organizing information about the geometries present in an egs_brachy simul..." alt="" coords="300,229,436,293"/>
+<area shape="rect" id="node30" href="$phantom_8cpp.html" title="Implementation of phantom objects. " alt="" coords="541,229,712,293"/>
+<area shape="rect" id="node7" href="$eb__volcor_8cpp.html" title="Main implementation of volume correction routines. " alt="" coords="48,453,226,517"/>
+<area shape="rect" id="node11" href="$egs__brachy_8cpp.html" title="the main egs_brachy application implementation file " alt="" coords="245,565,434,629"/>
+<area shape="rect" id="node27" href="$ginfo_8cpp.html" title="implementation of Geometry Info class. " alt="" coords="293,341,442,405"/>
+<area shape="rect" id="node20" href="$spec__scoring_8cpp.html" title="implementation of spectrum scoring classes. " alt="" coords="456,453,653,517"/>
+<area shape="rect" id="node25" href="$recycle_8cpp.html" title="class imlementations for recycling " alt="" coords="677,453,840,517"/>
+<area shape="rect" id="node39" href="$latch_8cpp.html" title="methods for setting/checking latch bits for egs_brachy " alt="" coords="892,229,1041,293"/>
+<area shape="rect" id="node45" href="$phsp_8cpp.html" title="Implementation of the PHSPControl object. " alt="" coords="1116,229,1265,293"/>
+</map>
