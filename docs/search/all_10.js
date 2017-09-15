@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['p',['p',['../namespacerun__tests.html#a06d28bb51089525bed083a9fa060c3f6',1,'run_tests.p()'],['../docs_2jquery_8js.html#a2335e57f79b6acfb6de59c235dc8a83e',1,'p(by, bw, bv):&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#a2335e57f79b6acfb6de59c235dc8a83e',1,'p(by, bw, bv):&#160;jquery.js']]],
+  ['p',['p',['../namespacerun__tests.html#a06d28bb51089525bed083a9fa060c3f6',1,'run_tests.p()'],['../jquery_8js.html#a2335e57f79b6acfb6de59c235dc8a83e',1,'p():&#160;jquery.js']]],
   ['p_5finit_5flocs',['p_init_locs',['../classEB__Application.html#aefd18cbf96f5f3385754a7701512e117',1,'EB_Application']]],
   ['p_5fsource_5fid',['p_source_id',['../classEB__IAEASource.html#a00e72f8f2a2eaa831734fcf157aabfcc',1,'EB_IAEASource']]],
-  ['pages_5f0_2ejs',['pages_0.js',['../pages__0_8js.html',1,'']]],
-  ['pages_5f1_2ejs',['pages_1.js',['../pages__1_8js.html',1,'']]],
-  ['pages_5f2_2ejs',['pages_2.js',['../pages__2_8js.html',1,'']]],
-  ['pages_5f3_2ejs',['pages_3.js',['../pages__3_8js.html',1,'']]],
-  ['pages_5f4_2ejs',['pages_4.js',['../pages__4_8js.html',1,'']]],
   ['paircompare',['pairCompare',['../ginfo_8cpp.html#a856d148fda07b8a9535c80bf494626e7',1,'ginfo.cpp']]],
   ['parameters',['parameters',['../LICENSE_8txt.html#a4ff3b40dd630814cc9ceb2f3b05f6f52',1,'LICENSE.txt']]],
   ['particle_5fescaped_5fgeom',['PARTICLE_ESCAPED_GEOM',['../pubsub_8h.html#af1f086fdac6d8f062533820ad583abe2ac4280e49aedc2b1c6badcc23d4494a55',1,'pubsub.h']]],
@@ -59,7 +54,7 @@ var searchData=
   ['programs',['programs',['../LICENSE_8txt.html#a4ef2920e76005114cb8e96e7f62863bd',1,'LICENSE.txt']]],
   ['proton',['PROTON',['../classPHSPControl.html#ae65ecb300ca723f4e0ccd952d234603aa11e851e932872a9ab4cf5abb350c6479',1,'PHSPControl']]],
   ['protons',['protons',['../namespacetests_1_1iaea__types.html#a327f66a76d509994107889da31ed9cf2',1,'tests::iaea_types']]],
-  ['prototype',['prototype',['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#aa3ec85d56639a2571aeff4d7e06f1190',1,'jquery.js']]],
+  ['prototype',['prototype',['../jquery_8js.html#aa3ec85d56639a2571aeff4d7e06f1190',1,'jquery.js']]],
   ['public',['public',['../LICENSE_8txt.html#a44c884046830f02d608063785de4532a',1,'LICENSE.txt']]],
   ['publisher',['Publisher',['../classPublisher.html',1,'Publisher'],['../classPublisher.html#a5538d94fb8d594575be67e6edd7166df',1,'Publisher::Publisher()'],['../classEB__Phantom.html#ab7b7eac63854e3277e5964588235e6ea',1,'EB_Phantom::publisher()']]],
   ['pubsub_2ecpp',['pubsub.cpp',['../pubsub_8cpp.html',1,'']]],

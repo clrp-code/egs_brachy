@@ -5,11 +5,6 @@ var searchData=
   ['default_5fnbins',['DEFAULT_NBINS',['../classBaseSpectrumScorer.html#ad71bfa36e48a40e53f72c8ffe153bb8d',1,'BaseSpectrumScorer']]],
   ['default_5frand_5fpoint_5fdensity',['DEFAULT_RAND_POINT_DENSITY',['../classebvolcor_1_1Options.html#afc4cee068444a283082d39e536ee04b9',1,'ebvolcor::Options']]],
   ['defective',['DEFECTIVE',['../LICENSE_8txt.html#a818a9b581bd0b1468c2b3bcda51dc3d7',1,'LICENSE.txt']]],
-  ['defines_5f0_2ejs',['defines_0.js',['../defines__0_8js.html',1,'']]],
-  ['defines_5f1_2ejs',['defines_1.js',['../defines__1_8js.html',1,'']]],
-  ['defines_5f2_2ejs',['defines_2.js',['../defines__2_8js.html',1,'']]],
-  ['defines_5f3_2ejs',['defines_3.js',['../defines__3_8js.html',1,'']]],
-  ['defines_5f4_2ejs',['defines_4.js',['../defines__4_8js.html',1,'']]],
   ['density',['density',['../classebvolcor_1_1Options.html#a09281e1c7c2a031145aa5c1ae012fca6',1,'ebvolcor::Options::density()'],['../structebvolcor_1_1Results.html#af26ad72abb78076a484c1afce33c1edc',1,'ebvolcor::Results::density()']]],
   ['describesimulation',['describeSimulation',['../classEB__Application.html#a3e6b039efd8fafa6c135e3c5780bd72a',1,'EB_Application']]],
   ['describeusercode',['describeUserCode',['../classEB__Application.html#a21a741048d66c4a570c913420d1e037c',1,'EB_Application']]],
@@ -29,6 +24,5 @@ var searchData=
   ['doses_5fapprox_5fequal',['doses_approx_equal',['../namespacetests_1_1utils.html#a9df436aabb6ce8d9447689794bb9bd48',1,'tests::utils']]],
   ['dosrz_5fnrc_5fdoses',['DOSRZ_NRC_DOSES',['../namespacetests_1_1brem__cyl_1_1test.html#ab2e3fe82cecb37f186b57d87215844df',1,'tests::brem_cyl::test']]],
   ['dyn_5fimport',['dyn_import',['../namespacerun__tests.html#a9b857766632188081007a853f23a3170',1,'run_tests']]],
-  ['dynsections_2ejs',['dynsections.js',['../docs_2dynsections_8js.html',1,'']]],
-  ['dynsections_2ejs',['dynsections.js',['../eb__iaeaphsp__source_2docs_2output_2html_2dynsections_8js.html',1,'']]]
+  ['dynsections_2ejs',['dynsections.js',['../dynsections_8js.html',1,'']]]
 ];

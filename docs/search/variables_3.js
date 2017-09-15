@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['c',['c',['../docs_2jquery_8js.html#abce695e0af988ece0826d9ad59b8160d',1,'c():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#abce695e0af988ece0826d9ad59b8160d',1,'c():&#160;jquery.js']]],
+  ['c',['c',['../jquery_8js.html#abce695e0af988ece0826d9ad59b8160d',1,'jquery.js']]],
   ['case',['case',['../LICENSE_8txt.html#ac25546546ad3dde8a40a9c987d5d1adc',1,'LICENSE.txt']]],
   ['charge',['CHARGE',['../LICENSE_8txt.html#acb35985508282727f936becdbc728f03',1,'LICENSE.txt']]],
   ['children',['children',['../classNode.html#a5c92e4f9774c27d66f5fff3d51b76abf',1,'Node::children()'],['../structGeomRegionInfo.html#a2ff4c7ffa2d39622f5e2d4c8f3f38ea3',1,'GeomRegionInfo::children()']]],
@@ -18,8 +18,8 @@ var searchData=
   ['countries',['countries',['../LICENSE_8txt.html#a151f945c9aa2771834dbffd2b08204db',1,'LICENSE.txt']]],
   ['cpu_5fmhz',['CPU_MHZ',['../namespacerun__tests.html#a225b1be3342abdb3298f29d464db2ada',1,'run_tests']]],
   ['cpu_5fspeed_5fcmd',['cpu_speed_cmd',['../namespacerun__tests.html#a26440103a2a4a381e5105c2ad7e6abd3',1,'run_tests']]],
-  ['css',['css',['../docs_2jquery_8js.html#a89ad527fcd82c01ebb587332f5b4fcd4',1,'css():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#a89ad527fcd82c01ebb587332f5b4fcd4',1,'css():&#160;jquery.js']]],
+  ['css',['css',['../jquery_8js.html#a89ad527fcd82c01ebb587332f5b4fcd4',1,'jquery.js']]],
   ['cur_5fhistory',['cur_history',['../classEB__Phantom.html#abbc896e10dce8fdc1d86e7ab12bb871d',1,'EB_Phantom::cur_history()'],['../classBaseSpectrumScorer.html#a43560b3c9b001acf78a932646ee3b527',1,'BaseSpectrumScorer::cur_history()']]],
   ['cur_5fr',['cur_R',['../classEB__Application.html#ad057efadf212d22198c7d01690cc9b91',1,'EB_Application']]],
-  ['curcss',['curCSS',['../docs_2jquery_8js.html#a88b21f8ba3af86d6981b1da520ece33b',1,'curCSS():&#160;jquery.js'],['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#a88b21f8ba3af86d6981b1da520ece33b',1,'curCSS():&#160;jquery.js']]]
+  ['curcss',['curCSS',['../jquery_8js.html#a88b21f8ba3af86d6981b1da520ece33b',1,'jquery.js']]]
 ];

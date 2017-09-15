@@ -81,7 +81,8 @@ docs: _docs/egs_brachy.md
 	cd docs/latex; make pdf
 	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_manual.pdf
 	rm -rf docs/latex
-	mv docs/* ../docs
+	cp -rf docs ../
+	rm -rf docs/*
 
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)

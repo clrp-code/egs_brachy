@@ -29,7 +29,7 @@ var searchData=
   ['print_5fheader',['print_header',['../classPHSPControl.html#adf10b858b353980a148b0920b1364294',1,'PHSPControl']]],
   ['programs',['programs',['../LICENSE_8txt.html#a4ef2920e76005114cb8e96e7f62863bd',1,'LICENSE.txt']]],
   ['protons',['protons',['../namespacetests_1_1iaea__types.html#a327f66a76d509994107889da31ed9cf2',1,'tests::iaea_types']]],
-  ['prototype',['prototype',['../eb__iaeaphsp__source_2docs_2output_2html_2jquery_8js.html#aa3ec85d56639a2571aeff4d7e06f1190',1,'jquery.js']]],
+  ['prototype',['prototype',['../jquery_8js.html#aa3ec85d56639a2571aeff4d7e06f1190',1,'jquery.js']]],
   ['public',['public',['../LICENSE_8txt.html#a44c884046830f02d608063785de4532a',1,'LICENSE.txt']]],
   ['publisher',['publisher',['../classEB__Phantom.html#ab7b7eac63854e3277e5964588235e6ea',1,'EB_Phantom']]]
 ];
