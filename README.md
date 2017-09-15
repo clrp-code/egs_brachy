@@ -35,7 +35,7 @@ version (http://www.gnu.org/licenses/).
 ## Documentation
 
 The pdf users guide to egs\_brachy is available at
-[https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
+[https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
 
 Technical documentation for egs\_brachy (including installation instructions) is
 available in html
