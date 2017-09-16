@@ -79,9 +79,10 @@ docs: _docs/egs_brachy.md
 	cd _docs; python gen_docs.py
 	cd _docs; doxygen ./egs_brachy.dox
 	cd docs/latex; make pdf
-	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_manual.pdf
+	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_technical_manual.pdf
 	rm -rf docs/latex
 	cp -rf docs ../
+	cp _docs/egs_brachy_user_manual.pdf ../docs/pdf
 	rm -rf docs/*
 
 UNAME := $(shell uname)

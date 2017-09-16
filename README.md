@@ -41,7 +41,7 @@ Technical documentation for egs\_brachy (including installation instructions) is
 available in html
 ([https://clrp-code.github.io/egs_brachy/](https://clrp-code.github.io/egs_brachy/))
 and pdf
-([https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_manual.pdf)).
+([https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_technical_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_technical_manual.pdf)).
 
 ## Installation
 
