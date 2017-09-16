@@ -83,6 +83,7 @@ docs: _docs/egs_brachy.md
 	rm -rf docs/latex
 	cp -rf docs ../
 	cp _docs/egs_brachy_user_manual.pdf ../docs/pdf
+	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
 	rm -rf docs/*
 
 UNAME := $(shell uname)
