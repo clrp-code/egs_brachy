@@ -4,7 +4,7 @@
 
 \section gen_info General Information
 
-egs_brachy is an egs++ application for rapid brachytherapy calculations for both photon and electron sources.  The current documentation serves as a Technical Reference Manual to complement the egs_brachy user manual (https://clrp-code.github.io/egs_brachy/docs/egs_brachy_user_manual.pdf) and our initial egs_brachy paper (https://clrp-code.github.io/egs_brachy/docs/egs_brachy_paper2016.pdf):   MJP Chamberland, REP Taylor, DWO Rogers, and RM Thomson, egs_brachy: a versatile and fast Monte Carlo code for brachytherapy, Phys. Med. Biol. 61, 8214-8231 (2016).  Please cite this paper when egs_brachy is used in publications.
+egs_brachy is an egs++ application for rapid brachytherapy calculations for both photon and electron sources.  The current documentation serves as a Technical Reference Manual to complement the egs_brachy user manual (https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf) and our initial egs_brachy paper (https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_paper2016.pdf):   MJP Chamberland, REP Taylor, DWO Rogers, and RM Thomson, egs_brachy: a versatile and fast Monte Carlo code for brachytherapy, Phys. Med. Biol. 61, 8214-8231 (2016).  Please cite this paper when egs_brachy is used in publications.
 
 egs_brachy was written by [Randle Taylor](http://randlet.com) in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the [Carleton Laboratory for Radiotherapy Physics](http://www.physics.carleton.ca/clrp/).
 
@@ -17,12 +17,10 @@ For more information please contact:
 
 \section license License
 
-The egs_brachy code (all pieces of code associated with the egs_brachy code system) is copyrighted Rowan Thomson, Dave Rogers, Randle Taylor, and Marc Chamberland. egs_brachy is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.  egs_brachy is distributed as free software according to the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option), any later version (https://www.gnu.org/licenses/).  (See also section 2 of the User Manual for egs_brachy: https://clrp-code.github.io/egs_brachy/docs/egs_brachy_user_manual.pdf)
+The egs_brachy code (all pieces of code associated with the egs_brachy code system) is copyrighted Rowan Thomson, Dave Rogers, Randle Taylor, and Marc Chamberland. egs_brachy is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose.  egs_brachy is distributed as free software according to the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option), any later version (https://www.gnu.org/licenses/).  (See also section 2 of the User Manual for egs_brachy: https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf)
 
 \section installationinstruct Installation instructions (including EGSnrc installation)
 
-For a more detailed version of the installation instructions, see section 3 of the User Manual for egs_brachy (https://clrp-code.github.io/egs_brachy/docs/egs_brachy_user_manual.pdf).
-Clone the CLRP fork of the EGSnrc repository:
 
     git clone git@github.com:clrp-code/EGSnrc_with_egs_brachy.git EGSnrc
     cd EGSnrc
