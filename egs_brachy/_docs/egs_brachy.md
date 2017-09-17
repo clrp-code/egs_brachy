@@ -22,8 +22,8 @@ The egs_brachy code (all pieces of code associated with the egs_brachy code syst
 \section installationinstruct Installation instructions (including EGSnrc installation)
 
 
-    git clone git@github.com:clrp-code/EGSnrc_with_egs_brachy.git EGSnrc
-    cd EGSnrc
+    git clone https://github.com/clrp-code/EGSnrc_with_egs_brachy.git
+    cd EGSnrc_with_egs_brachy
 
 Checkout the most-up-to-date 'egs\_brachy' branch and download the egs\_brachy user code:
 
