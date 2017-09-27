@@ -137,7 +137,7 @@ typedef std::map<PhantRegT, EGS_I64> HitCounterT;
  * */
 class Options {
 
-    const static double DEFAULT_RAND_POINT_DENSITY = 1E8;
+    const static unsigned long DEFAULT_RAND_POINT_DENSITY = 100000000;
 
     EGS_Input *input;
 
