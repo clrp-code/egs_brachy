@@ -97,7 +97,7 @@ PHSPControl::PHSPControl(EGS_Input *inp, EGS_AffineTransform *trans, EGS_Advance
     initSource();
 
     pub->subscribe(this, PARTICLE_ESCAPED_SOURCE);
-};
+}
 
 
 short PHSPControl::getIAEAParticleType(const EGS_Particle *p) {

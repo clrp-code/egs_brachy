@@ -276,12 +276,12 @@ EGS_Float EB_Phantom::getUncorrectedVolume(int ireg) {
     // EGS_BaseGeometry::getMass is volume*relativeRho()
     EGS_Float volume = geometry->getMass(ireg)/geometry->getRelativeRho(ireg);
     return volume;
-};
+}
 
 EGS_Float EB_Phantom::getCorrectedVolume(int ireg) {
     bool has_correction = corrected_volumes.find(ireg) != corrected_volumes.end();
     return has_correction ? corrected_volumes[ireg] : getUncorrectedVolume(ireg);
-};
+}
 
 
 void EB_Phantom::getCurrentScore(int ireg, double &sum, double &sum2) {

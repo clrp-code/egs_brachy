@@ -248,7 +248,7 @@ string BaseSpectrumScorer::outputCSV(string rootname) {
 
     out.close();
     return fname;
-};
+}
 
 string BaseSpectrumScorer::outputEGSnrc(string rootname) {
 
@@ -301,7 +301,7 @@ string BaseSpectrumScorer::outputEGSnrc(string rootname) {
     out.close();
 
     return fname;
-};
+}
 
 string BaseSpectrumScorer::outputXMGR(string rootname) {
 
@@ -358,7 +358,7 @@ string BaseSpectrumScorer::outputXMGR(string rootname) {
 
     out.close();
     return fname;
-};
+}
 
 void BaseSpectrumScorer::update(EB_Message message, void *data) {
 
@@ -441,7 +441,7 @@ void SurfaceCountSpectrum::score(EB_Message message, void *data) {
         EGS_Particle *p= static_cast<EGS_Particle *>(data);
 
         double energy = getParticleEnergy(p);
-        
+
         if (e_min <= energy && energy <= e_max && p->q == particle_type) {
             bins->score(getBin(energy), 1.);
             total_scored += 1.;

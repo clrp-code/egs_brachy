@@ -62,7 +62,7 @@ enum EB_Message {
     PARTICLE_ESCAPING_GEOM,
     PARTICLE_ESCAPED_GEOM,
     PHOTON_SCATTER_EVENT, // scatter occuring anywhere
-    NON_SOURCE_PHOTON_SCATTER_EVENT, // scatter occuring outside source
+    NON_SOURCE_PHOTON_SCATTER_EVENT // scatter occuring outside source
 
 };
 
