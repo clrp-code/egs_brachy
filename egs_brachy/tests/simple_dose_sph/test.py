@@ -46,7 +46,7 @@ def compare_results(egslst, inp_name):
 
     tolerances = {
         'tlen': 0.001,
-        'edep': 0.010,
+        'edep': 0.015,
     }
 
     all_close = True
