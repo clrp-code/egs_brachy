@@ -425,7 +425,7 @@ class SurfaceCountSpectrum : public BaseSpectrumScorer {
     }
 
     string getYAxisLabel() const {
-        return "counts / total counts / MeV";
+        return "counts / total counts / MeV\\S-1";
     }
 
     void outputTotal();
