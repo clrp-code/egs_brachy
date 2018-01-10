@@ -390,7 +390,7 @@ void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
 
     string units = "Gy/hist";
     if (type == "pr" || type == "ss" || type == "ms" || type == "to") {
-        units = "(Gy/hist)/R";
+        units = "Gy/R";
     }
 
     egsInformation("    Dose Scaling                     =  %.3G\n", dose_scale);
