@@ -710,8 +710,9 @@ bremsstrahlung correction = NRC
 
 medium = AIR_PHANT
 rho = 0.0012
-elements = H, C, N, O, AR,
+elements = H, C, N, O, AR
 mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
+gas pressure = 1.0
 bremsstrahlung correction = NRC
 
 
