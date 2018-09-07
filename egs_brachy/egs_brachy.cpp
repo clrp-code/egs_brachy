@@ -167,11 +167,11 @@ void EB_Application::describeSimulation() {
 
             EGS_Float xmin, xmax, ymin, ymax, zmin, zmax;
             xmin = geom->getBound(EB_Phantom::XDIR, 0);
-            xmax = geom->getBound(EB_Phantom::XDIR, nx-1);
+            xmax = geom->getBound(EB_Phantom::XDIR, nx);
             ymin = geom->getBound(EB_Phantom::YDIR, 0);
-            ymax = geom->getBound(EB_Phantom::YDIR, ny-1);
+            ymax = geom->getBound(EB_Phantom::YDIR, ny);
             zmin = geom->getBound(EB_Phantom::ZDIR, 0);
-            zmax = geom->getBound(EB_Phantom::ZDIR, nz-1);
+            zmax = geom->getBound(EB_Phantom::ZDIR, nz);
 
             egsInformation(
                 "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) | (%8.3F, %8.3F)\n",
@@ -502,8 +502,9 @@ int EB_Application::createPhantoms() {
 
         if (global_regions.size()==0) {
             egsFatal(
-                "EB_Application::createPhantoms - No phantom regions detected.\n"
-                "Are you sure your phantom was included in the final simulation geometry?\n"
+                "EB_Application::createPhantoms - No phantom regions detected for geometry '%s'.\n"
+                "Are you sure your phantom was included in the final simulation geometry?\n",
+                (phant_geom->getName()).c_str()
             );
         }
         EB_Phantom *phantom = new EB_Phantom(this, phant_geom, global_regions, nsources, &pevent_pub);
@@ -1813,6 +1814,7 @@ int EB_Application::simulateSingleShower() {
     p.ir = geometry->isWhere(p.x);
 
     if (p.ir < 0) {
+        egsWarning("EB_Application::simulateSingleShower() - particle initiated at (x, y, z) = (%.2g, %.2g, %.2g)\n", p.x.x, p.x.y, p.x.z);
         egsFatal("EB_Application::simulateSingleShower() - Particle initiated outside "
                  "the geometry! Please check your source locations.\n");
     }
