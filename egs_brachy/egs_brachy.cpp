@@ -677,6 +677,7 @@ int EB_Application::initScoring() {
     if (options) {
 
         initGCRScoring(options);
+        initExtraRegScoring(options);
         initAusgabCalls();
         initTrackLengthScoring(options);
         initEDepScoring(options);
@@ -746,6 +747,33 @@ void EB_Application::initGCRScoring(EGS_Input *inp) {
 
 }
 
+void EB_Application::initExtraRegScoring(EGS_Input *inp) {
+
+    vector<string> extra_inp;
+    int err = inp->getInput("extra scoring regions", extra_inp);
+    if (err || extra_inp.size()==0) {
+        return;
+    }
+
+    // user requested extra scoring
+    if (extra_inp.size() < 2) {
+        egsFatal("extra scoring region format is `phantom_name reg_num_1 reg_num_2 ... reg_num_N\n");
+    }else{
+        string geom_name = extra_inp[0];
+        for (size_t r=1; r < extra_inp.size(); r++){
+            int reg = atol(extra_inp[r].c_str());
+            extra_scoring_reg[geom_name].push_back(reg);
+        }
+        int n_extra = extra_inp.size() - 1;
+        extra_scoring_doses[geom_name] = new EGS_ScoringArray(n_extra);
+        extra_scoring_doses_edep[geom_name] = new EGS_ScoringArray(n_extra);
+        for (size_t r=0; r < n_extra; r++){
+            extra_scoring_vols[geom_name].push_back(1.);
+            extra_scoring_mass[geom_name].push_back(1.);
+        }
+    }
+
+}
 void EB_Application::initOutputFiles(EGS_Input *inp) {
 
     vector<string> yn_choices;
@@ -1433,6 +1461,29 @@ int EB_Application::ausgab(int iarg) {
     bool in_phantom = ginfo.isPhantom(global_ir);
     bool in_source = ginfo.isSource(global_ir);
 
+    bool is_extra_scoring_reg = false;
+    string local_geom_name = "";
+    int local_geom_ir = -1;
+    int extra_reg_dose_index = -1;
+
+    if (extra_scoring_reg.size() > 0 && global_ir >= 0){
+
+        // local geom object info
+        GeomRegT local = ginfo.globalToLocal(global_ir);
+        local_geom_ir = local.second;
+        local_geom_name = local.first->getName();
+
+        // check if the current geometry has extra scoring regions
+        map<string, vector<int> >::iterator i = extra_scoring_reg.find(local_geom_name);
+        if (i != extra_scoring_reg.end()){
+            vector<int>::iterator it = find(i->second.begin(), i->second.end(), local_geom_ir);
+            if (it != i->second.end()){
+                is_extra_scoring_reg = true;
+                extra_reg_dose_index = distance(i->second.begin(), it);
+            }
+        }
+    }
+
     /* track number of steps */
     if (is_before_transport) {
         if (in_source) {
@@ -1529,7 +1580,7 @@ int EB_Application::ausgab(int iarg) {
     bool in_vaccuum = the_useful->medium <= 0;
     bool score_tracklength = score_tlen && is_photon && is_before_transport;
     bool score_interaction = score_edep && iarg <= ExtraEnergy;
-    bool dose_scoring_not_needed = !in_phantom || in_vaccuum || !(score_tracklength || score_interaction);
+    bool dose_scoring_not_needed = !is_extra_scoring_reg && (!in_phantom || in_vaccuum || !(score_tracklength || score_interaction));
 
     if (dose_scoring_not_needed) {
         return 0;
@@ -1544,6 +1595,7 @@ int EB_Application::ausgab(int iarg) {
 
     bool needs_vol_cor = run_mode == RM_SUPERPOSITION && superpos_geom->hasInactiveGeom(global_ir);
 
+
     if (score_tracklength) {
 
         EGS_Interpolator *interp = media_muen[the_useful->medium-1];
@@ -1551,28 +1603,47 @@ int EB_Application::ausgab(int iarg) {
         EGS_Float tracklength_edep = the_epcont->tvstep*top_p.E*muen_val*top_p.wt;
 
         EGS_Float vol;
-        if (needs_vol_cor) {
-            vol = phant->getUncorrectedVolume(phant_ir);
-        } else {
-            vol = phant->getCorrectedVolume(phant_ir);
+
+        if (in_phantom){
+            if (needs_vol_cor) {
+                vol = phant->getUncorrectedVolume(phant_ir);
+            } else {
+                vol = phant->getCorrectedVolume(phant_ir);
+            }
+
+            if (vol > 0) {
+                phant->scoreTlen(phant_ir, tracklength_edep / vol, &top_p);
+            }
         }
 
-        if (vol > 0) {
-            tracklength_edep /= vol;
-            phant->scoreTlen(phant_ir, tracklength_edep, &top_p);
+        if (is_extra_scoring_reg){
+            vol = extra_scoring_vols[local_geom_name][extra_reg_dose_index];
+            extra_scoring_doses[local_geom_name]->score(extra_reg_dose_index, tracklength_edep / vol);
         }
     }
 
     if (score_interaction) {
+
         EGS_Float mass;
-        if (needs_vol_cor) {
-            mass = phant->getUncorrectedMass(phant_ir);
-        } else {
-            mass = phant->getRealMass(phant_ir);
+
+        EGS_Float edep = getEdep()*top_p.wt;
+
+        if (in_phantom){
+
+            if(needs_vol_cor) {
+                mass = phant->getUncorrectedMass(phant_ir);
+            } else {
+                mass = phant->getRealMass(phant_ir);
+            }
+
+            if (mass > 0) {
+                phant->scoreEdep(phant_ir, edep / mass);
+            }
         }
-        if (mass > 0) {
-            EGS_Float edep = getEdep()*top_p.wt/mass;
-            phant->scoreEdep(phant_ir, edep);
+
+        if (is_extra_scoring_reg){
+            mass = extra_scoring_mass[local_geom_name][extra_reg_dose_index];
+            extra_scoring_doses[local_geom_name]->score(extra_reg_dose_index, edep / mass);
         }
     }
 
@@ -1735,6 +1806,10 @@ void EB_Application::outputResults() {
         string vi_format = output_voxinfo ? output_voxinfo_format : "";
         (*p)->outputResults(20, dd_format, ep_format, vi_format, vc_format);
     }
+
+    if (extra_scoring_reg.size() > 0){
+        outputExtraScoringResults();
+    }
     timing_blocks.stopTimer();
 
     egsInformation("\nStep Counts\n%s\n", sep.c_str());
@@ -1765,6 +1840,40 @@ void EB_Application::outputResults() {
     timing_blocks.stopTimer();
     timing_blocks.outputInfo();
 
+
+}
+
+
+void EB_Application::outputExtraScoringResults(){
+
+    for (map<string, vector<int> >::iterator sa=extra_scoring_reg.begin(); sa != extra_scoring_reg.end(); sa++) {
+
+        string gname = sa->first;
+        EGS_BaseGeometry *geom = EGS_BaseGeometry::getGeometry(gname);
+
+        string fname = constructIOFileName("", true) + "." + gname + ".dose";
+        ofstream out;
+        out.open(fname.c_str());
+        out << std::fixed << std::showpoint << std::setprecision(6);
+
+        // just use the first phantom so we can use its getResult function
+        EB_Phantom *phant = phantom_geoms[0];
+
+        out << "Region,Med,Volume  / cm^3,Mass,Dose / Gy/hist,Unc" << endl;
+        for (size_t r=0; r < sa->second.size(); r++){
+            int reg = sa->second[r];
+            int med_num = geom->medium(reg);
+            string med_name = EGS_BaseGeometry::getMediumName(med_num);
+            EGS_Float result, dr;
+            cout << "result " << result << " dr " << dr << endl;
+            phant->getResult(extra_scoring_doses[gname], reg, "tlen", result, dr);
+            out << sa->second[r] << "," << med_name << ",";
+            out << extra_scoring_vols[gname][r] << "," << extra_scoring_mass[gname][r] << ",";
+            out << result << "," << dr;
+            out << endl;
+        }
+        out.close();
+    }
 
 }
 

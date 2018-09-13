@@ -119,10 +119,6 @@ private:
      * sorted by dose value.  used for output routines */
     vector<RegionResult> getRegionResults();
 
-    /*! \brief get result for region from scoring array and normalize based
-     * on the type requested. */
-    void getResult(EGS_ScoringArray *, int ireg, string type, EGS_Float &r, EGS_Float &dr);
-
     /*! \brief get all active scoring arrays, their types and descriptions */
     void getScoringArrays(vector<EGS_ScoringArray *> &scores, vector<string> &types, vector<string> &descriptions);
 
@@ -265,6 +261,10 @@ public:
 
     /*! \brief return uncorrected for region */
     EGS_Float getUncorrectedMass(int ireg);
+
+    /*! \brief get result for region from scoring array and normalize based
+     * on the type requested. */
+    void getResult(EGS_ScoringArray *, int ireg, string type, EGS_Float &r, EGS_Float &dr);
 
 
     /*! \brief the phantom geometry object */

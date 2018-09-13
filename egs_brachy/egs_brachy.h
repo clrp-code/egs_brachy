@@ -176,6 +176,12 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
     EB_Phantom *gcr_phantom;  ///< phantom object to use in getCurrentResult (defaults to 1st phantom)
     int gcr_phantom_reg; ///< region of phantom to use for getCurrentResult (default to 0)
 
+    map<string, vector<int> > extra_scoring_reg;
+    map<string, vector<EGS_Float> > extra_scoring_vols;
+    map<string, vector<EGS_Float> > extra_scoring_mass;
+    map<string, EGS_ScoringArray* > extra_scoring_doses;
+    map<string, EGS_ScoringArray* > extra_scoring_doses_edep;
+
     ebvolcor::Results  source_vc_results;  ///< results from source volume correctio box phantom
     ebvolcor::Results  gen_vc_results; ///< results from general volume correction
     ebvolcor::FileResults  file_vc_results; ///< results from precomputed volume correction
@@ -229,6 +235,9 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
 
     /*! \brief setup which phantom/region will be used for getCurrentResult */
     void initGCRScoring(EGS_Input *);
+
+    /*! \brief setup which extra regions will be scored in*/
+    void initExtraRegScoring(EGS_Input *);
 
     /*! \brief setup any required ausgab calls
      *
@@ -312,6 +321,16 @@ public:
             delete source_transforms[st];
         }
         source_transforms.clear();
+
+        for (map<string, EGS_ScoringArray* >::iterator sa=extra_scoring_doses.begin(); sa != extra_scoring_doses.end(); sa++) {
+            delete sa->second;
+        }
+        extra_scoring_doses.clear();
+
+        for (map<string, EGS_ScoringArray* >::iterator sa=extra_scoring_doses_edep.begin(); sa != extra_scoring_doses_edep.end(); sa++) {
+            delete sa->second;
+        }
+        extra_scoring_doses_edep.clear();
 
         if (phsp) {
             delete phsp;
@@ -441,6 +460,11 @@ public:
 
     /* \brief output any results to console */
     void outputResults();
+
+
+    /* \brief output extra scoring region results */
+    void outputExtraScoringResults();
+
 
     /*! \brief Reports the current results for this batch of the simulation */
     void getCurrentResult(double &sum, double &sum2, double &norm,
