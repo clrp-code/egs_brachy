@@ -348,7 +348,6 @@ void EB_Phantom::getResult(EGS_ScoringArray *score, int ireg, string type, EGS_F
 
 
     if (type == "tlen") {
-        cout << "RRRRRR " << r << " " << nsources << " " << dose_scale << " " << eff_hist_norm <<endl;
         r *= 1.602E-10*nsources*dose_scale/eff_hist_norm;
     } else if (type == "edep") {
         r *= 1.602E-10*nsources*dose_scale/eff_hist_norm;

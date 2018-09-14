@@ -1939,8 +1939,15 @@ int EB_Application::simulateSingleShower() {
         }
     } else if (!ginfo.isSource(p.ir)) {
 
+        GeomRegT r = ginfo.globalToLocal(p.ir);
+
         printParticleWithSpherical(p);
-        egsFatal("Particle started in region %d which is outside a source geometry. Please check your geometry\n", p.ir);
+        egsFatal(
+            "Particle started in region %d (%s reg %d) which is outside a source geometry. Please check your geometry\n",
+            p.ir,
+            r.first->getName().c_str(),
+            r.second
+        );
 
     }
 
