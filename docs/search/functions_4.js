@@ -7,6 +7,6 @@ var searchData=
   ['discardtopparticle',['discardTopParticle',['../classEB__Application.html#a5339d690accee4cfd95859ad65b1cb8d',1,'EB_Application']]],
   ['distributed',['distributed',['../LICENSE_8txt.html#a0b0015f76c0b6dfe70b6fd8b7a3b645f',1,'LICENSE.txt']]],
   ['dophotonsplitting',['doPhotonSplitting',['../classEB__Application.html#a1461fa9fbaa7a90ba80039f93294012a',1,'EB_Application']]],
-  ['doses_5fapprox_5fequal',['doses_approx_equal',['../namespacetests_1_1utils.html#a9df436aabb6ce8d9447689794bb9bd48',1,'tests::utils']]],
+  ['doses_5fapprox_5fequal',['doses_approx_equal',['../namespaceeb__tests_1_1utils.html#a9e06f3dd2d2151b1f4808c7e237c181e',1,'eb_tests::utils']]],
   ['dyn_5fimport',['dyn_import',['../namespacerun__tests.html#a9b857766632188081007a853f23a3170',1,'run_tests']]]
 ];

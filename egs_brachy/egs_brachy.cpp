@@ -146,10 +146,10 @@ void EB_Application::describeSimulation() {
     ginfo.printInfo();
 
     egsInformation("\n\negs_brachy Phantom Details\n%s\n\n", string(80,'=').c_str());
-    egsInformation("                              |       |           |              |  Sph (Rmin, Rmax)    |                      |   \n");
-    egsInformation("                              |       |           |  Avg Vox Vol |   RZ (Rmin, Rmax)    |   RZ (Zmin, Zmax)    |   \n");
-    egsInformation("Name                          | Type  |   Nreg    |    / cm^3    |  XYZ (Xmin, Xmax)    |  XYZ (Ymin, Ymax)    | XYZ (Zmin, Zmax)\n");
-    egsInformation("%s\n", string(120, '-').c_str());
+    egsInformation("                              |                      |           |              |  Sph (Rmin, Rmax)    |                      |   \n");
+    egsInformation("                              |                      |           |  Avg Vox Vol |   RZ (Rmin, Rmax)    |   RZ (Zmin, Zmax)    |   \n");
+    egsInformation("Name                          |      Type            |   Nreg    |    / cm^3    |  XYZ (Xmin, Xmax)    |  XYZ (Ymin, Ymax)    | XYZ (Zmin, Zmax)\n");
+    egsInformation("%s\n", string(145, '-').c_str());
 
     for (size_t p=0; p < phantom_geoms.size(); p++) {
 
@@ -159,7 +159,6 @@ void EB_Application::describeSimulation() {
         string type = geom->getType();
 
         if (type == "EGS_XYZGeometry") {
-            type = "XYZ";
             int nx, ny, nz;
             nx = geom->getNRegDir(EB_Phantom::XDIR);
             ny = geom->getNRegDir(EB_Phantom::YDIR);
@@ -174,13 +173,12 @@ void EB_Application::describeSimulation() {
             zmax = geom->getBound(EB_Phantom::ZDIR, nz);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) | (%8.3F, %8.3F)\n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) | (%8.3F, %8.3F)\n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 xmin, xmax, ymin, ymax, zmin, zmax
             );
 
         } else if (type == "EGS_RZ") {
-            type = "RZ";
             int nr, nz;
             nr = geom->getNRegDir(EGS_RZGeometry::RDIR);
             nz = geom->getNRegDir(EGS_RZGeometry::ZDIR);
@@ -192,7 +190,7 @@ void EB_Application::describeSimulation() {
             zmax = geom->getBound(EGS_RZGeometry::ZDIR, nz-1);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) |\n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) |\n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 rmin, rmax, zmin, zmax
             );
@@ -206,9 +204,15 @@ void EB_Application::describeSimulation() {
             rmax = geom->getBound(EGS_cSpheres::RDIR, nr);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) |                      | \n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) |                      | \n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 rmin, rmax
+            );
+        } else {
+            egsInformation(
+                "%-30s| %20s | %9d | %12.5G |                      |                      | \n",
+                geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
+                -1, -1
             );
         }
 
@@ -381,7 +385,6 @@ int EB_Application::initGeometry() {
 
     err = correctVolumes();
 
-
     timing_blocks.stopTimer();
     return 0;
 
@@ -457,13 +460,72 @@ int EB_Application::correctVolumes() {
         }
     }
     ebvolcor::VolumeCorrector vc(vol_cor_inp, phantom_geoms, geometry, &ginfo, source_transforms);
-    delete vol_cor_inp;
 
     source_vc_results = vc.runSourceCorrection(timing_blocks);
 
     gen_vc_results = vc.runGeneralCorrection(timing_blocks);
 
     file_vc_results = vc.runFileCorrection(timing_blocks);
+
+
+    // automatic volumes now done, now get any manually specified volumes
+    EGS_Input *ij;
+    vector<string> user_vols;
+
+    while ((ij = vol_cor_inp->takeInputItem("phantom region volumes")) != 0) {
+
+        string phant_name;
+        ij->getInput("phantom name", phant_name);
+        EB_Phantom *phant = getPhantomByName(phant_name);
+        if (!phant) {
+            egsFatal("`phanton region volume` specified for phantom `%s` which does not exist.", phant_name.c_str());
+        }else{
+            user_vols.push_back(phant_name);
+        }
+
+        vector<int> phantom_regs;
+        ij->getInput("region numbers", phantom_regs);
+
+        vector<EGS_Float> phantom_vols;
+        ij->getInput("region volumes", phantom_vols);
+
+        if (phantom_regs.size() != phantom_vols.size()){
+            egsFatal(
+                "Mismatched number of inputs for `region numbers` and `region volumes` for phantom `%s`",
+                phant_name.c_str()
+            );
+        }else if (phantom_regs.size() == 0){
+            egsFatal(
+                "Missing `region numbers` or `region volumes` input for `phantom region volumes` block for phantom `%s`",
+                phant_name.c_str()
+            );
+        }
+
+        for (size_t r = 0; r < phantom_regs.size(); r++){
+            phant->setCorrectedVolume(phantom_regs[r], phantom_vols[r]);
+        }
+
+
+        delete ij;
+    }
+
+    /* now we check to ensure that user has specified volumes for any phantoms
+     * which require it */
+    for (size_t p=0; p < phantom_geoms.size(); p++){
+        EB_Phantom *phant = phantom_geoms[p];
+        string name = phant->geometry->getName();
+        string type = phant->geometry->getType();
+        if (phant->needs_user_geoms && find(user_vols.begin(), user_vols.end(), name) == user_vols.end()){
+            egsFatal(
+                "Missing `phantom region volume` block for phantom `%s`."
+                "Phantoms of type `%s` can not calculate volumes automatically.",
+                name.c_str(),
+                type.c_str()
+            );
+        }
+    }
+
+    delete vol_cor_inp;
 
     timing_blocks.stopTimer();
 
@@ -484,13 +546,6 @@ int EB_Application::createPhantoms() {
             return 1;
         }
 
-        string phant_type = phant_geom->getType();
-
-        if (!EB_Phantom::allowedPhantomGeom(phant_type)) {
-            egsInformation("\n\nPhantoms of geometry type `%s` are not currently supported.\n\n    This is a fatal error\n\n",
-                           phant_type.c_str());
-            return 1;
-        }
 
         set<int> global_regions;
 
@@ -677,7 +732,6 @@ int EB_Application::initScoring() {
     if (options) {
 
         initGCRScoring(options);
-        initExtraRegScoring(options);
         initAusgabCalls();
         initTrackLengthScoring(options);
         initEDepScoring(options);
@@ -747,33 +801,17 @@ void EB_Application::initGCRScoring(EGS_Input *inp) {
 
 }
 
-void EB_Application::initExtraRegScoring(EGS_Input *inp) {
-
-    vector<string> extra_inp;
-    int err = inp->getInput("extra scoring regions", extra_inp);
-    if (err || extra_inp.size()==0) {
-        return;
-    }
-
-    // user requested extra scoring
-    if (extra_inp.size() < 2) {
-        egsFatal("extra scoring region format is `phantom_name reg_num_1 reg_num_2 ... reg_num_N\n");
-    }else{
-        string geom_name = extra_inp[0];
-        for (size_t r=1; r < extra_inp.size(); r++){
-            int reg = atol(extra_inp[r].c_str());
-            extra_scoring_reg[geom_name].push_back(reg);
-        }
-        int n_extra = extra_inp.size() - 1;
-        extra_scoring_doses[geom_name] = new EGS_ScoringArray(n_extra);
-        extra_scoring_doses_edep[geom_name] = new EGS_ScoringArray(n_extra);
-        for (size_t r=0; r < n_extra; r++){
-            extra_scoring_vols[geom_name].push_back(1.);
-            extra_scoring_mass[geom_name].push_back(1.);
+EB_Phantom* EB_Application::getPhantomByName(string name){
+    for (size_t idx=0; idx < ginfo.phantom_names.size(); idx++) {
+        if (ginfo.phantom_names[idx] == name) {
+            return phantom_geoms[idx];
         }
     }
 
+    return 0;
 }
+
+
 void EB_Application::initOutputFiles(EGS_Input *inp) {
 
     vector<string> yn_choices;
@@ -1807,9 +1845,6 @@ void EB_Application::outputResults() {
         (*p)->outputResults(20, dd_format, ep_format, vi_format, vc_format);
     }
 
-    if (extra_scoring_reg.size() > 0){
-        outputExtraScoringResults();
-    }
     timing_blocks.stopTimer();
 
     egsInformation("\nStep Counts\n%s\n", sep.c_str());
@@ -1840,40 +1875,6 @@ void EB_Application::outputResults() {
     timing_blocks.stopTimer();
     timing_blocks.outputInfo();
 
-
-}
-
-
-void EB_Application::outputExtraScoringResults(){
-
-    for (map<string, vector<int> >::iterator sa=extra_scoring_reg.begin(); sa != extra_scoring_reg.end(); sa++) {
-
-        string gname = sa->first;
-        EGS_BaseGeometry *geom = EGS_BaseGeometry::getGeometry(gname);
-
-        string fname = constructIOFileName("", true) + "." + gname + ".dose";
-        ofstream out;
-        out.open(fname.c_str());
-        out << std::fixed << std::showpoint << std::setprecision(6);
-
-        // just use the first phantom so we can use its getResult function
-        EB_Phantom *phant = phantom_geoms[0];
-
-        out << "Region,Med,Volume  / cm^3,Mass,Dose / Gy/hist,Unc" << endl;
-        for (size_t r=0; r < sa->second.size(); r++){
-            int reg = sa->second[r];
-            int med_num = geom->medium(reg);
-            string med_name = EGS_BaseGeometry::getMediumName(med_num);
-            EGS_Float result, dr;
-            cout << "result " << result << " dr " << dr << endl;
-            phant->getResult(extra_scoring_doses[gname], reg, "tlen", result, dr);
-            out << sa->second[r] << "," << med_name << ",";
-            out << extra_scoring_vols[gname][r] << "," << extra_scoring_mass[gname][r] << ",";
-            out << result << "," << dr;
-            out << endl;
-        }
-        out.close();
-    }
 
 }
 

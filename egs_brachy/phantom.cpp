@@ -89,9 +89,15 @@ string space2underscore(std::string text) {
     return text;
 }
 
-/* only geometries that support getting regional volume/mass can be used as phantoms */
-const string EB_Phantom::allowed_phantom_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_RZ"};
+/* geometries that support getting regional volume/mass can be used as phantoms
+ * without specifying their volumes. Other geometry type need to have their
+ * volumes specified using `phantom region volumes` inputs.
+ * */
+const string EB_Phantom::autovol_phantom_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_RZ"};
 
+
+/* geometries that support 3ddose files */
+const string EB_Phantom::threeddose_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_RZ"};
 
 /* initializer for phantom class */
 EB_Phantom::EB_Phantom(EGS_Application *parent, EGS_BaseGeometry *geom, set<int> global_regions, int nsource,
@@ -107,6 +113,8 @@ EB_Phantom::EB_Phantom(EGS_Application *parent, EGS_BaseGeometry *geom, set<int>
 
     global_reg_start = *global_regions.begin();
     global_reg_stop = *global_regions.rbegin();
+    needs_user_geoms = needsUserVolumes(geom->getType());
+    can_write_3ddose = canWrite3ddose(geom->getType());
 
     publisher->subscribe(this, NEW_HISTORY);
 
@@ -154,13 +162,27 @@ void EB_Phantom::setDoseScale(EGS_Float scale) {
     dose_scale = scale;
 }
 
-bool EB_Phantom::allowedPhantomGeom(const string &geom_type) {
+bool EB_Phantom::needsUserVolumes(const string &geom_type) {
     // Check if the input geometry is one that egs_brachy can handle
 
-    int end = (int)(sizeof(allowed_phantom_geom_types)/sizeof(string));
+    int end = (int)(sizeof(autovol_phantom_geom_types)/sizeof(string));
 
     for (int i=0; i<end; i++) {
-        if (allowed_phantom_geom_types[i] == geom_type) {
+        if (autovol_phantom_geom_types[i] == geom_type) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool EB_Phantom::canWrite3ddose(const string &geom_type) {
+    // Check if the input geometry is one that egs_brachy can handle
+
+    int end = (int)(sizeof(threeddose_geom_types)/sizeof(string));
+
+    for (int i=0; i<end; i++) {
+        if (threeddose_geom_types[i] == geom_type) {
             return true;
         }
     }
@@ -249,11 +271,11 @@ void EB_Phantom::outputResults(int top_n, string output_3ddose, string output_eg
         outputTopDoses(top_n, region_results);
     }
 
-    if (output_3ddose == "text" || output_3ddose == "gzip") {
+    if (can_write_3ddose && (output_3ddose == "text" || output_3ddose == "gzip")) {
         output3ddoseResults(output_3ddose);
     }
 
-    if (output_egsphant== "text" || output_egsphant == "gzip") {
+    if (can_write_3ddose &&  (output_egsphant== "text" || output_egsphant == "gzip")) {
         outputEGSPhant(output_egsphant);
     }
 
@@ -265,24 +287,34 @@ EGS_Float EB_Phantom::getRealRho(int ireg) {
 
 
 EGS_Float EB_Phantom::getRealMass(int ireg) {
+    bool has_correction = corrected_volumes.find(ireg) != corrected_volumes.end();
+    if (needs_user_geoms && !has_correction) {
+        return -1;
+    }
     return getCorrectedVolume(ireg)*getRealRho(ireg);
 }
 
 EGS_Float EB_Phantom::getUncorrectedMass(int ireg) {
-    return getUncorrectedVolume(ireg)*getRealRho(ireg);
+    return needs_user_geoms ? -1 : getUncorrectedVolume(ireg)*getRealRho(ireg);
 }
 
 EGS_Float EB_Phantom::getUncorrectedVolume(int ireg) {
     // EGS_BaseGeometry::getMass is volume*relativeRho()
+    if (needs_user_geoms) {
+        return -1;
+    }
     EGS_Float volume = geometry->getMass(ireg)/geometry->getRelativeRho(ireg);
     return volume;
 }
 
 EGS_Float EB_Phantom::getCorrectedVolume(int ireg) {
     bool has_correction = corrected_volumes.find(ireg) != corrected_volumes.end();
+
+    if (needs_user_geoms && !has_correction) {
+        return -1;
+    }
     return has_correction ? corrected_volumes[ireg] : getUncorrectedVolume(ireg);
 }
-
 
 void EB_Phantom::getCurrentScore(int ireg, double &sum, double &sum2) {
     if (tlen_score) {
@@ -672,18 +704,28 @@ EGS_Float EB_Phantom::avgVoxelVol() {
 void EB_Phantom::writeVoxelInfo(ostream &out) {
 
     out << std::setprecision(6) << std::scientific;
-    out << "Region, Volume, Uncorrected Volume, Mass, Density, Med, Dose, Unc"<< endl;
+    out << "Region, Volume / cm^3, Uncorrected Volume / cm^3, Mass / g, Density / g/cm^3, Med, Dose (tracklength) / Gy/hist, Unc";
+    if (edep_score){
+        out << ", Dose (interaction) / Gy/hist, Unc";
+    }
+    out << endl;
 
     for (int i=0; i < geometry->regions(); i++) {
-        EGS_Float r=0, dr=0;
+        EGS_Float r=0, dr=0, r_edep, dr_edep;
         if (tlen_score) {
             getResult(tlen_score, i, "tlen", r, dr);
-        } else if (edep_score) {
-            getResult(edep_score, i, "edep", r, dr);
+        }
+
+        if (edep_score) {
+            getResult(edep_score, i, "edep", r_edep, dr_edep);
         }
         out << i << ", " << getCorrectedVolume(i) << ", " << getUncorrectedVolume(i) << ", ";
         out << getRealMass(i) << ", " << getRealRho(i) << ", "<<EGS_BaseGeometry::getMediumName(geometry->medium(i))<<", ";
-        out << r << ", "<<dr<<endl;
+        out << r << ", " << dr;
+        if (edep_score){
+            out << ", " << r_edep << ", " << dr_edep;
+        }
+        out <<endl;
     }
 }
 

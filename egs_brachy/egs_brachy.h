@@ -236,9 +236,6 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
     /*! \brief setup which phantom/region will be used for getCurrentResult */
     void initGCRScoring(EGS_Input *);
 
-    /*! \brief setup which extra regions will be scored in*/
-    void initExtraRegScoring(EGS_Input *);
-
     /*! \brief setup any required ausgab calls
      *
      * For efficiency, only those ausgab calls which are
@@ -390,7 +387,6 @@ public:
     /*! \brief Get run mode from the input file */
     int initRunMode();
 
-
     /*! \brief initialze all scoring and variance reduction parameters */
     int initScoring();
 
@@ -462,13 +458,12 @@ public:
     void outputResults();
 
 
-    /* \brief output extra scoring region results */
-    void outputExtraScoringResults();
-
-
     /*! \brief Reports the current results for this batch of the simulation */
     void getCurrentResult(double &sum, double &sum2, double &norm,
                           double &count);
+
+    /*! \brief takes a phantom geometry name and returns the EB_Phantom object */
+    EB_Phantom* getPhantomByName(string name);
 
     /*! \brief Set source ecut/pcut if different from global ecut/pcut */
     virtual void startNewParticle();

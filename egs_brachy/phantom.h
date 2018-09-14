@@ -72,7 +72,8 @@ class EB_Phantom : public Subscriber {
 
 private:
 
-    const static string allowed_phantom_geom_types[];
+    const static string autovol_phantom_geom_types[];
+    const static string threeddose_geom_types[];
 
     EGS_Application *app;  ///< Parent application instance. Required for constructing filenames
     EGS_ScoringArray *tlen_score; ///< Tracklength dose scoring array
@@ -159,8 +160,12 @@ public:
     };
 
     /*! \brief function for checking whether a given geometry type
-     * is allowed to be used as a phantom */
-    static bool allowedPhantomGeom(const string &geom_type);
+     * requires user specified volumes */
+    static bool needsUserVolumes(const string &geom_type);
+
+    /*! \brief function for checking whether a given geometry type
+     * can output 3ddose files */
+    static bool canWrite3ddose(const string &geom_type);
 
     /*! \brief add tracklength dose to region ir */
     void scoreTlen(int ir, EGS_Float dose, EGS_Particle *p);
@@ -280,6 +285,8 @@ public:
     int global_reg_start; ///< starting global region index for this phantom
     int global_reg_stop; ///< ending global region index for this phantom
 
+    bool needs_user_geoms; ///< this phantom requires user specified geometries
+    bool can_write_3ddose; ///< this phantom can output 3ddose files
 
 };
 

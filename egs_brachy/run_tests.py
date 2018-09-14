@@ -2,9 +2,9 @@ import glob
 import os
 import re
 import shutil
-from subprocess import Popen, PIPE
 import sys
 import traceback
+from subprocess import PIPE, Popen
 
 VERBOSE = False
 if "-v" in sys.argv:
@@ -118,7 +118,7 @@ def find_tests():
     if len(sys.argv) > 1:
         tests = glob.glob(os.path.join(sys.argv[1], "__init__.py"))
     else:
-        tests = glob.glob("tests/*/__init__.py")
+        tests = glob.glob("eb_tests/*/__init__.py")
 
     return [x.replace("/__init__.py", "").replace("/", ".") for x in tests]
 
