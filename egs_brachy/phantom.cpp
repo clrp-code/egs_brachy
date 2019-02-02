@@ -761,10 +761,10 @@ void EB_Phantom::writeVoxelInfo(ostream &out) {
     out << std::setprecision(6) << std::scientific;
     string header = (
         "Region, Volume / cm^3, Nominal Volume / cm^3, Vol Cor Unc, Mass / g, Density / g/cm^3, Med, "
-        "Dose (tracklength) / Gy/hist, Total Dose (tracklength) Unc, Dose (tracklength) Unc"
+        "Dose (tracklength) / Gy/hist, Total Dose Unc (tracklength), Dose Unc (tracklength)"
     );
     if (edep_score){
-        header += ", Dose (interaction) / Gy/hist, Total Dose (interaction) Unc, Dose (interaction) Unc";
+        header += ", Dose (interaction) / Gy/hist, Total Dose Unc (interaction), Dose Unc (interaction)";
     }
     out << header << endl;
 
