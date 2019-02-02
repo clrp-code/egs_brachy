@@ -93,6 +93,7 @@ private:
     Publisher *publisher;
 
     std::map<int, double> corrected_volumes; ///< Corrected volume in a given region
+    std::map<int, double> volume_uncertainty;
 
     /*! \brief write some stats about dose arrays*/
     void outputDoseStats(EGS_ScoringArray *score, string type);
@@ -183,8 +184,13 @@ public:
 
     void update(EB_Message message, void *data);
 
+    bool hasVolCor(int ireg);
+
     /*! \brief get uncorrected volume for a given region */
     EGS_Float getCorrectedVolume(int ireg);
+
+    /*! \brief get volume unc */
+    EGS_Float getVolumeUncertainty(int ireg);
 
     /*! \brief get corrected volume for a given region */
     EGS_Float getUncorrectedVolume(int ireg);
@@ -194,7 +200,7 @@ public:
     vector<int> getRegionsWithCorrections();
 
     /*! \brief Allow user to tell phantom what the actual volume of a region is */
-    void setCorrectedVolume(int ir, double fraction);
+    void setCorrectedVolume(int ir, double fraction, double unc=0);
 
     /*! \brief enableTLenScoring must be called before simulation
      * begins if you want to score dose with tracklength estimator in

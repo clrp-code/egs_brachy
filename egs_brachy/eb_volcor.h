@@ -82,8 +82,12 @@ enum VolCorMode {NO_CORRECTION, ZERO_DOSE, CORRECT_VOLUME};
  * (i.e. the 3rd phantom) */
 typedef pair<int, int> PhantRegT;
 
-/*! \brief RegVolumeT is a pair of the form (RegionNumber, Volume) */
-typedef pair<int, EGS_Float> RegVolume;
+/*! \brief RegVolumeT sruct with members (ir=RegionNumber, vol=Volume, unc=Unc) */
+struct RegVolume {
+    int ir;
+    EGS_Float vol;
+    EGS_Float unc;
+};
 
 /*! \brief HitCounterT is used for counting how many random points land in a
  * given phantoms region */

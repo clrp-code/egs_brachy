@@ -5,9 +5,21 @@ REG_DOSE_UNC_RE = "\s+(\d)+\s+\d+\s+\d+\..*?\s+(.*?)\s+\+/-\s+(.*?)%\s+(.*?)\s+\
 
 
 def extract_all_doses(egslst):
-    """return all regionss and doses from egslst file. This may
+    """return all regions and doses from egslst file. This may
     include doses from more than one phantom"""
-    return sorted(re.findall(REG_DOSE_UNC_RE, egslst))
+
+    # regex to match scientific notation +[+-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)
+    sci_not = r"[+-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)"
+
+    r = re.compile(r"""\s+(\d+)                               # region number
+            \s+\d+                                            # medium number
+            \s+{sci_not}\({sci_not}\)\s+\+\/\-\s+\d+\.\d+%    # volume, correction and error
+            \s+({sci_not})\s+\+\/\-\s+(\d+\.\d+)%             # tlen dose and unc
+            \s+\(.*\)
+            \s+({sci_not})\s+\+\/\-\s+(\d+\.\d+)%             # edep dose and unc
+    """.format(sci_not=sci_not), re.X)
+
+    return sorted(r.findall(egslst))
 
 def values_close(a, b, max_percent_diff=0.001):
     if a == 0:
@@ -93,5 +105,4 @@ def compare_3ddose_files(f1, f2, max_percent_diff=None):
                         for d1, d1u, d2, d2u in doses_and_uncs])
 
     return doses_close
-
 

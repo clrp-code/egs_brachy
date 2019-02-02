@@ -58,6 +58,7 @@ struct RegionResult {
 
     int reg;
     double volume;
+    double volume_unc;
 
     double tlen;
     double tlen_err;
@@ -198,8 +199,9 @@ vector<int> EB_Phantom::getRegionsWithCorrections() {
     return regs;
 }
 
-void EB_Phantom::setCorrectedVolume(int ir, double corrected_vol) {
+void EB_Phantom::setCorrectedVolume(int ir, double corrected_vol, double unc) {
     corrected_volumes[ir] = corrected_vol;
+    volume_uncertainty[ir] = unc;
 }
 
 /* turn on interaction scoring */
@@ -287,8 +289,7 @@ EGS_Float EB_Phantom::getRealRho(int ireg) {
 
 
 EGS_Float EB_Phantom::getRealMass(int ireg) {
-    bool has_correction = corrected_volumes.find(ireg) != corrected_volumes.end();
-    if (needs_user_geoms && !has_correction) {
+    if (needs_user_geoms && !hasVolCor(ireg)) {
         return -1;
     }
     return getCorrectedVolume(ireg)*getRealRho(ireg);
@@ -307,13 +308,26 @@ EGS_Float EB_Phantom::getUncorrectedVolume(int ireg) {
     return volume;
 }
 
+bool EB_Phantom::hasVolCor(int ireg){
+    return corrected_volumes.find(ireg) != corrected_volumes.end();
+}
+
 EGS_Float EB_Phantom::getCorrectedVolume(int ireg) {
-    bool has_correction = corrected_volumes.find(ireg) != corrected_volumes.end();
+    bool has_correction = hasVolCor(ireg);
 
     if (needs_user_geoms && !has_correction) {
         return -1;
     }
     return has_correction ? corrected_volumes[ireg] : getUncorrectedVolume(ireg);
+}
+
+EGS_Float EB_Phantom::getVolumeUncertainty(int ireg) {
+    bool has_correction = hasVolCor(ireg);
+
+    if (needs_user_geoms && !has_correction) {
+        return -1;
+    }
+    return has_correction ? volume_uncertainty[ireg] : 0;
 }
 
 void EB_Phantom::getCurrentScore(int ireg, double &sum, double &sum2) {
@@ -380,8 +394,9 @@ vector<RegionResult> EB_Phantom::getRegionResults() {
         }
 
         EGS_Float volume = getCorrectedVolume(ireg);
+        EGS_Float dv = getVolumeUncertainty(ireg);
 
-        RegionResult regr = { ireg, volume, result, dr, result_edep, result_edep_dr };
+        RegionResult regr = { ireg, volume, dv, result, dr, result_edep, result_edep_dr };
         region_results.push_back(regr);
 
     }
@@ -393,7 +408,7 @@ vector<RegionResult> EB_Phantom::getRegionResults() {
 /* output statistics about dose arrays */
 void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
 
-    EGS_Float maxr=0;
+    EGS_Float maxr=0, max_dv=0;
     int nreg = score->regions();
 
     for (int i=0; i < nreg; i++) {
@@ -401,22 +416,45 @@ void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
         getResult(score, i, type, r, dr);
 
         maxr = max(maxr, r);
+        max_dv = max(max_dv, getVolumeUncertainty(i));
 
     }
 
-    EGS_Float avg=0, avg_err=0, avg_gt_20=0, avg_gt_20_err=0;
-    int n_gt_20 = 0;
+    EGS_Float avg=0, // average dose
+              avg_dose_err=0,  // average uncertainty on dose
+              avg_vol_err=0,  // average uncertainty of volume corrections (only includes regions which have volume corrections)
+              avg_tot_err=0,  // average uncertainty on dose
+              avg_gt_20=0,  // average dose > 20% max dose
+              avg_gt_20_err=0,  // average uncertainty on doses > 20% max dose
+              avg_gt_20_tot_err=0  // average total uncertainty on doses > 20% max dose
+            ;
+
+    int n_gt_20=0,
+        n_vol_cor=0;
 
     for (int i=0; i < nreg; i++) {
-        EGS_Float r, dr;
+        EGS_Float r, dr, dv, dt;
         getResult(score, i, type, r, dr);
+
         avg += r;
-        avg_err += dr;
+        avg_dose_err += dr;
+
+        if (hasVolCor(i)){
+            dv = getVolumeUncertainty(i);
+            n_vol_cor++;
+            avg_vol_err += dv;
+        }else{
+            dv = 0;
+        }
+
+        dt = sqrt(dr*dr + dv*dv);
+        avg_tot_err += dt;
 
         if (r >= maxr*0.20) {
             n_gt_20++;
             avg_gt_20 += r;
             avg_gt_20_err += dr;
+            avg_gt_20_tot_err += dt;
         }
     }
 
@@ -425,18 +463,22 @@ void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
         units = "Gy/R";
     }
 
-    egsInformation("    Dose Scaling                     =  %.3G\n", dose_scale);
-    egsInformation("    Average dose                     =  %.3G %s\n", avg/nreg, units.c_str());
-    egsInformation("    Average error on dose            =  %.3G %\n", 100*avg_err/nreg);
-    egsInformation("    Average error on dose > 0.2*Dmax =  %.3G %\n", 100*avg_gt_20_err/n_gt_20);
-    egsInformation("    # of voxels with dose > 0.2*Dmax =  %d (%.3G%)\n", n_gt_20, 100.*double(n_gt_20)/nreg);
+    egsInformation("    Dose Scaling                                =  %.3G\n", dose_scale);
+    egsInformation("    # of voxels with volume corrections         =  %d / %d (%.3G%)\n", n_vol_cor, nreg, 100*n_vol_cor/nreg);
+    egsInformation("    Average error on vol corrections            =  %.3G %\n", 100*avg_vol_err/n_vol_cor);
+    egsInformation("    Average dose                                =  %.3G %s\n", avg/nreg, units.c_str());
+    egsInformation("    Average error on calculated doses           =  %.3G %\n", 100*avg_dose_err/nreg);
+    egsInformation("    Average total error on dose (incl Vol Cor)  =  %.3G %\n", 100*avg_tot_err/nreg);
+    egsInformation("    Average error on calculated dose > 0.2*Dmax =  %.3G %\n", 100*avg_gt_20_err/n_gt_20);
+    egsInformation("    Average total error on dose > 0.2*Dmax      =  %.3G %\n", 100*avg_gt_20_tot_err/n_gt_20);
+    egsInformation("    # of voxels with dose > 0.2*Dmax            =  %d / %d (%.3G%)\n", n_gt_20, nreg, 100.*double(n_gt_20)/nreg);
 
 }
 
 /* output Top N doses for tracklength and interaction scoring */
 void EB_Phantom::outputTopDoses(int top_n, vector<RegionResult> region_results) {
-    top_n = min(top_n, geometry->regions());
 
+    top_n = min(top_n, geometry->regions());
 
     string fmt = "\n\nTop %d dose results for geometry named '%s'";
     if (fabs(dose_scale -1) > 1E-10) {
@@ -445,7 +487,10 @@ void EB_Phantom::outputTopDoses(int top_n, vector<RegionResult> region_results) 
 
     egsInformation((fmt+"\n").c_str(), top_n, (geometry->getName()).c_str());
 
-    string title = " Region  Med #  Volume(Nominal) / cm^3  Tracklength Dose / Gy/hist  Interaction Dose / Gy/hist\n";
+    string title = (
+        " Region  Med #  Volume (Nominal) / cm^3            Tracklength Dose / Gy/hist (Derr, Verr)  "
+        "Interaction Dose / Gy/hist (Derr, Verr)\n"
+    );
     egsInformation("%s\n", string(title.size()-1, '=').c_str());
     egsInformation(title.c_str());
 
@@ -463,23 +508,33 @@ void EB_Phantom::outputTopDoses(int top_n, vector<RegionResult> region_results) 
     }
 
     for (vector<RegionResult>::iterator rrit=top_results.begin(); rrit!=top_results.end(); rrit++) {
+
         RegionResult rr = *rrit;
+
         double vol = getCorrectedVolume(rr.reg);
+        double dv = getVolumeUncertainty(rr.reg);
         double uncorvol = getUncorrectedVolume(rr.reg);
+        double total_tlen_unc = std::sqrt(dv*dv + rr.tlen_err*rr.tlen_err);
+        double total_edep_unc = std::sqrt(dv*dv + rr.edep_err*rr.edep_err);
 
         int med = geometry->medium(rr.reg);
-        if (vol > 0 && fabs(vol - uncorvol)/vol > 1E-6) {
-            egsInformation(
-                "%7d  %5d %11.3E(%8.3E)    %13.3E +/- %5.2f%%    %13.3E +/- %5.2f%%\n",
-                rr.reg, med, vol, uncorvol, rr.tlen, 100*rr.tlen_err, rr.edep, 100*rr.edep_err
-            );
-        } else {
-            egsInformation(
-                "%7d  %5d %11.3E               %13.3E +/- %5.2f%%    %13.3E +/- %5.2f%%\n",
-                rr.reg, med, vol, rr.tlen, 100*rr.tlen_err, rr.edep, 100*rr.edep_err
-            );
 
-        }
+        egsInformation(
+            "%7d  %5d %11.3E(%8.3E) +/- %5.2f%%    %9.3E +/- %5.2f%% (%5.2f%%, %5.2f%%)    %9.3E +/- %5.2f%% (%5.2f%%, %5.2f%%)\n",
+            rr.reg,
+            med,
+            vol,
+            uncorvol,
+            100*dv,
+            rr.tlen,
+            100*total_tlen_unc,
+            100*rr.tlen_err,
+            100*dv,
+            edep_score ? rr.edep : 0,
+            edep_score ? 100*total_edep_unc : 0,
+            edep_score ? 100*rr.edep_err : 0,
+            edep_score ? 100*dv : 0
+        );
     }
 
 }
@@ -613,13 +668,14 @@ void EB_Phantom::output3DDoses(ostream &out, EGS_ScoringArray *score, string typ
     for (int loop = 0; loop < 2; loop++) {
         for (int ireg=0; ireg < score->regions(); ireg++) {
 
-            double result, dr;
+            double result, dr, dv;
             getResult(score, ireg, type, result, dr);
 
             if (loop == 0) {
                 out << result << "\t";
             } else {
-                out << dr << "\t";
+                dv = getVolumeUncertainty(ireg);
+                out << sqrt(dr*dr + dv*dv) << "\t";
             }
 
         }
@@ -703,14 +759,17 @@ EGS_Float EB_Phantom::avgVoxelVol() {
 void EB_Phantom::writeVoxelInfo(ostream &out) {
 
     out << std::setprecision(6) << std::scientific;
-    out << "Region, Volume / cm^3, Uncorrected Volume / cm^3, Mass / g, Density / g/cm^3, Med, Dose (tracklength) / Gy/hist, Unc";
+    string header = (
+        "Region, Volume / cm^3, Nominal Volume / cm^3, Vol Cor Unc, Mass / g, Density / g/cm^3, Med, "
+        "Dose (tracklength) / Gy/hist, Total Dose (tracklength) Unc, Dose (tracklength) Unc"
+    );
     if (edep_score){
-        out << ", Dose (interaction) / Gy/hist, Unc";
+        header += ", Dose (interaction) / Gy/hist, Total Dose (interaction) Unc, Dose (interaction) Unc";
     }
-    out << endl;
+    out << header << endl;
 
     for (int i=0; i < geometry->regions(); i++) {
-        EGS_Float r=0, dr=0, r_edep, dr_edep;
+        EGS_Float r=0, dr=0, r_edep, dr_edep, dv;
         if (tlen_score) {
             getResult(tlen_score, i, "tlen", r, dr);
         }
@@ -718,11 +777,12 @@ void EB_Phantom::writeVoxelInfo(ostream &out) {
         if (edep_score) {
             getResult(edep_score, i, "edep", r_edep, dr_edep);
         }
-        out << i << ", " << getCorrectedVolume(i) << ", " << getUncorrectedVolume(i) << ", ";
-        out << getRealMass(i) << ", " << getRealRho(i) << ", "<<EGS_BaseGeometry::getMediumName(geometry->medium(i))<<", ";
-        out << r << ", " << dr;
+        dv = getVolumeUncertainty(i);
+        out << i << ", " << getCorrectedVolume(i) << ", " << getUncorrectedVolume(i) << ", " << dv << ", ";
+        out << getRealMass(i) << ", " << getRealRho(i) << ", " << EGS_BaseGeometry::getMediumName(geometry->medium(i)) << ", ";
+        out << r << ", " << sqrt(dr*dr + dv*dv) << ", " << dr;
         if (edep_score){
-            out << ", " << r_edep << ", " << dr_edep;
+            out << ", " << r_edep << ", " << sqrt(dr_edep*dr_edep + dv*dv) << ", " << dr_edep;
         }
         out <<endl;
     }
@@ -737,7 +797,7 @@ void EB_Phantom::outputVoxelInfo(string format) {
 
     egsInformation(
         "Writing voxel info file to %s\n",
-        (app->getOutputFile()+"."+geometry->getName() + extension).c_str()
+        (app->getOutputFile() + "." + extension).c_str()
     );
 
     if (format == "gzip") {
@@ -759,9 +819,8 @@ void EB_Phantom::writeVolumeCorrection(ostream &out) {
     out << nrecords << endl;
 
     for (int i=0; i < geometry->regions(); i++) {
-        bool has_correction = corrected_volumes.find(i) != corrected_volumes.end();
-        if (has_correction) {
-            out << i << " " << getCorrectedVolume(i) << endl;
+        if (hasVolCor(i)) {
+            out << i << " " << getCorrectedVolume(i) << " " << volume_uncertainty[i] << endl;
         }
     }
 }

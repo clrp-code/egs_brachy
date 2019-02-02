@@ -321,7 +321,6 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
     HitCounterT hit_counter;
     EGS_I64 n_in_source = 0;
 
-
     for (EGS_I64 i=0; i < source_opts->npoints; i++) {
 
         point = source_opts->getRandomPoint();
@@ -334,12 +333,10 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
         n_in_source += 1;
         base_transform_inv->transform(point);
 
-
         for (size_t sidx = 0; sidx < transforms.size();  sidx++) {
 
             EGS_Vector transformed(point);
             transforms[sidx]->transform(transformed);
-
 
             for (size_t phant= 0; phant<phantoms.size(); phant++) {
                 int reg = phantoms[phant]->geometry->isWhere(transformed);
@@ -353,7 +350,6 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
             }
         }
     }
-
 
     applyVolumeCorrections(source_opts, hit_counter);
 
@@ -377,7 +373,8 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         int hits = hi->second;
         double reg_vol = phantoms[phant_idx]->getUncorrectedVolume(phant_reg);
         double corrected_vol = zero_dose ? 0 : max(reg_vol - vol*double(hits)/npoints, 0.);
-        phantoms[phant_idx]->setCorrectedVolume(phant_reg, corrected_vol);
+        double unc = 1./(sqrt(hits) * ( (npoints/hits) * (reg_vol/vol) - 1.));
+        phantoms[phant_idx]->setCorrectedVolume(phant_reg, corrected_vol, unc);
     }
 
 }
@@ -387,9 +384,10 @@ void readVolumes(istream &vfile, vector<RegVolume> &reg_volumes) {
     vfile >> nrecords;
     for (size_t rec = 0; rec < nrecords; rec++) {
         int reg;
-        EGS_Float vol;
-        vfile >> reg >> vol;
-        reg_volumes.push_back(RegVolume(reg, vol));
+        EGS_Float vol, vol_unc;
+        vfile >> reg >> vol >> vol_unc;
+        RegVolume rvol = {reg, vol, vol_unc};
+        reg_volumes.push_back(rvol);
     }
 }
 
@@ -437,7 +435,7 @@ map<string, int> VolumeCorrector::loadFileVolumeCorrections() {
 
             for (size_t rv=0; rv < volumes.size(); rv++) {
                 RegVolume reg_vol = volumes[rv];
-                phantoms[phant_idx]->setCorrectedVolume(reg_vol.first,reg_vol.second);
+                phantoms[phant_idx]->setCorrectedVolume(reg_vol.ir, reg_vol.vol, reg_vol.unc);
             }
         }
 
