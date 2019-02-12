@@ -221,25 +221,13 @@ void EB_Application::describeSimulation() {
     egsInformation("\n\negs_brachy Volume correction details\n%s\n", string(80, '-').c_str());
 
     egsInformation("\nSource specific volume correction details\n%s\n", string(80, '-').c_str());
-    if (!source_vc_results.success) {
-        egsInformation("Source correction not requested or failed\n");
-    } else {
-        source_vc_results.outputResults("Source");
-    }
+    source_vc_results.outputResults("Source");
 
     egsInformation("\nExtra volume correction details\n%s\n", string(80, '-').c_str());
-    if (!gen_vc_results.success) {
-        egsInformation("Extra correction not requested or failed\n");
-    } else {
-        gen_vc_results.outputResults();
-    }
+    gen_vc_results.outputResults("Extra");
 
     egsInformation("\nFile volume correction details\n%s\n", string(80, '-').c_str());
-    if (!file_vc_results.success) {
-        egsInformation("File correction not requested or failed\n");
-    } else {
-        file_vc_results.outputResults();
-    }
+    file_vc_results.outputResults();
 
     egsInformation("\n\n");
     if (geometry) {

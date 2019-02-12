@@ -151,8 +151,11 @@ void Options::setMode() {
     choices.push_back("none");
     choices.push_back("zero dose");
     choices.push_back("correct");
-
-    mode = (VolCorMode)input->getInput("correction type",choices, (int)NO_CORRECTION);
+    if (!input){
+        mode = NO_CORRECTION;
+    }else{
+        mode = (VolCorMode)input->getInput("correction type", choices, (int)NO_CORRECTION);
+    }
 }
 
 /*! \brief create bounding shape from the shape input and calculate its volume */
@@ -360,7 +363,7 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
 void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_counter) {
 
     bool zero_dose = opts->mode == ZERO_DOSE;
-    double vol = opts->bounds_volume;
+    double bounds_vol = opts->bounds_volume;
     double npoints =  opts->npoints;
 
     for (HitCounterT::iterator hi = hit_counter.begin(); hi != hit_counter.end(); hi++) {
@@ -372,8 +375,17 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         }
         int hits = hi->second;
         double reg_vol = phantoms[phant_idx]->getUncorrectedVolume(phant_reg);
-        double corrected_vol = zero_dose ? 0 : max(reg_vol - vol*double(hits)/npoints, 0.);
-        double unc = 1./(sqrt(hits) * ( (npoints/hits) * (reg_vol/vol) - 1.));
+        double corrected_vol = reg_vol - bounds_vol*double(hits)/npoints;
+        double unc;
+
+        /* consider a voxel coverd if corrected vol is 0.01% or less of nominal volume */
+        bool voxel_covered = corrected_vol / reg_vol < 0.0001;
+        if (!(voxel_covered || zero_dose)){
+            unc = 1./(sqrt(hits) * ((npoints/hits) * (reg_vol/bounds_vol) - 1.));
+        } else {
+            corrected_vol = 0;
+            unc = 0;
+        }
         phantoms[phant_idx]->setCorrectedVolume(phant_reg, corrected_vol, unc);
     }
 
