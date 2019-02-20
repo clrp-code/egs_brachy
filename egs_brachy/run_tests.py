@@ -151,7 +151,7 @@ def run_all_tests():
             continue
 
         timing_passes = actual_time <= TIMING_MARGIN*time_limit
-        if not (timing_hard_fail and timing_passes):
+        if not timing_passes and not timing_hard_fail:
             warn_count += 1
 
         passes = results_pass and timing_passes if timing_hard_fail else results_pass
