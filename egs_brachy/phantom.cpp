@@ -408,69 +408,114 @@ vector<RegionResult> EB_Phantom::getRegionResults() {
 /* output statistics about dose arrays */
 void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
 
-    EGS_Float maxr=0;
     int nreg = score->regions();
 
+    EGS_Float avg_dose=0, // average dose
+              avg_dose_err=0,  // average uncertainty on dose
+              avg_tot_err=0,  // average uncertainty on dose
+
+              avg_dose_gt_0=0, // average non zero dose
+              avg_dose_gt_0_err=0,  // average uncertainty on non zero doses
+              avg_tot_gt_0_err=0,  // average total error on non zero doses
+
+              avg_dose_gt_20=0,  // average dose > 20% max dose
+              avg_dose_gt_20_err=0,  // average uncertainty on doses > 20% max dose
+              avg_tot_gt_20_err=0,  // average total uncertainty on doses > 20% max dose
+
+              avg_vol_err=0,  // average uncertainty of volume corrections (only includes regions which have volume corrections)
+              avg_vol_err_0=0,  // average uncertainty of volume corrections (only includes regions which have volume corrections)
+              avg_vol_err_99=0,  // average uncertainty of volume corrections where Vcor / Vnominal > 0.01
+              avg_vol_err_50=0,  // average uncertainty of volume corrections where Vcor / Vnominal > 0.001
+              avg_vol_err_d20=0  // average uncertainty of volume corrections where D > 0.2*Dmax
+            ;
+
+    int n_gt_0=0,  // # of voxels with non zero dose
+        n_gt_20=0, // # of voxels with dose >= 20% Dmax
+        n_vol_cor=0,   // # of voxels with a volume correction
+        n_vol_cor_no_dose=0,   // # of voxels with a volume correction but no dose scored
+        n_vol_cor_d20=0,   // # of voxels with a volume correction and D > 0.2*Dmax
+        n_vol_cor_0=0,   // # of voxels with a volume correction and dose scored
+        n_vol_cor_99=0,  // # of voxels with less than 99% coverage
+        n_vol_cor_50=0,  // # of voxels with less than 99.9% coverage
+        n_vol_cor_1000=0; // # of voxels with less than 100% coverage
+
+
+    // first find max dose so we can check voxels for >= 20% Dmax
+    EGS_Float max_dose = 0;
+    // find max dose so e
     for (int i=0; i < nreg; i++) {
         EGS_Float r, dr;
         getResult(score, i, type, r, dr);
-
-        maxr = max(maxr, r);
+        max_dose = max(max_dose, r);
     }
 
-    EGS_Float avg=0, // average dose
-              avg_dose_err=0,  // average uncertainty on dose
-              avg_vol_err=0,  // average uncertainty of volume corrections (only includes regions which have volume corrections)
-              avg_vol_err_99=0,  // average uncertainty of volume corrections where Vcor / Vnominal > 0.01
-              avg_vol_err_999=0,  // average uncertainty of volume corrections where Vcor / Vnominal > 0.001
-              avg_tot_err=0,  // average uncertainty on dose
-              avg_gt_20=0,  // average dose > 20% max dose
-              avg_gt_20_err=0,  // average uncertainty on doses > 20% max dose
-              avg_gt_20_tot_err=0  // average total uncertainty on doses > 20% max dose
-            ;
-
-    int n_gt_20=0,
-        n_vol_cor=0,
-        n_vol_cor_99=0,
-        n_vol_cor_999=0;
 
     for (int i=0; i < nreg; i++) {
-        EGS_Float r, dr, dv, dt;
-        getResult(score, i, type, r, dr);
 
-        avg += r;
-        avg_dose_err += dr;
+        EGS_Float dose, dose_err;
 
-        double vc = getCorrectedVolume(i);
-        if (hasVolCor(i)){
-            double v = getUncorrectedVolume(i);
-            dv = getVolumeUncertainty(i);
+        getResult(score, i, type, dose, dose_err);
+
+
+        double vol_nom = getUncorrectedVolume(i);
+        double vol_cor = getCorrectedVolume(i);
+        double vol_err = getVolumeUncertainty(i);
+        bool has_vol_cor = hasVolCor(i);
+
+        if (vol_cor <= 0){
+            n_vol_cor_1000++;
+        }
+
+        // vol cor stats
+        if (has_vol_cor){
+
             n_vol_cor++;
-            avg_vol_err += dv;
+            avg_vol_err += vol_err;
 
-            if (vc / v > 0.001){
-                n_vol_cor_999 += 1;
-                avg_vol_err_999 += dv;
+            if (dose > 0){
+                n_vol_cor_0++;
+                avg_vol_err_0 += vol_err;
+            }else{
+                n_vol_cor_no_dose++;
             }
 
-            if (vc / v > 0.01){
-                n_vol_cor_99 += 1;
-                avg_vol_err_99 += dv;
+            if (dose > 0 && (vol_cor / vol_nom <= 0.500)){
+                n_vol_cor_50++;
+                avg_vol_err_50 += vol_err;
             }
 
-        }else{
-            dv = 0;
+            if (dose > 0 && (vol_cor / vol_nom <= 0.01)){
+                n_vol_cor_99++;
+                avg_vol_err_99 += vol_err;
+            }
+
         }
 
-        dt = sqrt(dr*dr + dv*dv);
-        avg_tot_err += dt;
+        // all voxels including zero doses
+        avg_dose += dose;
+        avg_dose_err +=  dose_err;
+        avg_tot_err += sqrt(dose_err*dose_err + vol_err*vol_err);
 
-        if (r >= maxr*0.20) {
+        // all non zero doses
+        if (dose > 0){
+            n_gt_0++;
+            avg_dose_gt_0 += dose;
+            avg_dose_gt_0_err += dose_err;
+            avg_tot_gt_0_err += sqrt(dose_err*dose_err + vol_err*vol_err);
+        }
+
+        // Doses >= 0.2
+        if (dose >= max_dose*0.20) {
             n_gt_20++;
-            avg_gt_20 += r;
-            avg_gt_20_err += dr;
-            avg_gt_20_tot_err += dt;
+            avg_dose_gt_20 += dose;
+            avg_dose_gt_20_err += dose_err;
+            avg_tot_gt_20_err += sqrt(dose_err*dose_err + vol_err*vol_err);
+            if (has_vol_cor){
+                avg_vol_err_d20 += vol_err;
+                n_vol_cor_d20++;
+            }
         }
+
     }
 
     string units = "Gy/hist";
@@ -478,20 +523,43 @@ void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
         units = "Gy/R";
     }
 
-    egsInformation("    Dose Scaling                                =  %.3G\n", dose_scale);
-    egsInformation("    # of voxels with volume corrections         =  %d / %d (%.3G%)\n", n_vol_cor, nreg, 100*n_vol_cor/nreg);
+    egsInformation("\n    Dose Scaling                                  =  %.3G\n", dose_scale);
+
+    egsInformation("\n    # of voxels with vol corrections              =  %d / %d (%.3F%)\n", n_vol_cor, nreg, 100.*n_vol_cor/nreg);
+    egsInformation("    # of voxels with vol correction & D > 0       =  %d / %d (%.3F%)\n", n_vol_cor_0, nreg, 100.*n_vol_cor_0/nreg);
+    egsInformation("    # of voxels with vol correction & D = 0       =  %d / %d (%.3F%)\n", n_vol_cor_no_dose, nreg, 100.*n_vol_cor_no_dose/nreg);
+
+    egsInformation("    Average error on vol correction where:\n");
+    egsInformation("       D > 0 & at least 0%% of voxel covered       =  %.2F% (%d voxels)\n",
+        n_vol_cor_0 > 0 ? 100.*avg_vol_err_0/n_vol_cor_0 : 0, n_vol_cor_0);
     egsInformation("    Average error on vol corrections where:\n");
-    egsInformation("       Up to 100%% of voxel covered              =  %.3G% (%d voxels)\n", 100*avg_vol_err/n_vol_cor, n_vol_cor);
+    egsInformation("       D > 0 & at least 50%% of voxel covered      =  %.2F% (%d voxels)\n",
+        n_vol_cor_50 > 0 ? 100.*avg_vol_err_50/n_vol_cor_50 : 0, n_vol_cor_50);
     egsInformation("    Average error on vol corrections where:\n");
-    egsInformation("       Up to 99.9%% of voxel covered             =  %.3G% (%d voxels)\n", 100*avg_vol_err_999/n_vol_cor_999, n_vol_cor_999);
-    egsInformation("    Average error on vol corrections where:\n");
-    egsInformation("       Up to 99%% of voxel covered               =  %.3G% (%d voxels)\n", 100*avg_vol_err_99/n_vol_cor_99, n_vol_cor_99);
-    egsInformation("    Average dose                                =  %.3G %s\n", avg/nreg, units.c_str());
-    egsInformation("    Average error on calculated doses           =  %.3G%\n", 100*avg_dose_err/nreg);
-    egsInformation("    Average total error on dose (incl Vol Cor)  =  %.3G%\n", 100*avg_tot_err/nreg);
-    egsInformation("    Average error on calculated dose > 0.2*Dmax =  %.3G%\n", 100*avg_gt_20_err/n_gt_20);
-    egsInformation("    Average total error on dose > 0.2*Dmax      =  %.3G%\n", 100*avg_gt_20_tot_err/n_gt_20);
-    egsInformation("    # of voxels with dose > 0.2*Dmax            =  %d / %d (%.3G%)\n", n_gt_20, nreg, 100.*double(n_gt_20)/nreg);
+    egsInformation("       D > 0 & at least 99%% of voxel covered      =  %.2F% (%d voxels)\n",
+        n_vol_cor_99 > 0 ? 100.*avg_vol_err_99/n_vol_cor_99 : 0, n_vol_cor_99);
+
+    egsInformation("\n    Max dose                                      =  %.5E %s\n", max_dose, units.c_str());
+    egsInformation("    # of voxels with D > 0                        =  %d / %d (%.3G%)\n", n_gt_0, nreg, 100.*n_gt_0/nreg);
+    egsInformation("    # of voxels with D = 0                        =  %d / %d (%.3G%)\n", nreg  - n_gt_0, nreg, 100.*(nreg - n_gt_0)/nreg);
+    egsInformation("    Average dose for D > 0                        =  %.5E %s\n", avg_dose_gt_0 / n_gt_0, units.c_str());
+    egsInformation("    Average dose for D >= 0                       =  %.5E %s\n", avg_dose / nreg, units.c_str());
+    egsInformation("    Average error on dose for D > 0               =  %.2F%\n",
+        n_gt_0 ? 100.*avg_dose_gt_0_err / n_gt_0 : 0);
+    egsInformation("    Average error on vol cors for D > 0           =  %.2F% (%d voxels)\n",
+       n_vol_cor_0 ? 100.*avg_vol_err_0 / n_vol_cor_0 : 0, n_vol_cor_0);
+    egsInformation("    Average total error on dose for D > 0         =  %.2F%\n",
+        n_gt_0 ? 100.*avg_tot_gt_0_err / n_gt_0 : 0);
+
+    egsInformation("\n    20%% of Dmax                                   =  %.5E %s\n", 0.2*max_dose, units.c_str());
+    egsInformation("    # of voxels with D >= 20%%*Dmax                =  %d / %d (%.3G%)\n", n_gt_20, nreg, 100.*n_gt_20/nreg);
+    egsInformation("    Average dose for D > 20%%*Dmax                 =  %.5E %s\n", avg_dose_gt_20 / n_gt_20, units.c_str());
+    egsInformation("    Average error on doses for D >= 20%%*Dmax      =  %.2F%\n",
+        n_gt_20 ? 100.*avg_dose_gt_20_err / n_gt_20 : 0);
+    egsInformation("    Average error on vol cors for D >= 20%%*Dmax   =  %.2F% (%d voxels)\n",
+        n_vol_cor_d20 ? 100.*avg_vol_err_d20 / n_vol_cor_d20 : 0, n_vol_cor_d20);
+    egsInformation("    Average total error on dose for D >= 20%%*Dmax =  %.2F%\n",
+       n_gt_20 ? 100.*avg_tot_gt_20_err / n_gt_20 : 0);
 
 }
 
@@ -628,7 +696,7 @@ void EB_Phantom::output3ddoseResults(string format) {
         extension += (format == "gzip") ? ".gz" : "";
         string fname = app->constructIOFileName(extension.c_str(), true);
         egsInformation(
-            "Writing %s dose to %s%s\n",
+            "\nWriting %s dose to %s%s:",
             descriptions[s].c_str(),
             app->getOutputFile().c_str(),
             extension.c_str()

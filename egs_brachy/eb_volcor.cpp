@@ -232,6 +232,21 @@ void Options::setRNG() {
 
 }
 
+/*! set user requested percent threshold at which point voxel is considered totally covered (default 99.99)*/
+void Options::setCoveredThreshold() {
+
+    int err = input->getInput("total coverage threshold %", covered_threshold);
+    if (err) {
+        egsWarning("The input 'total coverage threshold %%' input was not found. Using 99.9%\n");
+        covered_threshold = 99.9;
+    }
+
+    if (covered_threshold > 1.){
+        covered_threshold /= 100;
+    }
+
+}
+
 EGS_Vector Options::getRandomPoint() {
     return bounds->getRandomPoint(rng);
 }
@@ -378,8 +393,8 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         double corrected_vol = reg_vol - bounds_vol*double(hits)/npoints;
         double unc;
 
-        /* consider a voxel coverd if corrected vol is 0.01% or less of nominal volume */
-        bool voxel_covered = corrected_vol / reg_vol < 0.0001;
+        /* consider a voxel coverd if corrected vol is 0.1% (default) or less of nominal volume */
+        bool voxel_covered = corrected_vol / reg_vol <= (1. - opts->covered_threshold);
         if (!(voxel_covered || zero_dose)){
             unc = 1./(sqrt(hits) * ((npoints/hits) * (reg_vol/bounds_vol) - 1.));
         } else {

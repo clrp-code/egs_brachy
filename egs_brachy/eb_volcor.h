@@ -156,6 +156,7 @@ class Options {
     int setBoundsShape();
     void setDensity();
     void setRNG();
+    void setCoveredThreshold();
 
 public:
     Options(EGS_Input *inp):
@@ -179,6 +180,7 @@ public:
 
         setDensity();
         setRNG();
+        setCoveredThreshold();
 
     }
 
@@ -197,6 +199,7 @@ public:
     EGS_Float density;
     EGS_Float npoints;
     VolCorMode mode;
+    EGS_Float covered_threshold;
 
     EGS_Vector getRandomPoint();
 };

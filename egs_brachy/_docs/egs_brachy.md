@@ -903,6 +903,9 @@ The input block for this type of volume correction looks like:
         correction type = correct # optional: none(default), correct, zero dose
         density of random points (cm^-3) = 1E7 # optional random point sampling density defaults to 1E8
 
+        total coverage threshold % = 99.9 # optional level of voxel coverage before it is considered totally covered
+                                          # if a voxel is more than 99.9% (default) covered then it's volume is set to 0
+
         # shape which encompasses source
         :start shape:
             type = cylinder
@@ -1084,6 +1087,11 @@ as well.
 If `score scatter dose` is enabled, egs_brachy will score primary, single
 scattered and multiple scattered dose (normalized to total radiant energy) and
 output them to 3ddose files with the format `{input_file}_{phantom_name}.{pr,ss,ms,to}.3ddose`
+
+Note that for voxels with volume corrections, the uncertainty in the 3ddose
+file represents the total uncertainty of the calculation which is the error on
+the dose calculation added in quadrature to the error on the volume correction
+calculation.
 
 
 \subsubsection egsphant egsphant file
