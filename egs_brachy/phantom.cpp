@@ -799,7 +799,7 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
                     int ireg = ii + jj*nx + kk*nx*ny;
 
                     if (loop == 0) {
-                        out << geometry->medium(ireg)+1;
+                        out << medIndex(geometry->medium(ireg));
                     } else {
                         out << getRealRho(ireg) << "\t";
                     }
@@ -810,6 +810,16 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
         }
     }
 
+}
+
+string EB_Phantom::medIndex(int medium){
+
+    string medIdx = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (medium >= medIdx.length()){
+        egsFatal("Too many media to write egsPhant");
+    }
+
+    return string(1, medIdx[medium]);
 }
 
 void EB_Phantom::outputEGSPhant(string format) {

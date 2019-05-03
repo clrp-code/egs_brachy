@@ -116,6 +116,8 @@ private:
     /*! \brief write actual egsphant data to file for this phantom */
     void writeEGSPhant(ostream &);
 
+    /*! \brief get medium index 1-9A-Z */
+    string medIndex(int medium);
 
     /*! \brief create a vector of RegionResult structs which can then be
      * sorted by dose value.  used for output routines */
