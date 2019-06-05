@@ -1478,13 +1478,13 @@ int EB_Application::ausgab(int iarg) {
 
     /* these notifications may be used by subscribers like spectrum
      * scoring objects, latch control etc */
-    SendMessage send_messages[] = {
-        SendMessage(is_before_transport, PARTICLE_TAKING_STEP),
-        SendMessage(is_after_transport, PARTICLE_TOOK_STEP),
-        SendMessage(escaping_source, PARTICLE_ESCAPING_SOURCE),
-        SendMessage(escaped_source, PARTICLE_ESCAPED_SOURCE),
-        SendMessage(escaping_geom, PARTICLE_ESCAPING_GEOM),
-        SendMessage(escaped_geom, PARTICLE_ESCAPED_GEOM)
+    EBSendMessage send_messages[] = {
+        EBSendMessage(is_before_transport, PARTICLE_TAKING_STEP),
+        EBSendMessage(is_after_transport, PARTICLE_TOOK_STEP),
+        EBSendMessage(escaping_source, PARTICLE_ESCAPING_SOURCE),
+        EBSendMessage(escaped_source, PARTICLE_ESCAPED_SOURCE),
+        EBSendMessage(escaping_geom, PARTICLE_ESCAPING_GEOM),
+        EBSendMessage(escaped_geom, PARTICLE_ESCAPED_GEOM)
     };
     int nmesg = sizeof(send_messages)/sizeof(send_messages[0]);
     for (int m=0; m < nmesg; m++) {

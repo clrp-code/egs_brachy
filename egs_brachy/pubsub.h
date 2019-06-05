@@ -66,7 +66,7 @@ enum EB_Message {
 
 };
 
-typedef pair<bool, EB_Message> SendMessage;
+typedef pair<bool, EB_Message> EBSendMessage;
 
 class Subscriber {
 public:
