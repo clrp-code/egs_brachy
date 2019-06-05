@@ -72,13 +72,13 @@ recycle_$(my_machine).$(obje): recycle.cpp $(common_eb_deps)
 pubsub_$(my_machine).$(obje): pubsub.cpp
 
 sweep:
-	make
+	$(make_prog)
 	rm -f *_$(my_machine).o *_$(my_machine).mortlst mortjob.mortran egsnrc_$(my_machine).F
 
 docs: _docs/egs_brachy.md
 	cd _docs; python gen_docs.py
 	cd _docs; doxygen ./egs_brachy.dox
-	cd docs/latex; make pdf
+	cd docs/latex; $(make_prog) pdf
 	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_technical_manual.pdf
 	rm -rf docs/latex
 	cp -rf docs ../
@@ -89,11 +89,11 @@ docs: _docs/egs_brachy.md
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
 eb_iaeaphsp:
-	cd eb_iaeaphsp_source; make
+	cd eb_iaeaphsp_source; $(make_prog)
 	ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
 else
 eb_iaeaphsp:
-	cd eb_iaeaphsp_source; make
+	cd eb_iaeaphsp_source; $(make_prog)
 endif
 
 test:
