@@ -5,9 +5,12 @@ import sys
 
 HEN_HOUSE = os.getenv("HEN_HOUSE")
 try:
-    IAEA_DLL = glob.glob(os.path.join(HEN_HOUSE,"egs++/dso/*/", "libiaea_phsp.so"))[0]
+    if os.name == "nt":
+        IAEA_DLL = glob.glob(os.path.join(HEN_HOUSE,"egs++/dso/*/", "iaea_phsp.dll"))[0]
+    else:
+        IAEA_DLL = glob.glob(os.path.join(HEN_HOUSE,"egs++/dso/*/", "libiaea_phsp.so"))[0]
 except IndexError:
-    raise ValueError("libiaea_phsp.so not fount")
+    raise ValueError("iaea_phsp shared library not found")
 from ctypes import byref
 
 import os

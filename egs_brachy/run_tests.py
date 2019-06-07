@@ -111,16 +111,20 @@ def cleanup():
         # sanity check to make sure we're not deleting anything outside of this directory
         file_is_in_current_dir = os.path.dirname(f) == os.path.dirname(os.path.abspath(__file__))
         if file_is_in_current_dir:
-            os.remove(f)
+            try:
+                os.remove(f)
+            except PermissionError as e:
+                print(e)
+                print("{} was not deleted because of a permission error.".format(os.path.basename(f)))
 
 
 def find_tests():
     if len(sys.argv) > 1:
-        tests = glob.glob(os.path.join(sys.argv[1], "__init__.py"))
+        tests = glob.glob(os.path.join(os.path.normpath(sys.argv[1]), "__init__.py"))
     else:
         tests = glob.glob("tests/*/__init__.py")
 
-    return [x.replace("/__init__.py", "").replace("/", ".") for x in tests]
+    return [x.replace(os.path.join(os.path.sep, "__init__.py"), "").replace(os.path.sep, ".") for x in tests]
 
 
 def run_all_tests():
