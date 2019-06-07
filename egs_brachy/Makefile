@@ -39,7 +39,7 @@ common_egspp_h = egs_vector.h egs_math.h egs_functions.h
 
 common_eb_deps = $(addprefix $(ABS_EGSPP), $(common_egspp_h))
 
-extra_user_files := phantom eb_volcor latch spec_scoring pubsub ginfo recycle phsp gzstream
+extra_user_files := phantom eb_volcor latch spec_scoring pubsub ginfo recycle phsp gzstream sobol egs_sobol
 
 egs_sources_dir = $(ABS_EGSPP)sources$(DSEP)
 
@@ -70,6 +70,8 @@ eb_volcor_$(my_machine).$(obje): eb_volcor.cpp $(common_eb_deps)
 spec_scoring_$(my_machine).$(obje): spec_scoring.cpp $(common_eb_deps)
 recycle_$(my_machine).$(obje): recycle.cpp $(common_eb_deps)
 pubsub_$(my_machine).$(obje): pubsub.cpp
+sobol_$(my_machine).$(obje): sobol.cpp
+egs_sobol_$(my_machine).$(obje): egs_sobol.cpp
 
 sweep:
 	$(make_prog)
