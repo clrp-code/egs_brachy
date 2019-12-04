@@ -1801,7 +1801,7 @@ int EB_Application::simulateSingleShower() {
         initial_source = 0;
     }
 
-    p.wt = source_weights[active_source];
+    p.wt *= source_weights[active_source];
 
     if (run_mode == RM_SUPERPOSITION) {
         superpos_geom->setActiveByIndex(initial_source);
