@@ -298,7 +298,7 @@ void EB_Phantom::getCurrentScore(int ireg, double &sum, double &sum2) {
 
 double EB_Phantom::getTlenNorm(int ireg) {
     double eff_hist_norm = (double)effective_histories/cur_history;
-    return 1.602E-10*nsources*dose_scale/eff_hist_norm;
+    return 1.60217662E-10*nsources*dose_scale/eff_hist_norm;
 }
 
 void EB_Phantom::getResult(EGS_ScoringArray *score, int ireg, string type, EGS_Float &r, EGS_Float &dr) {
@@ -316,9 +316,9 @@ void EB_Phantom::getResult(EGS_ScoringArray *score, int ireg, string type, EGS_F
 
 
     if (type == "tlen") {
-        r *= 1.602E-10*nsources*dose_scale/eff_hist_norm;
+        r *= 1.60217662E-10*nsources*dose_scale/eff_hist_norm;
     } else if (type == "edep") {
-        r *= 1.602E-10*nsources*dose_scale/eff_hist_norm;
+        r *= 1.60217662E-10*nsources*dose_scale/eff_hist_norm;
     } else { // scatter norm
         r *= (cur_history/total_radiant_e)*nsources*dose_scale/eff_hist_norm;
     }
