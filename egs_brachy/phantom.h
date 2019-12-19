@@ -72,7 +72,8 @@ class EB_Phantom : public Subscriber {
 
 private:
 
-    const static string allowed_phantom_geom_types[];
+    const static string autovol_phantom_geom_types[];
+    const static string threeddose_geom_types[];
 
     EGS_Application *app;  ///< Parent application instance. Required for constructing filenames
     EGS_ScoringArray *tlen_score; ///< Tracklength dose scoring array
@@ -92,6 +93,7 @@ private:
     Publisher *publisher;
 
     std::map<int, double> corrected_volumes; ///< Corrected volume in a given region
+    std::map<int, double> volume_uncertainty;
 
     /*! \brief write some stats about dose arrays*/
     void outputDoseStats(EGS_ScoringArray *score, string type);
@@ -114,14 +116,12 @@ private:
     /*! \brief write actual egsphant data to file for this phantom */
     void writeEGSPhant(ostream &);
 
+    /*! \brief get medium index 1-9A-Z */
+    string medIndex(int medium);
 
     /*! \brief create a vector of RegionResult structs which can then be
      * sorted by dose value.  used for output routines */
     vector<RegionResult> getRegionResults();
-
-    /*! \brief get result for region from scoring array and normalize based
-     * on the type requested. */
-    void getResult(EGS_ScoringArray *, int ireg, string type, EGS_Float &r, EGS_Float &dr);
 
     /*! \brief get all active scoring arrays, their types and descriptions */
     void getScoringArrays(vector<EGS_ScoringArray *> &scores, vector<string> &types, vector<string> &descriptions);
@@ -163,8 +163,12 @@ public:
     };
 
     /*! \brief function for checking whether a given geometry type
-     * is allowed to be used as a phantom */
-    static bool allowedPhantomGeom(const string &geom_type);
+     * requires user specified volumes */
+    static bool needsUserVolumes(const string &geom_type);
+
+    /*! \brief function for checking whether a given geometry type
+     * can output 3ddose files */
+    static bool canWrite3ddose(const string &geom_type);
 
     /*! \brief add tracklength dose to region ir */
     void scoreTlen(int ir, EGS_Float dose, EGS_Particle *p);
@@ -182,8 +186,13 @@ public:
 
     void update(EB_Message message, void *data);
 
+    bool hasVolCor(int ireg);
+
     /*! \brief get uncorrected volume for a given region */
     EGS_Float getCorrectedVolume(int ireg);
+
+    /*! \brief get volume unc */
+    EGS_Float getVolumeUncertainty(int ireg);
 
     /*! \brief get corrected volume for a given region */
     EGS_Float getUncorrectedVolume(int ireg);
@@ -193,7 +202,7 @@ public:
     vector<int> getRegionsWithCorrections();
 
     /*! \brief Allow user to tell phantom what the actual volume of a region is */
-    void setCorrectedVolume(int ir, double fraction);
+    void setCorrectedVolume(int ir, double fraction, double unc=0);
 
     /*! \brief enableTLenScoring must be called before simulation
      * begins if you want to score dose with tracklength estimator in
@@ -266,6 +275,10 @@ public:
     /*! \brief return uncorrected for region */
     EGS_Float getUncorrectedMass(int ireg);
 
+    /*! \brief get result for region from scoring array and normalize based
+     * on the type requested. */
+    void getResult(EGS_ScoringArray *, int ireg, string type, EGS_Float &r, EGS_Float &dr);
+
 
     /*! \brief the phantom geometry object */
     EGS_BaseGeometry *geometry;
@@ -280,6 +293,8 @@ public:
     int global_reg_start; ///< starting global region index for this phantom
     int global_reg_stop; ///< ending global region index for this phantom
 
+    bool needs_user_geoms; ///< this phantom requires user specified geometries
+    bool can_write_3ddose; ///< this phantom can output 3ddose files
 
 };
 

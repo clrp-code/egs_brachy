@@ -199,6 +199,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a760d7542f42d9521dca30aec0bf277cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a760d7542f42d9521dca30aec0bf277cd">getCurrentResult</a> (double &amp;sum, double &amp;sum2, double &amp;norm, double &amp;count)</td></tr>
 <tr class="memdesc:a760d7542f42d9521dca30aec0bf277cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports the current results for this batch of the simulation.  <a href="#a760d7542f42d9521dca30aec0bf277cd">More...</a><br /></td></tr>
 <tr class="separator:a760d7542f42d9521dca30aec0bf277cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dae64d1cacf232628102897312f3fd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEB__Phantom.html">EB_Phantom</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a7dae64d1cacf232628102897312f3fd5">getPhantomByName</a> (string name)</td></tr>
+<tr class="memdesc:a7dae64d1cacf232628102897312f3fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes a phantom geometry name and returns the <a class="el" href="classEB__Phantom.html" title="A class to represent a single phantom for scoring dose in egs_brachy. ">EB_Phantom</a> object  <a href="#a7dae64d1cacf232628102897312f3fd5">More...</a><br /></td></tr>
+<tr class="separator:a7dae64d1cacf232628102897312f3fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a372127ee0cbb8cf18e608303a951667e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a372127ee0cbb8cf18e608303a951667e">startNewParticle</a> ()</td></tr>
 <tr class="memdesc:a372127ee0cbb8cf18e608303a951667e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set source ecut/pcut if different from global ecut/pcut.  <a href="#a372127ee0cbb8cf18e608303a951667e">More...</a><br /></td></tr>
 <tr class="separator:a372127ee0cbb8cf18e608303a951667e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -451,6 +454,16 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a540e2dcdb8c55d1e92e56d73ff8e31bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a540e2dcdb8c55d1e92e56d73ff8e31bc">gcr_phantom_reg</a></td></tr>
 <tr class="memdesc:a540e2dcdb8c55d1e92e56d73ff8e31bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">region of phantom to use for getCurrentResult (default to 0)  <a href="#a540e2dcdb8c55d1e92e56d73ff8e31bc">More...</a><br /></td></tr>
 <tr class="separator:a540e2dcdb8c55d1e92e56d73ff8e31bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d1aa216e1566312a5ba6dee26fd258"><td class="memItemLeft" align="right" valign="top">map&lt; string, vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a18d1aa216e1566312a5ba6dee26fd258">extra_scoring_reg</a></td></tr>
+<tr class="separator:a18d1aa216e1566312a5ba6dee26fd258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7f004dc38e03075fc583bca960bb6d"><td class="memItemLeft" align="right" valign="top">map&lt; string, vector&lt; EGS_Float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a9d7f004dc38e03075fc583bca960bb6d">extra_scoring_vols</a></td></tr>
+<tr class="separator:a9d7f004dc38e03075fc583bca960bb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0312454db9cc47bde8828983ad72b7ad"><td class="memItemLeft" align="right" valign="top">map&lt; string, vector&lt; EGS_Float &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a0312454db9cc47bde8828983ad72b7ad">extra_scoring_mass</a></td></tr>
+<tr class="separator:a0312454db9cc47bde8828983ad72b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0c69d9c2c174e6ff5dd6dc227ed23d"><td class="memItemLeft" align="right" valign="top">map&lt; string, EGS_ScoringArray * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a2d0c69d9c2c174e6ff5dd6dc227ed23d">extra_scoring_doses</a></td></tr>
+<tr class="separator:a2d0c69d9c2c174e6ff5dd6dc227ed23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b7f3a57cc1b7af2fa0f504221ebd508"><td class="memItemLeft" align="right" valign="top">map&lt; string, EGS_ScoringArray * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#a7b7f3a57cc1b7af2fa0f504221ebd508">extra_scoring_doses_edep</a></td></tr>
+<tr class="separator:a7b7f3a57cc1b7af2fa0f504221ebd508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbfe65f1504c6e214a086771bf3b6264"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structebvolcor_1_1Results.html">ebvolcor::Results</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Application.html#adbfe65f1504c6e214a086771bf3b6264">source_vc_results</a></td></tr>
 <tr class="memdesc:adbfe65f1504c6e214a086771bf3b6264"><td class="mdescLeft">&#160;</td><td class="mdescRight">results from source volume correctio box phantom  <a href="#adbfe65f1504c6e214a086771bf3b6264">More...</a><br /></td></tr>
 <tr class="separator:adbfe65f1504c6e214a086771bf3b6264"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -560,7 +573,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>egs_brachy constructor </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00260">260</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00266">266</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +600,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>egs_brachy destructor </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00297">297</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00303">303</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -624,7 +637,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01355">1355</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01422">1422</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -644,7 +657,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Add data from a parallel job. Add standard egs++ data as well as egs_brachy specific scoring information. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02253">2253</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02365">2365</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -664,7 +677,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>user scoring of dose, spectra etc </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01417">1417</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01484">1484</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -689,7 +702,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01633">1633</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01743">1743</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -716,7 +729,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>disable all ausgab calls </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01022">1022</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01089">1089</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -733,7 +746,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02170">2170</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02282">2282</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -787,7 +800,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01254">1254</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01321">1321</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -814,7 +827,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>run the volume correction routines </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00444">444</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00447">447</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +854,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set up Phantom objects for any geometries that user has requested scoring for </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00476">476</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00538">538</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -867,7 +880,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00390">390</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00393">393</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -932,7 +945,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01347">1347</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01414">1414</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -958,7 +971,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01581">1581</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01691">1691</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -978,7 +991,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01917">1917</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02029">2029</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -998,7 +1011,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02056">2056</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02168">2168</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1031,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01893">1893</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02005">2005</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1038,7 +1051,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02033">2033</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02145">2145</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1058,7 +1071,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01944">1944</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02056">2056</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1091,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02084">2084</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02196">2196</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1129,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>enable an array of ausgab calls </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01150">1150</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01217">1217</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1141,7 +1154,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01328">1328</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01395">1395</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1183,7 +1196,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Reports the current results for this batch of the simulation. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01771">1771</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01882">1882</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1208,7 +1221,27 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00455">455</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00474">474</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7dae64d1cacf232628102897312f3fd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEB__Phantom.html">EB_Phantom</a> * EB_Application::getPhantomByName </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>takes a phantom geometry name and returns the <a class="el" href="classEB__Phantom.html" title="A class to represent a single phantom for scoring dose in egs_brachy. ">EB_Phantom</a> object </p>
+
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00804">804</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1269,7 @@ Static Private Attributes</h2></td></tr>
 <p>setup any required ausgab calls </p>
 <p>For efficiency, only those ausgab calls which are strictly neccessary should be enabled </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01029">1029</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01096">1096</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1256,7 +1289,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialize BCSE variance reduction if requested. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00964">964</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01031">1031</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1314,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00628">628</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00684">684</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1342,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialize dose scaling factor if requested. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01205">1205</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01272">1272</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1337,7 +1370,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>energy deposition scoring initialization </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01157">1157</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01224">1224</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1365,7 +1398,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>setup which phantom/region will be used for getCurrentResult </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00704">704</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00760">760</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1426,7 @@ Static Private Attributes</h2></td></tr>
 <p>override default initGeometry so we can manually create our own geometry. </p>
 <p>This allows us to track region numbers for each geometry object individually </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00310">310</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00314">314</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1454,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>load muen data for requested media </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01093">1093</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01160">1160</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1449,7 +1482,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set up whether to output extra info files </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00748">748</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00815">815</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1477,7 +1510,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set up phsp scoring </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00777">777</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00844">844</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1496,7 +1529,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>egs_brachy specific run control initialization </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00582">582</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00638">638</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1515,7 +1548,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Get run mode from the input file. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00595">595</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00651">651</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1535,7 +1568,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialize Russian roulette variance reduction if requested. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00938">938</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01005">1005</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1563,7 +1596,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>energy deposition scoring initialization </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01176">1176</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01243">1243</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1582,7 +1615,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>initialze all scoring and variance reduction parameters </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00670">670</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00726">726</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1601,7 +1634,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set the run mode and then call EGS_AdvancedApplication::initSimulation </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00562">562</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00618">618</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1626,7 +1659,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00519">519</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00575">575</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1653,7 +1686,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>read in the location of all particle sources </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00412">412</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00415">415</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1681,7 +1714,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialize all spectrum scoring objects. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01001">1001</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01068">1068</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1709,7 +1742,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>track length scoring initialization </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01041">1041</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01108">1108</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1728,7 +1761,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>initialze all variance reduction parameters </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00788">788</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00855">855</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1756,7 +1789,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initialize cross section scaling if requested. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01218">1218</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01285">1285</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1781,7 +1814,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01387">1387</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01454">1454</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1800,7 +1833,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Output intermediate results. The egs_brachy version outputs the standard egs++ data along with egs_brachy specific information such as phantom and spectrum scoring information. egs_brachy also allows you to output data in gzip format. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01991">1991</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02103">2103</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1820,7 +1853,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01977">1977</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02089">2089</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1837,7 +1870,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01652">1652</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01762">1762</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1854,7 +1887,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00290">290</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l00294">294</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1873,7 +1906,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Read data required for restarting simulations. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02128">2128</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02240">2240</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1893,7 +1926,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>helper function for outputData </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02113">2113</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02225">2225</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1912,7 +1945,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Reset the application to a 'pristine' state. Adapted from egs_application.cpp to allow combining in text or gzip format. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02232">2232</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l02344">2344</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1937,7 +1970,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01781">1781</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01892">1892</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1962,7 +1995,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01789">1789</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01900">1900</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -1989,7 +2022,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Set source ecut/pcut if different from global ecut/pcut. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01313">1313</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01380">1380</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -2014,7 +2047,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01867">1867</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8cpp_source.html#l01979">1979</a> of file <a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a>.</p>
 
 </div>
 </div>
@@ -2231,7 +2264,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00350">350</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00366">366</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2259,6 +2292,116 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2d0c69d9c2c174e6ff5dd6dc227ed23d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, EGS_ScoringArray* &gt; EB_Application::extra_scoring_doses</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00182">182</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b7f3a57cc1b7af2fa0f504221ebd508"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, EGS_ScoringArray* &gt; EB_Application::extra_scoring_doses_edep</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00183">183</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0312454db9cc47bde8828983ad72b7ad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, vector&lt;EGS_Float&gt; &gt; EB_Application::extra_scoring_mass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00181">181</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a18d1aa216e1566312a5ba6dee26fd258"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, vector&lt;int&gt; &gt; EB_Application::extra_scoring_reg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00179">179</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d7f004dc38e03075fc583bca960bb6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, vector&lt;EGS_Float&gt; &gt; EB_Application::extra_scoring_vols</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00180">180</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="afdbd91d55d696b9bd62b5e8e30d49dca"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2279,7 +2422,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>results from precomputed volume correction </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00181">181</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00187">187</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2375,7 +2518,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>results from general volume correction </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00180">180</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00186">186</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2519,7 +2662,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>GZip file for outputing egsdat. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00192">192</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00198">198</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2543,7 +2686,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>GZip file for outputing egsdat. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00191">191</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00197">197</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2623,7 +2766,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00352">352</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00368">368</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2731,7 +2874,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>total number of particle sources in current simulation </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00346">346</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00362">362</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -2993,7 +3136,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Particle event publisher. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00183">183</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00189">189</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3109,7 +3252,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>the usercode revision number </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00194">194</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00200">200</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3417,7 +3560,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>results from source volume correctio box phantom </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00179">179</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00185">185</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3505,7 +3648,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00189">189</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00195">195</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3527,7 +3670,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00188">188</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00194">194</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3549,7 +3692,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00187">187</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00193">193</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
@@ -3597,13 +3740,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>Track CPU times of various functions. </p>
 
-<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00185">185</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
+<p>Definition at line <a class="el" href="egs__brachy_8h_source.html#l00191">191</a> of file <a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/randlet/projects/egs/egs_brachy_release/egs_brachy/<a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a></li>
-<li>/home/randlet/projects/egs/egs_brachy_release/egs_brachy/<a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a></li>
+<li>/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/<a class="el" href="egs__brachy_8h_source.html">egs_brachy.h</a></li>
+<li>/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/<a class="el" href="egs__brachy_8cpp_source.html">egs_brachy.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

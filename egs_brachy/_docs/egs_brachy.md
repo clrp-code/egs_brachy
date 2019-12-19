@@ -877,11 +877,15 @@ of the input is `medium_name enhancement_factor`.
 \subsection voxvc Voxel volume correction details
 
 egs_brachy has three methods available for doing voxel volume correction
-calculations.  There is a 'fast' method that uses the same technique described
-in the egs_autoenvelope documentation and a more general purpose routine which
-can be used for larger volumes with multiple overlapping phantom geometries. In
-addition to those two methods, corrected voxel volumes can be precomputed (either
-manually or by egs\_brachy) and read from a file.
+calculations in rectilinear, cylindrical and spherical geometries.  There is a
+'fast' method that uses the same technique described in the egs_autoenvelope
+documentation and a more general purpose routine which can be used for larger
+volumes with multiple overlapping phantom geometries. In addition to those two
+methods, corrected voxel volumes can be precomputed (either manually or by
+egs\_brachy) and read from a file. Finally, there is a fourth method,
+`phantom region volumes` that can be used to specify manually calcualted
+voxel volumes in the input file for other geometry types (e.g. conical
+ geometries).
 
 See [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp) for
 examples of the fast & general volume correction methods.
@@ -898,6 +902,9 @@ The input block for this type of volume correction looks like:
 
         correction type = correct # optional: none(default), correct, zero dose
         density of random points (cm^-3) = 1E7 # optional random point sampling density defaults to 1E8
+
+        total coverage threshold % = 99.9 # optional level of voxel coverage before it is considered totally covered
+                                          # if a voxel is more than 99.9% (default) covered then it's volume is set to 0
 
         # shape which encompasses source
         :start shape:
@@ -1019,6 +1026,49 @@ default. For all other shapes the regular Ranmar RNG will be used (the Sobol
 be overridden as show in the example above.
 
 
+\subsubsection vcuser Manually specifying voxel volumes
+
+For calculating dose in phantoms which are not rectilinear, cylindrical, or
+spherical you may use `phantom region volumes` blocks to specify the the volume
+of one or more regions in a phantom (note, it will also work in e.g.
+    rectilinear phantoms, it's just not generally needed). The format of these
+blocks is:
+
+\verbatim
+
+:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = <phantom_name>
+        region numbers = r_1 r_2 ... r_i ... r_N
+        region volumes = V_1 V_2 ... V_i ... V_N
+    :stop phantom region volumes:
+
+:stop volume correction:
+
+\endverbatim
+
+for example to specify volumes of 0.5cm^3 and 1cm^3 for regions 1 and 3
+respectively in a phantom called `my_phantom` you would do:
+
+\verbatim
+
+:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = my_phantom
+        region numbers = 1 3 
+        region volumes = 0.5 1
+    :stop phantom region volumes:
+
+:stop volume correction:
+
+\endverbatim
+
+if you try to calculate dose in a geometry type that doesn't support automatic
+volume calculations without including a `phantom region volumes` block,
+       egs\_brachy will print a warning and terminate.
+
 \subsection outputfiles Output files
 
 
@@ -1037,6 +1087,11 @@ as well.
 If `score scatter dose` is enabled, egs_brachy will score primary, single
 scattered and multiple scattered dose (normalized to total radiant energy) and
 output them to 3ddose files with the format `{input_file}_{phantom_name}.{pr,ss,ms,to}.3ddose`
+
+Note that for voxels with volume corrections, the uncertainty in the 3ddose
+file represents the total uncertainty of the calculation which is the error on
+the dose calculation added in quadrature to the error on the volume correction
+calculation.
 
 
 \subsubsection egsphant egsphant file
@@ -1091,7 +1146,7 @@ the code is still performing as expected after making modifications
 or updating the egsnrc version.
 
 Geometries required for the tests are either defined within the .egsinp
-files or within [tests/test_geoms](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/test_geoms).
+files or within [eb_tests/test_geoms](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/eb_tests/test_geoms).
 
 \subsection setup Setup
 
@@ -1133,7 +1188,7 @@ You can also run a subset of the tests in the following way:
 
 \verbatim
 
-~/egs/egsnrc/egs_brachy$ python run_tests.py tests/seeds_in_xyz/
+~/egs/egsnrc/egs_brachy$ python run_tests.py eb_tests/seeds_in_xyz/
 CPU speed read from /proc/cpuinfo as 3498.557000 MHz
 Running test 'tests.seeds_in_xyz'...
 PASS - tests.seeds_in_xyz - ran in 0.00269 s/MHz (9.4 s)
@@ -1147,7 +1202,7 @@ or
 
 \verbatim
 
-~/egs/egsnrc/egs_brachy$ python run_tests.py "tests/spec*"
+~/egs/egsnrc/egs_brachy$ python run_tests.py "eb_tests/spec*"
 CPU speed read from /proc/cpuinfo as 3498.557000 MHz
 Running test 'tests.spec_eflu'...
 PASS - tests.spec_eflu - ran in 0.000629 s/MHz (2.2 s)
@@ -1202,7 +1257,7 @@ These provide a good starting point for users new to egs_brachy.
 This egs_brachy Technical Reference Manual uses doxygen and Python to build its documentation. Documentation
 for the egs_brachy library and test suite are generated by a number of Python
 scripts located in the _docs directory. The Python scripts generate markdown
-documents based on the contents of the `lib` and `tests` directory. These
+documents based on the contents of the `lib` and `eb_tests` directory. These
 markdown documents are then compiled to html by doxygen. A pdf of all the
 documentation will also be created and placed at `docs/pdf/egs_brachy_technical_manual.pdf`.
 
