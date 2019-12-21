@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mxmed',['MXMED',['../array__sizes_8h.html#af160181574139f384d6b92917727ca85',1,'array_sizes.h']]],
-  ['mxstack',['MXSTACK',['../array__sizes_8h.html#a6d4399919d6e059c35fc4406d0523be6',1,'array_sizes.h']]]
+  ['dim_5fmax',['DIM_MAX',['../sobol_8cpp.html#a4bf6f11165a23227af11f1d0d75798a4',1,'DIM_MAX():&#160;sobol.cpp'],['../sobol_8cpp.html#a4bf6f11165a23227af11f1d0d75798a4',1,'DIM_MAX():&#160;sobol.cpp']]],
+  ['dim_5fmax2',['DIM_MAX2',['../sobol_8cpp.html#a08477d6b4326959b1d01d9d5795cc8f3',1,'DIM_MAX2():&#160;sobol.cpp'],['../sobol_8cpp.html#a08477d6b4326959b1d01d9d5795cc8f3',1,'DIM_MAX2():&#160;sobol.cpp']]]
 ];

@@ -629,6 +629,37 @@ An example `source definition` block is shown below for a 6702 seed:
 
 \endverbatim
 
+\subsubsection overlap Checking for overlapping sources
+
+egs\_brachy can optionally run a Monte Carlo calculation (similar to volume
+    correction routines) to try to determine if any sources are overlapping. To
+run this check at the beginning of your simulation add a `source overlap check`
+input block to the the `source definition` section.  
+
+A sample `source overlap check` block looks like:
+
+\startverbatim
+
+    :start source overlap check:
+
+        check source overlaps = yes  # yes or no (default)
+
+        warning mode = fatal  # fatal (default) or warning. 
+                              # fatal kills the simulation, warning allows it to continue but prints a warning
+
+        density of random points (cm^-3) = 1E6  # density of points to use for checking for overlap
+
+        # bounding shape to use for generating random points around source
+        :start shape:
+            type = cylinder
+            radius = 0.04
+            height = 0.46
+        :stop shape:
+
+    :stop source overlap check:
+
+\endverbatim
+
 \subsubsection varweight Variable source weighting
 
 In order to simulate sources with different activity levels you can add a

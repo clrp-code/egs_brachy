@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['print_5fparticle',['PRINT_PARTICLE',['../egs__brachy_8h.html#a94d34d4eee7fac517b8b3bc83ce0c23e',1,'egs_brachy.h']]],
-  ['print_5fparticle_5fwith_5fdir',['PRINT_PARTICLE_WITH_DIR',['../egs__brachy_8h.html#a462fd487a78caadedd0bc18bf1e371b2',1,'egs_brachy.h']]]
+  ['log_5fmax',['LOG_MAX',['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX():&#160;sobol.cpp'],['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX():&#160;sobol.cpp']]]
 ];

@@ -10,17 +10,9 @@ var searchData=
   ['iaea_5fi64',['IAEA_I64',['../namespaceeb__tests_1_1iaea__types.html#a3861e6c0779aad44be54800010b775e6',1,'eb_tests::iaea_types']]],
   ['iaeadll',['iaeadll',['../namespaceeb__tests_1_1iaea.html#a4fabe09963a463e240226264d758fd46',1,'eb_tests::iaea']]],
   ['id',['id',['../classPHSPControl.html#ad315a8548e51f401a8db904858436213',1,'PHSPControl']]],
-  ['if',['If',['../LICENSE_8txt.html#a639f8d73f895ba1d65ad9df8173ea738',1,'LICENSE.txt']]],
-  ['implied',['IMPLIED',['../LICENSE_8txt.html#a0656092151afd9a88ee2de844a2b05bd',1,'LICENSE.txt']]],
-  ['inc',['Inc',['../LICENSE_8txt.html#a0fb48dcd0e765cf00314a6b487157586',1,'LICENSE.txt']]],
-  ['including',['INCLUDING',['../LICENSE_8txt.html#ae153ca5b04a23c8c58af712bf8ab69bc',1,'LICENSE.txt']]],
-  ['indexsectionnames',['indexSectionNames',['../search_8js.html#a77149ceed055c6c6ce40973b5bdc19ad',1,'search.js']]],
-  ['indexsectionswithcontent',['indexSectionsWithContent',['../search_8js.html#a6250af3c9b54dee6efc5f55f40c78126',1,'search.js']]],
+  ['init_5fseed',['init_seed',['../classEGS__Sobol.html#afe0731a2a1c104e0acb9b3bc6595f2ae',1,'EGS_Sobol']]],
   ['input',['input',['../classebvolcor_1_1Options.html#a628c32aa934b8992d966182e3c0e0ba2',1,'ebvolcor::Options::input()'],['../classebvolcor_1_1VolumeCorrector.html#a5a177cc9d56e6a8478e879d5adb39789',1,'ebvolcor::VolumeCorrector::input()']]],
-  ['interfaces',['interfaces',['../LICENSE_8txt.html#aa77bda5a94aa5bcb8557edd336ad6283',1,'LICENSE.txt']]],
-  ['invoked',['invoked',['../LICENSE_8txt.html#a558e60d2ccd05f0eb1bee55276c5af30',1,'LICENSE.txt']]],
+  ['ir',['ir',['../structebvolcor_1_1RegVolume.html#a45e27f4b764bf709946674b4f603a493',1,'ebvolcor::RegVolume']]],
   ['is_5fphsp_5fsource',['is_phsp_source',['../classEB__Application.html#adc4e727e067d87a2fd7331eb832a9def',1,'EB_Application']]],
-  ['is_5fvalid',['is_valid',['../classEB__IAEASource.html#afd4fd2e404fdb8f43736a27162b3f4b6',1,'EB_IAEASource']]],
-  ['isolation',['isolation',['../LICENSE_8txt.html#a64e2bd2713b498c2d91c16de886df3fe',1,'LICENSE.txt']]],
-  ['it',['it',['../LICENSE_8txt.html#a76868a71f10b10fd75a76f81ad936660',1,'LICENSE.txt']]]
+  ['is_5fvalid',['is_valid',['../classEB__IAEASource.html#afd4fd2e404fdb8f43736a27162b3f4b6',1,'EB_IAEASource']]]
 ];
