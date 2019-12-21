@@ -194,6 +194,8 @@ public:
     /* \brief print information about geometries and their region number*/
     void printInfo();
 
+    /* \brief collect a vector of all children for a given geometry node */
+    void getAllChildren(string, vector<string> &);
 };
 
 #endif

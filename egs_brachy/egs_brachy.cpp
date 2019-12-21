@@ -371,6 +371,7 @@ int EB_Application::initGeometry() {
         egsFatal("Simulation stopped\n");
     }
 
+
     err = correctVolumes();
 
     timing_blocks.stopTimer();
@@ -412,6 +413,7 @@ int EB_Application::initSourceTransforms() {
         return -1;
     }
 
+
     EGS_Input *source_loc_inp = source_inp->takeInputItem("transformations");
 
     if (source_loc_inp) {
@@ -422,14 +424,171 @@ int EB_Application::initSourceTransforms() {
     if (source_transforms.size() == 0) {
         EGS_AffineTransform *unity_trans = new EGS_AffineTransform();
         source_transforms.push_back(unity_trans);
-        egsWarning("EB_Application:: missing or invalid source `transformations` input item. Assuming single source at origin");
+        egsWarning("EB_Application:: missing or invalid source `transformations` input item. Assuming single source at origin\n");
     }
     nsources = (int)source_transforms.size();
     base_transform = source_transforms[0];
     base_transform_inv = new EGS_AffineTransform(base_transform->inverse());
 
+    EGS_Input *source_overlap_inp = source_inp->takeInputItem("source overlap check");
+    if (source_overlap_inp){
+        int err = checkSourceOverlaps(source_overlap_inp);
+        if (err){
+            egsFatal("EB_Application:: checkSourceOverlaps detected an error.");
+        }
+    }
+
     return 0;
 
+}
+
+int EB_Application::checkSourceOverlaps(EGS_Input *inp) {
+
+    timing_blocks.addTimer("egs_brachy::checkSourceOverlaps");
+
+    vector<string> yn_choices;
+    yn_choices.push_back("no");
+    yn_choices.push_back("yes");
+    bool check_source_overlap = (bool)inp->getInput("check source overlaps", yn_choices, 0);
+
+    if (!check_source_overlap || source_transforms.size() <= 1){
+        /* not requested or only 1 source so no need to check for overlap */
+        timing_blocks.stopTimer();
+        return 0;
+    }
+
+    vector<string> mode_choices;
+    mode_choices.push_back("warning");
+    mode_choices.push_back("fatal");
+
+    bool fatal = (bool)inp->getInput("warning mode", mode_choices, 1);
+
+    EGS_Input *shape_inp = inp->takeInputItem("shape");
+
+    EGS_BaseShape *bounds = EGS_BaseShape::createShape(shape_inp);
+
+    if (!shape_inp) {
+        egsWarning("egs_brachy::checkSourceOverlaps - no `shape` input found.\n");
+        return 1;
+    }
+
+    EGS_Float bounds_volume = ebvolcor::getShapeVolume(shape_inp);
+    if (bounds_volume < 0){
+        egsWarning("egs_brachy::checkSourceOverlaps - Unable to get shape volume.");
+        return 1;
+    }
+
+    vector<string> excluded;
+    inp->getInput("excluded geometries", excluded);
+
+    EGS_Float density;
+    int err = inp->getInput("density of random points (cm^-3)", density);
+    if (err) {
+        egsWarning("egs_brachy::checkSourceOverlaps - The volume correction 'density of random points (cm^-3)' input was not found. Using 1E6/cm^3\n");
+        density = 1E6;
+    }
+    EGS_I64 npoints = (EGS_I64)floor(max(1., density*bounds_volume));
+
+
+    EGS_RandomGenerator *rng = EGS_RandomGenerator::defaultRNG();
+    EGS_Vector point;
+
+    /* find first source geometry defined */
+    EGS_BaseGeometry *base_source = 0;
+    string base_source_name;
+    for (int gg=0; gg < ginfo.ngeom; gg++) {
+        GeomRegionInfo gr = ginfo.ordered_geom_data[gg];
+        if (find(ginfo.source_names.begin(), ginfo.source_names.end(), gr.name) != ginfo.source_names.end()){
+            base_source = EGS_BaseGeometry::getGeometry(gr.name);
+            base_source_name = gr.name;
+            break;
+        }
+    }
+    if (!base_source){
+        egsFatal("egs_brachy::checkSourceOverlaps - did not find base source geometry");
+    }
+
+    /* now lets see if our base source is in an autoenvelope */
+    EGS_AffineTransform base_transform;
+    EGS_AffineTransform inv_base_transform;
+    for (int gg=0; gg < ginfo.ngeom; gg++) {
+        GeomRegionInfo gr = ginfo.ordered_geom_data[gg];
+        if (find(gr.children.begin(), gr.children.end(), base_source_name) != gr.children.end()){
+            /* base source is child of this geometry */
+            if (gr.type != "EGS_AEnvelope" && gr.type != "EGS_ASwitchedEnvelope"){
+                base_transform = *source_transforms[0];
+                inv_base_transform = base_transform.inverse();
+            }
+            break;
+        }
+    }
+
+    vector<int> overlaps;
+
+    for (EGS_I64 i=0; i < npoints; i++) {
+
+        /* Generate a point and check if its contained within base source. If
+         * it's not actually in a source, go back and generate a new point.  */
+        point = bounds->getRandomPoint(rng);
+        base_transform.transform(point);
+        if (base_source->isWhere(point) < 0) {
+            continue;
+        }
+        inv_base_transform.transform(point);
+
+        for (size_t sa_idx = 0; sa_idx < source_transforms.size(); sa_idx++){
+
+            overlaps.clear();
+
+            EGS_Vector transformed(point);
+
+            // transform from point relative to origin to point
+            // relative to source A we are checking against other sources (B)
+            source_transforms[sa_idx]->transform(transformed);
+
+            for (size_t sb_idx = sa_idx + 1; sb_idx < source_transforms.size(); sb_idx++){
+
+                EGS_Vector inner_transformed(transformed);
+
+                // use current source we are checking transform to back relative to origin
+                source_transforms[sb_idx]->inverse().transform(inner_transformed);
+                base_transform.transform(inner_transformed);
+                if (base_source->isWhere(inner_transformed) >= 0) {
+                    /* point falls within Source A & B so they must be overlapping */
+                    overlaps.push_back(sa_idx);
+                    overlaps.push_back(sb_idx);
+                    goto overlap_found;
+                }
+            }
+        }
+    }
+
+overlap_found:
+
+    if (rng){
+        delete rng;
+    }
+    if (shape_inp){
+        delete shape_inp;
+    }
+    timing_blocks.stopTimer();
+
+    if (overlaps.size() > 1){
+        string msg = "Possible overlap of sources: ";
+        for (int i=0; i < overlaps.size(); i++){
+            msg += to_string(overlaps[i]);
+            if (i != overlaps.size() -1 ){
+                msg += ", ";
+            }
+        }
+        egsInformation((msg+"\n").c_str());
+    }
+
+    if (overlaps.size() > 1){
+        return fatal ? 1 : 0;
+    }
+
+    return 0;
 }
 
 int EB_Application::correctVolumes() {

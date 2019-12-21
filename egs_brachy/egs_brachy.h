@@ -208,6 +208,9 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
     /*! \brief run the volume correction routines */
     int correctVolumes();
 
+    /* \brief check sources for overlap using a simple MC routine */
+    int checkSourceOverlaps(EGS_Input *);
+
     /*! \brief track length scoring initialization  */
     void initTrackLengthScoring(EGS_Input *);
 

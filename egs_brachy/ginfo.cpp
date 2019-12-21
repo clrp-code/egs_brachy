@@ -318,9 +318,17 @@ vector<string> getGTransformedChildren(EGS_Input *input) {
 
 
 
-// return a vector of the names of all the children for a given geometry input
-// currently only works for egs_autoenvelope and egs_genevelope geometries
-// but could be expaned to work for unions etc
+/* return a vector of the names of all the direct children for a given geometry input
+ * currently works for:
+ *      egs_autoenvelope
+ *      egs_genvelope
+ *      egs_cdgeometry
+ *      egs_ndgeometry
+ *      egs_gunion
+ *      egs_gstack
+ *      egs_gtransformed
+ *
+ * */
 vector<string> GeomInfo::getChildren(string name, EGS_Input *input) {
 
     string library;
@@ -424,6 +432,16 @@ void GeomInfo::getGeomRegs(Node root, vector<GeomRegionInfo> &ordered, int start
 
 }
 
+// traverse tree and get vector of all child geometries
+void GeomInfo::getAllChildren(string name, vector<string> &children) {
+
+    for (size_t i=0; i < gmap[name].children.size(); i++) {
+        string child_name = gmap[name].children[i];
+        children.push_back(child_name);
+        getAllChildren(child_name, children);
+    }
+
+}
 
 // set up all arrays required to decide which geometry/phantom a region
 // is in and whether or not we are scoring dose in it.

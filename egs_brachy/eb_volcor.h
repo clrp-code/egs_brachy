@@ -77,6 +77,9 @@ namespace ebvolcor {
 
 enum VolCorMode {NO_CORRECTION, ZERO_DOSE, CORRECT_VOLUME};
 
+/*! \brief get shape volume from a shape input item */
+EGS_Float getShapeVolume(EGS_Input *shape_inp);
+
 /*! \brief PhantRegT is a pair of the form (PhantomNumber, PhantomRegion) e.g. a pair
  * of (2, 12) would represent region 12 (i.e. the 13th region) of phantom 2
  * (i.e. the 3rd phantom) */
