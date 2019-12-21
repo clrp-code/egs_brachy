@@ -432,16 +432,6 @@ void GeomInfo::getGeomRegs(Node root, vector<GeomRegionInfo> &ordered, int start
 
 }
 
-// traverse tree and get vector of all child geometries
-void GeomInfo::getAllChildren(string name, vector<string> &children) {
-
-    for (size_t i=0; i < gmap[name].children.size(); i++) {
-        string child_name = gmap[name].children[i];
-        children.push_back(child_name);
-        getAllChildren(child_name, children);
-    }
-
-}
 
 // set up all arrays required to decide which geometry/phantom a region
 // is in and whether or not we are scoring dose in it.
