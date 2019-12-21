@@ -1630,12 +1630,12 @@ bool EB_Application::isStuck() {
 
 int EB_Application::ausgab(int iarg) {
 
-
     bool is_photon = top_p.q == 0;
     bool is_before_transport = iarg == BeforeTransport;
     bool is_after_transport = iarg == AfterTransport;
 
     if (is_after_transport && isStuck()) {
+        the_stack->latch[the_stack->np - 1] = top_p.latch;
         return 1;
     }
 
@@ -1684,6 +1684,7 @@ int EB_Application::ausgab(int iarg) {
     bool discard_fluorescent = iarg == FluorescentEvent && top_p.E <= flu_cutoff;
     if (discard_fluorescent) {
         discardTopParticle();
+        the_stack->latch[the_stack->np - 1] = top_p.latch;
         return 0;
     }
 
@@ -1694,7 +1695,6 @@ int EB_Application::ausgab(int iarg) {
             latch_control.addScatter(the_stack->latch[ip]);
         }
     }
-
 
     bool next_is_source = ginfo.isSource(irnew);
     bool last_was_source = ginfo.isSource(irold);
@@ -1725,14 +1725,13 @@ int EB_Application::ausgab(int iarg) {
     int nmesg = sizeof(send_messages)/sizeof(send_messages[0]);
     for (int m=0; m < nmesg; m++) {
         if (send_messages[m].first) {
-            EB_Message msg = send_messages[m].second;
             pevent_pub.notify(send_messages[m].second, &top_p);
-            if (msg == PARTICLE_ESCAPED_SOURCE) {
-                latch_control.setPrimary(the_stack->latch[the_stack->np-1]);
-            }
         }
     }
 
+    /* copy the top_p.latch bit to the stack before returning from ausgab.
+     * Since top_p.latch gets reset every step */
+    the_stack->latch[the_stack->np - 1] = top_p.latch;
 
     if (escaped_geom) {
         return 0;
@@ -2049,7 +2048,6 @@ int EB_Application::simulateSingleShower() {
     last_case = current_case;
 
     current_case = source->getNextParticle(rndm, p.q, p.latch, p.E, p.wt, p.x, p.u);
-
 
     int initial_source;
     if ((is_phsp_source && !recycle_opts) || !single_generator) {
