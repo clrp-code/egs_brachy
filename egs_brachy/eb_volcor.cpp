@@ -396,7 +396,7 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         /* consider a voxel coverd if corrected vol is 0.1% (default) or less of nominal volume */
         bool voxel_covered = corrected_vol / reg_vol <= (1. - opts->covered_threshold);
         if (!(voxel_covered || zero_dose)){
-            unc = 1./(sqrt(hits) * ((npoints/hits) * (reg_vol/bounds_vol) - 1.));
+            unc = bounds_vol/corrected_vol*sqrt(hits*(npoints-hits)/(npoints*npoints*npoints));
         } else {
             corrected_vol = 0;
             unc = 0;
