@@ -457,12 +457,14 @@ public:
  * Sample input: \verbatim
 
  :start spectrum scoring:
-     type = energy weighted surface
+     type = fluence in region
      particle type = photon
      minimum energy = 0.001
      maximum energy = 1.00
      number of bins = 1000
-     output format = xmgr
+     output format = csv
+     geometry = your_phantom_geom_name
+     scoring region =  1 # which region of `your_phantom_geom` to score in (defaults to 0)
  :stop spectrum scoring:
 
  \endverbatim
@@ -503,8 +505,114 @@ public:
 
 };
 
-/*! \brief A class for scoring the energy weighted spectrum (normalized to
- * total radiant energy) of particles on the surface of a source geometry.
+/*! \brief A class for scoring the fluence of particles enter a voxel
+ * of the scoring phantom geometry.
+ *
+ * Note: this currently only works if there are no other geometries overlapping
+ * the scoring region. If there is, you will get incorrect results!
+ *
+ * Sample input: \verbatim
+
+ :start spectrum scoring:
+     type = energy fluence in region
+     particle type = photon
+     minimum energy = 0.001
+     maximum energy = 1.00
+     number of bins = 1000
+     output format = csv
+     geometry = your_phantom_geom_name
+     scoring region =  1 # which region of `your_phantom_geom` to score in (defaults to 0)
+ :stop spectrum scoring:
+
+ \endverbatim
+
+*/
+class FluenceSpectrumInVoxel : public BaseSpectrumScorer {
+
+    EGS_BaseGeometry *geometry;
+    EGS_Float region_volume;
+    int local_scoring_region;
+    int scoring_region;
+
+
+    void getResult(int bin, EGS_Float &r, EGS_Float &dr);
+
+    string getTitle() const {
+        stringstream ss;
+        ss << "EGS_Brachy: " << getParticleName() << " fluence spectrum in region ";
+        ss << local_scoring_region << " of '"<<geometry->getName()<<"'";
+        return ss.str();
+    }
+
+    string getYAxisLabel() const {
+        return "fluence / MeV / cm\\S2";
+    }
+
+    void outputTotal();
+
+    string getFileExtension() const {
+        return fextension != "" ? fextension : "voxelflu";
+    }
+
+public:
+
+
+    FluenceSpectrumInVoxel(EGS_Input *input, EGS_BaseSource *src, GeomInfo *ginfo, Publisher *publisher):
+        BaseSpectrumScorer(input, src, ginfo, publisher) {
+
+        if (particle_type != 0) {
+            egsFatal(
+                "Energy fluence spectra may only be scored for photons. See:\n\t"
+                "https://github.com/nrc-cnrc/EGSnrc/issues/109/\n"
+                "for details."
+            );
+        }
+
+        string gname;
+        int err = input->getInput("geometry",gname);
+        if (err) {
+            egsWarning("FluenceSpectrumInVoxel: missing or invalid `geometry` input\n");
+            valid =  false;
+            return;
+        }
+
+        geometry = EGS_BaseGeometry::getGeometry(gname);
+        if (!geometry) {
+            egsWarning("FluenceSpectrumInVoxel: unable to find geometry named `%s` \n", gname.c_str());
+            valid =  false;
+            return;
+        }
+
+        err = input->getInput("scoring region", local_scoring_region);
+        if (err) {
+            egsWarning("FluenceSpectrumInVoxel: no `scoring region` defined. Assuming region 0\n");
+            local_scoring_region = 0;
+        }
+
+        if (scoring_region < 0 || local_scoring_region > geometry->regions()) {
+            egsWarning("FluenceSpectrumInVoxel: invalid region `scoring region` defined. Assuming region 0\n");
+            local_scoring_region = 0;
+        }
+
+        GeomRegT geomreg(geometry, local_scoring_region);
+        scoring_region = ginfo->localToGlobal(geomreg);
+
+        region_volume = geometry->getMass(local_scoring_region)/geometry->getRelativeRho(local_scoring_region);
+
+        publisher->subscribe(this, PARTICLE_TAKING_STEP);
+
+    };
+
+
+    virtual void score(EB_Message message, void *data=0);
+
+
+};
+
+
+
+/*! \brief A class for scoring the energy fluence of particles enter a voxel
+ * of the scoring phantom geometry.
  *
  * Note: this currently only works if there are no other geometries overlapping
  * the scoring region. If there is, you will get incorrect results!

@@ -88,6 +88,7 @@ BaseSpectrumScorer *BaseSpectrumScorer::getSpectrumScorer(EGS_Input *inp, EGS_Ba
     vector<string> types;
     types.push_back("surface count");
     types.push_back("energy weighted surface");
+    types.push_back("fluence in region");
     types.push_back("energy fluence in region");
 
     string type = types[inp->getInput("type", types, 0)];
@@ -97,6 +98,8 @@ BaseSpectrumScorer *BaseSpectrumScorer::getSpectrumScorer(EGS_Input *inp, EGS_Ba
         scorer = new SurfaceCountSpectrum(inp, source, ginfo, publisher);
     } else if (type == "energy weighted surface") {
         scorer = new EnergyWeightedSurfaceSpectrum(inp, source, ginfo, publisher);
+    } else if (type == "fluence in region") {
+        scorer = new FluenceSpectrumInVoxel(inp, source, ginfo, publisher);
     } else if (type == "energy fluence in region") {
         scorer = new EnergyFluenceSpectrumInVoxel(inp, source, ginfo, publisher);
     }
@@ -502,6 +505,49 @@ void EnergyWeightedSurfaceSpectrum::outputTotal() {
 }
 
 /*********************************************************************************
+ * Fluence spectrum in Voxel */
+
+/* Note: this only works if there are no other geometries overlapping
+ * the scoring region! */
+void FluenceSpectrumInVoxel::score(EB_Message message, void *data) {
+
+    if (message == PARTICLE_TAKING_STEP) {
+        EGS_Particle *p= static_cast<EGS_Particle *>(data);
+
+        bool in_scoring_region = p->ir == scoring_region;
+        bool in_energy_scoring_range = (e_min <= p->E) && (p->E <= e_max);
+        bool correct_particle =  p->q == particle_type;
+
+        if (in_scoring_region && in_energy_scoring_range && correct_particle) {
+            EGS_Float score = the_epcont->tvstep*p->wt;
+            bins->score(getBin(p->E), score);
+            total_scored += score;
+        }
+    }
+
+}
+
+void FluenceSpectrumInVoxel::getResult(int i, EGS_Float &r, EGS_Float &dr) {
+
+    double eff_history_norm = eff_history / cur_history;
+    bins->currentResult(i, r, dr);
+    EGS_Float norm = bin_width * region_volume * eff_history_norm;
+    r /= norm;
+    dr /= norm;
+
+}
+
+void FluenceSpectrumInVoxel::outputTotal() {
+
+    egsInformation("Scoring metric            : Fluence in region\n") ;
+    egsInformation("Scoring region (global)   : %d \n", scoring_region) ;
+    egsInformation("Scoring region (local)    : %d of %s\n", local_scoring_region, geometry->getName().c_str());
+    egsInformation("Region Volume     : %.3G cm^3\n", region_volume) ;
+    egsInformation("Total E fluence   : %.5G MeV/cm^2\n", total_scored);
+
+}
+
+/*********************************************************************************
  * Energy fluence spectrum in Voxel */
 
 /* Note: this only works if there are no other geometries overlapping
@@ -516,7 +562,7 @@ void EnergyFluenceSpectrumInVoxel::score(EB_Message message, void *data) {
         bool correct_particle =  p->q == particle_type;
 
         if (in_scoring_region && in_energy_scoring_range && correct_particle) {
-            EGS_Float score = the_epcont->tvstep*p->wt;
+            EGS_Float score = p->E*the_epcont->tvstep*p->wt;
             bins->score(getBin(p->E), score);
             total_scored += score;
         }
