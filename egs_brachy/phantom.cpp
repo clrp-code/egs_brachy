@@ -615,6 +615,7 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
     int nx = max(1, geometry->getNRegDir(XDIR));
     int ny = max(1, geometry->getNRegDir(YDIR));
     int nz = max(1, geometry->getNRegDir(ZDIR));
+	int nreg = 0;
 
     for (int loop = 0; loop < 2; loop++) {
         for (int kk=0; kk < nz; kk++) {
@@ -623,7 +624,8 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
                     int ireg = ii + jj*nx + kk*nx*ny;
 
                     if (loop == 0) {
-                        out << geometry->medium(ireg)+1;
+						nreg = geometry->medium(ireg)+1;
+                        out << char(49 + nreg + (nreg>8?7:0) + (nreg>34?6:0));
                     } else {
                         out << getRealRho(ireg) << "\t";
                     }
