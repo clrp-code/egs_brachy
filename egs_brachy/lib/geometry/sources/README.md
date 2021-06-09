@@ -13,11 +13,14 @@ The CLRP-TG43v2 database is hosted at a Carleton University website
 with DOI   doi.org/10.22215/clrp/tg43v2
 
 If you use geometry models from this site, please cite:
+
 • Habib Safigholi, Marc J.P. Chamberland, Randle E.P. Taylor, Christian H.
 Allen, Martin P. Martinov, D. W. O. Rogers and Rowan M. Thomson, Update of
 the CLRP TG-43 parameter database for low-energy brachytherapy sources,
 Med. Phys. 47 (2020), 4656-4669
+
 and
+
 • M Chamberland, R E P Taylor, D W O Rogers and R M Thomson, egs_brachy: a
 versatile and fast Monte Carlo code for brachytherapy Phys Med Biol 61
 (2016), 8214-8231
