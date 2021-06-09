@@ -1,0 +1,42 @@
+:start shape:
+
+
+    library = egs_conical_shell
+    midpoint = 0 0 -0.140175
+    name    = source
+
+    # source end cylinder
+    :start layer:
+        thickness    = 0.000175
+        top radii    = 0.01025
+        bottom radii = 0.010425
+    :stop layer:
+
+    # source end cone
+    :start layer:
+	    thickness    = 0.005
+        top radii    = 0.01025 0.010425
+        bottom radii = 0.01525 0.015425
+    :stop layer:
+
+    # mid source
+    :start layer:
+        thickness    = 0.27
+        bottom radii = 0.01525 0.015425
+    :stop layer:
+
+    # source end cone
+    :start layer:
+		thickness    = 0.005
+        bottom radii = 0.01025 0.010425
+    :stop layer:
+
+    # source end cylinder
+    :start layer:
+        thickness    = 0.000175
+        top radii    = 0.010425
+        bottom radii = 0.01025
+    :stop layer:
+
+
+:stop shape:

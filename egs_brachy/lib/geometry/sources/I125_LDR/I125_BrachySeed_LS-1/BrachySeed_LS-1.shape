@@ -1,0 +1,21 @@
+:start shape:
+
+    library = egs_shape_collection
+
+    :start shape:
+        type = sphere
+        midpoint = 0 0 -0.18
+        radius = 0.025
+    :stop shape:
+
+    :start shape:
+        type = sphere
+        midpoint = 0 0 0.18
+        radius = 0.025
+    :stop shape:
+
+    probabilities = 0.5 0.5   
+   
+   # probabilities = 1 1
+:stop shape:
+

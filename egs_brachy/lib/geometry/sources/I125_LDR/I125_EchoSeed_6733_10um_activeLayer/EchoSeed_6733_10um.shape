@@ -1,0 +1,42 @@
+:start shape:
+
+    library = egs_shape_collection
+
+    :start shape:
+        # end cap 1 - V = 0.001*PI*0.026**2 = 2.1237166338267e-06
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.026
+        :stop shape:
+
+        extension = -0.151, -0.150
+    :stop shape:
+
+    :start shape:
+        # centre - V = 0.3*PI*(0.026**2-0.025**2) = 4.8066367599923676e-05
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            inner radius = 0.025
+            radius = 0.026
+        :stop shape:
+
+        extension = -0.15, 0.15
+    :stop shape:
+
+    :start shape:
+        # end cap 2 - V = 0.001*PI*0.026**2 = 2.1237166338267e-06
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.026
+        :stop shape:
+
+        extension = 0.150, 0.151
+    :stop shape:
+
+    #probabilities =  2.1237166338267e-06, 4.8066367599923676e-05,  2.1237166338267e-06
+    probabilities = 0.040595724237328976 0.9188085515253421 0.040595724237328976
+
+:stop shape:
