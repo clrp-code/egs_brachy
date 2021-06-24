@@ -1,0 +1,201 @@
+###Habib Safigholi# input file for COMS16mm full loaded with I125-6711 source model-This is a FMC simulation
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+:start run control:
+    ncase = 1e11 # 1e8 for test # 1e11 final  # 
+    geometry error limit=2000
+  #  run mode = normal
+	 nbatch = 5
+    nchunk = 20
+:stop run control:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+:start run mode:
+    run mode = superposition # normal # superposition superposition : no interseed effects # volume correction only
+:stop run mode:
+
+
+:start media definition:
+    material data file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/media/m.dat
+:stop media definition:
+
+# :start run mode:
+#    run mode = normal
+# :stop run mode:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#	Definition of geometries	#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start geometry definition:
+
+#A water box for scatter conditions
+	:start geometry:
+        library = egs_glib
+        name = water_box
+        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+	:stop geometry:
+	
+#The scoring phantom
+	:start geometry:
+        library = egs_glib
+        name = water_phantom
+		include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/phantoms/COMSphant.geom
+		# COMSphantLarge.geom
+	:stop geometry:
+
+#The plaque to be used
+    :start geometry:
+        library = egs_glib
+        name = empty_plaque
+        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/eye_plaques/COMS/COMS16mm/COMS16mm_water.geom
+    :stop geometry
+	
+    :start geometry:
+        library = egs_gtransformed
+        my geometry = empty_plaque
+        :start transformation:
+            translation = 0 0 1.13
+        :stop transformation:
+        name = plaque_transform
+    :stop geometry:
+
+#The brachytherapy seed to be used
+	:start geometry:
+        library = egs_glib
+        name = seed
+        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
+		# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/OncoSeed_6711.geom
+    :stop geometry
+	
+#Insertion of the seeds into the plaque
+  :start geometry:
+
+       library = egs_autoenvelope
+       type = EGS_ASwitchedEnvelope # so only one source is modeled at a time   
+       name = plaque_w_seeds
+       base geometry = plaque_transform
+
+        :start inscribed geometry:
+
+            inscribed geometry name = seed
+
+            :start transformations:
+                include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
+            :stop transformations:
+
+			:start region discovery:
+				correction type = discover
+                density of random points (cm^-3) = 1E9
+                include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
+				# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/boundary.shape
+            :stop region discovery:
+
+        :stop inscribed geometry:
+
+    :stop geometry:
+	
+	:start geometry:
+		name = phantom_in_box
+		library = egs_genvelope
+		base geometry = water_box
+		inscribed geometries = water_phantom
+	:stop geometry:
+	
+	:start geometry:
+		name = final
+		library = egs_genvelope
+		base geometry = phantom_in_box
+		inscribed geometries = plaque_w_seeds
+	:stop geometry:
+
+#Tell egs_brachy which is the source (seed) geometry
+    source geometries = seed
+
+#Tell egs_brachy which is the phantom geometry
+    phantom geometries = water_phantom
+
+#Tell egs_brachy which geometry to use for the simulation
+    simulation geometry = final
+	
+	   source envelope geometry = plaque_w_seeds
+
+	
+:stop geometry definition:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#		Volume corrections		#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct # zero dose # correct, none, zero dose
+        density of random points (cm^-3) = 1E9
+
+        :start shape:
+			type = cylinder
+			radius = 0.9
+			midpoint = 0, 0, 0
+			height = 2.0
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#	  Definition of sources	    #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = Pd103_Theraseed_200
+        charge = 0
+
+        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
+		# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/OncoSeed_6711.shape
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/spectra/Pd103_NNDC_2.6_line.spectrum
+			# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/spectra/I125_NCRP_line.spectrum 
+			
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        include file =  /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
+    :stop transformations:
+
+    simulation source = Pd103_Theraseed_200
+
+:stop source definition:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#		Scoring options			#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start scoring options:
+
+     #score energy deposition = yes
+     output voxel info files  = yes
+
+    muen file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+    dose scaling factor = 1.00 # For absolute dose # 2.699551E+11    # 
+	# Habib: scaling factor,  dose/sk for I-6711= 2.699551E+11 , Pd103-200=1.556154E+09 ,  Cs131-Isoray=       . Sk is from the CLRPv2 TG43 database 
+:stop scoring options:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#   	Transport parameters	#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+include file =  /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/transport/low_energy_default
+
+:start rng definition:
+    type = ranmar
+    initial seeds = 68 97
+:stop rng definition:
