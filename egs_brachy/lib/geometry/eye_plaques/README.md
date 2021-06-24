@@ -1,4 +1,4 @@
-# CLRP egs++ eye plaque models vesrion 2 #
+# CLRP egs++ eye plaque models vesrion 2 (CLRP_EPv2) #
 
 CLRP Eye Plaque Database version 2 (CLRP_EPv2) of egs_brachy models for photon-emitting sources
 
