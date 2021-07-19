@@ -18,11 +18,11 @@
 # If you use this file, please cite
 #       M Chamberland, R E P Taylor, D W O Rogers and R M Thomson
 #       egs_brachy: a versatile and fast Monte Carlo code for brachytherapy
-#       Phys Med Biol 61(2016) 8214 -- 8231
+#       Phys Med Biol 61(2016) 8214 - 8231
 # and
 #      H Safigholi, Z Parsons, S G Deering, and R M Thomson,
 #     Update of the CLRP eye plaque brachytherapy database for
-#     photon-emitting sources, Medical Physics (accepted, 2021).
+#     photon-emitting sources, Medical Physics 48(2021) 3373 - 3383.
 #
 #
 :start geometry definition:
