@@ -3,7 +3,7 @@ import importlib
 import os
 import sys
 
-root_tests = os.path.join("..", "tests")
+root_tests = os.path.join("..", "eb_tests")
 sys.path.append("..")
 
 globber = os.path.join(root_tests, "*", "test.py")
@@ -15,10 +15,10 @@ def get_tests():
     for f in sorted(glob.glob(globber)):
 
         test_name = os.path.split(os.path.dirname(f))[1]
-        mod_path = "tests.%s.test" % test_name
+        mod_path = "eb_tests.%s.test" % test_name
         test_mod = importlib.import_module(mod_path)
         docstring = test_mod.__doc__
-        test_dir = "tests/%s" % test_name
+        test_dir = "eb_tests/%s" % test_name
         title = test_name.replace("_", " ").title()
         description = """## %s\n**Test Directory:** %s\n\n%s\n""" % (title, test_dir, docstring)
 
@@ -46,5 +46,4 @@ The current list of tests available in the egs_brachy test suite
 if __name__ == "__main__":
     outfile = "tests.md"
     gen_docs(outfile)
-
 

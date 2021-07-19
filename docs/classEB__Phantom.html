@@ -216,15 +216,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aea26c2b5fb49e6f4700ac72d5ea8d1ff"><td class="memItemLeft" align="right" valign="top">EGS_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#aea26c2b5fb49e6f4700ac72d5ea8d1ff">getUncorrectedMass</a> (int ireg)</td></tr>
 <tr class="memdesc:aea26c2b5fb49e6f4700ac72d5ea8d1ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">return uncorrected for region  <a href="#aea26c2b5fb49e6f4700ac72d5ea8d1ff">More...</a><br /></td></tr>
 <tr class="separator:aea26c2b5fb49e6f4700ac72d5ea8d1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e770be97a6ea5e13717036f745c6ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a06e770be97a6ea5e13717036f745c6ea">getResult</a> (EGS_ScoringArray *, int ireg, string type, EGS_Float &amp;r, EGS_Float &amp;dr)</td></tr>
+<tr class="memdesc:a06e770be97a6ea5e13717036f745c6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">get result for region from scoring array and normalize based on the type requested.  <a href="#a06e770be97a6ea5e13717036f745c6ea">More...</a><br /></td></tr>
+<tr class="separator:a06e770be97a6ea5e13717036f745c6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classSubscriber"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classSubscriber')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classSubscriber.html">Subscriber</a></td></tr>
 <tr class="memitem:a1dc3a1ecfecf7dd1a596d1a7217ec97f inherit pub_methods_classSubscriber"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSubscriber.html#a1dc3a1ecfecf7dd1a596d1a7217ec97f">~Subscriber</a> ()</td></tr>
 <tr class="separator:a1dc3a1ecfecf7dd1a596d1a7217ec97f inherit pub_methods_classSubscriber"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5de268ad5f66bcc7e153776ef467a284"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a5de268ad5f66bcc7e153776ef467a284">allowedPhantomGeom</a> (const string &amp;geom_type)</td></tr>
-<tr class="memdesc:a5de268ad5f66bcc7e153776ef467a284"><td class="mdescLeft">&#160;</td><td class="mdescRight">function for checking whether a given geometry type is allowed to be used as a phantom  <a href="#a5de268ad5f66bcc7e153776ef467a284">More...</a><br /></td></tr>
-<tr class="separator:a5de268ad5f66bcc7e153776ef467a284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc16d4d742788fecc79f0eb05fdeb570"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#adc16d4d742788fecc79f0eb05fdeb570">needsUserVolumes</a> (const string &amp;geom_type)</td></tr>
+<tr class="memdesc:adc16d4d742788fecc79f0eb05fdeb570"><td class="mdescLeft">&#160;</td><td class="mdescRight">function for checking whether a given geometry type requires user specified volumes  <a href="#adc16d4d742788fecc79f0eb05fdeb570">More...</a><br /></td></tr>
+<tr class="separator:adc16d4d742788fecc79f0eb05fdeb570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da62805481c6a54f2627068faa389a5"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a9da62805481c6a54f2627068faa389a5">canWrite3ddose</a> (const string &amp;geom_type)</td></tr>
+<tr class="memdesc:a9da62805481c6a54f2627068faa389a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">function for checking whether a given geometry type can output 3ddose files  <a href="#a9da62805481c6a54f2627068faa389a5">More...</a><br /></td></tr>
+<tr class="separator:a9da62805481c6a54f2627068faa389a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -240,6 +246,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a1bb8d4bc12779b2a4d1d2fb5fae6bd83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a1bb8d4bc12779b2a4d1d2fb5fae6bd83">global_reg_stop</a></td></tr>
 <tr class="memdesc:a1bb8d4bc12779b2a4d1d2fb5fae6bd83"><td class="mdescLeft">&#160;</td><td class="mdescRight">ending global region index for this phantom  <a href="#a1bb8d4bc12779b2a4d1d2fb5fae6bd83">More...</a><br /></td></tr>
 <tr class="separator:a1bb8d4bc12779b2a4d1d2fb5fae6bd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d4c8adadbcb4c28d22ad3ba7bbfa06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a65d4c8adadbcb4c28d22ad3ba7bbfa06">needs_user_geoms</a></td></tr>
+<tr class="memdesc:a65d4c8adadbcb4c28d22ad3ba7bbfa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">this phantom requires user specified geometries  <a href="#a65d4c8adadbcb4c28d22ad3ba7bbfa06">More...</a><br /></td></tr>
+<tr class="separator:a65d4c8adadbcb4c28d22ad3ba7bbfa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d9a45103cc248fc12f62b3410b6740a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a2d9a45103cc248fc12f62b3410b6740a">can_write_3ddose</a></td></tr>
+<tr class="memdesc:a2d9a45103cc248fc12f62b3410b6740a"><td class="mdescLeft">&#160;</td><td class="mdescRight">this phantom can output 3ddose files  <a href="#a2d9a45103cc248fc12f62b3410b6740a">More...</a><br /></td></tr>
+<tr class="separator:a2d9a45103cc248fc12f62b3410b6740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -267,9 +279,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a85b34e103c1e5cf0b9fdd4c6a5df64e8"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structRegionResult.html">RegionResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a85b34e103c1e5cf0b9fdd4c6a5df64e8">getRegionResults</a> ()</td></tr>
 <tr class="memdesc:a85b34e103c1e5cf0b9fdd4c6a5df64e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a vector of <a class="el" href="structRegionResult.html">RegionResult</a> structs which can then be sorted by dose value. used for output routines  <a href="#a85b34e103c1e5cf0b9fdd4c6a5df64e8">More...</a><br /></td></tr>
 <tr class="separator:a85b34e103c1e5cf0b9fdd4c6a5df64e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06e770be97a6ea5e13717036f745c6ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a06e770be97a6ea5e13717036f745c6ea">getResult</a> (EGS_ScoringArray *, int ireg, string type, EGS_Float &amp;r, EGS_Float &amp;dr)</td></tr>
-<tr class="memdesc:a06e770be97a6ea5e13717036f745c6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">get result for region from scoring array and normalize based on the type requested.  <a href="#a06e770be97a6ea5e13717036f745c6ea">More...</a><br /></td></tr>
-<tr class="separator:a06e770be97a6ea5e13717036f745c6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90bdb720591918e2328daf16c9e37721"><td class="memItemLeft" align="right" valign="top"><a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a90bdb720591918e2328daf16c9e37721">getScoringArrays</a> (vector&lt; EGS_ScoringArray * &gt; &amp;scores, vector&lt; string &gt; &amp;types, vector&lt; string &gt; &amp;descriptions)</td></tr>
 <tr class="memdesc:a90bdb720591918e2328daf16c9e37721"><td class="mdescLeft">&#160;</td><td class="mdescRight">get all active scoring arrays, their types and descriptions  <a href="#a90bdb720591918e2328daf16c9e37721">More...</a><br /></td></tr>
 <tr class="separator:a90bdb720591918e2328daf16c9e37721"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,8 +324,10 @@ Private Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a9e82f2890212c90e4a293584b18a32c0"><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a9e82f2890212c90e4a293584b18a32c0">allowed_phantom_geom_types</a> [] = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td></tr>
-<tr class="separator:a9e82f2890212c90e4a293584b18a32c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e605a16e4a68d4a1486ae36a9071f5b"><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a6e605a16e4a68d4a1486ae36a9071f5b">autovol_phantom_geom_types</a> [] = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td></tr>
+<tr class="separator:a6e605a16e4a68d4a1486ae36a9071f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6975d930588b0a29cd9d07036c64419f"><td class="memItemLeft" align="right" valign="top">static const string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEB__Phantom.html#a6975d930588b0a29cd9d07036c64419f">threeddose_geom_types</a> [] = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td></tr>
+<tr class="separator:a6975d930588b0a29cd9d07036c64419f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to represent a single phantom for scoring dose in egs_brachy. </p>
@@ -346,7 +357,7 @@ Static Private Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00135">135</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00132">132</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -395,7 +406,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classEB__Phantom.html" title="A class to represent a single phantom for scoring dose in egs_brachy. ">EB_Phantom</a> constructor. </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00097">97</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00103">103</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -422,7 +433,7 @@ Static Private Attributes</h2></td></tr>
 
 <p><a class="el" href="classEB__Phantom.html" title="A class to represent a single phantom for scoring dose in egs_brachy. ">EB_Phantom</a> destructor. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00145">145</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00142">142</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -441,35 +452,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00789">789</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5de268ad5f66bcc7e153776ef467a284"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool EB_Phantom::allowedPhantomGeom </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>geom_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>function for checking whether a given geometry type is allowed to be used as a phantom </p>
-
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00157">157</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00832">832</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -488,7 +471,35 @@ Static Private Attributes</h2></td></tr>
 
 <p>return average voxel volume </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00661">661</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00694">694</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9da62805481c6a54f2627068faa389a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EB_Phantom::canWrite3ddose </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>geom_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>function for checking whether a given geometry type can output 3ddose files </p>
+
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00179">179</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -507,7 +518,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>enableInteractionScoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00191">191</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00213">213</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -526,7 +537,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>enableInteractionScoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00198">198</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00220">220</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +556,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>enableTLenScoring must be called before simulation begins if you want to score dose with tracklength estimator in addition to tracklength scoring </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00184">184</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00206">206</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -565,7 +576,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>get uncorrected volume for a given region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00281">281</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00310">310</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -601,7 +612,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>get current tlen score for region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00287">287</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00319">319</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -629,7 +640,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>get all active scoring arrays for writing to egsdat file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00487">487</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00520">520</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -649,7 +660,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>return (corrected) real mass for region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00267">267</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00289">289</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -669,7 +680,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>return actual density for region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00261">261</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00283">283</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -696,7 +707,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>create a vector of <a class="el" href="structRegionResult.html">RegionResult</a> structs which can then be sorted by dose value. used for output routines </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00332">332</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00365">365</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -715,16 +726,13 @@ Static Private Attributes</h2></td></tr>
 
 <p>return a vector of all regions which were corrected </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00171">171</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00193">193</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
 <a class="anchor" id="a06e770be97a6ea5e13717036f745c6ea"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="LICENSE_8txt.html#a3b083519fd2b41d83363afcfd5ebad9d">void</a> EB_Phantom::getResult </td>
@@ -762,16 +770,11 @@ Static Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>get result for region from scoring array and normalize based on the type requested. </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00304">304</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00336">336</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -815,7 +818,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>get all active scoring arrays, their types and descriptions </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00455">455</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00488">488</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -833,7 +836,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00299">299</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00331">331</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -853,7 +856,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>return uncorrected for region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00271">271</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00297">297</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -873,7 +876,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>get corrected volume for a given region </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00275">275</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00301">301</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -901,7 +904,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>check whether a global region falls within this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00240">240</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00241">241</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -929,7 +932,35 @@ Static Private Attributes</h2></td></tr>
 
 <p>convert global region to local phantom region </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00245">245</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00246">246</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc16d4d742788fecc79f0eb05fdeb570"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EB_Phantom::needsUserVolumes </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>geom_type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>function for checking whether a given geometry type requires user specified volumes </p>
+
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00165">165</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -957,7 +988,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write the phantom bounds to 3ddose file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00554">554</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00587">587</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -985,7 +1016,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write the phantom boundaries, doses and uncertainties to 3ddose file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00507">507</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00540">540</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1060,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write input scoring array to 3ddose file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00577">577</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00610">610</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1078,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00751">751</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00794">794</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1116,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write some stats about dose arrays </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00362">362</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00395">395</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1144,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>initialize and write an egsphant file for this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00639">639</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00672">672</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1192,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>tell phantom to output its results. </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00235">235</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00257">257</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1230,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write the top_n doses to console </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00405">405</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00438">438</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1219,7 +1250,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>intialize and output write voxel volumes to file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00727">727</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00770">770</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1239,7 +1270,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write voxel volumes, mass, desnity etc </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00689">689</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00732">732</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1257,7 +1288,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00770">770</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00813">813</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1274,7 +1305,7 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00815">815</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00858">858</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1304,7 +1335,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>add energy deposition dose to region ir </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00146">146</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00154">154</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1340,7 +1371,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>add tracklength dose to region ir </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00124">124</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00132">132</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1370,7 +1401,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Allow user to tell phantom what the actual volume of a region is. </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00179">179</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00201">201</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1391,7 +1422,7 @@ Static Private Attributes</h2></td></tr>
 <p>set dose scaling factor for output </p>
 <p>add energy deposition dose to region ir </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00153">153</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00161">161</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1411,7 +1442,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set number of effective histories for normalizing scoring arrays </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00229">229</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00251">251</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1431,7 +1462,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>set current history on scoring arrays for proper statistics </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00210">210</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00232">232</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1500,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classSubscriber.html#a46254c65cd8ec1076031809958496092">Subscriber</a>.</p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00115">115</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00123">123</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1497,7 +1528,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write actual egsphant data to file for this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00599">599</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00632">632</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1517,7 +1548,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>write voxel volumes to file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00714">714</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00757">757</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
@@ -1537,33 +1568,11 @@ Static Private Attributes</h2></td></tr>
 
 <p>write voxel info file </p>
 
-<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00671">671</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8cpp_source.html#l00704">704</a> of file <a class="el" href="phantom_8cpp_source.html">phantom.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a9e82f2890212c90e4a293584b18a32c0"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const string EB_Phantom::allowed_phantom_geom_types = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00075">75</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a776d62d9ae4fc0ffdf74ba8f5f89d140"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1584,7 +1593,45 @@ Static Private Attributes</h2></td></tr>
 
 <p>Parent application instance. Required for constructing filenames. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00077">77</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00078">78</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e605a16e4a68d4a1486ae36a9071f5b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string EB_Phantom::autovol_phantom_geom_types = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00075">75</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d9a45103cc248fc12f62b3410b6740a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EB_Phantom::can_write_3ddose</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this phantom can output 3ddose files </p>
+
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00289">289</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1608,7 +1655,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Corrected volume in a given region. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00094">94</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00095">95</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1630,7 +1677,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00089">89</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00090">90</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1652,7 +1699,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00086">86</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00087">87</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1723,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Interaction scored dose scoring array. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00079">79</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00080">80</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1698,7 +1745,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00090">90</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00091">91</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1714,7 +1761,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>the phantom geometry object </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00271">271</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00276">276</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1730,7 +1777,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>starting global region index for this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00280">280</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00285">285</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1746,7 +1793,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>ending global region index for this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00281">281</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00286">286</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1762,7 +1809,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>the set of all global regions contained in this phantom </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00278">278</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00283">283</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1786,7 +1833,23 @@ Static Private Attributes</h2></td></tr>
 
 <p>Tracklenth scored dose from multiple scattered particles. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00083">83</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00084">84</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65d4c8adadbcb4c28d22ad3ba7bbfa06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EB_Phantom::needs_user_geoms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this phantom requires user specified geometries </p>
+
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00288">288</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1808,7 +1871,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00085">85</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00086">86</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1832,7 +1895,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Tracklenth scored dose from primary particles. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00080">80</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00081">81</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1854,7 +1917,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00092">92</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00093">93</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1878,7 +1941,29 @@ Static Private Attributes</h2></td></tr>
 
 <p>Tracklenth scored dose from single scattered particles. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00081">81</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00082">82</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6975d930588b0a29cd9d07036c64419f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const string EB_Phantom::threeddose_geom_types = {&quot;EGS_cSpheres&quot;, &quot;EGS_cSphericalShell&quot;, &quot;EGS_XYZGeometry&quot;, &quot;EGS_RZ&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00076">76</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1902,7 +1987,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Tracklength dose scoring array. </p>
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00078">78</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00079">79</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
@@ -1924,13 +2009,13 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="phantom_8h_source.html#l00088">88</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
+<p>Definition at line <a class="el" href="phantom_8h_source.html#l00089">89</a> of file <a class="el" href="phantom_8h_source.html">phantom.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/randlet/projects/egs/egs_brachy_release/egs_brachy/<a class="el" href="phantom_8h_source.html">phantom.h</a></li>
-<li>/home/randlet/projects/egs/egs_brachy_release/egs_brachy/<a class="el" href="phantom_8cpp_source.html">phantom.cpp</a></li>
+<li>/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/<a class="el" href="phantom_8h_source.html">phantom.h</a></li>
+<li>/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/<a class="el" href="phantom_8cpp_source.html">phantom.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

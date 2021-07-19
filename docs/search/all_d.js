@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['max_5fe',['MAX_E',['../namespacetests_1_1phsp__scoring_1_1test.html#a04f32e50c2cd09484ce06f8d3db0feef',1,'tests::phsp_scoring::test']]],
-  ['max_5fsources',['max_sources',['../namespacetests_1_1iaea__types.html#a9f9075f7085c54d627b657e6fb9569e5',1,'tests::iaea_types']]],
-  ['maximum_5fenergy',['maximum_energy',['../classtests_1_1iaea_1_1IAEAPhaseSpace.html#a7f5112e023f0add6a363adc71e082b6a',1,'tests::iaea::IAEAPhaseSpace']]],
+  ['max_5fe',['MAX_E',['../namespaceeb__tests_1_1phsp__scoring_1_1test.html#a62bc9cc11c59203dd88851fec3cc5776',1,'eb_tests::phsp_scoring::test']]],
+  ['max_5fsources',['max_sources',['../namespaceeb__tests_1_1iaea__types.html#a34c9711c97b2dd93e1965876c6866d56',1,'eb_tests::iaea_types']]],
+  ['maximum_5fenergy',['maximum_energy',['../classeb__tests_1_1iaea_1_1IAEAPhaseSpace.html#a5d3b9d4ad7fefe714eac5a79b38b2dba',1,'eb_tests::iaea::IAEAPhaseSpace']]],
   ['maxnregofgeoms',['maxNRegOfGeoms',['../ginfo_8cpp.html#a7fb6f5990b1ef8d23f5a457c5da74dea',1,'ginfo.cpp']]],
   ['media',['media',['../md_media.html',1,'']]],
   ['meaningful',['meaningful',['../LICENSE_8txt.html#ad7afdec9f307ffaef09f6ede5ffc8bfc',1,'LICENSE.txt']]],
@@ -11,7 +11,7 @@ var searchData=
   ['media_5ffile',['media_file',['../namespacegen__media.html#a51699e112812edab476fed1a37b623f1',1,'gen_media']]],
   ['media_5fmuen',['media_muen',['../classEB__Application.html#aaf0f891feb292ea0ef48c3063d0fc26a',1,'EB_Application']]],
   ['media_5fmuen_5fnames',['media_muen_names',['../classEB__Application.html#a826c0fc6b8aa3b79b0235d165e94616c',1,'EB_Application']]],
-  ['message',['message',['../classtests_1_1iaea__errors_1_1IAEAPhaseSpaceError.html#ad4ed9f6e30938c7ce891738d2c9ca2ce',1,'tests::iaea_errors::IAEAPhaseSpaceError']]],
+  ['message',['message',['../classeb__tests_1_1iaea__errors_1_1IAEAPhaseSpaceError.html#a8d3add602db91499649505a873e1961e',1,'eb_tests::iaea_errors::IAEAPhaseSpaceError']]],
   ['method',['method',['../LICENSE_8txt.html#a59a31db1436d75d219a8e2d9b645b3e0',1,'LICENSE.txt']]],
   ['mode',['mode',['../classebvolcor_1_1Options.html#ad70a3f0111b43daa38316ebeffe4874a',1,'ebvolcor::Options::mode()'],['../classgzstreambuf.html#adddc98d7ed861e936f47fdd9d4a137f7',1,'gzstreambuf::mode()'],['../classPHSPControl.html#acef047f0bf6af45911cd8697307d76dc',1,'PHSPControl::mode()']]],
   ['modify',['modify',['../LICENSE_8txt.html#ac5f9b0a3e7f864fefca2866e5018c913',1,'LICENSE.txt']]],

@@ -111,6 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li class="level3"><a href="#genvc">General purpose volume corrections</a></li>
 <li class="level3"><a href="#vcfile">Volume calculations from file</a></li>
 <li class="level3"><a href="#rngvc">Random Number Generator for volume corrections</a></li>
+<li class="level3"><a href="#vcuser">Manually specifying voxel volumes</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#outputfiles">Output files</a><ul><li class="level3"><a href="#dosefiles">3ddose files</a></li>
@@ -621,7 +622,7 @@ Bremsstrahlung Cross Section Enhancement</h3>
     bcse medium =  Ti10W90 100
 :stop variance reduction:</pre><h2><a class="anchor" id="voxvc"></a>
 Voxel volume correction details</h2>
-<p>egs_brachy has three methods available for doing voxel volume correction calculations. There is a 'fast' method that uses the same technique described in the egs_autoenvelope documentation and a more general purpose routine which can be used for larger volumes with multiple overlapping phantom geometries. In addition to those two methods, corrected voxel volumes can be precomputed (either manually or by egs_brachy) and read from a file.</p>
+<p>egs_brachy has three methods available for doing voxel volume correction calculations in rectilinear, cylindrical and spherical geometries. There is a 'fast' method that uses the same technique described in the egs_autoenvelope documentation and a more general purpose routine which can be used for larger volumes with multiple overlapping phantom geometries. In addition to those two methods, corrected voxel volumes can be precomputed (either manually or by egs_brachy) and read from a file. Finally, there is a fourth method, <code>phantom region volumes</code> that can be used to specify manually calcualted voxel volumes in the input file for other geometry types (e.g. conical geometries).</p>
 <p>See <a href="https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp">tests/volume_correction/vc.egsinp</a> for examples of the fast &amp; general volume correction methods.</p>
 <h3><a class="anchor" id="sourcevc"></a>
 Fast voxel volume corrections for sources</h3>
@@ -707,6 +708,27 @@ REG_NUM_3 REG_3_VOLUME</pre><p>for example the following file:</p>
 <h3><a class="anchor" id="rngvc"></a>
 Random Number Generator for volume corrections</h3>
 <p>If a <code>box</code> shape is used as the volume correction shape, volume corrections will use a Sobol Quasi Random Number Generator by default. For all other shapes the regular Ranmar RNG will be used (the Sobol generator only works for Cartesian coordinate systems). The RNG can be overridden as show in the example above.</p>
+<h3><a class="anchor" id="vcuser"></a>
+Manually specifying voxel volumes</h3>
+<p>For calculating dose in phantoms which are not rectilinear, cylindrical, or spherical you may use <code>phantom region volumes</code> blocks to specify the the volume of one or more regions in a phantom (note, it will also work in e.g. rectilinear phantoms, it's just not generally needed). The format of these blocks is:</p>
+<pre class="fragment">:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = &lt;phantom_name&gt;
+        region numbers = r_1 r_2 ... r_i ... r_N
+        region volumes = V_1 V_2 ... V_i ... V_N
+    :stop phantom region volumes:
+
+:stop volume correction:</pre><p>for example to specify volumes of 0.5cm^3 and 1cm^3 for regions 1 and 3 respectively in a phantom called <code>my_phantom</code> you would do:</p>
+<pre class="fragment">:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = my_phantom
+        region numbers = 1 3 
+        region volumes = 0.5 1
+    :stop phantom region volumes:
+
+:stop volume correction:</pre><p>if you try to calculate dose in a geometry type that doesn't support automatic volume calculations without including a <code>phantom region volumes</code> block, egs_brachy will print a warning and terminate.</p>
 <h2><a class="anchor" id="outputfiles"></a>
 Output files</h2>
 <h3><a class="anchor" id="dosefiles"></a>
@@ -740,7 +762,7 @@ Running a simulation</h2>
 <h1><a class="anchor" id="runtests"></a>
 Test Suite</h1>
 <p>egs_brachy comes with a test suite that will allow you to confirm the code is still performing as expected after making modifications or updating the egsnrc version.</p>
-<p>Geometries required for the tests are either defined within the .egsinp files or within <a href="https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/test_geoms">tests/test_geoms</a>.</p>
+<p>Geometries required for the tests are either defined within the .egsinp files or within <a href="https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/eb_tests/test_geoms">eb_tests/test_geoms</a>.</p>
 <h2><a class="anchor" id="setup"></a>
 Setup</h2>
 <p>In order to make accurate CPU time comparisons the test suite needs to know how fast your CPU is. If you are on a linux system that makes processor speed available in <code>/proc/cpuinfo/</code> then the test suite can likely determine this information on its own. Otherwise you will need to set a <code>CPU_MHZ</code> environment variable with the value of your CPU speed in MHz (e.g. <code>CPU_MHZ=2400</code>).</p>
@@ -763,14 +785,14 @@ PASS - tests.spec_vox - ran in 0.000829 s/MHz (2.9 s)
 Tests finished 17/17 passed
 ~/egs/egsnrc/egs_brachy$
 </pre><p>You can also run a subset of the tests in the following way:</p>
-<pre class="fragment">~/egs/egsnrc/egs_brachy$ python run_tests.py tests/seeds_in_xyz/
+<pre class="fragment">~/egs/egsnrc/egs_brachy$ python run_tests.py eb_tests/seeds_in_xyz/
 CPU speed read from /proc/cpuinfo as 3498.557000 MHz
 Running test 'tests.seeds_in_xyz'...
 PASS - tests.seeds_in_xyz - ran in 0.00269 s/MHz (9.4 s)
 ================================================================================
 Tests finished 1/1 passed
 ~/egs/egsnrc/egs_brachy$</pre><p>or</p>
-<pre class="fragment">~/egs/egsnrc/egs_brachy$ python run_tests.py "tests/spec*"
+<pre class="fragment">~/egs/egsnrc/egs_brachy$ python run_tests.py "eb_tests/spec*"
 CPU speed read from /proc/cpuinfo as 3498.557000 MHz
 Running test 'tests.spec_eflu'...
 PASS - tests.spec_eflu - ran in 0.000629 s/MHz (2.2 s)
@@ -802,7 +824,7 @@ Example egsinp files</h2>
 <p>A suite of input files is distributed with egs_brachy (found in lib/examples). These provide a good starting point for users new to egs_brachy.</p>
 <h1><a class="anchor" id="makedocs"></a>
 Documentation</h1>
-<p>This egs_brachy Technical Reference Manual uses doxygen and Python to build its documentation. Documentation for the egs_brachy library and test suite are generated by a number of Python scripts located in the _docs directory. The Python scripts generate markdown documents based on the contents of the <code>lib</code> and <code>tests</code> directory. These markdown documents are then compiled to html by doxygen. A pdf of all the documentation will also be created and placed at <code>docs/pdf/egs_brachy_technical_manual.pdf</code>.</p>
+<p>This egs_brachy Technical Reference Manual uses doxygen and Python to build its documentation. Documentation for the egs_brachy library and test suite are generated by a number of Python scripts located in the _docs directory. The Python scripts generate markdown documents based on the contents of the <code>lib</code> and <code><a class="el" href="namespaceeb__tests.html">eb_tests</a></code> directory. These markdown documents are then compiled to html by doxygen. A pdf of all the documentation will also be created and placed at <code>docs/pdf/egs_brachy_technical_manual.pdf</code>.</p>
 <p>This document (<a class="el" href="egs__brachy_8md.html">egs_brachy.md</a>) and the scripts for generating the library and test documents are located in <code>_docs/</code> and the generated html is placed in <code>docs/</code> ( the documents in the <code>docs/</code> directory should not be modified manually).</p>
 <p>To update the documentation simply run <code>make docs</code> and then commit the changes:</p>
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;make docs</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;git add _docs/ docs/</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;git commit -am &#39;your commit message&#39;</div></div><!-- fragment --> </div></div><!-- contents -->

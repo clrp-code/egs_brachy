@@ -1,9 +1,9 @@
 var searchData=
 [
   ['rdbuf',['rdbuf',['../classgzstreambase.html#a85a5899a56d1ee9259d02083195471ba',1,'gzstreambase::rdbuf()'],['../classigzstream.html#a8aa14802072efefc34d72b1bbbc56d5d',1,'igzstream::rdbuf()'],['../classogzstream.html#a1034f1ed3d34e9db919d240a93d3888d',1,'ogzstream::rdbuf()']]],
-  ['read3ddose',['read3ddose',['../namespacetests_1_1utils.html#a27df065018f45f57d9ef6fc179f4138b',1,'tests::utils']]],
-  ['read_5fcsv_5fspectrum',['read_csv_spectrum',['../namespacetests_1_1utils.html#a635cd1e2de1b885cce74bdc008dcdaef',1,'tests::utils']]],
-  ['read_5fvols',['read_vols',['../namespacetests_1_1volume__correction_1_1test.html#a1b6e5fc7fe6d9fbb70eb0972b6e6113d',1,'tests::volume_correction::test']]],
+  ['read3ddose',['read3ddose',['../namespaceeb__tests_1_1utils.html#a999294398847b46b4d100c76dc2e50b7',1,'eb_tests::utils']]],
+  ['read_5fcsv_5fspectrum',['read_csv_spectrum',['../namespaceeb__tests_1_1utils.html#a822ab15c72fe55599361c7fd489e23d7',1,'eb_tests::utils']]],
+  ['read_5fvols',['read_vols',['../namespaceeb__tests_1_1volume__correction_1_1test.html#aa98893a400ee1bfe36f3c95625eb4f8b',1,'eb_tests::volume_correction::test']]],
   ['readdata',['readData',['../classEB__Application.html#ac3d343265c889b1445fe3f834aaaefdb',1,'EB_Application::readData()'],['../classEB__Phantom.html#a6b73634962ef557f58ae7745f3fe7075',1,'EB_Phantom::readData()'],['../classEnergyScoringStats.html#a993a3e6e79fb9a68c490806a81210004',1,'EnergyScoringStats::readData()'],['../classBaseSpectrumScorer.html#a1fb7f1c7a55c9ba67bcbf29fd3b3883e',1,'BaseSpectrumScorer::readData()']]],
   ['readdatahelper',['readDataHelper',['../classEB__Application.html#a8803725c6f43d1ecc885ec230c23ba13',1,'EB_Application']]],
   ['readvolumes',['readVolumes',['../namespaceebvolcor.html#a722a72cbbbaeb21088989f87b4509951',1,'ebvolcor']]],

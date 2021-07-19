@@ -1,6 +1,7 @@
 var searchData=
 [
   ['c',['c',['../jquery_8js.html#abce695e0af988ece0826d9ad59b8160d',1,'jquery.js']]],
+  ['can_5fwrite_5f3ddose',['can_write_3ddose',['../classEB__Phantom.html#a2d9a45103cc248fc12f62b3410b6740a',1,'EB_Phantom']]],
   ['case',['case',['../LICENSE_8txt.html#ac25546546ad3dde8a40a9c987d5d1adc',1,'LICENSE.txt']]],
   ['charge',['CHARGE',['../LICENSE_8txt.html#acb35985508282727f936becdbc728f03',1,'LICENSE.txt']]],
   ['children',['children',['../classNode.html#a5c92e4f9774c27d66f5fff3d51b76abf',1,'Node::children()'],['../structGeomRegionInfo.html#a2ff4c7ffa2d39622f5e2d4c8f3f38ea3',1,'GeomRegionInfo::children()']]],
