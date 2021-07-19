@@ -12,7 +12,7 @@ If you use geometry models from this site, please cite:
 
 
     H Safigholi, Z Parsons, S G Deering, and R M Thomson,
-     Update of the CLRP eye plaque brachytherapy database for photon-emitting sources, Medical Physics, (2021), https://doi.org/10.1002/mp.14844
+     Update of the CLRP eye plaque brachytherapy database for photon-emitting sources, Medical Physics,48(2021) 3373-3383, https://doi.org/10.1002/mp.14844
  
  and      
 
