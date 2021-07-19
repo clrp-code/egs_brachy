@@ -1,10 +1,9 @@
 var searchData=
 [
   ['ogzstream',['ogzstream',['../classogzstream.html#a1c765db8ca4173d8c34f5450bfb27750',1,'ogzstream::ogzstream()'],['../classogzstream.html#af1c122fb77cbd03758c820f7499ebdd8',1,'ogzstream::ogzstream(const char *name, int mode=std::ios::out)']]],
-  ['open',['open',['../classgzstreambuf.html#af720bcd3058c97c90d11a3bcc57fda98',1,'gzstreambuf::open()'],['../classgzstreambase.html#a88288f683ba4b4978aef1c460ff669c4',1,'gzstreambase::open()'],['../classigzstream.html#aad0a838a6c17a9841260eb7f464ef493',1,'igzstream::open()'],['../classogzstream.html#afbec9c20c0be4896b66d93e4718f77ad',1,'ogzstream::open()']]],
+  ['open',['open',['../classgzstreambuf.html#a6ddab907ec6597f7f2e09406b0b39160',1,'gzstreambuf::open()'],['../classgzstreambase.html#a88288f683ba4b4978aef1c460ff669c4',1,'gzstreambase::open()'],['../classigzstream.html#aad0a838a6c17a9841260eb7f464ef493',1,'igzstream::open()'],['../classogzstream.html#afbec9c20c0be4896b66d93e4718f77ad',1,'ogzstream::open()']]],
   ['openphspfile',['openPHSPFile',['../classEB__IAEASource.html#a2898945d21b58e84fb298a7d5239e50c',1,'EB_IAEASource']]],
   ['options',['Options',['../classebvolcor_1_1Options.html#a9ccb60733eb53d5a850ae5b0c9517f3c',1,'ebvolcor::Options']]],
-  ['or',['or',['../LICENSE_8txt.html#a0691c1b5f6bbdf9feda488bf05f81570',1,'LICENSE.txt']]],
   ['output3dbounds',['output3DBounds',['../classEB__Phantom.html#ad0e25952bf7695564d3e3dda75f4410d',1,'EB_Phantom']]],
   ['output3ddoseresults',['output3ddoseResults',['../classEB__Phantom.html#a0f9abdb33a1c80f00e282e0bafb57ca1',1,'EB_Phantom']]],
   ['output3ddoses',['output3DDoses',['../classEB__Phantom.html#a37642532dc6888c149025f8213d82971',1,'EB_Phantom']]],
@@ -21,5 +20,5 @@ var searchData=
   ['outputvolumecorrection',['outputVolumeCorrection',['../classEB__Phantom.html#acef9734c47684cfc7ea2a29c82b1e228',1,'EB_Phantom']]],
   ['outputvoxelinfo',['outputVoxelInfo',['../classEB__Phantom.html#a107157695270761830d0efe93a277820',1,'EB_Phantom']]],
   ['outputxmgr',['outputXMGR',['../classBaseSpectrumScorer.html#a5e54e880b4bdbf4cd3e313679de28512',1,'BaseSpectrumScorer']]],
-  ['overflow',['overflow',['../classgzstreambuf.html#ae639a08a817442936ed72aa2b962cd0c',1,'gzstreambuf']]]
+  ['overflow',['overflow',['../classgzstreambuf.html#aab8507fd9e67a5a3113bd72e6bf7772f',1,'gzstreambuf']]]
 ];

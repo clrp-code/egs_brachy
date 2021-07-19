@@ -5,6 +5,7 @@ var searchData=
   ['_7eeb_5fiaeasource',['~EB_IAEASource',['../classEB__IAEASource.html#a8d481c4489b97259a4cf89435dfa3df6',1,'EB_IAEASource']]],
   ['_7eeb_5fphantom',['~EB_Phantom',['../classEB__Phantom.html#a2224594f1886d37719df663573846cc0',1,'EB_Phantom']]],
   ['_7eeb_5ftimingtree',['~EB_TimingTree',['../classEB__TimingTree.html#a338ad92b6e9abe94506ea1992951b96d',1,'EB_TimingTree']]],
+  ['_7eegs_5fsobol',['~EGS_Sobol',['../classEGS__Sobol.html#a1c48a308b06c2338cc67c205f2ec23ad',1,'EGS_Sobol']]],
   ['_7egeominfo',['~GeomInfo',['../classGeomInfo.html#a72fc836af2b7057530d4194f31a40f4d',1,'GeomInfo']]],
   ['_7egzstreambase',['~gzstreambase',['../classgzstreambase.html#a22e49bb93e8b19f116d61a8875a48dfd',1,'gzstreambase']]],
   ['_7egzstreambuf',['~gzstreambuf',['../classgzstreambuf.html#a4237e08ca77c39ec52912658ef8d7be0',1,'gzstreambuf']]],

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['geomregioninfomapt',['GeomRegionInfoMapT',['../ginfo_8h.html#a8942736820fa961e051c8863f42149d0',1,'ginfo.h']]],
-  ['geomregt',['GeomRegT',['../ginfo_8h.html#ac23e09524d51f151a1c6e24492ccf995',1,'ginfo.h']]]
+  ['ebsendmessage',['EBSendMessage',['../pubsub_8h.html#a705dcf94902abaa02d4a53e93a1b0163',1,'pubsub.h']]]
 ];

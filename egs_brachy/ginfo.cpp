@@ -186,7 +186,7 @@ string getGeomBaseName(EGS_Input *input) {
 }
 
 
-// return a vector of all the names of the inscribedd geometries in an EGS_AutoEnvelope input
+// return a vector of all the names of the inscribed geometries in an EGS_AutoEnvelope input
 vector<string> getAutoEnvelopeChildren(EGS_Input *input) {
 
     vector<string> children;
@@ -309,10 +309,26 @@ vector<string> getGStackChildren(EGS_Input *input) {
     return children;
 }
 
+// return a vector of all the names of the inscribedd geometries in an egs_gtransformed input
+vector<string> getGTransformedChildren(EGS_Input *input) {
+    vector<string> children;
+    input->getInput("my geometry", children);
+    return children;
+}
 
-// return a vector of the names of all the children for a given geometry input
-// currently only works for egs_autoenvelope and egs_genevelope geometries
-// but could be expaned to work for unions etc
+
+
+/* return a vector of the names of all the direct children for a given geometry input
+ * currently works for:
+ *      egs_autoenvelope
+ *      egs_genvelope
+ *      egs_cdgeometry
+ *      egs_ndgeometry
+ *      egs_gunion
+ *      egs_gstack
+ *      egs_gtransformed
+ *
+ * */
 vector<string> GeomInfo::getChildren(string name, EGS_Input *input) {
 
     string library;
@@ -335,6 +351,8 @@ vector<string> GeomInfo::getChildren(string name, EGS_Input *input) {
         children = getUnionChildren(input);
     } else if (library == "egs_gstack") {
         children = getGStackChildren(input);
+    } else if (library == "egs_gtransformed") {
+        children = getGTransformedChildren(input);
     }
 
     return children;

@@ -576,7 +576,7 @@ void EB_Phantom::outputTopDoses(int top_n, vector<RegionResult> region_results) 
     egsInformation((fmt+"\n").c_str(), top_n, (geometry->getName()).c_str());
 
     string title = (
-        " Region  Med #  Volume (Nominal) / cm^3            Tracklength Dose / Gy/hist (Derr, Verr)  "
+        " Region  Med #          Volume (Nominal) / cm^3         Tracklength Dose / Gy/hist (Derr, Verr)     "
         "Interaction Dose / Gy/hist (Derr, Verr)\n"
     );
     egsInformation("%s\n", string(title.size()-1, '=').c_str());
@@ -607,8 +607,14 @@ void EB_Phantom::outputTopDoses(int top_n, vector<RegionResult> region_results) 
 
         int med = geometry->medium(rr.reg);
 
+        string fmt;
+        if (total_tlen_unc > 0.001){
+            fmt = "%7d  %5d %11.3E(%8.3E) +/- %6.2f%%    %12.3E +/- %6.2f%% (%6.2f%%, %6.2f%%)    %10.3E +/- %6.2f%% (%6.2f%%, %6.2f%%)\n";
+        }else{
+            fmt = "%7d  %5d %11.3E(%8.3E) +/- %6.3f%%    %11.4E +/- %6.3f%% (%6.3f%%, %6.3f%%)    %10.4E +/- %7.3f%% (%6.3f%%, %6.3f%%)\n";
+        }
         egsInformation(
-            "%7d  %5d %11.3E(%8.3E) +/- %5.2f%%    %9.3E +/- %5.2f%% (%5.2f%%, %5.2f%%)    %9.3E +/- %5.2f%% (%5.2f%%, %5.2f%%)\n",
+            fmt.c_str(),
             rr.reg,
             med,
             vol,

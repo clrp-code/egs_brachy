@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['you',['you',['../LICENSE_8txt.html#aa3e27662c1d4cbafd95f10f5d4c51aed',1,'LICENSE.txt']]]
+  ['y_5fextent',['y_extent',['../classpy3ddose_1_1DoseFile.html#af743a1845ff2df5255e745901ec557c1',1,'py3ddose::DoseFile']]]
 ];

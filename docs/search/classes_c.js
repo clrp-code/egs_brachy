@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['volumecorrector',['VolumeCorrector',['../classebvolcor_1_1VolumeCorrector.html',1,'ebvolcor']]]
+  ['subscriber',['Subscriber',['../classSubscriber.html',1,'']]],
+  ['surfacecountspectrum',['SurfaceCountSpectrum',['../classSurfaceCountSpectrum.html',1,'']]]
 ];
