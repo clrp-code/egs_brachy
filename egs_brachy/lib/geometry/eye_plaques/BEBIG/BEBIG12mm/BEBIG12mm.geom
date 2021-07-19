@@ -22,7 +22,7 @@
 # and
 #      H Safigholi, Z Parsons, S G Deering, and R M Thomson,
 #     Update of the CLRP eye plaque brachytherapy database for
-#     photon-emitting sources, Medical Physics (accepted, 2021).
+#     photon-emitting sources, Medical Physics 48(2021) 3373-3383.
 #
 #
 :start geometry definition:
