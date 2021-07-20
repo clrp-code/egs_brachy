@@ -1,0 +1,27 @@
+:start shape:
+
+    library = egs_shape_collection
+
+    :start shape:
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02
+        :stop shape:
+
+        extension = -0.19 -0.12
+    :stop shape:
+
+    :start shape:
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02
+        :stop shape:
+
+        extension = 0.12 0.19
+    :stop shape:
+
+    probabilities = 1 1
+
+:stop shape:

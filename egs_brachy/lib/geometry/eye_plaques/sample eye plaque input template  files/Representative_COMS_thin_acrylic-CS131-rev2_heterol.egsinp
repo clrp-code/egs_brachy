@@ -1,0 +1,198 @@
+
+##############################################################################
+#
+#  This is a smaple input egs_brachy file for COMS-thin_acrylic (Cta) Reperesentative models loaded with Cs_131 seeds. Al seeds are active at the same time and seed ccordinates are provided in the CLRP_EPv2 or at egs_brachy Github distribution from this branch (egs_brachy/egs_brachy/lib/geometry/eye_plaques/)
+#
+##############################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+:start run control:
+    ncase = 1e11 
+    geometry error limit=2000
+    run mode = normal
+	calculation =  first # combine
+	 nbatch = 5
+    nchunk = 20
+:stop run control
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+
+:start media definition:
+    material data file = {PATH_TO_EGS_BRACHY}/lib/media/material.dat 
+:stop media definition:
+
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#	Definition of geometries	#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start geometry definition:
+
+#A water box for scatter conditions
+	:start geometry:
+        library = egs_glib
+        name = water_box
+        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+	:stop geometry:
+	
+#The scoring phantom
+	:start geometry:
+        library = egs_glib
+        name = water_phantom
+		include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/COMSphant.geom
+		# COMSphantLarge.geom
+	:stop geometry:
+
+#The plaque to be used
+    :start geometry:
+        library = egs_glib
+        name = empty_plaque
+        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/eye_plaques/Representative_models/COMS_thin_acrylic.geom
+    :stop geometry
+	
+    :start geometry:
+        library = egs_gtransformed
+        my geometry = empty_plaque
+        :start transformation:
+            translation = 0 0 1.13
+        :stop transformation:
+        name = plaque_transform
+    :stop geometry:
+
+#The brachytherapy seed to be used
+	:start geometry:
+        library = egs_glib
+        name = seed
+        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.geom
+	
+    :stop geometry
+	
+#Insertion of the seeds into the plaque
+  :start geometry:
+
+        library = egs_autoenvelope
+        name = plaque_w_seeds
+        base geometry = plaque_transform
+
+        :start inscribed geometry:
+
+            inscribed geometry name = seed
+
+            :start transformations:
+                include file = {PATH_TO_EGS_BRACHY}/lib/geometry/transformations/eye_plaques/COMS16mm
+            :stop transformations:
+
+			:start region discovery:
+				correction type = discover
+                density of random points (cm^-3) = 1E9
+                include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/boundary.shape
+
+            :stop region discovery:
+
+        :stop inscribed geometry:
+
+    :stop geometry:
+	
+	:start geometry:
+		name = phantom_in_box
+		library = egs_genvelope
+		base geometry = water_box
+		inscribed geometries = water_phantom
+	:stop geometry:
+	
+	:start geometry:
+		name = final
+		library = egs_genvelope
+		base geometry = phantom_in_box
+		inscribed geometries = plaque_w_seeds
+	:stop geometry:
+
+#Tell egs_brachy which is the source (seed) geometry
+    source geometries = seed
+
+#Tell egs_brachy which is the phantom geometry
+    phantom geometries = water_phantom
+
+#Tell egs_brachy which geometry to use for the simulation
+    simulation geometry = final
+	
+:stop geometry definition:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#		Volume corrections		#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct # Other modes: zero dose # correct, none, zero dose
+        density of random points (cm^-3) = 1E9
+
+        :start shape:
+			type = cylinder
+			radius = 0.9
+			midpoint = 0, 0, 0
+			height = 2.0
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#	  Definition of sources	    #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start source definition:
+
+    :start source:
+
+        library = egs_isotropic_source
+        name = Cs131_CS1_rev2
+        charge = 0
+
+       include file ={PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.shape
+		
+
+        :start spectrum:
+            type = tabulated spectrum
+            spectrum file = {PATH_TO_EGS_BRACHY}/lib/spectra/Cs131_NNDC_2.6_line.spectrum
+			
+			
+        :stop spectrum:
+
+    :stop source:
+
+    :start transformations :
+        include file =  {PATH_TO_EGS_BRACHY}/lib/geometry/transformations/eye_plaques/COMS16mm
+    :stop transformations:
+
+    simulation source = Cs131_CS1_rev2
+
+:stop source definition:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#		Scoring options			#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+:start scoring options:
+
+     #score energy deposition = yes
+     output voxel info files  = yes
+
+    muen file = {PATH_TO_EGS_BRACHY}/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998
+    dose scaling factor = 1.00 # For absolute dose # 
+	# scaling factor,dose/sk for I-6711=2.699551E+11 ,Pd103-200=1.556154E+09 ,Cs131-Isoray=2.6914205587E+09 , Sk is from the CLRPv2 TG43 database # This scaling factors are based on the data from CLRP Tg43v2 and CLRP_EPv2 databases
+:stop scoring options:
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#   	Transport parameters	#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+include file = {PATH_TO_EGS_BRACHY}/lib/transport/low_energy_default
+
+:start rng definition:
+    type = ranmar
+    initial seeds = 4000 7000
+:stop rng definition:

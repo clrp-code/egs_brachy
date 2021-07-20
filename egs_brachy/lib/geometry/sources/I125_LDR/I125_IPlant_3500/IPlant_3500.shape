@@ -1,0 +1,11 @@
+
+:start shape:
+    library = egs_extended_shape
+    :start shape:
+        library = egs_circle
+        radius = 0.03335
+        inner radius = 0.03175
+    :stop shape:
+
+    extension = -0.188 0.188
+:stop shape:

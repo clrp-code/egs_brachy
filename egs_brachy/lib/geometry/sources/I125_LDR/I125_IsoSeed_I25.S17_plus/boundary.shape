@@ -1,0 +1,7 @@
+:start shape:
+
+    type = cylinder
+    radius = 0.04
+    height = 0.45
+
+:stop shape:
