@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jquery',['jQuery',['../jquery_8js.html#aa676d9980e4aff2d9210b4c8e0e1dad9',1,'jquery.js']]]
+  ['kill_5fafter_5fscoring',['kill_after_scoring',['../classPHSPControl.html#a1217761fcd0604c95b0e43bc99478b56',1,'PHSPControl']]]
 ];

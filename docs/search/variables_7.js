@@ -4,7 +4,6 @@ var searchData=
   ['gcr_5fphantom_5freg',['gcr_phantom_reg',['../classEB__Application.html#a540e2dcdb8c55d1e92e56d73ff8e31bc',1,'EB_Application']]],
   ['gen_5fopts',['gen_opts',['../classebvolcor_1_1VolumeCorrector.html#a7122e274276d7e23f6174c2863ad0482',1,'ebvolcor::VolumeCorrector']]],
   ['gen_5fvc_5fresults',['gen_vc_results',['../classEB__Application.html#ab289d60c9899017d6da28f981e51fc32',1,'EB_Application']]],
-  ['general',['GENERAL',['../LICENSE_8txt.html#a0bb3213ee1b083288e16fd41e9fc062d',1,'LICENSE.txt']]],
   ['geom',['geom',['../namespacegen__geom.html#aa8b9827c2a164544002b998e10efe7ed',1,'gen_geom']]],
   ['geom_5fto_5fregioninfo',['geom_to_regioninfo',['../classGeomInfo.html#a06218402cdf14e31c23723bfe5ea7939',1,'GeomInfo']]],
   ['geom_5ftree',['geom_tree',['../classGeomInfo.html#ac5afe6d024aa6696290a7b9276d5838a',1,'GeomInfo']]],

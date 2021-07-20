@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['l',['L',['../jquery_8js.html#a38ee4c0b5f4fe2a18d0c783af540d253',1,'jquery.js']]],
   ['last_5fposition',['last_position',['../classEB__Application.html#abeb90213d794461d89fb407d72644736',1,'EB_Application']]],
   ['last_5fr',['last_R',['../classEB__Application.html#a4c532000dfd05e2111a2506d366ff38e',1,'EB_Application']]],
   ['latch',['Latch',['../classLatch.html',1,'']]],
@@ -8,12 +7,10 @@ var searchData=
   ['latch_2eh',['latch.h',['../latch_8h.html',1,'']]],
   ['latch_5fcontrol',['latch_control',['../classEB__Application.html#a5f788f816261712e257103ef3e0ce8e0',1,'EB_Application']]],
   ['level',['level',['../classEB__TimingTree.html#a015112b9b2d614fe915a025fbe6b2097',1,'EB_TimingTree']]],
-  ['libraries',['libraries',['../LICENSE_8txt.html#a7b421a4ea8b5fcd57b66a885f56c1aa4',1,'LICENSE.txt']]],
-  ['library',['LIBRARY',['../LICENSE_8txt.html#a7274c369eeb124028a4145b928c60a91',1,'LIBRARY():&#160;LICENSE.txt'],['../LICENSE_8txt.html#ae23839c8bbae885f4746a0302f845386',1,'LIBRARY(INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE):&#160;LICENSE.txt'],['../LICENSE_8txt.html#a647d2477d9688c5c80fc352177cf6caf',1,'library():&#160;LICENSE.txt'],['../LICENSE_8txt.html#a4a611c7289539bb6520646e2596a5edc',1,'Library():&#160;LICENSE.txt'],['../LICENSE_8txt.html#a6201ddb6be030b403fe49aab2fa34b60',1,'Library(or with a work based on the Library) on a volume of a storage or distribution medium does not bring the other work under the scope of this License.3.You may opt to apply the terms of the ordinary GNU General Public License instead of this License to a given copy of the Library.To do this:&#160;LICENSE.txt'],['../LICENSE_8txt.html#a669b446fd5c2d3023c09a8cea47f185d',1,'Library(or a portion or derivative of it, under Section 2) in object code or executable form under the terms of Sections 1 and 2 above provided that you accompany it with the complete corresponding machine-readable source code:&#160;LICENSE.txt'],['../LICENSE_8txt.html#a7e705fb14a98ba803b098e212678bfc4',1,'Library(because it contains portions of the Library):&#160;LICENSE.txt'],['../LICENSE_8txt.html#a4cb386ea816016426209a5fbaf0128a1',1,'Library(It is understood that the user who changes the contents of definitions files in the Library will not necessarily be able to recompile the application to use the modified definitions.) b) Use a suitable shared library mechanism for linking with the Library.A suitable mechanism is one that(1) uses at run time a copy of the library already present on the user&apos;s computer system:&#160;LICENSE.txt'],['../LICENSE_8txt.html#a6540bdb35eb8c50f1b2b2e6c6f255a79',1,'Library(or any work based on the Library):&#160;LICENSE.txt']]],
-  ['license',['license',['../LICENSE_8txt.html#a820decac2dd17e001260c7a868b809a7',1,'license():&#160;LICENSE.txt'],['../LICENSE_8txt.html#a355539e51bed3008068dfe985e226ab8',1,'License():&#160;LICENSE.txt'],['../LICENSE_8txt.html#a1ac4962d6b7a8c1a7ee5cea63e494487',1,'License(If a newer version than version 2 of the ordinary GNU General Public License has appeared, then you can specify that version instead if you wish.) Do not make any other change in these notices.Once this change is made in a given copy:&#160;LICENSE.txt']]],
-  ['license_2etxt',['LICENSE.txt',['../LICENSE_8txt.html',1,'']]],
+  ['lines',['lines',['../namespacemedia.html#a09ee67b187359bbcce7165882c8cfaf9',1,'media.lines()'],['../namespacerz__slab__media.html#a862b4decc528d235fa424e360f1451f1',1,'rz_slab_media.lines()']]],
   ['loadfilevolumecorrections',['loadFileVolumeCorrections',['../classebvolcor_1_1VolumeCorrector.html#a2ec8f5f55eac1d7de0ed2ce5e7a5d053',1,'ebvolcor::VolumeCorrector']]],
   ['loadvolumes',['loadVolumes',['../namespaceebvolcor.html#a696467264593582cdcf7333ce2eaa7d3',1,'ebvolcor']]],
   ['local_5fscoring_5fregion',['local_scoring_region',['../classEnergyFluenceSpectrumInVoxel.html#a219b53ef77c5e66be7457f562fc35332',1,'EnergyFluenceSpectrumInVoxel']]],
-  ['localtoglobal',['localToGlobal',['../classGeomInfo.html#a4acf5ac3b0cb2a4f06e11ab24b3b0e3a',1,'GeomInfo']]]
+  ['localtoglobal',['localToGlobal',['../classGeomInfo.html#a4acf5ac3b0cb2a4f06e11ab24b3b0e3a',1,'GeomInfo']]],
+  ['log_5fmax',['LOG_MAX',['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX():&#160;sobol.cpp'],['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX():&#160;sobol.cpp']]]
 ];

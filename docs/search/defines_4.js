@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['same_5fposition_5ftolerance',['SAME_POSITION_TOLERANCE',['../egs__brachy_8h.html#afc452ffc46e67075adfef67c74689e6b',1,'egs_brachy.h']]]
+  ['mxmed',['MXMED',['../array__sizes_8h.html#af160181574139f384d6b92917727ca85',1,'array_sizes.h']]],
+  ['mxstack',['MXSTACK',['../array__sizes_8h.html#a6d4399919d6e059c35fc4406d0523be6',1,'array_sizes.h']]]
 ];

@@ -1,18 +1,12 @@
 var searchData=
 [
-  ['obligations',['obligations',['../LICENSE_8txt.html#a0f05e08f9e1e73ccd0b2a24d481c359b',1,'LICENSE.txt']]],
-  ['offer',['offer',['../LICENSE_8txt.html#a63f8690e0a305241116885614f13f540',1,'LICENSE.txt']]],
   ['ogzstream',['ogzstream',['../classogzstream.html',1,'ogzstream'],['../classogzstream.html#a1c765db8ca4173d8c34f5450bfb27750',1,'ogzstream::ogzstream()'],['../classogzstream.html#af1c122fb77cbd03758c820f7499ebdd8',1,'ogzstream::ogzstream(const char *name, int mode=std::ios::out)']]],
-  ['on',['on',['../LICENSE_8txt.html#a3a09c912178e06d15053fd07b1c9c94f',1,'LICENSE.txt']]],
-  ['one',['one',['../LICENSE_8txt.html#a6a2b11d0e95bd2a3022eb2d52a00baf0',1,'LICENSE.txt']]],
-  ['open',['open',['../classgzstreambuf.html#af720bcd3058c97c90d11a3bcc57fda98',1,'gzstreambuf::open()'],['../classgzstreambase.html#a88288f683ba4b4978aef1c460ff669c4',1,'gzstreambase::open()'],['../classigzstream.html#aad0a838a6c17a9841260eb7f464ef493',1,'igzstream::open()'],['../classogzstream.html#afbec9c20c0be4896b66d93e4718f77ad',1,'ogzstream::open()']]],
+  ['open',['open',['../classgzstreambuf.html#a6ddab907ec6597f7f2e09406b0b39160',1,'gzstreambuf::open()'],['../classgzstreambase.html#a88288f683ba4b4978aef1c460ff669c4',1,'gzstreambase::open()'],['../classigzstream.html#aad0a838a6c17a9841260eb7f464ef493',1,'igzstream::open()'],['../classogzstream.html#afbec9c20c0be4896b66d93e4718f77ad',1,'ogzstream::open()']]],
   ['opened',['opened',['../classgzstreambuf.html#a233a824915fa1a54df05ecf33b8b78d2',1,'gzstreambuf']]],
   ['openphspfile',['openPHSPFile',['../classEB__IAEASource.html#a2898945d21b58e84fb298a7d5239e50c',1,'EB_IAEASource']]],
-  ['operates',['operates',['../LICENSE_8txt.html#a631eec9927b7e2b075459ac8fe596978',1,'LICENSE.txt']]],
-  ['options',['Options',['../classebvolcor_1_1Options.html',1,'ebvolcor']]],
-  ['options',['Options',['../classebvolcor_1_1Options.html#a9ccb60733eb53d5a850ae5b0c9517f3c',1,'ebvolcor::Options']]],
-  ['or',['or',['../LICENSE_8txt.html#a0691c1b5f6bbdf9feda488bf05f81570',1,'LICENSE.txt']]],
+  ['options',['Options',['../classebvolcor_1_1Options.html',1,'ebvolcor::Options'],['../classebvolcor_1_1Options.html#a9ccb60733eb53d5a850ae5b0c9517f3c',1,'ebvolcor::Options::Options()']]],
   ['ordered_5fgeom_5fdata',['ordered_geom_data',['../classGeomInfo.html#a229b79fccf9fc8105b8e42b563683a6d',1,'GeomInfo']]],
+  ['origin',['origin',['../classpy3ddose_1_1DoseFile.html#a404fa8b111900a9013a94612f2a1d4d3',1,'py3ddose::DoseFile']]],
   ['other_5fvolume',['other_volume',['../structebvolcor_1_1Results.html#a89eaa543df9078823f14f05c144f31ff',1,'ebvolcor::Results']]],
   ['outfile',['outfile',['../namespacegen__geom.html#afca22453108de0e4237743127baef386',1,'gen_geom.outfile()'],['../namespacegen__media.html#acda020471f616dd77caa4e6bd265fa56',1,'gen_media.outfile()'],['../namespacegen__specs.html#aba2a0aa457f89f09419e176da3e3f5e7',1,'gen_specs.outfile()'],['../namespacegen__tests.html#a272a583ba49aff72f1f0da6880c1ba06',1,'gen_tests.outfile()'],['../namespacegen__transport.html#a9a4c461bc7556aac802409ff3535a184',1,'gen_transport.outfile()']]],
   ['output3dbounds',['output3DBounds',['../classEB__Phantom.html#ad0e25952bf7695564d3e3dda75f4410d',1,'EB_Phantom']]],
@@ -40,5 +34,5 @@ var searchData=
   ['outputvolumecorrection',['outputVolumeCorrection',['../classEB__Phantom.html#acef9734c47684cfc7ea2a29c82b1e228',1,'EB_Phantom']]],
   ['outputvoxelinfo',['outputVoxelInfo',['../classEB__Phantom.html#a107157695270761830d0efe93a277820',1,'EB_Phantom']]],
   ['outputxmgr',['outputXMGR',['../classBaseSpectrumScorer.html#a5e54e880b4bdbf4cd3e313679de28512',1,'BaseSpectrumScorer']]],
-  ['overflow',['overflow',['../classgzstreambuf.html#ae639a08a817442936ed72aa2b962cd0c',1,'gzstreambuf']]]
+  ['overflow',['overflow',['../classgzstreambuf.html#aab8507fd9e67a5a3113bd72e6bf7772f',1,'gzstreambuf']]]
 ];

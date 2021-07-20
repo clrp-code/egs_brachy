@@ -3,5 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node1 [label="ebvolcor::VolumeCorrector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classebvolcor_1_1VolumeCorrector.html",tooltip="An object for controlling the volume correction routine. "];
+  Node0 [label="ebvolcor::Options",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classebvolcor_1_1Options.html",tooltip="Volume correction initialization helper class. "];
 }

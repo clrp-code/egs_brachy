@@ -146,10 +146,10 @@ void EB_Application::describeSimulation() {
     ginfo.printInfo();
 
     egsInformation("\n\negs_brachy Phantom Details\n%s\n\n", string(80,'=').c_str());
-    egsInformation("                              |       |           |              |  Sph (Rmin, Rmax)    |                      |   \n");
-    egsInformation("                              |       |           |  Avg Vox Vol |   RZ (Rmin, Rmax)    |   RZ (Zmin, Zmax)    |   \n");
-    egsInformation("Name                          | Type  |   Nreg    |    / cm^3    |  XYZ (Xmin, Xmax)    |  XYZ (Ymin, Ymax)    | XYZ (Zmin, Zmax)\n");
-    egsInformation("%s\n", string(120, '-').c_str());
+    egsInformation("                              |                      |           |              |  Sph (Rmin, Rmax)    |                      |   \n");
+    egsInformation("                              |                      |           |  Avg Vox Vol |   RZ (Rmin, Rmax)    |   RZ (Zmin, Zmax)    |   \n");
+    egsInformation("Name                          |      Type            |   Nreg    |    / cm^3    |  XYZ (Xmin, Xmax)    |  XYZ (Ymin, Ymax)    | XYZ (Zmin, Zmax)\n");
+    egsInformation("%s\n", string(145, '-').c_str());
 
     for (size_t p=0; p < phantom_geoms.size(); p++) {
 
@@ -159,7 +159,6 @@ void EB_Application::describeSimulation() {
         string type = geom->getType();
 
         if (type == "EGS_XYZGeometry") {
-            type = "XYZ";
             int nx, ny, nz;
             nx = geom->getNRegDir(EB_Phantom::XDIR);
             ny = geom->getNRegDir(EB_Phantom::YDIR);
@@ -174,13 +173,12 @@ void EB_Application::describeSimulation() {
             zmax = geom->getBound(EB_Phantom::ZDIR, nz);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) | (%8.3F, %8.3F)\n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) | (%8.3F, %8.3F)\n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 xmin, xmax, ymin, ymax, zmin, zmax
             );
 
         } else if (type == "EGS_RZ") {
-            type = "RZ";
             int nr, nz;
             nr = geom->getNRegDir(EGS_RZGeometry::RDIR);
             nz = geom->getNRegDir(EGS_RZGeometry::ZDIR);
@@ -192,7 +190,7 @@ void EB_Application::describeSimulation() {
             zmax = geom->getBound(EGS_RZGeometry::ZDIR, nz-1);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) |\n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) | (%8.3F, %8.3F) |\n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 rmin, rmax, zmin, zmax
             );
@@ -206,9 +204,15 @@ void EB_Application::describeSimulation() {
             rmax = geom->getBound(EGS_cSpheres::RDIR, nr);
 
             egsInformation(
-                "%-30s| %5s | %9d | %12.5G | (%8.3F, %8.3F) |                      | \n",
+                "%-30s| %20s | %9d | %12.5G | (%8.3F, %8.3F) |                      | \n",
                 geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
                 rmin, rmax
+            );
+        } else {
+            egsInformation(
+                "%-30s| %20s | %9d | %12.5G |                      |                      | \n",
+                geom->getName().c_str(), type.c_str(), geom->regions(), phant->avgVoxelVol(),
+                -1, -1
             );
         }
 
@@ -217,25 +221,13 @@ void EB_Application::describeSimulation() {
     egsInformation("\n\negs_brachy Volume correction details\n%s\n", string(80, '-').c_str());
 
     egsInformation("\nSource specific volume correction details\n%s\n", string(80, '-').c_str());
-    if (!source_vc_results.success) {
-        egsInformation("Source correction not requested or failed\n");
-    } else {
-        source_vc_results.outputResults("Source");
-    }
+    source_vc_results.outputResults("Source");
 
     egsInformation("\nExtra volume correction details\n%s\n", string(80, '-').c_str());
-    if (!gen_vc_results.success) {
-        egsInformation("Extra correction not requested or failed\n");
-    } else {
-        gen_vc_results.outputResults();
-    }
+    gen_vc_results.outputResults("Extra");
 
     egsInformation("\nFile volume correction details\n%s\n", string(80, '-').c_str());
-    if (!file_vc_results.success) {
-        egsInformation("File correction not requested or failed\n");
-    } else {
-        file_vc_results.outputResults();
-    }
+    file_vc_results.outputResults();
 
     egsInformation("\n\n");
     if (geometry) {
@@ -379,8 +371,8 @@ int EB_Application::initGeometry() {
         egsFatal("Simulation stopped\n");
     }
 
-    err = correctVolumes();
 
+    err = correctVolumes();
 
     timing_blocks.stopTimer();
     return 0;
@@ -421,6 +413,7 @@ int EB_Application::initSourceTransforms() {
         return -1;
     }
 
+
     EGS_Input *source_loc_inp = source_inp->takeInputItem("transformations");
 
     if (source_loc_inp) {
@@ -431,14 +424,171 @@ int EB_Application::initSourceTransforms() {
     if (source_transforms.size() == 0) {
         EGS_AffineTransform *unity_trans = new EGS_AffineTransform();
         source_transforms.push_back(unity_trans);
-        egsWarning("EB_Application:: missing or invalid source `transformations` input item. Assuming single source at origin");
+        egsWarning("EB_Application:: missing or invalid source `transformations` input item. Assuming single source at origin\n");
     }
     nsources = (int)source_transforms.size();
     base_transform = source_transforms[0];
     base_transform_inv = new EGS_AffineTransform(base_transform->inverse());
 
+    EGS_Input *source_overlap_inp = source_inp->takeInputItem("source overlap check");
+    if (source_overlap_inp){
+        int err = checkSourceOverlaps(source_overlap_inp);
+        if (err){
+            egsFatal("EB_Application:: checkSourceOverlaps detected an error.");
+        }
+    }
+
     return 0;
 
+}
+
+int EB_Application::checkSourceOverlaps(EGS_Input *inp) {
+
+    timing_blocks.addTimer("egs_brachy::checkSourceOverlaps");
+
+    vector<string> yn_choices;
+    yn_choices.push_back("no");
+    yn_choices.push_back("yes");
+    bool check_source_overlap = (bool)inp->getInput("check source overlaps", yn_choices, 0);
+
+    if (!check_source_overlap || source_transforms.size() <= 1){
+        /* not requested or only 1 source so no need to check for overlap */
+        timing_blocks.stopTimer();
+        return 0;
+    }
+
+    vector<string> mode_choices;
+    mode_choices.push_back("warning");
+    mode_choices.push_back("fatal");
+
+    bool fatal = (bool)inp->getInput("warning mode", mode_choices, 1);
+
+    EGS_Input *shape_inp = inp->takeInputItem("shape");
+
+    EGS_BaseShape *bounds = EGS_BaseShape::createShape(shape_inp);
+
+    if (!shape_inp) {
+        egsWarning("egs_brachy::checkSourceOverlaps - no `shape` input found.\n");
+        return 1;
+    }
+
+    EGS_Float bounds_volume = ebvolcor::getShapeVolume(shape_inp);
+    if (bounds_volume < 0){
+        egsWarning("egs_brachy::checkSourceOverlaps - Unable to get shape volume.");
+        return 1;
+    }
+
+    vector<string> excluded;
+    inp->getInput("excluded geometries", excluded);
+
+    EGS_Float density;
+    int err = inp->getInput("density of random points (cm^-3)", density);
+    if (err) {
+        egsWarning("egs_brachy::checkSourceOverlaps - The volume correction 'density of random points (cm^-3)' input was not found. Using 1E6/cm^3\n");
+        density = 1E6;
+    }
+    EGS_I64 npoints = (EGS_I64)floor(max(1., density*bounds_volume));
+
+
+    EGS_RandomGenerator *rng = EGS_RandomGenerator::defaultRNG();
+    EGS_Vector point;
+
+    /* find first source geometry defined */
+    EGS_BaseGeometry *base_source = 0;
+    string base_source_name;
+    for (int gg=0; gg < ginfo.ngeom; gg++) {
+        GeomRegionInfo gr = ginfo.ordered_geom_data[gg];
+        if (find(ginfo.source_names.begin(), ginfo.source_names.end(), gr.name) != ginfo.source_names.end()){
+            base_source = EGS_BaseGeometry::getGeometry(gr.name);
+            base_source_name = gr.name;
+            break;
+        }
+    }
+    if (!base_source){
+        egsFatal("egs_brachy::checkSourceOverlaps - did not find base source geometry");
+    }
+
+    /* now lets see if our base source is in an autoenvelope */
+    EGS_AffineTransform base_transform;
+    EGS_AffineTransform inv_base_transform;
+    for (int gg=0; gg < ginfo.ngeom; gg++) {
+        GeomRegionInfo gr = ginfo.ordered_geom_data[gg];
+        if (find(gr.children.begin(), gr.children.end(), base_source_name) != gr.children.end()){
+            /* base source is child of this geometry */
+            if (gr.type != "EGS_AEnvelope" && gr.type != "EGS_ASwitchedEnvelope"){
+                base_transform = *source_transforms[0];
+                inv_base_transform = base_transform.inverse();
+            }
+            break;
+        }
+    }
+
+    vector<int> overlaps;
+
+    for (EGS_I64 i=0; i < npoints; i++) {
+
+        /* Generate a point and check if its contained within base source. If
+         * it's not actually in a source, go back and generate a new point.  */
+        point = bounds->getRandomPoint(rng);
+        base_transform.transform(point);
+        if (base_source->isWhere(point) < 0) {
+            continue;
+        }
+        inv_base_transform.transform(point);
+
+        for (size_t sa_idx = 0; sa_idx < source_transforms.size(); sa_idx++){
+
+            overlaps.clear();
+
+            EGS_Vector transformed(point);
+
+            // transform from point relative to origin to point
+            // relative to source A we are checking against other sources (B)
+            source_transforms[sa_idx]->transform(transformed);
+
+            for (size_t sb_idx = sa_idx + 1; sb_idx < source_transforms.size(); sb_idx++){
+
+                EGS_Vector inner_transformed(transformed);
+
+                // use current source we are checking transform to back relative to origin
+                source_transforms[sb_idx]->inverse().transform(inner_transformed);
+                base_transform.transform(inner_transformed);
+                if (base_source->isWhere(inner_transformed) >= 0) {
+                    /* point falls within Source A & B so they must be overlapping */
+                    overlaps.push_back(sa_idx);
+                    overlaps.push_back(sb_idx);
+                    goto overlap_found;
+                }
+            }
+        }
+    }
+
+overlap_found:
+
+    if (rng){
+        delete rng;
+    }
+    if (shape_inp){
+        delete shape_inp;
+    }
+    timing_blocks.stopTimer();
+
+    if (overlaps.size() > 1){
+        string msg = "Possible overlap of sources: ";
+        for (int i=0; i < overlaps.size(); i++){
+            msg += to_string(overlaps[i]);
+            if (i != overlaps.size() -1 ){
+                msg += ", ";
+            }
+        }
+        egsInformation((msg+"\n").c_str());
+    }
+
+    if (overlaps.size() > 1){
+        return fatal ? 1 : 0;
+    }
+
+    return 0;
 }
 
 int EB_Application::correctVolumes() {
@@ -457,13 +607,72 @@ int EB_Application::correctVolumes() {
         }
     }
     ebvolcor::VolumeCorrector vc(vol_cor_inp, phantom_geoms, geometry, &ginfo, source_transforms);
-    delete vol_cor_inp;
 
     source_vc_results = vc.runSourceCorrection(timing_blocks);
 
     gen_vc_results = vc.runGeneralCorrection(timing_blocks);
 
     file_vc_results = vc.runFileCorrection(timing_blocks);
+
+
+    // automatic volumes now done, now get any manually specified volumes
+    EGS_Input *ij;
+    vector<string> user_vols;
+
+    while ((ij = vol_cor_inp->takeInputItem("phantom region volumes")) != 0) {
+
+        string phant_name;
+        ij->getInput("phantom name", phant_name);
+        EB_Phantom *phant = getPhantomByName(phant_name);
+        if (!phant) {
+            egsFatal("`phanton region volume` specified for phantom `%s` which does not exist.", phant_name.c_str());
+        }else{
+            user_vols.push_back(phant_name);
+        }
+
+        vector<int> phantom_regs;
+        ij->getInput("region numbers", phantom_regs);
+
+        vector<EGS_Float> phantom_vols;
+        ij->getInput("region volumes", phantom_vols);
+
+        if (phantom_regs.size() != phantom_vols.size()){
+            egsFatal(
+                "Mismatched number of inputs for `region numbers` and `region volumes` for phantom `%s`",
+                phant_name.c_str()
+            );
+        }else if (phantom_regs.size() == 0){
+            egsFatal(
+                "Missing `region numbers` or `region volumes` input for `phantom region volumes` block for phantom `%s`",
+                phant_name.c_str()
+            );
+        }
+
+        for (size_t r = 0; r < phantom_regs.size(); r++){
+            phant->setCorrectedVolume(phantom_regs[r], phantom_vols[r]);
+        }
+
+
+        delete ij;
+    }
+
+    /* now we check to ensure that user has specified volumes for any phantoms
+     * which require it */
+    for (size_t p=0; p < phantom_geoms.size(); p++){
+        EB_Phantom *phant = phantom_geoms[p];
+        string name = phant->geometry->getName();
+        string type = phant->geometry->getType();
+        if (phant->needs_user_geoms && find(user_vols.begin(), user_vols.end(), name) == user_vols.end()){
+            egsFatal(
+                "Missing `phantom region volume` block for phantom `%s`."
+                "Phantoms of type `%s` can not calculate volumes automatically.",
+                name.c_str(),
+                type.c_str()
+            );
+        }
+    }
+
+    delete vol_cor_inp;
 
     timing_blocks.stopTimer();
 
@@ -484,13 +693,6 @@ int EB_Application::createPhantoms() {
             return 1;
         }
 
-        string phant_type = phant_geom->getType();
-
-        if (!EB_Phantom::allowedPhantomGeom(phant_type)) {
-            egsInformation("\n\nPhantoms of geometry type `%s` are not currently supported.\n\n    This is a fatal error\n\n",
-                           phant_type.c_str());
-            return 1;
-        }
 
         set<int> global_regions;
 
@@ -745,6 +947,17 @@ void EB_Application::initGCRScoring(EGS_Input *inp) {
     }
 
 }
+
+EB_Phantom* EB_Application::getPhantomByName(string name){
+    for (size_t idx=0; idx < ginfo.phantom_names.size(); idx++) {
+        if (ginfo.phantom_names[idx] == name) {
+            return phantom_geoms[idx];
+        }
+    }
+
+    return 0;
+}
+
 
 void EB_Application::initOutputFiles(EGS_Input *inp) {
 
@@ -1417,12 +1630,12 @@ bool EB_Application::isStuck() {
 
 int EB_Application::ausgab(int iarg) {
 
-
     bool is_photon = top_p.q == 0;
     bool is_before_transport = iarg == BeforeTransport;
     bool is_after_transport = iarg == AfterTransport;
 
     if (is_after_transport && isStuck()) {
+        the_stack->latch[the_stack->np - 1] = top_p.latch;
         return 1;
     }
 
@@ -1432,6 +1645,29 @@ int EB_Application::ausgab(int iarg) {
 
     bool in_phantom = ginfo.isPhantom(global_ir);
     bool in_source = ginfo.isSource(global_ir);
+
+    bool is_extra_scoring_reg = false;
+    string local_geom_name = "";
+    int local_geom_ir = -1;
+    int extra_reg_dose_index = -1;
+
+    if (extra_scoring_reg.size() > 0 && global_ir >= 0){
+
+        // local geom object info
+        GeomRegT local = ginfo.globalToLocal(global_ir);
+        local_geom_ir = local.second;
+        local_geom_name = local.first->getName();
+
+        // check if the current geometry has extra scoring regions
+        map<string, vector<int> >::iterator i = extra_scoring_reg.find(local_geom_name);
+        if (i != extra_scoring_reg.end()){
+            vector<int>::iterator it = find(i->second.begin(), i->second.end(), local_geom_ir);
+            if (it != i->second.end()){
+                is_extra_scoring_reg = true;
+                extra_reg_dose_index = distance(i->second.begin(), it);
+            }
+        }
+    }
 
     /* track number of steps */
     if (is_before_transport) {
@@ -1448,6 +1684,7 @@ int EB_Application::ausgab(int iarg) {
     bool discard_fluorescent = iarg == FluorescentEvent && top_p.E <= flu_cutoff;
     if (discard_fluorescent) {
         discardTopParticle();
+        the_stack->latch[the_stack->np - 1] = top_p.latch;
         return 0;
     }
 
@@ -1458,7 +1695,6 @@ int EB_Application::ausgab(int iarg) {
             latch_control.addScatter(the_stack->latch[ip]);
         }
     }
-
 
     bool next_is_source = ginfo.isSource(irnew);
     bool last_was_source = ginfo.isSource(irold);
@@ -1489,14 +1725,13 @@ int EB_Application::ausgab(int iarg) {
     int nmesg = sizeof(send_messages)/sizeof(send_messages[0]);
     for (int m=0; m < nmesg; m++) {
         if (send_messages[m].first) {
-            EB_Message msg = send_messages[m].second;
             pevent_pub.notify(send_messages[m].second, &top_p);
-            if (msg == PARTICLE_ESCAPED_SOURCE) {
-                latch_control.setPrimary(the_stack->latch[the_stack->np-1]);
-            }
         }
     }
 
+    /* copy the top_p.latch bit to the stack before returning from ausgab.
+     * Since top_p.latch gets reset every step */
+    the_stack->latch[the_stack->np - 1] = top_p.latch;
 
     if (escaped_geom) {
         return 0;
@@ -1529,7 +1764,7 @@ int EB_Application::ausgab(int iarg) {
     bool in_vaccuum = the_useful->medium <= 0;
     bool score_tracklength = score_tlen && is_photon && is_before_transport;
     bool score_interaction = score_edep && iarg <= ExtraEnergy;
-    bool dose_scoring_not_needed = !in_phantom || in_vaccuum || !(score_tracklength || score_interaction);
+    bool dose_scoring_not_needed = !is_extra_scoring_reg && (!in_phantom || in_vaccuum || !(score_tracklength || score_interaction));
 
     if (dose_scoring_not_needed) {
         return 0;
@@ -1544,6 +1779,7 @@ int EB_Application::ausgab(int iarg) {
 
     bool needs_vol_cor = run_mode == RM_SUPERPOSITION && superpos_geom->hasInactiveGeom(global_ir);
 
+
     if (score_tracklength) {
 
         EGS_Interpolator *interp = media_muen[the_useful->medium-1];
@@ -1551,28 +1787,47 @@ int EB_Application::ausgab(int iarg) {
         EGS_Float tracklength_edep = the_epcont->tvstep*top_p.E*muen_val*top_p.wt;
 
         EGS_Float vol;
-        if (needs_vol_cor) {
-            vol = phant->getUncorrectedVolume(phant_ir);
-        } else {
-            vol = phant->getCorrectedVolume(phant_ir);
+
+        if (in_phantom){
+            if (needs_vol_cor) {
+                vol = phant->getUncorrectedVolume(phant_ir);
+            } else {
+                vol = phant->getCorrectedVolume(phant_ir);
+            }
+
+            if (vol > 0) {
+                phant->scoreTlen(phant_ir, tracklength_edep / vol, &top_p);
+            }
         }
 
-        if (vol > 0) {
-            tracklength_edep /= vol;
-            phant->scoreTlen(phant_ir, tracklength_edep, &top_p);
+        if (is_extra_scoring_reg){
+            vol = extra_scoring_vols[local_geom_name][extra_reg_dose_index];
+            extra_scoring_doses[local_geom_name]->score(extra_reg_dose_index, tracklength_edep / vol);
         }
     }
 
     if (score_interaction) {
+
         EGS_Float mass;
-        if (needs_vol_cor) {
-            mass = phant->getUncorrectedMass(phant_ir);
-        } else {
-            mass = phant->getRealMass(phant_ir);
+
+        EGS_Float edep = getEdep()*top_p.wt;
+
+        if (in_phantom){
+
+            if(needs_vol_cor) {
+                mass = phant->getUncorrectedMass(phant_ir);
+            } else {
+                mass = phant->getRealMass(phant_ir);
+            }
+
+            if (mass > 0) {
+                phant->scoreEdep(phant_ir, edep / mass);
+            }
         }
-        if (mass > 0) {
-            EGS_Float edep = getEdep()*top_p.wt/mass;
-            phant->scoreEdep(phant_ir, edep);
+
+        if (is_extra_scoring_reg){
+            mass = extra_scoring_mass[local_geom_name][extra_reg_dose_index];
+            extra_scoring_doses[local_geom_name]->score(extra_reg_dose_index, edep / mass);
         }
     }
 
@@ -1735,6 +1990,7 @@ void EB_Application::outputResults() {
         string vi_format = output_voxinfo ? output_voxinfo_format : "";
         (*p)->outputResults(20, dd_format, ep_format, vi_format, vc_format);
     }
+
     timing_blocks.stopTimer();
 
     egsInformation("\nStep Counts\n%s\n", sep.c_str());
@@ -1793,7 +2049,6 @@ int EB_Application::simulateSingleShower() {
 
     current_case = source->getNextParticle(rndm, p.q, p.latch, p.E, p.wt, p.x, p.u);
 
-
     int initial_source;
     if ((is_phsp_source && !recycle_opts) || !single_generator) {
         initial_source = active_source;
@@ -1829,8 +2084,15 @@ int EB_Application::simulateSingleShower() {
         }
     } else if (!ginfo.isSource(p.ir)) {
 
+        GeomRegT r = ginfo.globalToLocal(p.ir);
+
         printParticleWithSpherical(p);
-        egsFatal("Particle started in region %d which is outside a source geometry. Please check your geometry\n", p.ir);
+        egsFatal(
+            "Particle started in region %d (%s reg %d) which is outside a source geometry. Please check your geometry\n",
+            p.ir,
+            r.first->getName().c_str(),
+            r.second
+        );
 
     }
 

@@ -151,8 +151,11 @@ void Options::setMode() {
     choices.push_back("none");
     choices.push_back("zero dose");
     choices.push_back("correct");
-
-    mode = (VolCorMode)input->getInput("correction type",choices, (int)NO_CORRECTION);
+    if (!input){
+        mode = NO_CORRECTION;
+    }else{
+        mode = (VolCorMode)input->getInput("correction type", choices, (int)NO_CORRECTION);
+    }
 }
 
 /*! \brief create bounding shape from the shape input and calculate its volume */
@@ -225,6 +228,21 @@ void Options::setRNG() {
         } else {
             rng = EGS_RandomGenerator::defaultRNG();
         }
+    }
+
+}
+
+/*! set user requested percent threshold at which point voxel is considered totally covered (default 99.99)*/
+void Options::setCoveredThreshold() {
+
+    int err = input->getInput("total coverage threshold %", covered_threshold);
+    if (err) {
+        egsWarning("The input 'total coverage threshold %%' input was not found. Using 99.9%\n");
+        covered_threshold = 99.9;
+    }
+
+    if (covered_threshold > 1.){
+        covered_threshold /= 100;
     }
 
 }
@@ -321,7 +339,6 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
     HitCounterT hit_counter;
     EGS_I64 n_in_source = 0;
 
-
     for (EGS_I64 i=0; i < source_opts->npoints; i++) {
 
         point = source_opts->getRandomPoint();
@@ -334,12 +351,10 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
         n_in_source += 1;
         base_transform_inv->transform(point);
 
-
         for (size_t sidx = 0; sidx < transforms.size();  sidx++) {
 
             EGS_Vector transformed(point);
             transforms[sidx]->transform(transformed);
-
 
             for (size_t phant= 0; phant<phantoms.size(); phant++) {
                 int reg = phantoms[phant]->geometry->isWhere(transformed);
@@ -354,7 +369,6 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
         }
     }
 
-
     applyVolumeCorrections(source_opts, hit_counter);
 
     return source_opts->bounds_volume*(double)n_in_source/(int)source_opts->npoints;
@@ -364,7 +378,7 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
 void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_counter) {
 
     bool zero_dose = opts->mode == ZERO_DOSE;
-    double vol = opts->bounds_volume;
+    double bounds_vol = opts->bounds_volume;
     double npoints =  opts->npoints;
 
     for (HitCounterT::iterator hi = hit_counter.begin(); hi != hit_counter.end(); hi++) {
@@ -376,8 +390,18 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         }
         int hits = hi->second;
         double reg_vol = phantoms[phant_idx]->getUncorrectedVolume(phant_reg);
-        double corrected_vol = zero_dose ? 0 : max(reg_vol - vol*double(hits)/npoints, 0.);
-        phantoms[phant_idx]->setCorrectedVolume(phant_reg, corrected_vol);
+        double corrected_vol = reg_vol - bounds_vol*double(hits)/npoints;
+        double unc;
+
+        /* consider a voxel coverd if corrected vol is 0.1% (default) or less of nominal volume */
+        bool voxel_covered = corrected_vol / reg_vol <= (1. - opts->covered_threshold);
+        if (!(voxel_covered || zero_dose)){
+            unc = bounds_vol/corrected_vol*sqrt(hits*(npoints-hits)/(npoints*npoints*npoints));
+        } else {
+            corrected_vol = 0;
+            unc = 0;
+        }
+        phantoms[phant_idx]->setCorrectedVolume(phant_reg, corrected_vol, unc);
     }
 
 }
@@ -387,9 +411,10 @@ void readVolumes(istream &vfile, vector<RegVolume> &reg_volumes) {
     vfile >> nrecords;
     for (size_t rec = 0; rec < nrecords; rec++) {
         int reg;
-        EGS_Float vol;
-        vfile >> reg >> vol;
-        reg_volumes.push_back(RegVolume(reg, vol));
+        EGS_Float vol, vol_unc;
+        vfile >> reg >> vol >> vol_unc;
+        RegVolume rvol = {reg, vol, vol_unc};
+        reg_volumes.push_back(rvol);
     }
 }
 
@@ -437,7 +462,7 @@ map<string, int> VolumeCorrector::loadFileVolumeCorrections() {
 
             for (size_t rv=0; rv < volumes.size(); rv++) {
                 RegVolume reg_vol = volumes[rv];
-                phantoms[phant_idx]->setCorrectedVolume(reg_vol.first,reg_vol.second);
+                phantoms[phant_idx]->setCorrectedVolume(reg_vol.ir, reg_vol.vol, reg_vol.unc);
             }
         }
 

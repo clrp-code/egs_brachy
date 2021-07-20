@@ -1,19 +1,19 @@
-digraph "/home/randlet/projects/egs/egs_brachy_release/egs_brachy/latch.h"
+digraph "/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/latch.h"
 {
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/latch.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/recycle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$recycle_8h.html",tooltip="class definitions for recycling "];
-  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/egs_brachy.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$egs__brachy_8h.html",tooltip="the main egs_brachy application header file "];
-  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/egs_brachy.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$egs__brachy_8cpp.html",tooltip="the main egs_brachy application implementation file "];
-  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/recycle.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$recycle_8cpp.html",tooltip="class imlementations for recycling "];
-  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/latch.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$latch_8cpp.html",tooltip="methods for setting/checking latch bits for egs_brachy "];
-  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="/home/randlet/projects\l/egs/egs_brachy_release\l/egs_brachy/phantom.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$phantom_8cpp.html",tooltip="Implementation of phantom objects. "];
+  Node6 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/latch.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/recycle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$recycle_8h.html",tooltip="class definitions for recycling "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/egs_brachy.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$egs__brachy_8h.html",tooltip="the main egs_brachy application header file "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/egs_brachy.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$egs__brachy_8cpp.html",tooltip="the main egs_brachy application implementation file "];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/recycle.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$recycle_8cpp.html",tooltip="class imlementations for recycling "];
+  Node6 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/latch.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$latch_8cpp.html",tooltip="methods for setting/checking latch bits for egs_brachy "];
+  Node6 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/phantom.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$phantom_8cpp.html",tooltip="Implementation of phantom objects. "];
 }

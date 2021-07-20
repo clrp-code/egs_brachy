@@ -2,9 +2,9 @@ import glob
 import os
 import re
 import shutil
-from subprocess import Popen, PIPE
 import sys
 import traceback
+from subprocess import PIPE, Popen
 
 VERBOSE = False
 if "-v" in sys.argv:
@@ -122,7 +122,7 @@ def find_tests():
     if len(sys.argv) > 1:
         tests = glob.glob(os.path.join(os.path.normpath(sys.argv[1]), "__init__.py"))
     else:
-        tests = glob.glob("tests/*/__init__.py")
+        tests = glob.glob("eb_tests/*/__init__.py")
 
     return [x.replace(os.path.join(os.path.sep, "__init__.py"), "").replace(os.path.sep, ".") for x in tests]
 
@@ -155,7 +155,7 @@ def run_all_tests():
             continue
 
         timing_passes = actual_time <= TIMING_MARGIN*time_limit
-        if not (timing_hard_fail and timing_passes):
+        if not timing_passes and not timing_hard_fail:
             warn_count += 1
 
         passes = results_pass and timing_passes if timing_hard_fail else results_pass

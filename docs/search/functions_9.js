@@ -1,6 +1,19 @@
 var searchData=
 [
-  ['if',['if',['../jquery_8js.html#a9db6d45a025ad692282fe23e69eeba43',1,'if(!b.support.opacity):&#160;jquery.js'],['../jquery_8js.html#a30d3d2cd5b567c9f31b2aa30b9cb3bb8',1,'if(av.defaultView &amp;&amp;av.defaultView.getComputedStyle):&#160;jquery.js'],['../jquery_8js.html#a2c54bd8ed7482e89d19331ba61fe221c',1,'if(av.documentElement.currentStyle):&#160;jquery.js'],['../jquery_8js.html#a42cbfadee2b4749e8f699ea8d745a0e4',1,'if(b.expr &amp;&amp;b.expr.filters):&#160;jquery.js'],['../jquery_8js.html#ad9fda9e3432e66926c2578b06f13525f',1,'if(&quot;getBoundingClientRect&quot;in av.documentElement):&#160;jquery.js'],['../jquery_8js.html#ab5582cce20b35070b73869356a852365',1,'if(typeof define===&quot;function&quot;&amp;&amp;define.amd &amp;&amp;define.amd.jQuery):&#160;jquery.js']]],
+  ['i4_5fbit_5fhi1',['i4_bit_hi1',['../namespacesobol.html#a327d3c346f1bd291c064b34de16512d4',1,'sobol']]],
+  ['i4_5fbit_5flo0',['i4_bit_lo0',['../namespacesobol.html#a51de944f9195bdbd5528fd0504ce9929',1,'sobol']]],
+  ['i4_5fmax',['i4_max',['../namespacesobol.html#a49602aca5388975c495334edc6be6d6d',1,'sobol']]],
+  ['i4_5fmin',['i4_min',['../namespacesobol.html#a275e7e4e5e01299e0503aaa81a5b8cf5',1,'sobol']]],
+  ['i4_5fsobol',['i4_sobol',['../namespacesobol.html#a4d689a64dec0a91c797a05905e18b298',1,'sobol']]],
+  ['i4_5fsobol_5fgenerate',['i4_sobol_generate',['../namespacesobol.html#ae2bc434ac1bd18a1d744f27ea12e4a87',1,'sobol']]],
+  ['i4_5funiform',['i4_uniform',['../namespacesobol.html#a2c38a6b2c2b924947ed077942e251341',1,'sobol']]],
+  ['i8_5fbit_5fhi1',['i8_bit_hi1',['../namespacesobol.html#aa2dc1a7d0c39338cc09817a22b41f2c4',1,'sobol']]],
+  ['i8_5fbit_5flo0',['i8_bit_lo0',['../namespacesobol.html#a90c7a25251f02c74595fff414b7dfdde',1,'sobol']]],
+  ['i8_5fmax',['i8_max',['../namespacesobol.html#a96098701abe6ec893f9737665ab3ec18',1,'sobol']]],
+  ['i8_5fmin',['i8_min',['../namespacesobol.html#aecff3cb8a96465cc3c401182614a9c3f',1,'sobol']]],
+  ['i8_5fsobol',['i8_sobol',['../namespacesobol.html#a309bc6189ae1bb591a3077570b9e72f6',1,'sobol']]],
+  ['i8_5fsobol_5fgenerate',['i8_sobol_generate',['../namespacesobol.html#ac14fffb4b80c9798a2c58c4faafb28d3',1,'sobol']]],
+  ['i8_5funiform',['i8_uniform',['../namespacesobol.html#a0fe605e9641d7355179a5ec81fc30b26',1,'sobol']]],
   ['igzstream',['igzstream',['../classigzstream.html#ab34b2a8094155903a7f032ca9e518672',1,'igzstream::igzstream()'],['../classigzstream.html#aa8175d792468d97f4326cfed1f98af8c',1,'igzstream::igzstream(const char *name, int open_mode=std::ios::in)']]],
   ['initausgabcalls',['initAusgabCalls',['../classEB__Application.html#a44014f73df93302372776837f3414413',1,'EB_Application']]],
   ['initbcse',['initBCSE',['../classEB__Application.html#a5646126b47fcd851707e286219f30092',1,'EB_Application']]],
@@ -36,5 +49,5 @@ var searchData=
   ['issource',['isSource',['../classGeomInfo.html#a406cd357fb04adc8cfd093b458ea901c',1,'GeomInfo']]],
   ['isstopped',['isStopped',['../classEB__Timer.html#af7ce5b83d89718ae9361ae098db2ed7e',1,'EB_Timer']]],
   ['isstuck',['isStuck',['../classEB__Application.html#a6f5a261b7c6f58d212c83f76d6e3915e',1,'EB_Application']]],
-  ['isvalid',['isValid',['../classEB__IAEASource.html#a37caf198913a0460cb232cb30a08c2f7',1,'EB_IAEASource::isValid()'],['../classBaseSpectrumScorer.html#af44f046847868b3771d084041159acac',1,'BaseSpectrumScorer::isValid()']]]
+  ['isvalid',['isValid',['../classEB__IAEASource.html#ad021505a7c8818693181ffd9d78bc6ab',1,'EB_IAEASource::isValid()'],['../classBaseSpectrumScorer.html#a664f0d172be1eeea2fad581ba1642b0d',1,'BaseSpectrumScorer::isValid()']]]
 ];
