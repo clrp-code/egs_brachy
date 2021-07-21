@@ -2,6 +2,7 @@
 ##
 ##    COMMON MEDIA
 ##
+## This file include all the materials which are used to update the CLRP-TG43v2 or EPv2 databases
 #################################################
 medium = AIR_TG43
 rho = 0.0012
@@ -20,8 +21,16 @@ bremsstrahlung correction = NRC
 
 medium = AIR_TG43_LD
 rho = 1.20e-13
-elements = H, C, N, O, AR
+elements = H, C, N, O, AR 
 mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
+gas pressure = 1.0
+bremsstrahlung correction = NRC
+
+
+medium = AIR_TG43_Dry
+rho = 0.001196
+elements = H, C, N, O, AR
+mass fractions = 0.0, 0.0124, 75.5268, 23.1781, 1.2827
 gas pressure = 1.0
 bremsstrahlung correction = NRC
 
@@ -94,9 +103,16 @@ density correction file = silveriodide
 medium = ADV_PD_POLY
 rho = 1.2
 elements = H, C, N, CL, PD
-mass fractions = 0.08, 0.9, 0.003, 0.007, 0.01
+mass fractions = 0.08, 0.9, 0.03, 0.07, 0.01
 bremsstrahlung correction = NRC
 
+#needed for selectSeed but no info on ratio nor density
+#assume 50/50 and density close to halides
+medium = AgClAgI
+rho = 6.1
+elements = AG, CL, I
+number of atoms = 2, 1, 1
+bremsstrahlung correction = NRC
 
 medium = AgI_6.003
 rho = 6.003
@@ -320,9 +336,9 @@ bremsstrahlung correction = NRC
 
 
 medium = SS_AISI304
-rho = 8.02
-elements = NI, SI, CR, MN, FE
-mass fractions = 0.1, 0.01, 0.19, 0.02, 0.68
+rho = 8.0
+elements = NI, SI, CR, MN, FE, C
+mass fractions = 0.1, 0.01, 0.19, 0.02, 0.6792, 0.0008  
 bremsstrahlung correction = NRC
 
 
@@ -473,12 +489,61 @@ elements = H, C, N, O, FE, TI
 mass fractions = 0.00015, 0.001, 0.0003, 0.0025, 0.002, 0.99405
 bremsstrahlung correction = NRC
 
-
-medium = CS10_polymer
+  
+medium = CS10_polymer    
 rho = 1.15
 elements = H, C, N, O
 mass fractions = 0.085, 0.648, 0.05, 0.217
 bremsstrahlung correction = NRC
+
+medium = CS10_Organpoly_Pd  
+rho = 1.15
+elements = H, C, N, O, PD
+mass fractions = 0.08415, 0.64152, 0.0495, 0.21483, 0.01
+bremsstrahlung correction = NRC
+
+medium = CS10_Organpoly_Pd5%    
+rho = 1.15
+elements = H, C, N, O, PD
+mass fractions = 0.08075, 0.6156, 0.0475, 0.20615, 0.05
+bremsstrahlung correction = NRC
+
+medium = CS2O_1.47
+rho = 1.47
+elements = CS, O
+number of atoms = 2, 1
+bremsstrahlung correction = NRC
+
+medium = SS_AISI_p7.8
+rho = 7.8
+elements = NI, SI, CR, MN, FE
+mass fractions = 0.1, 0.01, 0.19, 0.02, 0.68
+bremsstrahlung correction = NRC
+
+medium = SS_AISI304_p7.9
+rho = 7.9
+elements = C, MN, SI, P, S, CR, MO, NI, FE 
+mass fractions = 0.00026, 0.014, 0.0042, 0.00019, 0.00003, 0.168, 0.0211, 0.1101, 0.6821
+bremsstrahlung correction = NRC
+
+medium = SS_SUS316_p8.02   
+rho = 8.02
+elements = CR, NI, MO, MN, SI, C, FE  
+mass fractions = 0.16, 0.10, 0.02, 0.02, 0.01, 0.0008, 0.6892
+bremsstrahlung correction = NRC
+
+medium = SS_AISI316L_p7.8
+rho = 7.8
+elements = C, MN, SI, P, S, CR, MO, NI, FE 
+mass fractions = 0.00026, 0.014, 0.0042, 0.00019, 0.00003, 0.168, 0.0211, 0.1101, 0.6821
+bremsstrahlung correction = NRC
+
+medium = Borosilicate_glass__p7.8
+rho = 2.9
+elements = SI, TI, AL, B, MG, CA, NA, CS, O
+mass fractions = 0.2618, 0.03, 0.0159, 0.0373, 0.0121, 0.0286, 0.1261, 0.0094, 0.4789
+bremsstrahlung correction = NRC
+
 
 
 #################################################
@@ -513,15 +578,40 @@ bremsstrahlung correction = NRC
 #################################################
 medium = SILASTIC
 rho = 1.12
-elements = H, C, O, SI, PT
+elements = H, C, O, SI, PT 
 mass fractions = 0.063, 0.249, 0.289, 0.399, 5e-05
 bremsstrahlung correction = NRC
 
+medium = SILASTIC_BEBIG
+rho = 1.09
+elements = H, C, O, SI, PT 
+mass fractions = 0.063, 0.249, 0.289, 0.399, 5e-05
+# elements = H, C, O, SI 
+# mass fractions = 0.081, 0.324, 0.216, 0.379
+bremsstrahlung correction = NRC
 
 medium = MODULAY
 rho = 15.8
 elements = AU, AG, CU, PD
 mass fractions = 0.77, 0.14, 0.08, 0.01
+bremsstrahlung correction = NRC
+
+medium = MODULAY_BEBIG
+rho = 18.8
+elements = AU, PT, RH, ZN, IN, TA, MN
+mass fractions = 0.87, 0.106, 0.002, 0.015, 0.003, 0.002, 0.002 
+bremsstrahlung correction = NRC
+
+medium = ACRYLIC
+rho = 1.19
+elements = C, O, H
+mass fractions = 0.6, 0.32, 0.08
+bremsstrahlung correction = NRC
+
+medium = SS_MARIELLE
+rho = 7.9
+elements = FE, C, MN, S 
+mass fractions = 0.9905, 0.015, 0.05, 0.03 
 bremsstrahlung correction = NRC
 
 
@@ -710,9 +800,8 @@ bremsstrahlung correction = NRC
 
 medium = AIR_PHANT
 rho = 0.0012
-elements = H, C, N, O, AR
+elements = H, C, N, O, AR,
 mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
-gas pressure = 1.0
 bremsstrahlung correction = NRC
 
 
@@ -847,3 +936,70 @@ rho = 1.09
 elements = H, C, N, O, NA, P, S, CL, K, CA
 mass fractions = 9.50000E-02, 4.55000E-01, 2.50000E-02, 3.55000E-01, 1.00000E-03, 2.10000E-02, 1.00000E-03, 1.00000E-03, 1.00000E-03, 4.50000E-02
 bremsstrahlung correction = NRC
+  
+#################################################
+##
+##    Materials for Brachytherapy sources CLRP_TG43v2
+##
+#################################################
+
+medium = PEEK
+rho = 1.32
+elements = H, C, O
+number of atoms = 12, 19, 3 
+bremsstrahlung correction = NRC
+
+
+# This is for core of I125 smart seed which suppose have (32% Pbo, 56% Sio2, and 12% Nao2)
+medium = LEAD_GLASS_4.8   
+rho = 4.8
+elements = SI, O, PB, NA
+mass fractions = 0.261, 0.359, 0.292, 0.088
+# number of atoms = 1, 3, 1, 2 
+bremsstrahlung correction = NRC
+
+# This is for core of I125 smart seed which suppose have (18% Pbo, 65% Sio2, and 17% Nao2)
+medium = LEAD_GLASS 
+rho = 4.8
+elements = SI, O, PB, NA
+mass fractions = 0.31, 0.41, 0.16, 0.12
+bremsstrahlung correction = NRC
+
+# This is organic polymer for CivaString Pd103 brachytherapy seed
+medium = CS10_Organic_polymer
+rho = 1.15
+elements = H, C, N, O
+mass fractions = 0.085, 0.648, 0.05, 0.217
+bremsstrahlung correction = NRC
+
+# This is polymer material for encapsulation of directional Pd103 CivaDots source 
+medium = H7C5O3
+rho = 1.2
+elements = H, C, O
+mass fractions = 7 , 5 , 3
+bremsstrahlung correction = NRC
+
+# This is polymer material for membrane material around the Pd region of directional Pd103 CivaDots source 
+medium = C12H10O3
+rho = 1.3
+elements = C, H, O
+mass fractions = 12 , 10 , 3
+bremsstrahlung correction = NRC
+
+# This is materil for Pd well in Pd region of directional Pd103 CivaDots source (50%pd+50% epoxy polymer (C64H95H95N3O18))
+medium = PD(50)_C64H95N3O18(50)
+rho = 1.9987
+elements = PD, C, H, N, O
+mass fractions = 0.5 , 0.178 , 0.264 , 0.008 , 0.05
+bremsstrahlung correction = NRC
+
+# This is materil epoxy for directional Pd103 CivaDots source 
+medium = C64H95N3O18
+rho = 1.06
+elements = C, H, N, O
+mass fractions = 64 , 95 , 3 , 18
+bremsstrahlung correction = NRC
+C64H95N3O18
+
+
+
