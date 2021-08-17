@@ -300,11 +300,10 @@ EGS_Float EB_Phantom::getUncorrectedMass(int ireg) {
 }
 
 EGS_Float EB_Phantom::getUncorrectedVolume(int ireg) {
-    // EGS_BaseGeometry::getMass is volume*relativeRho()
     if (needs_user_geoms) {
         return -1;
     }
-    EGS_Float volume = geometry->getMass(ireg)/geometry->getRelativeRho(ireg);
+    EGS_Float volume = geometry->getMass(ireg)/getRealRho(ireg);
     return volume;
 }
 
