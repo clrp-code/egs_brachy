@@ -371,9 +371,6 @@ int EB_Application::initGeometry() {
         egsFatal("Simulation stopped\n");
     }
 
-
-    err = correctVolumes();
-
     timing_blocks.stopTimer();
     return 0;
 
@@ -768,6 +765,10 @@ int EB_Application::initSimulation() {
     initRunMode();
 
     int res = EGS_AdvancedApplication::initSimulation();
+	
+	// Volume correction occurs after media is read in
+    if (correctVolumes()) 
+		res++;
 
     if (run_mode == RM_VC_ONLY) {
         output_3ddose_files = false;
