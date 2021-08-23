@@ -370,7 +370,7 @@ int EB_Application::initGeometry() {
         egsFatal("Simulation stopped\n");
     }
 
-    err = correctVolumes()
+    err = correctVolumes();
 
     timing_blocks.stopTimer();
     return 0;
