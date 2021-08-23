@@ -597,7 +597,7 @@ public:
         GeomRegT geomreg(geometry, local_scoring_region);
         scoring_region = ginfo->localToGlobal(geomreg);
 
-        region_volume = geometry->getMass(local_scoring_region)/geometry->getRelativeRho(local_scoring_region);
+        region_volume = geometry->getVolume(local_scoring_region);
 
         publisher->subscribe(this, PARTICLE_TAKING_STEP);
 
@@ -703,7 +703,7 @@ public:
         GeomRegT geomreg(geometry, local_scoring_region);
         scoring_region = ginfo->localToGlobal(geomreg);
 
-        region_volume = geometry->getMass(local_scoring_region)/geometry->getRelativeRho(local_scoring_region);
+        region_volume = geometry->getVolume(local_scoring_region);
 
         publisher->subscribe(this, PARTICLE_TAKING_STEP);
 

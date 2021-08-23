@@ -303,7 +303,7 @@ EGS_Float EB_Phantom::getUncorrectedVolume(int ireg) {
     if (needs_user_geoms) {
         return -1;
     }
-    EGS_Float volume = geometry->getMass(ireg)/getRealRho(ireg);
+    EGS_Float volume = geometry->getVolume(ireg);
     return volume;
 }
 
