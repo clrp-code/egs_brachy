@@ -2,7 +2,7 @@
 
     type = cylinder
   
-    radius = 0.04
-    height = 0.46
+    radius = 0.0401
+    height = 0.4552
 
 :stop shape:
