@@ -230,14 +230,30 @@
     :stop geometry:
 
     :start geometry:
-        name = seed
+        name = seed_unwrapped
         library = egs_cdgeometry
         base geometry = the_planes
         set geometry = 0 end_cylinder
         set geometry = 1 source_and_spheres
         set geometry = 2 end_cylinder
     :stop geometry:
-    
-    simulation geometry = seed
+	
+    :start geometry:
+		library = egs_rz
+		name = wrapper
+		radii = 0.04131
+		z-planes = -0.2251 0.2251
+		:start media input:
+			media = WATER_0.998
+		:stop media input:
+    :stop geometry:
 
+    :start geometry:
+        library = egs_genvelope
+        name = seed
+        base geometry = wrapper
+        inscribed geometries = seed_unwrapped
+    :stop geometry:
+
+    simulation geometry = seed
 :stop geometry definition:
