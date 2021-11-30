@@ -1,5 +1,5 @@
-# #            seed name: I125-SelectSeed_130.002
-# #            air kerma: 4.0042E-14
+# #            seed name: I125-I-Seed_AgX100
+# #            air kerma: 3.94658E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -26,14 +26,14 @@
 #       M. Thomson,  Update of the CLRP TG-43 parameter database for
 #       low-energy brachytherapy sources, Med. Phys. 47 (2020) 4656-4669
 #
-# 
 
 :start geometry definition:
+
     :start geometry:
-        name = sph_end_cap_1 
         library = egs_spheres
-        type = EGS_cSpheres
+        name = end_cap_1
         midpoint = 0 0  -0.185
+        type = EGS_cSpheres
         radii = 0.04
 
         :start media input:
@@ -43,41 +43,42 @@
     :stop geometry:
 
     :start geometry:
-        name    = source_and_cladding
+
         library = egs_cones
         type    = EGS_ConeStack
-        axis    = 0 0 -0.185   0 0 1
+        axis    = 0 0 0.185 0 0 -1
+        name    = capsule_and_source
 
         :start layer:
-            thickness    = 0.0147
+            thickness    = 0.01
             top radii    = 0.035 0.04
             bottom radii = 0.035 0.04
             media        = AIR_TG43 Ti
         :stop layer:
 
         :start layer:
-            thickness    = 0.0003
-            top radii    = 0.0258 0.035 0.04
-            bottom radii = 0.0258 0.035 0.04
-            media        = AgClAgI AIR_TG43 Ti
+            thickness    = 0.0002
+            top radii    = 0.0295 0.035 0.04
+            bottom radii = 0.0295 0.035 0.04
+            media        = AgI AIR_TG43 Ti
         :stop layer:
 
         :start layer:
-           thickness    = 0.34
-           top radii    = 0.0255 0.0258 0.035 0.04
-           bottom radii = 0.0255 0.0258 0.035 0.04
-           media        = Ag AgClAgI AIR_TG43 Ti
+            thickness    = 0.3496       
+            top radii    = 0.0293 0.0295 0.035 0.04
+            bottom radii = 0.0293 0.0295 0.035 0.04
+            media        = Ag AgI AIR_TG43 Ti
         :stop layer:
 
         :start layer:
-            thickness    = 0.0003
-            top radii    = 0.0258 0.035 0.04
-            bottom radii = 0.0258 0.035 0.04
-            media        = AgClAgI AIR_TG43 Ti
+            thickness    = 0.0002
+            top radii    = 0.0295 0.035 0.04
+            bottom radii = 0.0295 0.035 0.04
+            media        = AgI AIR_TG43 Ti
         :stop layer:
 
         :start layer:
-            thickness    = 0.0147
+            thickness    = 0.01
             top radii    = 0.035 0.04
             bottom radii = 0.035 0.04
             media        = AIR_TG43 Ti
@@ -86,10 +87,10 @@
     :stop geometry:
 
     :start geometry:
-        name = sph_end_cap_2
         library = egs_spheres
+        name = end_cap_2
+        midpoint = 0 0  0.185
         type = EGS_cSpheres
-        midpoint = 0 0 0.185
         radii = 0.04
 
         :start media input:
@@ -99,10 +100,28 @@
     :stop geometry:
 
     :start geometry:
-        name = the_seed
         library = egs_gunion
-        geometries = source_and_cladding sph_end_cap_1 sph_end_cap_2
+        name = seed_unwrapped
+        geometries = capsule_and_source end_cap_1 end_cap_2
+    :stop geometry:
+	
+    :start geometry:
+		library = egs_rz
+		name = wrapper
+		radii = 0.0401
+		z-planes = -0.2251 0.2251
+		:start media input:
+			media = WATER_0.998
+		:stop media input:
     :stop geometry:
 
-    simulation geometry = the_seed
+    :start geometry:
+        library = egs_genvelope
+        name = seed
+        base geometry = wrapper
+        inscribed geometries = seed_unwrapped
+    :stop geometry:
+
+    simulation geometry = seed
+
 :stop geometry definition:

@@ -1,4 +1,5 @@
 # #            seed name: OncoSeed_6711
+# #            air kerma: 3.7666E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -140,4 +141,5 @@
     :stop geometry:
 
     simulation geometry = seed
+	
 :stop geometry definition:

@@ -1,4 +1,5 @@
 #            seed name: I125-BrachySeed_LS-1
+# #          air kerma: 5.02309E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -149,7 +150,6 @@
         library = egs_gunion
         name = seed
         geometries = source_1 source_2 cylinders sph_end_cap_1 sph_end_cap_2
-
     :stop geometry:
 
     simulation geometry = seed

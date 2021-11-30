@@ -99,9 +99,26 @@
     :stop geometry:
 
     :start geometry:
-        name = the_seed
+        name = seed_unwrapped
         library = egs_gunion
         geometries = source_and_cladding sph_end_cap_1 sph_end_cap_2
+    :stop geometry:
+	
+    :start geometry:
+		library = egs_rz
+		name = wrapper
+		radii = 0.0401
+		z-planes = -0.2251 0.2251
+		:start media input:
+			media = WATER_0.998
+		:stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_genvelope
+        name = seed
+        base geometry = wrapper
+        inscribed geometries = seed_unwrapped
     :stop geometry:
 
     simulation geometry = the_seed

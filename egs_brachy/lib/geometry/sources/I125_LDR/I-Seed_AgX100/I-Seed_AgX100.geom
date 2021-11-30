@@ -1,4 +1,5 @@
 # #            seed name: I125-I-Seed_AgX100
+# #            air kerma: 3.94658E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -97,7 +98,6 @@
             set medium = 0 0
         :stop media input:
     :stop geometry:
-
 
     :start geometry:
         library = egs_gunion

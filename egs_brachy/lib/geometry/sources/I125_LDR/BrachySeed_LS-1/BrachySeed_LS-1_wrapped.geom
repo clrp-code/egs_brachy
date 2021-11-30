@@ -1,5 +1,5 @@
-# #            seed name: OncoSeed_6711
-# #            air kerma: 3.7666E-14
+#            seed name: I125-BrachySeed_LS-1
+# #          air kerma: 5.02309E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -28,123 +28,135 @@
 #
 
 :start geometry definition:
-    # the set of planes needed for the CD geometry
+
     :start geometry:
         library = egs_planes
         name = planes
         type = EGS_Zplanes
-        positions = -0.2275 -0.1875 0.1875 0.2275
+        positions = -0.22 -0.18 0.18 0.22
     :stop geometry:
 
     :start geometry:
         library = egs_spheres
+        name = sph_end_cap_out
+        midpoint = 0 0  -0.18
+        type = EGS_cSpheres
+        radii = 0.04
+
+        :start media input:
+            media = Ti
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_spheres
+        name = sph_end_cap_in
+        midpoint = 0 0  -0.1785
+        type = EGS_cSpheres
+        radii = 0.035
+
+        :start media input:
+            media = AIR_TG43
+        :stop media input:
+    :stop geometry:
+
+
+    :start geometry:
+        library = egs_gunion
         name = sph_end_cap_1
-        midpoint = 0 0  -0.1875
-        type = EGS_cSpheres
-        radii = 0.04
-
-        :start media input:
-            media = Ti
-            set medium = 0 0
-        :stop media input:
+        geometries = sph_end_cap_in sph_end_cap_out
     :stop geometry:
 
     :start geometry:
-        library = egs_cylinders
-        name = cladding
-        midpoint = 0 0 0
-        type = EGS_ZCylinders
-        radii = 0.033 0.04
-
-        :start media input:
-            media = AIR_TG43 Ti
-            set medium = 0 0
-            set medium = 1 1
-        :stop media input:
+        name = sph_end_cap_2
+        library = egs_gtransformed
+        my geometry = sph_end_cap_1
+        :start transformation:
+            rotation = 0 3.14159265
+        :stop transformation:
     :stop geometry:
 
     :start geometry:
-
+        name    = cylinders
         library = egs_cones
-       type    = EGS_ConeStack
-        axis    = 0 0 -0.140   0 0 1
-        name    = source
+        type    = EGS_ConeStack
+        axis    = 0 0 -0.18   0 0 1
+
+        :start layer:
+            thickness    = 0.03
+            top radii    = 0.03 0.04
+            bottom radii = 0.03 0.04
+            media        = AIR_TG43 Ti
+        :stop layer:
+
+   
+		 :start layer:
+            thickness    = 0.09
+            top radii    = 0.019 0.03 0.04
+            bottom radii = 0.019 0.03 0.04
+            media        = Pt90Ir10 AIR_TG43 Ti
+         :stop layer:
+
  
-      #   source end cylinder
-        :start layer:
-            thickness    = 0.000175
-            top radii    = 0.0175
-            bottom radii = 0.017675
-            media        = AgBrAgI_6.20
+	    :start layer:
+            thickness    = 0.12
+            top radii    = 0.0190 0.0195 0.04
+            bottom radii = 0.0190 0.0195 0.04
+            media        = Pt90Ir10 AIR_TG43 Ti
         :stop layer:
 
-       #  source end cone
-        :start layer:
-           thickness    = 0.007325
-           top radii    = 0.0175 0.017675
-           bottom radii = 0.024825 0.025
-           media        = Ag AgBrAgI_6.20
-        :stop layer:
- 
-      #  mid source
-        :start layer:
-           thickness    = 0.265
-           bottom radii = 0.024825 0.025
-           media        =  Ag AgBrAgI_6.20
-        :stop layer:
- 
-     #   source end cone
-        :start layer:
-           thickness    = 0.007325
-           bottom radii = 0.0175 0.017675
-           media        = Ag AgBrAgI_6.20
+        
+	    :start layer:
+            thickness    = 0.09
+            top radii    = 0.019 0.03 0.04
+            bottom radii = 0.019 0.03 0.04
+            media        = Pt90Ir10 AIR_TG43 Ti
         :stop layer:
 
-       # source end cylinder
         :start layer:
-           thickness    = 0.000175
-           top radii    = 0.017675
-           bottom radii = 0.0175
-           media        = AgBrAgI_6.20
+            thickness    = 0.03
+            top radii    = 0.03 0.04
+            bottom radii = 0.03 0.04
+            media        = AIR_TG43 Ti
         :stop layer:
 
-    :stop geometry:
-
-    :start geometry:
-        library = egs_genvelope
-        name = seed_center
-        base geometry = cladding
-        inscribed geometries = source
     :stop geometry:
 
     :start geometry:
         library = egs_spheres
-        name = sph_end_cap_2
-        midpoint = 0 0  0.1875
+        name = source_1
+        midpoint = 0 0  -0.18
         type = EGS_cSpheres
-        radii = 0.04
+        radii = 0.025
 
         :start media input:
-            media = Ti
-            set medium = 0 0
+            media = AlSilicate
         :stop media input:
     :stop geometry:
 
     :start geometry:
-        library = egs_cdgeometry
-        name = seed_unwrapped
-        base geometry = planes
-        set geometry = 0 sph_end_cap_1
-        set geometry = 1 seed_center
-        set geometry = 2 sph_end_cap_2
-        boundary tolerance = 1e-6
+        library = egs_spheres
+        name = source_2
+        midpoint = 0 0  0.18
+        type = EGS_cSpheres
+        radii = 0.025
+
+        :start media input:
+            media = AlSilicate
+        :stop media input:
+    :stop geometry:
+
+    :start geometry:
+        library = egs_gunion
+        name = seed
+        geometries = source_1 source_2 cylinders sph_end_cap_1 sph_end_cap_2
     :stop geometry:
 	
     :start geometry:
 		library = egs_rz
 		name = wrapper
 		radii = 0.0401
-		z-planes = -0.2276 0.2276
+		z-planes = -0.2201 0.2201
 		:start media input:
 			media = WATER_0.998
 		:stop media input:
@@ -158,5 +170,5 @@
     :stop geometry:
 
     simulation geometry = seed
-	
+
 :stop geometry definition:

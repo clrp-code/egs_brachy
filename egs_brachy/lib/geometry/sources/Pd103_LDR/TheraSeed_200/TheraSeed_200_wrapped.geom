@@ -1,4 +1,8 @@
-#               seed name: Pd103- TheraSeed_200
+# #             seed name: Pd103- TheraSeed_200
+# #             air kerma: 6.4261E-14
+#
+#  TheraSeed, 200 (Light seed) (6.4261+/-0.0006)E-14
+#  TheraSeed, 200 (Heavy seed) (4.6940+/-0.0005)E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
