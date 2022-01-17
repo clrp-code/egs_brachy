@@ -116,7 +116,7 @@
 
     :start geometry:
         library = egs_genvelope
-        name = seed
+        name = the_seed
         base geometry = wrapper
         inscribed geometries = seed_unwrapped
     :stop geometry:
