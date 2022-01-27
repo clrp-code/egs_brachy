@@ -1,7 +1,7 @@
 :start shape:
 
     type = cylinder
-    radius = 0.0401
-    height = 0.4552
+    radius = 0.0405
+    height = 0.457
 
 :stop shape:

@@ -148,15 +148,15 @@
 
     :start geometry:
         library = egs_gunion
-        name = seed
+        name = seed_unwrapped
         geometries = source_1 source_2 cylinders sph_end_cap_1 sph_end_cap_2
     :stop geometry:
 	
     :start geometry:
 		library = egs_rz
 		name = wrapper
-		radii = 0.0401
-		z-planes = -0.2201 0.2201
+		radii = 0.041
+		z-planes = -0.221 0.221
 		:start media input:
 			media = WATER_0.998
 		:stop media input:
