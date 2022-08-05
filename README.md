@@ -55,7 +55,8 @@ with more detailed instructions available in the egs_brachy user manual pdf
 
 For more information about egs\_brachy please contact:
 
-- Rowan Thomson <rthomson@physics.carleton.ca> -or-
+- Marc Chamberland <marc.chamberland@uvmhealth.org>
+- Rowan Thomson <rthomson@physics.carleton.ca>
 - Dave Rogers <drogers@physics.carleton.ca>
 
 ## Citing egs\_brachy
