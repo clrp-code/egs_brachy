@@ -2394,7 +2394,7 @@ int EB_Application::readData() {
     bool use_gz = output_egsdat_format == "gzip";
     string extension(".egsdat");
     extension += (use_gz ? ".gz" : "");
-    string ifile = constructIOFileName(extension.c_str(), true);
+    string ifile = constructIOFileName(extension.c_str(), false);
 
     int err;
     if (use_gz) {
