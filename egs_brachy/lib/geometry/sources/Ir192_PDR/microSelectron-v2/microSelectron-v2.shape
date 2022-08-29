@@ -1,0 +1,23 @@
+:start shape:
+
+    library = egs_conical_shell
+
+    midpoint =  0 0 -0.180
+
+    :start layer:
+        thickness    = 0.006
+        top radii    = 0.0265
+        bottom radii = 0.0325
+    :stop layer:
+
+    :start layer:
+        thickness    = 0.348
+        bottom radii = 0.0325
+    :stop layer:
+
+    :start layer:
+        thickness    = 0.006
+        bottom radii = 0.0265
+    :stop layer:
+
+:stop shape:
