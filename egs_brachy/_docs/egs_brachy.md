@@ -9,9 +9,9 @@ egs_brachy is an egs++ application for rapid brachytherapy calculations for both
 egs_brachy was written by [Randle Taylor](http://randlet.com) in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the [Carleton Laboratory for Radiotherapy Physics](http://www.physics.carleton.ca/clrp/).
 
 For more information please contact:
-    - Rowan Thomson (rthomson@physics.carleton.ca) -or-
-    - Dave Rogers (drogers@physics.carleton.ca) -or-
-    - Randle Taylor (randle.taylor@gmail.com)
+   - Marc Chamberland (marc.chamberland@uvmhealth.org) -or-
+   - Rowan Thomson (rthomson@physics.carleton.ca) -or-
+   - Dave Rogers (drogers@physics.carleton.ca)
 
 
 
