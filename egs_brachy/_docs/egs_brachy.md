@@ -299,8 +299,8 @@ The 'scoring options' input block currently has the following keys:
 
 \verbatim
     :start muen for medium:
-        transport medium = WATER
-        scoring medium = TISSUE
+        transport medium = TISSUE
+        scoring medium = WATER
     :stop muen for medium:
 \endverbatim
 
