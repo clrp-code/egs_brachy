@@ -22,8 +22,8 @@ The egs_brachy code (all pieces of code associated with the egs_brachy code syst
 \section installationinstruct Installation instructions (including EGSnrc installation)
 
 
-    git clone https://github.com/clrp-code/EGSnrc_with_egs_brachy.git
-    cd EGSnrc_with_egs_brachy
+    git clone https://github.com/clrp-code/EGSnrc_CLRP
+    cd EGSnrc_CLRP
 
 Checkout the most-up-to-date 'egs\_brachy' branch and download the egs\_brachy user code:
 
@@ -34,7 +34,7 @@ Finally, configure EGSnrc by following the instructions for your OS (skip Step
 2, which is already completed if you’ve been following these instructions):
 
 - Linux: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Linux
-- Mac: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-OS-X-El-Capitan
+- Mac: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-macOS
 - Windows: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Windows
 
 
