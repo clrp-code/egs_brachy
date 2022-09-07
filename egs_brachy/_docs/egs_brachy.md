@@ -77,7 +77,7 @@ history only a single inscribed geometry will be activated. This allows
 you to explore the effects of intersource attenuation by performing TG-43
 dose superposition type calculations. For an example see [tests/tg43mode/tg43mode.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/tg43mode/tg43mode.egsinp).
 3. 'volume correction only': Just run the volume correction routines, print
-the results and then quit. No actual dose calculations will be done. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp).
+the results and then quit. No actual dose calculations will be done, so the number of histories specified in the run control input block (ncase) is ignored. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp).
 
 
 The run mode is set using a 'run mode' input block:
