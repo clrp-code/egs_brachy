@@ -329,7 +329,7 @@ The 'scoring options' input block currently has the following keys:
   examples.
 
 - 'phsp scoring': (Optional) zero or one input block specifying whether to
-  score a phase space on the surface of the source (described below). See
+  score a phase space on the external surface of the source (e.g., on the capsule of brachytherapy seeds). See
   [tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
     for an example.
 
@@ -446,7 +446,7 @@ The input file
 
 egs\_brachy can currently score three different type of spectra:
 
-1. Absolute counts of particles escaping the surface of the source (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
+1. Absolute counts of particles escaping the external surface of the source. For brachytherapy seeds distributed with egs\_brachy, this corresponds to the encapsulation of the source. (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
 2. Energy weighted spectra of particles on the surface of the source (See [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_eflu/spec_eflu.egsinp))
 3. Photon energy fluence in a single geometry region (See [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_vox/spec_vox.egsinp))
 
