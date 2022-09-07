@@ -441,6 +441,10 @@ The input file
 [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp)
     demonstrates this feature.
 
+Note that the initial seeds of the random number generator used for the purpose of
+volume correction or seed discovery are not automatically incremented between jobs when running
+in parallel. Thus, each parallel job will calculate the exact same volume corrections because
+they use the same initial seeeds. This is the expected and desired behavior.
 
 \subsubsection specscoring Spectrum Scoring Options
 
