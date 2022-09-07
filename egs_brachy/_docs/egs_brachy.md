@@ -52,17 +52,19 @@ egs\_brachy uses the same run control block as other egs++ user codes
 with the addition of one extra input `egsdat file format` which you
 can use to tell egs\_brachy to output its egsdat file in gzip format.
 Using gzip format can result in significantly smaller egsdat file sizes
-for simulations with a large number of regions defined.
+for simulations with a large number of regions defined. 
 
 \verbatim
 :start run control:
     ncase = 10000
     nbatch=1
     geometry error limit = 10
+    calculation = first # first or restart or combine or analyze
     egsdat file format = gzip # gzip or text
 :stop run control:
 \endverbatim
 
+Detailed descriptions of the standard input options are available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html).
 
 \subsection runmodes Run Modes
 
