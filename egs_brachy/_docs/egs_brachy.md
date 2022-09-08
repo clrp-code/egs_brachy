@@ -448,17 +448,18 @@ they use the same initial seeeds. This is the expected and desired behavior.
 
 \subsubsection specscoring Spectrum Scoring Options
 
-egs\_brachy can currently score three different type of spectra:
+egs\_brachy can currently score four different type of spectra:
 
 1. Absolute counts of particles escaping the external surface of the source. For brachytherapy seeds distributed with egs\_brachy, this corresponds to the encapsulation of the source. (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
 2. Energy weighted spectra of particles on the surface of the source (See [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_eflu/spec_eflu.egsinp))
 3. Photon energy fluence in a single geometry region (See [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_vox/spec_vox.egsinp))
+4. Photon fluence in a single geometry region.
 
 To score a spectrum, add one or more 'spectrum scoring' input blocks to the
 'scoring options' block (you may add an arbitrary number of 'spectrum scoring'
 blocks.)
 
-**Note that for the 'energy fluence in region' spectrum type, it is essential that
+**Note that for the 'fluence in region' and 'energy fluence in region' spectrum types, it is essential that
 the scoring region has no other overlapping geometries.**
 
 Spectrum scoring input options are explained below.
@@ -471,7 +472,7 @@ Spectrum scoring input options are explained below.
 
 
     :start spectrum scoring:
-        type = surface count # surface count, energy weighted surface, energy fluence in region
+        type = surface count # surface count, energy weighted surface, energy fluence in region, fluence in region
         particle type = photon # photon, electron, positron
         minimum energy = 0.001 # defaults to 0.001MeV
         maximum energy = 1.00 # defaults to max energy of source
