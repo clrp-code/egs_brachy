@@ -319,7 +319,8 @@ The 'scoring options' input block currently has the following keys:
 - 'score scatter dose' : (Optional) Controls whether scatter dose (normalized
   to total radiant energy) is scored in the phantom geometries, as per the primary/scatter dose separation formalism (PSS)
   of [Russel et al.](https://doi.org/10.1118/1.1949767). The choices are 'yes' or 'no' (default). The formalism is intendend for single source characterization.
-  This option should only be used for single source simulations with particles initialized within the source (i.e., not from a phase-space source).
+  This option should only be used for single source simulations without recycling and with particles initialized
+  within the source (i.e., not from a phase-space source).
   See [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
 
 - 'spectrum scoring': (Optional) zero or more input blocks specifying spectra
