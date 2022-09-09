@@ -1189,6 +1189,15 @@ all apply to egs_brachy (i.e. use `ex`, `exb` or `egs_brachy -i
     input_file [-p pegs_file] [-o output_file] [-s] [-P n -j i]`)
 
 
+\subsection viewandtracks egs\_view and particle tracks
+
+Simulation geometries and particles tracks can be viewed using the
+egs\_view application distributed with EGSnrc. A brief overview of
+egs\_view is available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/group__Geometry.html#geometry_view).
+Instructions to generate and visualize particle tracks are available in the [Getting Started with EGSnrc
+guide](https://nrc-cnrc.github.io/EGSnrc/).
+
+
 \section runtests Test Suite
 
 egs_brachy comes with a test suite that will allow you to confirm
