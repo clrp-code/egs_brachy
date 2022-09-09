@@ -221,6 +221,10 @@ An (abbreviated) example geometry specification might look like:
 
 \endverbatim
 
+Detailed descriptions of the egs++ geometry classes are available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html),
+including instructions on how to assign media. Note that vacuum can be assigned to a region by using the egs++ built-in name `vacuum`.
+
+
 \subsubsection ctdata Using CT data to create phantoms
 
 Using the `egs_glib` geometry library you can construct an `EGS_XYZGeometry`
