@@ -1122,9 +1122,15 @@ If `score energy deposition = yes` is set, a second 3ddose file with dose from
 interaction scoring will be output to `{input_file}_{phantom_name}.edep.3ddose`
 as well.
 
+The 3ddose file format is described in section 6.2 of the [egs\_brachy manual](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
+By default, the doses are reported in units of Gray per history (Gy/hist). If
+a dose scaling factor is provided within the egsinp file to convert the results to absolute dose
+as per section 7.4.2 of the egs\_brachy manual, then the units of the doses will simply be Gy.
+
 If `score scatter dose` is enabled, egs_brachy will score primary, single
 scattered and multiple scattered dose (normalized to total radiant energy) and
 output them to 3ddose files with the format `{input_file}_{phantom_name}.{pr,ss,ms,to}.3ddose`
+The units of the doses are Gray per radiant energy (Gy/R) or simply inverse grams (g^-1).
 
 Note that for voxels with volume corrections, the uncertainty in the 3ddose
 file represents the total uncertainty of the calculation which is the error on
