@@ -317,9 +317,10 @@ The 'scoring options' input block currently has the following keys:
   example
 
 - 'score scatter dose' : (Optional) Controls whether scatter dose (normalized
-  to total radiant energy) is scored in the phantom geometries. The choices are
-  'yes' or 'no' (default). See
-  [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
+  to total radiant energy) is scored in the phantom geometries, as per the primary/scatter dose separation formalism (PSS)
+  of [Russel et al.](https://doi.org/10.1118/1.1949767). The choices are 'yes' or 'no' (default). The formalism is intendend for single source characterization.
+  This option should only be used for single source simulations with particles initialized within the source (i.e., not from a phase-space source).
+  See [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
 
 - 'spectrum scoring': (Optional) zero or more input blocks specifying spectra
   to score (described below). See
@@ -1127,7 +1128,7 @@ By default, the doses are reported in units of Gray per history (Gy/hist). If
 a dose scaling factor is provided within the egsinp file to convert the results to absolute dose
 as per section 7.4.2 of the egs\_brachy manual, then the units of the doses will simply be Gy.
 
-If `score scatter dose` is enabled, egs_brachy will score primary, single
+If `score scatter dose` is enabled, egs\_brachy will score primary, single
 scattered and multiple scattered dose (normalized to total radiant energy) and
 output them to 3ddose files with the format `{input_file}_{phantom_name}.{pr,ss,ms,to}.3ddose`
 The units of the doses are Gray per radiant energy (Gy/R) or simply inverse grams (g^-1).
