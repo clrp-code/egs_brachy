@@ -28,7 +28,8 @@ def get_filetype_links(dir_path, extension):
 
 def get_images(dir_path):
     relpath = os.path.relpath(dir_path)
-    files = [os.path.join(relpath, g) for g in os.listdir(dir_path) if g.endswith(".png")]
+    files = [os.path.join(relpath, g) for g in os.listdir(dir_path) if g.lower().endswith(".png")]
+    files = [f.replace('../lib', '../egs_brachy/lib') for f in files]
     images = ['<img style="width: 200px;" src="%s"  />' % f for f in files]
     return images
 
@@ -46,7 +47,7 @@ def gen_geom_docs(droot, title, is_sources=False):
         name = type_.replace("_", " ")
         docs.append("\subsection %s %s %s" % (section, name, title))
 
-        dirs = [os.path.join(t, f) for f in sorted(os.listdir(t))]
+        dirs = [os.path.join(t, f) for f in sorted(os.listdir(t)) if not f.startswith('.')]
 
         for d in dirs:
             relpath = os.path.relpath(d)

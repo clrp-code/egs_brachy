@@ -1,16 +1,18 @@
 digraph "ogzstream"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node4 [label="ogzstream",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="gzstreambase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classgzstreambase.html"];
-  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="std::ios",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" buf" ,fontname="Helvetica"];
-  Node7 [label="gzstreambuf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classgzstreambuf.html"];
-  Node8 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="std::streambuf",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node9 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="std::ostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="ogzstream",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="gzstreambase",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgzstreambase.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="std::ios",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node2 [dir="back",color="darkorchid3",style="dashed",label=" buf" ];
+  Node4 [label="gzstreambuf",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgzstreambuf.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="std::streambuf",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="std::ostream",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
 }

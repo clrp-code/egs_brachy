@@ -9,9 +9,9 @@ egs_brachy is an egs++ application for rapid brachytherapy calculations for both
 egs_brachy was written by [Randle Taylor](http://randlet.com) in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the [Carleton Laboratory for Radiotherapy Physics](http://www.physics.carleton.ca/clrp/).
 
 For more information please contact:
-    - Rowan Thomson (rthomson@physics.carleton.ca) -or-
-    - Dave Rogers (drogers@physics.carleton.ca) -or-
-    - Randle Taylor (randle.taylor@gmail.com)
+   - Marc Chamberland (marc.chamberland@uvmhealth.org) -or-
+   - Rowan Thomson (rthomson@physics.carleton.ca) -or-
+   - Dave Rogers (drogers@physics.carleton.ca)
 
 
 
@@ -22,8 +22,8 @@ The egs_brachy code (all pieces of code associated with the egs_brachy code syst
 \section installationinstruct Installation instructions (including EGSnrc installation)
 
 
-    git clone https://github.com/clrp-code/EGSnrc_with_egs_brachy.git
-    cd EGSnrc_with_egs_brachy
+    git clone https://github.com/clrp-code/EGSnrc_CLRP
+    cd EGSnrc_CLRP
 
 Checkout the most-up-to-date 'egs\_brachy' branch and download the egs\_brachy user code:
 
@@ -34,7 +34,7 @@ Finally, configure EGSnrc by following the instructions for your OS (skip Step
 2, which is already completed if you’ve been following these instructions):
 
 - Linux: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Linux
-- Mac: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-OS-X-El-Capitan
+- Mac: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-macOS
 - Windows: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Windows
 
 
@@ -52,17 +52,19 @@ egs\_brachy uses the same run control block as other egs++ user codes
 with the addition of one extra input `egsdat file format` which you
 can use to tell egs\_brachy to output its egsdat file in gzip format.
 Using gzip format can result in significantly smaller egsdat file sizes
-for simulations with a large number of regions defined.
+for simulations with a large number of regions defined. 
 
 \verbatim
 :start run control:
     ncase = 10000
     nbatch=1
     geometry error limit = 10
+    calculation = first # first or restart or combine or analyze
     egsdat file format = gzip # gzip or text
 :stop run control:
 \endverbatim
 
+Detailed descriptions of the standard input options are available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html).
 
 \subsection runmodes Run Modes
 
@@ -75,7 +77,7 @@ history only a single inscribed geometry will be activated. This allows
 you to explore the effects of intersource attenuation by performing TG-43
 dose superposition type calculations. For an example see [tests/tg43mode/tg43mode.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/tg43mode/tg43mode.egsinp).
 3. 'volume correction only': Just run the volume correction routines, print
-the results and then quit. No actual dose calculations will be done. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp).
+the results and then quit. No actual dose calculations will be done, so the number of histories specified in the run control input block (ncase) is ignored. For an example see [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp).
 
 
 The run mode is set using a 'run mode' input block:
@@ -219,6 +221,10 @@ An (abbreviated) example geometry specification might look like:
 
 \endverbatim
 
+Detailed descriptions of the egs++ geometry classes are available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html),
+including instructions on how to assign media. Note that vacuum can be assigned to a region by using the egs++ built-in name `vacuum`.
+
+
 \subsubsection ctdata Using CT data to create phantoms
 
 Using the `egs_glib` geometry library you can construct an `EGS_XYZGeometry`
@@ -299,8 +305,8 @@ The 'scoring options' input block currently has the following keys:
 
 \verbatim
     :start muen for medium:
-        transport medium = WATER
-        scoring medium = TISSUE
+        transport medium = TISSUE
+        scoring medium = WATER
     :stop muen for medium:
 \endverbatim
 
@@ -315,9 +321,11 @@ The 'scoring options' input block currently has the following keys:
   example
 
 - 'score scatter dose' : (Optional) Controls whether scatter dose (normalized
-  to total radiant energy) is scored in the phantom geometries. The choices are
-  'yes' or 'no' (default). See
-  [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
+  to total radiant energy) is scored in the phantom geometries, as per the primary/scatter dose separation formalism (PSS)
+  of [Russel et al.](https://doi.org/10.1118/1.1949767). The choices are 'yes' or 'no' (default). The formalism is intendend for single source characterization.
+  This option should only be used for single source simulations without recycling and with particles initialized
+  within the source (i.e., not from a phase-space source).
+  See [tests/scatter/scatter.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/scatter/scatter.egsinp) for an example.
 
 - 'spectrum scoring': (Optional) zero or more input blocks specifying spectra
   to score (described below). See
@@ -327,7 +335,7 @@ The 'scoring options' input block currently has the following keys:
   examples.
 
 - 'phsp scoring': (Optional) zero or one input block specifying whether to
-  score a phase space on the surface of the source (described below). See
+  score a phase space on the external surface of the source (e.g., on the capsule of brachytherapy seeds). See
   [tests/phsp_scoring/phsp_score.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/phsp_scoring/phsp_score.egsinp)
     for an example.
 
@@ -439,20 +447,25 @@ The input file
 [tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/volume_correction/vc.egsinp)
     demonstrates this feature.
 
+Note that the initial seeds of the random number generator used for the purpose of
+volume correction or seed discovery are not automatically incremented between jobs when running
+in parallel. Thus, each parallel job will calculate the exact same volume corrections because
+they use the same initial seeeds. This is the expected and desired behavior.
 
 \subsubsection specscoring Spectrum Scoring Options
 
-egs\_brachy can currently score three different type of spectra:
+egs\_brachy can currently score four different type of spectra:
 
-1. Absolute counts of particles escaping the surface of the source (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
+1. Absolute counts of particles escaping the external surface of the source. For brachytherapy seeds distributed with egs\_brachy, this corresponds to the encapsulation of the source. (See [tests/spec_absolute/spec_absolute.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_absolute/spec_absolute.egsinp))
 2. Energy weighted spectra of particles on the surface of the source (See [tests/spec_eflu/spec_eflu.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_eflu/spec_eflu.egsinp))
 3. Photon energy fluence in a single geometry region (See [tests/spec_vox/spec_vox.egsinp](https://github.com/clrp-code/egs_brachy/blob/master/egs_brachy/tests/spec_vox/spec_vox.egsinp))
+4. Photon fluence in a single geometry region.
 
 To score a spectrum, add one or more 'spectrum scoring' input blocks to the
 'scoring options' block (you may add an arbitrary number of 'spectrum scoring'
 blocks.)
 
-**Note that for the 'energy fluence in region' spectrum type, it is essential that
+**Note that for the 'fluence in region' and 'energy fluence in region' spectrum types, it is essential that
 the scoring region has no other overlapping geometries.**
 
 Spectrum scoring input options are explained below.
@@ -465,7 +478,7 @@ Spectrum scoring input options are explained below.
 
 
     :start spectrum scoring:
-        type = surface count # surface count, energy weighted surface, energy fluence in region
+        type = surface count # surface count, energy weighted surface, energy fluence in region, fluence in region
         particle type = photon # photon, electron, positron
         minimum energy = 0.001 # defaults to 0.001MeV
         maximum energy = 1.00 # defaults to max energy of source
@@ -1115,9 +1128,15 @@ If `score energy deposition = yes` is set, a second 3ddose file with dose from
 interaction scoring will be output to `{input_file}_{phantom_name}.edep.3ddose`
 as well.
 
-If `score scatter dose` is enabled, egs_brachy will score primary, single
+The 3ddose file format is described in section 6.2 of the [egs\_brachy manual](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
+By default, the doses are reported in units of Gray per history (Gy/hist). If
+a dose scaling factor is provided within the egsinp file to convert the results to absolute dose
+as per section 7.4.2 of the egs\_brachy manual, then the units of the doses will simply be Gy.
+
+If `score scatter dose` is enabled, egs\_brachy will score primary, single
 scattered and multiple scattered dose (normalized to total radiant energy) and
 output them to 3ddose files with the format `{input_file}_{phantom_name}.{pr,ss,ms,to}.3ddose`
+The units of the doses are Gray per radiant energy (Gy/R) or simply inverse grams (g^-1).
 
 Note that for voxels with volume corrections, the uncertainty in the 3ddose
 file represents the total uncertainty of the calculation which is the error on
@@ -1168,6 +1187,15 @@ the number of histories, batches, geometry erorr limits etc.. Likewise
 the standard methods of running EGSnrc user codes from the command line
 all apply to egs_brachy (i.e. use `ex`, `exb` or `egs_brachy -i
     input_file [-p pegs_file] [-o output_file] [-s] [-P n -j i]`)
+
+
+\subsection viewandtracks egs\_view and particle tracks
+
+Simulation geometries and particles tracks can be viewed using the
+egs\_view application distributed with EGSnrc. A brief overview of
+egs\_view is available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/group__Geometry.html#geometry_view).
+Instructions to generate and visualize particle tracks are available in the [Getting Started with EGSnrc
+guide](https://nrc-cnrc.github.io/EGSnrc/).
 
 
 \section runtests Test Suite

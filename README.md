@@ -77,3 +77,7 @@ tracker on GitHub](https://github.com/clrp-code/egs_brachy/issues)
 Bug fixes and additional features are welcomed via pull requests on
 GitHub. Please refer to the [EGSnrc Wiki Developers section](https://github.com/nrc-cnrc/EGSnrc/wiki) for
 general recommendations about making pull requests.
+
+## Commit history (change log)
+
+The complete commit history (i.e., change log) can be consulted [here](https://github.com/clrp-code/egs_brachy/commits/master).

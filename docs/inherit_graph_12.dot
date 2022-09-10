@@ -1,7 +1,9 @@
 digraph "Graphical Class Hierarchy"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="GeomInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGeomInfo.html",tooltip="a container for organizing meta data about the geometries "];
+  Node0 [label="GeomRegionInfo",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$structGeomRegionInfo.html",tooltip="a struct to contain elementary information aboud a geometry"];
 }

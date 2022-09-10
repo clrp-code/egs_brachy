@@ -1,16 +1,18 @@
-digraph "/home/randlet/EGSnrc/egs_home/egs_brachy/egs_brachy/latch.h"
+digraph "/Users/marc/dev/EGSnrc/HEN_HOUSE/user_codes/egs_brachy/egs_brachy/latch.h"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node0 [label="/home/randlet/EGSnrc\l/egs_home/egs_brachy\l/egs_brachy/latch.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 [label="egs_advanced_application.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="pubsub.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pubsub_8h.html",tooltip="A simple pub/sub module to allow various egs_brachy classes to subscribe to particle events..."];
-  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="list",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="map",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="/Users/marc/dev/EGSnrc\l/HEN_HOUSE/user_codes\l/egs_brachy/egs_brachy\l/latch.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="handle particles latch bits for egs_brachy"];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="egs_advanced_application.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="pubsub.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$pubsub_8h.html",tooltip="A simple pub/sub module to allow various egs_brachy classes to subscribe to particle events."];
+  Node3 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="list",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node3 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="string",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node3 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="map",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
 }
