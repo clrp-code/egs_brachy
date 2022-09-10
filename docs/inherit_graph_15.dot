@@ -1,7 +1,11 @@
 digraph "Graphical Class Hierarchy"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="muen::MuenDataParser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmuen_1_1MuenDataParser.html",tooltip="class for parsing muen data from a file. "];
+  Node0 [label="object",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="eb_tests.iaea.IAEAPhaseSpace",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classeb__tests_1_1iaea_1_1IAEAPhaseSpace.html",tooltip=" "];
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spectra',['spectra',['../md_spectra.html',1,'']]]
+  ['media_0',['media',['../md_media.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['basespectrumscorer',['BaseSpectrumScorer',['../classBaseSpectrumScorer.html',1,'']]]
+  ['basespectrumscorer_0',['BaseSpectrumScorer',['../classBaseSpectrumScorer.html',1,'']]]
 ];

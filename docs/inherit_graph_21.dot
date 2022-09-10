@@ -1,0 +1,27 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [label="Subscriber",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classSubscriber.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="BaseSpectrumScorer",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classBaseSpectrumScorer.html",tooltip="abstract base class for scoring spectrum information"];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="EnergyFluenceSpectrumInVoxel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classEnergyFluenceSpectrumInVoxel.html",tooltip="A class for scoring the energy fluence of particles enter a voxel of the scoring phantom geometry."];
+  Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="EnergyWeightedSurfaceSpectrum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classEnergyWeightedSurfaceSpectrum.html",tooltip="A class for scoring the energy weighted spectrum (normalized to total radiant energy) of particles on..."];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="FluenceSpectrumInVoxel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classFluenceSpectrumInVoxel.html",tooltip="A class for scoring the fluence of particles enter a voxel of the scoring phantom geometry."];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="SurfaceCountSpectrum",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classSurfaceCountSpectrum.html",tooltip="A class for scoring a histogram of the number of particles escaping a source geometry."];
+  Node0 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="EB_Phantom",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classEB__Phantom.html",tooltip="A class to represent a single phantom for scoring dose in egs_brachy."];
+  Node0 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="EnergyScoringStats",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classEnergyScoringStats.html",tooltip="a class to use for scoring information about total energy initialzed, escaping sources etc"];
+  Node0 -> Node8 [dir="back",color="steelblue1",style="solid"];
+  Node8 [label="Latch",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLatch.html",tooltip="A class for handling latch bits relevant to egs_brachy. The Latch class listens for particle events a..."];
+  Node0 -> Node9 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="PHSPControl",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classPHSPControl.html",tooltip=" "];
+}

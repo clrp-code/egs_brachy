@@ -1,7 +1,19 @@
 digraph "Graphical Class Hierarchy"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="RecycleOpts",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRecycleOpts.html"];
+  Node0 [label="std::ios",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="gzstreambase",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgzstreambase.html",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="igzstream",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classigzstream.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="ogzstream",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classogzstream.html",tooltip=" "];
+  Node3 [label="std::istream",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="std::ostream",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="steelblue1",style="solid"];
 }

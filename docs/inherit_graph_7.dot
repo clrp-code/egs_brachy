@@ -1,7 +1,11 @@
 digraph "Graphical Class Hierarchy"
 {
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="ebvolcor::Options",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classebvolcor_1_1Options.html",tooltip="Volume correction initialization helper class. "];
+  Node0 [label="EGS_AdvancedApplication",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="EB_Application",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classEB__Application.html",tooltip="The main egs_brachy application class. See the Main Page for full documentation."];
 }
