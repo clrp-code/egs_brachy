@@ -78,4 +78,4 @@ general recommendations about making pull requests.
 
 ## Commit history (change log)
 
-The complete commit history (i.e., change log) can be consulted [here](https://github.com/clrp-code/egs_brachy/commits/master).
+The complete commit history (i.e., change log) can be consulted [here](https://github.com/clrp-code/egs_brachy/commits/main).
