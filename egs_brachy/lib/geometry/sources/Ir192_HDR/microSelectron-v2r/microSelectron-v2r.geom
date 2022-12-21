@@ -5,29 +5,34 @@
         name    = Ir_source
         library = egs_cones
         type    = EGS_ConeStack
-        axis    = 0 0 -0.18   0 0 1
+        axis    = 0 0 -0.185   0 0 1
 
         :start layer:
-           thickness    = 0.006
-           top radii    =  0.0265 0.0325
-		   #0.0265 0.03251  # M. CH
-           bottom radii =  0.0325 0.0325
-		   # 0.0265 0.03251   # M.CH
-           media        = Ir SS_AISI316L
+           thickness    = 0.0135
+           top radii    =  0.035 0.045
+           bottom radii =  0.035 0.045
+           media        = AIR_TG43 SS_AISI316L
         :stop layer:
 
         :start layer:
-           thickness    = 0.348
-           bottom radii = 0.0325 0.0325
-		   # 0.0325 0.03251
-           media        = Ir SS_AISI316L
+           thickness    = 0.34
+		   top radii = 0.03 0.035 0.045
+           bottom radii = 0.03 0.035 0.045
+           media        = Ir AIR_TG43 SS_AISI316L
         :stop layer:
 
         :start layer:
-           thickness    = 0.006
-           bottom radii = 0.0265 0.0325
-		   # 0.0265 0.03251
-           media        = Ir SS_AISI316L
+            thickness    = 0.01
+		    top radii = 0.03 0.035 0.045
+            bottom radii = 0.03 0.031 0.041
+            media        = Ir AIR_TG43 SS_AISI316L
+        :stop layer:
+		
+		:start layer:
+            thickness  = 0.0065
+		    top radii  =  0.031 0.041  
+            bottom radii =  0.026 0.039
+            media        = AIR_TG43 SS_AISI316L
         :stop layer:
 
     :stop geometry:
@@ -35,7 +40,7 @@
     :start geometry:
         name = sph_end_cap
         library = egs_spheres
-        midpoint = 0 0 0.155   # end cap capsule shifted 0.155 cm from the source center
+        midpoint = 0 0 0.1614  # 
         type = EGS_cSpheres
         radii = 0.045
 
@@ -48,10 +53,12 @@
         name    = cladding
         library = egs_cones
         type    = EGS_ConeStack
-        axis    = 0 0 -0.45   0 0 1
+        axis    = 0 0 -0.2935   0 0 1
+# 		0 0 -0.45   0 0 1
 
         :start layer:
-            thickness    = 0.2
+            thickness    = 0.04
+			# 0.2
             top radii    = 0.035
             bottom radii = 0.035
             media        = SS_AISI316L_rho4.81
@@ -64,8 +71,7 @@
         :stop layer:
 
         :start layer:
-           thickness = 0.415  # 0.055+0.36=0.415cm correct
-		   #0.40 =0.04 +0.36 M.CH 
+           thickness = 0.40  #   
            bottom radii = 0.045
            media        = SS_AISI316L
         :stop layer:
@@ -76,7 +82,7 @@
         name = the_planes
         library = egs_planes
         type = EGS_Zplanes
-        positions = -0.4550001  0.155 0.200001
+        positions = -0.2935  0.1614  .200001
     :stop geometry:
 
 	:start geometry:

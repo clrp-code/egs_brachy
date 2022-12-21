@@ -1,0 +1,16 @@
+# three spherical sources for CDC-1, Cs137-LDR Source
+
+:start shape:
+
+    type = sphere
+    radius = 0.055
+	midpoint = 0, 0, 0 
+
+ :stop shape:
+
+# :start shape:
+#        library = egs_spherical_shell
+#        inner radius = 0.0549
+#        outer radius = 0.055
+#       midpoint = 0, 0, 0
+# :stop shape:

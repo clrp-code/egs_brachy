@@ -1,0 +1,9 @@
+# cylindrical source for Buchler G0814
+#
+:start shape:
+
+    type = cylinder
+    radius = 0.05
+    height = 0.13
+
+:stop shape:

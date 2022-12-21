@@ -1,0 +1,7 @@
+:start shape:
+    type = box
+    box size = 0.11701 0.11701  30.510001  # 30.510001 for cable effect on F(r,theta) # 0.510001 clrpv2   # 0.58101 Mch?
+    :start transformation:
+        translation = 0.0, 0.0, -15.505       # clrpv2 -0.0505    #-15.505 for cable effect 
+    :stop transformation:
+:stop shape:
