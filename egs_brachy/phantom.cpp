@@ -821,7 +821,7 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
 
 string EB_Phantom::medIndex(int medium){
 
-    string medIdx = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string medIdx = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (medium >= medIdx.length()){
         egsFatal("Too many media to write egsPhant");
     }
