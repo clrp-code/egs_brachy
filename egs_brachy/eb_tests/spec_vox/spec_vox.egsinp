@@ -106,7 +106,7 @@
     muen for media = AIR_TG43_LD
 
     :start spectrum scoring:
-        type = energy fluence in region
+        type = fluence in region
         particle type = photon
         minimum energy = 0.000
         maximum energy = 0.050
