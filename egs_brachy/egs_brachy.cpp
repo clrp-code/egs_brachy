@@ -217,7 +217,7 @@ void EB_Application::describeSimulation() {
         }
 
 	if (type == "EGS_XYZGeometryT") {
-            egsWarning("\n***WARNING***\nPhantom of type transformed XYZ geometry used. The bounds of the phantom reported in the egslog, 3ddose, and egsphant files will be incorrect due to limitations of the geometry library.\n***WARNING***\n");
+            egsWarning("\n***WARNING***\nPhantom of type transformed XYZ geometry used. The number of voxels in each direction and their bounds in the egslog, 3ddose, and egsphant files will be incorrect due to current limitations of the egs++ geometry library.\n***WARNING***\n");
         }
 
     }
