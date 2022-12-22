@@ -94,11 +94,11 @@ string space2underscore(std::string text) {
  * without specifying their volumes. Other geometry type need to have their
  * volumes specified using `phantom region volumes` inputs.
  * */
-const string EB_Phantom::autovol_phantom_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_RZ"};
+const string EB_Phantom::autovol_phantom_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_XYZGeometryT", "EGS_RZ"};
 
 
 /* geometries that support 3ddose files */
-const string EB_Phantom::threeddose_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_RZ"};
+const string EB_Phantom::threeddose_geom_types[] = {"EGS_cSpheres", "EGS_cSphericalShell", "EGS_XYZGeometry", "EGS_XYZGeometryT", "EGS_RZ"};
 
 /* initializer for phantom class */
 EB_Phantom::EB_Phantom(EGS_Application *parent, EGS_BaseGeometry *geom, set<int> global_regions, int nsource,
