@@ -21,7 +21,7 @@ def compare_results(egslst, inp_name):
     gold_standard = os.path.join(os.path.dirname(os.path.abspath(__file__)), "phsp_run_compare.phantom.3ddose")
     run_doses = inp_name+".phantom.3ddose"
 
-    doses_close = compare_3ddose_files(gold_standard, run_doses, max_percent_diff=0.005)
+    doses_close = compare_3ddose_files(gold_standard, run_doses, max_percent_diff=0.01)
 
     gs_doses = read3ddose(gold_standard)
     actual_doses = read3ddose(run_doses)
