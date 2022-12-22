@@ -520,6 +520,7 @@ void EB_Phantom::outputDoseStats(EGS_ScoringArray *score, string type) {
     string units = "Gy/hist";
     if (type == "pr" || type == "ss" || type == "ms" || type == "to") {
         units = "Gy/R";
+        egsInformation("\n    Total radiant energy                          =  %.3G MeV\n", total_radiant_e);
     }
 
     egsInformation("\n    Dose Scaling                                  =  %.3G\n", dose_scale);
