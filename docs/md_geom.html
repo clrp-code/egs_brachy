@@ -75,8 +75,22 @@ $(function() {
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul><li class="level1"><a href="#autotoc_md3">The egs_brachy Geometry Library</a></li>
-<li class="level1"><a href="#egs_brachysources">Source Library</a><ul><li class="level2"><a href="#Co60_HDR">Co60 HDR Sources</a></li>
+<li class="level1"><a href="#egs_brachysources">Source Library</a><ul><li class="level2"><a href="#Co60_HDR">Co60 HDR Sources</a><ul><li class="level3"><a href="#Co60_HDRCo0A86">Co0.A86</a></li>
+<li class="level3"><a href="#Co60_HDRFlexisource-Co60">Flexisource-Co60</a></li>
+<li class="level3"><a href="#Co60_HDRGK60M21">GK60M21</a></li>
+<li class="level3"><a href="#Co60_HDRRalston_type-1">Ralston_type-1</a></li>
+<li class="level3"><a href="#Co60_HDRRalston_type-2">Ralston_type-2</a></li>
+</ul>
+</li>
 <li class="level2"><a href="#Cs131_LDR">Cs131 LDR Sources</a><ul><li class="level3"><a href="#Cs131_LDRProxcelan_CS1_rev2">Proxcelan_CS1_rev2</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#Cs137_LDR">Cs137 LDR Sources</a><ul><li class="level3"><a href="#Cs137_LDRCDC-1">CDC-1</a></li>
+<li class="level3"><a href="#Cs137_LDRCDC-3">CDC-3</a></li>
+<li class="level3"><a href="#Cs137_LDRCDC-K4">CDC-K4</a></li>
+<li class="level3"><a href="#Cs137_LDRCSM11">CSM11</a></li>
+<li class="level3"><a href="#Cs137_LDRIPL">IPL</a></li>
+<li class="level3"><a href="#Cs137_LDRPTR">PTR</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#I125_LDR">I125 LDR Sources</a><ul><li class="level3"><a href="#I125_LDRAdvantage_IAI_125A">Advantage_IAI_125A</a></li>
@@ -104,8 +118,36 @@ $(function() {
 <li class="level3"><a href="#I125_LDRThinSeed_9011">ThinSeed_9011</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#Ir192_HDR">Ir192 HDR Sources</a><ul><li class="level3"><a href="#Ir192_HDRMBDCA-WG">MBDCA-WG</a></li>
+<li class="level2"><a href="#Ir192_HDR">Ir192 HDR Sources</a><ul><li class="level3"><a href="#Ir192_HDRBuchler">Buchler</a></li>
+<li class="level3"><a href="#Ir192_HDRFlexisource">Flexisource</a></li>
+<li class="level3"><a href="#Ir192_HDRGI192M11">GI192M11</a></li>
+<li class="level3"><a href="#Ir192_HDRGammaMed12i">GammaMed12i</a></li>
+<li class="level3"><a href="#Ir192_HDRGammaMedPlus">GammaMedPlus</a></li>
+<li class="level3"><a href="#Ir192_HDRIr2A85-2">Ir2.A85-2</a></li>
+<li class="level3"><a href="#Ir192_HDRM19">M19</a></li>
+<li class="level3"><a href="#Ir192_HDRMBDCA-WG">MBDCA-WG</a></li>
+<li class="level3"><a href="#Ir192_HDRVS2000">VS2000</a></li>
+<li class="level3"><a href="#Ir192_HDRVariSource">VariSource</a></li>
+<li class="level3"><a href="#Ir192_HDRmicroSelectron-v1">microSelectron-v1</a></li>
 <li class="level3"><a href="#Ir192_HDRmicroSelectron-v2">microSelectron-v2</a></li>
+<li class="level3"><a href="#Ir192_HDRmicroSelectron-v2r">microSelectron-v2r</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#Ir192_LDR">Ir192 LDR Sources</a><ul><li class="level3"><a href="#Ir192_LDRAlpha_Omega_clad_seed">Alpha_Omega_clad_seed</a></li>
+<li class="level3"><a href="#Ir192_LDRAmersham_03mm_diameter_3cm_long">Amersham_0.3mm_diameter_3cm_long</a></li>
+<li class="level3"><a href="#Ir192_LDRAmersham_03mm_diameter_5cm_long">Amersham_0.3mm_diameter_5cm_long</a></li>
+<li class="level3"><a href="#Ir192_LDRAmersham_05mm_diameter_1cm_long">Amersham_0.5mm_diameter_1cm_long</a></li>
+<li class="level3"><a href="#Ir192_LDRAmersham_05mm_diameter_5cm_long">Amersham_0.5mm_diameter_5cm_long</a></li>
+<li class="level3"><a href="#Ir192_LDRBEBIG_wire_05cm">BEBIG_wire_0.5cm</a></li>
+<li class="level3"><a href="#Ir192_LDRBEBIG_wire_1cm">BEBIG_wire_1cm</a></li>
+<li class="level3"><a href="#Ir192_LDRBest_steel-clad_seed">Best_steel-clad_seed</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#Ir192_PDR">Ir192 PDR Sources</a><ul><li class="level3"><a href="#Ir192_PDRGammaMed12i">GammaMed12i</a></li>
+<li class="level3"><a href="#Ir192_PDRGammaMedPlus">GammaMedPlus</a></li>
+<li class="level3"><a href="#Ir192_PDRIr2A85-1">Ir2.A85-1</a></li>
+<li class="level3"><a href="#Ir192_PDRmicroSelectron-v1">microSelectron-v1</a></li>
+<li class="level3"><a href="#Ir192_PDRmicroSelectron-v2">microSelectron-v2</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#Pd103_LDR">Pd103 LDR Sources</a><ul><li class="level3"><a href="#Pd103_LDRAdvantage_IAPd-103A">Advantage_IAPd-103A</a></li>
@@ -125,6 +167,9 @@ $(function() {
 <li class="level3"><a href="#Pd103_LDRPharmaSeed_BT-103-3">PharmaSeed_BT-103-3</a></li>
 <li class="level3"><a href="#Pd103_LDRProspera_Med3633">Prospera_Med3633</a></li>
 <li class="level3"><a href="#Pd103_LDRTheraSeed_200">TheraSeed_200</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#Yb169_HDR">Yb169 HDR Sources</a><ul><li class="level3"><a href="#Yb169_HDR4140">4140</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#point_source">point source Sources</a><ul><li class="level3"><a href="#point_sourcesphere">sphere</a></li>
@@ -240,6 +285,66 @@ Source Library</h1>
 <p >The current list of sources available in the egs_brachy geometry library.</p>
 <h2><a class="anchor" id="Co60_HDR"></a>
 Co60 HDR Sources</h2>
+<h3><a class="anchor" id="Co60_HDRCo0A86"></a>
+Co0.A86</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Co0.A86/Co0.A86.geom">Co0.A86.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Co0.A86/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Co60_HDR/Co0.A86/Co0.A86.shape">Co0.A86.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Co60_HDR/Co0.A86/Co0.A86.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Co60_HDRFlexisource-Co60"></a>
+Flexisource-Co60</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Flexisource-Co60/Flexisource-Co60.geom">Flexisource-Co60.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Flexisource-Co60/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Co60_HDR/Flexisource-Co60/Flexisource-Co60.shape">Flexisource-Co60.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Co60_HDRGK60M21"></a>
+GK60M21</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/GK60M21/GK60M21.geom">GK60M21.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/GK60M21/GK60M21.shape">GK60M21.shape</a>, <a href="../lib/geometry/sources/Co60_HDR/GK60M21/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Co60_HDR/GK60M21/GK60M21.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Co60_HDRRalston_type-1"></a>
+Ralston_type-1</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Ralston_type-1/Ralston_type-1.geom">Ralston_type-1.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Ralston_type-1/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Co60_HDR/Ralston_type-1/Ralston_type-1.shape">Ralston_type-1.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Co60_HDRRalston_type-2"></a>
+Ralston_type-2</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Ralston_type-2/Ralston_type-2.geom">Ralston_type-2.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Co60_HDR/Ralston_type-2/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Co60_HDR/Ralston_type-2/Ralston_type-2.shape">Ralston_type-2.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
 <h2><a class="anchor" id="Cs131_LDR"></a>
 Cs131 LDR Sources</h2>
 <h3><a class="anchor" id="Cs131_LDRProxcelan_CS1_rev2"></a>
@@ -253,6 +358,80 @@ Proxcelan_CS1_rev2</h3>
 <dd><a href="../lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.shape">Proxcelan_CS1_rev2.shape</a> </dd>
 <dt>Images</dt>
 <dd><img src="../egs_brachy/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Cs131-CS-1 Rev2.PNG" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h2><a class="anchor" id="Cs137_LDR"></a>
+Cs137 LDR Sources</h2>
+<h3><a class="anchor" id="Cs137_LDRCDC-1"></a>
+CDC-1</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-1/CS137_CDC-1.geom">CS137_CDC-1.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-1/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/CDC-1/CS137_CDC-1.shape">CS137_CDC-1.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Cs137_LDRCDC-3"></a>
+CDC-3</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-3/CS137_CDC-3.geom">CS137_CDC-3.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-3/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/CDC-3/CS137_CDC-3.shape">CS137_CDC-3.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Cs137_LDRCDC-K4"></a>
+CDC-K4</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-K4/CS137_CDC-K4.geom">CS137_CDC-K4.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CDC-K4/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/CDC-K4/CS137_CDC-K4.shape">CS137_CDC-K4.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Cs137_LDRCSM11"></a>
+CSM11</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CSM11/CSM11.geom">CSM11.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/CSM11/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/CSM11/CSM11.shape">CSM11.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Cs137_LDR/CSM11/CSM11.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Cs137_LDRIPL"></a>
+IPL</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/IPL/CS137_IPL.geom">CS137_IPL.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/IPL/CS137_IPL.shape">CS137_IPL.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/IPL/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Cs137_LDRPTR"></a>
+PTR</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/PTR/CS137_PTR.geom">CS137_PTR.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Cs137_LDR/PTR/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Cs137_LDR/PTR/CS137_PTR.shape">CS137_PTR.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
 </dl>
 <h2><a class="anchor" id="I125_LDR"></a>
 I125 LDR Sources</h2>
@@ -534,6 +713,90 @@ ThinSeed_9011</h3>
 </dl>
 <h2><a class="anchor" id="Ir192_HDR"></a>
 Ir192 HDR Sources</h2>
+<h3><a class="anchor" id="Ir192_HDRBuchler"></a>
+Buchler</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Buchler/Buchler.geom">Buchler.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Buchler/Buchler.shape">Buchler.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/Buchler/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/Buchler/Buchler.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRFlexisource"></a>
+Flexisource</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Flexisource/Flexisource.geom">Flexisource.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Flexisource/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/Flexisource/Flexisource.shape">Flexisource.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/Flexisource/Flexisource.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRGI192M11"></a>
+GI192M11</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GI192M11/GI192M11.geom">GI192M11.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GI192M11/GI192M11.shape">GI192M11.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/GI192M11/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/GI192M11/GI192M11.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRGammaMed12i"></a>
+GammaMed12i</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GammaMed12i/GammaMed12i.geom">GammaMed12i.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GammaMed12i/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/GammaMed12i/GammaMed12i.shape">GammaMed12i.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/GammaMed12i/GammaMed12i.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRGammaMedPlus"></a>
+GammaMedPlus</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GammaMedPlus/GammaMedPlus.geom">GammaMedPlus.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/GammaMedPlus/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/GammaMedPlus/GammaMedPlus.shape">GammaMedPlus.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/GammaMedPlus/GammaMedPlus.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRIr2A85-2"></a>
+Ir2.A85-2</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Ir2.A85-2/Ir2.A85-2.geom">Ir2.A85-2.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/Ir2.A85-2/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/Ir2.A85-2/Ir2.A85-2.shape">Ir2.A85-2.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/Ir2.A85-2/Ir2.A85-2.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRM19"></a>
+M19</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/M19/M19.geom">M19.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/M19/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/M19/M19.shape">M19.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/M19/M19.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
 <h3><a class="anchor" id="Ir192_HDRMBDCA-WG"></a>
 MBDCA-WG</h3>
 <dl>
@@ -546,6 +809,42 @@ MBDCA-WG</h3>
 <dt>Images</dt>
 <dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.png" alt="" style="width: 200px;" class="inline"/> </dd>
 </dl>
+<h3><a class="anchor" id="Ir192_HDRVS2000"></a>
+VS2000</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/VS2000/VS2000.geom">VS2000.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/VS2000/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/VS2000/VS2000.shape">VS2000.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/VS2000/VS2000.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRVariSource"></a>
+VariSource</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/VariSource/VariSource.geom">VariSource.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/VariSource/VariSource.shape">VariSource.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/VariSource/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/VariSource/VariSource.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRmicroSelectron-v1"></a>
+microSelectron-v1</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v1/microSelectron-v1.geom">microSelectron-v1.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v1/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v1/microSelectron-v1.shape">microSelectron-v1.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/microSelectron-v1/microSelectron-v1.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
 <h3><a class="anchor" id="Ir192_HDRmicroSelectron-v2"></a>
 microSelectron-v2</h3>
 <dl>
@@ -557,6 +856,178 @@ microSelectron-v2</h3>
 <dd><a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v2/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v2/microSelectron-v2.shape">microSelectron-v2.shape</a> </dd>
 <dt>Images</dt>
 <dd><img src="../egs_brachy/lib/geometry/sources/Ir192_HDR/microSelectron-v2/microSelectron-v2.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_HDRmicroSelectron-v2r"></a>
+microSelectron-v2r</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v2r/microSelectron-v2r.geom">microSelectron-v2r.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v2r/microSelectron-v2r.shape">microSelectron-v2r.shape</a>, <a href="../lib/geometry/sources/Ir192_HDR/microSelectron-v2r/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h2><a class="anchor" id="Ir192_LDR"></a>
+Ir192 LDR Sources</h2>
+<h3><a class="anchor" id="Ir192_LDRAlpha_Omega_clad_seed"></a>
+Alpha_Omega_clad_seed</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Alpha_Omega_clad_seed/Alpha_Omega_clad_seed.geom">Alpha_Omega_clad_seed.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Alpha_Omega_clad_seed/Alpha_Omega_clad_seed.shape">Alpha_Omega_clad_seed.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Alpha_Omega_clad_seed/boundary.shape">boundary.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRAmersham_03mm_diameter_3cm_long"></a>
+Amersham_0.3mm_diameter_3cm_long</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_3cm_long/Amersham_wire.geom">Amersham_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_3cm_long/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_3cm_long/Amersham_wire.shape">Amersham_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRAmersham_03mm_diameter_5cm_long"></a>
+Amersham_0.3mm_diameter_5cm_long</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_5cm_long/Amersham_wire.geom">Amersham_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_5cm_long/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.3mm_diameter_5cm_long/Amersham_wire.shape">Amersham_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRAmersham_05mm_diameter_1cm_long"></a>
+Amersham_0.5mm_diameter_1cm_long</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_1cm_long/Amersham_wire.geom">Amersham_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_1cm_long/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_1cm_long/Amersham_wire.shape">Amersham_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRAmersham_05mm_diameter_5cm_long"></a>
+Amersham_0.5mm_diameter_5cm_long</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_5cm_long/Amersham_wire.geom">Amersham_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_5cm_long/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Amersham_0.5mm_diameter_5cm_long/Amersham_wire.shape">Amersham_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRBEBIG_wire_05cm"></a>
+BEBIG_wire_0.5cm</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_0.5cm/BEBIG_wire.geom">BEBIG_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_0.5cm/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_0.5cm/BEBIG_wire.shape">BEBIG_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRBEBIG_wire_1cm"></a>
+BEBIG_wire_1cm</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_1cm/BEBIG_wire.geom">BEBIG_wire.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_1cm/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/BEBIG_wire_1cm/BEBIG_wire.shape">BEBIG_wire.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_LDRBest_steel-clad_seed"></a>
+Best_steel-clad_seed</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Best_steel-clad_seed/Best_steel-clad_seed.geom">Best_steel-clad_seed.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_LDR/Best_steel-clad_seed/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_LDR/Best_steel-clad_seed/Best_steel-clad_seed.shape">Best_steel-clad_seed.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_LDR/Best_steel-clad_seed/Best_steel-clad_seed.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h2><a class="anchor" id="Ir192_PDR"></a>
+Ir192 PDR Sources</h2>
+<h3><a class="anchor" id="Ir192_PDRGammaMed12i"></a>
+GammaMed12i</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/GammaMed12i/GammaMed12i.geom">GammaMed12i.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/GammaMed12i/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_PDR/GammaMed12i/GammaMed12i.shape">GammaMed12i.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_PDR/GammaMed12i/GammaMed12i.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_PDRGammaMedPlus"></a>
+GammaMedPlus</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/GammaMedPlus/GammaMedPlus.geom">GammaMedPlus.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/GammaMedPlus/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_PDR/GammaMedPlus/GammaMedPlus.shape">GammaMedPlus.shape</a> </dd>
+<dt>Images</dt>
+<dd><em>No images available</em> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_PDRIr2A85-1"></a>
+Ir2.A85-1</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/Ir2.A85-1/Ir2.A85-1.geom">Ir2.A85-1.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/Ir2.A85-1/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_PDR/Ir2.A85-1/Ir2.A85-1.shape">Ir2.A85-1.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_PDR/Ir2.A85-1/Ir2.A85-1.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_PDRmicroSelectron-v1"></a>
+microSelectron-v1</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v1/microSelectron-v1.geom">microSelectron-v1.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v1/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v1/microSelectron-v1.shape">microSelectron-v1.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_PDR/microSelectron-v1/microSelectron-v1.png" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h3><a class="anchor" id="Ir192_PDRmicroSelectron-v2"></a>
+microSelectron-v2</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v2/microSelectron-v2.geom">microSelectron-v2.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v2/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Ir192_PDR/microSelectron-v2/microSelectron-v2.shape">microSelectron-v2.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Ir192_PDR/microSelectron-v2/microSelectron-v2.png" alt="" style="width: 200px;" class="inline"/> </dd>
 </dl>
 <h2><a class="anchor" id="Pd103_LDR"></a>
 Pd103 LDR Sources</h2>
@@ -763,6 +1234,20 @@ TheraSeed_200</h3>
 <dd><a href="../lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape">TheraSeed_200.shape</a>, <a href="../lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape">boundary.shape</a> </dd>
 <dt>Images</dt>
 <dd><img src="../egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.PNG" alt="" style="width: 200px;" class="inline"/> </dd>
+</dl>
+<h2><a class="anchor" id="Yb169_HDR"></a>
+Yb169 HDR Sources</h2>
+<h3><a class="anchor" id="Yb169_HDR4140"></a>
+4140</h3>
+<dl>
+<dt>Description</dt>
+<dd><em>No description available</em> </dd>
+<dt>Geometry Files</dt>
+<dd><a href="../lib/geometry/sources/Yb169_HDR/4140/4140.geom">4140.geom</a> </dd>
+<dt>Shape Files</dt>
+<dd><a href="../lib/geometry/sources/Yb169_HDR/4140/boundary.shape">boundary.shape</a>, <a href="../lib/geometry/sources/Yb169_HDR/4140/4140.shape">4140.shape</a> </dd>
+<dt>Images</dt>
+<dd><img src="../egs_brachy/lib/geometry/sources/Yb169_HDR/4140/4140.png" alt="" style="width: 200px;" class="inline"/> </dd>
 </dl>
 <h2><a class="anchor" id="point_source"></a>
 point source Sources</h2>
