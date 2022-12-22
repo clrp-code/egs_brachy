@@ -142,6 +142,7 @@ There are three egs_brachy specific input keys that are required for the
    superposition run mode and must name the EGS_ASwitchedEnvelope
    geometry that contains the sources.
 
+Transformed EGS_XYZGeometry phantoms (i.e., EGS_XYZGeometryT) are allowed, however, the number of voxels in each direction and their bounds are not reported in any of the output due to current limitations in the egs++ geometry library. A warning to that effect is output when a transformed XYZ geometry is used as a phantom in a simulation.
 Other phantom geometry types could be added in future provided they implement the
 getBound, getNRegDir, and getMass methods of the EGS_BaseGeometry class.
 
