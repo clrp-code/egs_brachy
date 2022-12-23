@@ -2223,6 +2223,12 @@ int EB_Application::egsBrachyOutputData(ostream *out) {
 
     (*out) << std::setprecision(9);
 
+    for (int i=-1; i < 2; i++) {
+        (*out) << steps_in_sources[i] << " ";
+        (*out) << steps_in_phantoms[i] << " ";
+        (*out) << steps_in_other[i] << "\n";
+    }
+
     if (escoring) {
         err= escoring->outputData(out);
         if (err) {
@@ -2359,6 +2365,12 @@ int EB_Application::egsAdvApplicationReadData(istream *in) {
 
 int EB_Application::egsBrachyReadData(istream *in) {
     int err;
+
+    for (int i=-1; i < 2; i++) {
+        (*in) >> steps_in_sources[i];
+        (*in) >> steps_in_phantoms[i];
+        (*in) >> steps_in_other[i];
+    }
 
     if (escoring) {
         err= escoring->readData(in);
@@ -2510,6 +2522,12 @@ void EB_Application::resetCounter() {
     EGS_AdvancedApplication::resetCounter();
     // Reset our own data to zero.
 
+    for (int i=-1; i < 2; i++) {
+        steps_in_sources[i] = 0;
+        steps_in_phantoms[i] = 0;
+        steps_in_other[i] = 0;
+    }
+
     if (escoring) {
         escoring->resetCounter();
     }
@@ -2532,6 +2550,20 @@ int EB_Application::addState(istream &data) {
     int err = EGS_AdvancedApplication::addState(data);
     if (err) {
         return err;
+    }
+
+    for (int i=-1; i < 2; i++) {
+        EGS_I64 steps_in_sources_tmp;
+        EGS_I64 steps_in_phantoms_tmp;
+        EGS_I64 steps_in_other_tmp;
+
+        data >> steps_in_sources_tmp;
+        data >> steps_in_phantoms_tmp;
+        data >> steps_in_other_tmp;
+
+        steps_in_sources[i] += steps_in_sources_tmp;
+        steps_in_phantoms[i] += steps_in_phantoms_tmp;
+        steps_in_other[i] += steps_in_other_tmp;
     }
 
     if (escoring) {
