@@ -77,8 +77,8 @@
 #include "timing.h"
 
 
-#define PRINT_PARTICLE(P) cout << "\nParticle in reg "<<P.ir << " at "<<P.x.x << " "<<P.x.y<<" "<<P.x.z << " wt "<<P.wt<< " E "<<P.E << " q "<<P.q << " latch "<<P.latch<<endl;
-#define PRINT_PARTICLE_WITH_DIR(P) cout << "\nParticle in reg "<<P.ir << " at "<<P.x.x << " "<<P.x.y<<" "<<P.x.z << " dir "<<P.u.x << " "<<P.u.y<<" "<<P.u.z << " wt "<<P.wt<< " E "<<P.E << " q "<<P.q << " latch "<<P.latch<<endl;
+#define PRINT_PARTICLE(P) cout << "\nParticle in reg "<<P.ir << " at "<<P.x.x << " "<<P.x.y<<" "<<P.x.z << " wt "<<P.wt<< " E "<<P.E << " q "<<P.q << " latch "<<P.latch<<"\n";
+#define PRINT_PARTICLE_WITH_DIR(P) cout << "\nParticle in reg "<<P.ir << " at "<<P.x.x << " "<<P.x.y<<" "<<P.x.z << " dir "<<P.u.x << " "<<P.u.y<<" "<<P.u.z << " wt "<<P.wt<< " E "<<P.E << " q "<<P.q << " latch "<<P.latch<<"\n";
 #define NUM_STUCK_STEPS 1000
 #define SAME_POSITION_TOLERANCE 1E-10
 #define EB_EPSILON 1E-10

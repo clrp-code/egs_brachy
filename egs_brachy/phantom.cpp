@@ -773,7 +773,7 @@ void EB_Phantom::output3DDoses(ostream &out, EGS_ScoringArray *score, string typ
             }
 
         }
-        out << endl;
+        out << "\n";
     }
 
 }
@@ -782,15 +782,15 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
 
     int nmed = EGS_BaseGeometry::nMedia();
 
-    out << nmed << endl;
+    out << nmed << "\n";
     for (int i=0; i < nmed; i++) {
-        out << EGS_BaseGeometry::getMediumName(i) << endl;
+        out << EGS_BaseGeometry::getMediumName(i) << "\n";
     }
 
     for (int i=0; i < nmed; i++) {
         out << the_etcontrol->estepe << "\t";
     }
-    out << endl;
+    out << "\n";
 
     output3DBounds(out);
 
@@ -812,9 +812,9 @@ void EB_Phantom::writeEGSPhant(ostream &out) {
                         out << getRealRho(ireg) << "\t";
                     }
                 }
-                out << endl;
+                out << "\n";
             }
-            out << endl;
+            out << "\n";
         }
     }
 
@@ -872,7 +872,7 @@ void EB_Phantom::writeVoxelInfo(ostream &out) {
     if (edep_score){
         header += ", Dose (interaction) / Gy/hist, Total Dose Unc (interaction), Dose Unc (interaction)";
     }
-    out << header << endl;
+    out << header << "\n";
 
     for (int i=0; i < geometry->regions(); i++) {
         EGS_Float r=0, dr=0, r_edep, dr_edep, dv;
@@ -890,7 +890,7 @@ void EB_Phantom::writeVoxelInfo(ostream &out) {
         if (edep_score){
             out << ", " << r_edep << ", " << sqrt(dr_edep*dr_edep + dv*dv) << ", " << dr_edep;
         }
-        out <<endl;
+        out << "\n";
     }
 }
 
@@ -922,11 +922,11 @@ void EB_Phantom::outputVoxelInfo(string format) {
 void EB_Phantom::writeVolumeCorrection(ostream &out) {
     size_t nrecords = corrected_volumes.size();
 
-    out << nrecords << endl;
+    out << nrecords << "\n";
 
     for (int i=0; i < geometry->regions(); i++) {
         if (hasVolCor(i)) {
-            out << i << " " << getCorrectedVolume(i) << " " << volume_uncertainty[i] << endl;
+            out << i << " " << getCorrectedVolume(i) << " " << volume_uncertainty[i] << "\n";
         }
     }
 }
@@ -957,7 +957,7 @@ void EB_Phantom::outputVolumeCorrection(string format) {
 
 int EB_Phantom::outputData(ostream *ofile) {
 
-    (*ofile) << total_radiant_e << endl;
+    (*ofile) << total_radiant_e << "\n";
 
     vector<EGS_ScoringArray *> scores;
     getEGSdatScoringArrays(scores);
