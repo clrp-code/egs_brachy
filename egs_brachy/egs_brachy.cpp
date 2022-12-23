@@ -1031,7 +1031,7 @@ int EB_Application::initVarianceReduction() {
 
 
     EGS_Input *ri = vr->takeInputItem("particle recycling");
-    if (ri) {
+    if (ri && !score_scat) {
 
         egsInformation("Particle Recycling\n");
         recycle_opts = new RecycleOpts(ri);
@@ -1043,6 +1043,8 @@ int EB_Application::initVarianceReduction() {
         egsInformation("\n");
 
         delete ri;
+    } else {
+        egsFatal("Primary-scatter dose scoring is not available with recycling. Please turn off recycling or disable scatter dose scoring.\n");
     }
 
 
@@ -1398,7 +1400,15 @@ void EB_Application::initScatScoring(EGS_Input *scoring_options) {
 
     score_scat = scoring_options->getInput("score scatter dose", choices, 0);
     if (score_scat && !score_tlen) {
-        egsFatal("Tracklength scoring must be enabled to score scatter dose\n");
+        egsFatal("\nPrimary-scatter dose scoring requires tracklength scoring. Please enable tracklength scoring or disable scatter dose scoring.\n");
+    }
+
+    if (score_scat && (source_transforms.size() > 1)) {
+        egsFatal("\nPrimary-scatter dose scoring is only available in simulations with a single source. Please simulate a single source or disable scatter dose scoring.\n");
+    }
+
+    if (score_scat && is_phsp_source) {
+        egsFatal("\nPrimary-scatter dose scoring is not available with phase-space sources. Please do not use a phase-space source or disable scatter dose scoring.\n");
     }
 
     if (score_scat) {
