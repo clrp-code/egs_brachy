@@ -81,7 +81,7 @@ bool EGS_Sobol::storePrivateState(ostream &data) {
         return false;
     }
 
-    data << dim << endl;
+    data << dim << "\n";
 
     return data.good();
 }

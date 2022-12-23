@@ -258,12 +258,12 @@ string BaseSpectrumScorer::outputEGSnrc(string rootname) {
     ofstream out;
     string fname = getFileName(rootname)+".spectrum";
     out.open(fname.c_str());
-    out << "egs_brachy scored spectrum"<< endl;
+    out << "egs_brachy scored spectrum"<< "\n";
 
 
     if (egsnrc_mode == 0 || egsnrc_mode == 1) {
         // egsnrc modes
-        out << nbins <<","<<e_min<<","<< egsnrc_mode << endl;
+        out << nbins <<","<<e_min<<","<< egsnrc_mode << "\n";
 
         double top, prob, r, dr;
         for (int i=0; i < nbins; i++) {
@@ -380,8 +380,8 @@ void BaseSpectrumScorer::getResult(int i, EGS_Float &r, EGS_Float &dr) {
 
 int BaseSpectrumScorer::outputData(ostream *ofile) {
 
-    (*ofile) << cur_history << " " << eff_history << endl;
-    (*ofile) << total_scored << endl;
+    (*ofile) << cur_history << " " << eff_history << "\n";
+    (*ofile) << total_scored << "\n";
     bool ok = bins->storeState(*ofile);
     if (!ok) {
         return 1;

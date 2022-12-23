@@ -96,11 +96,11 @@ void printParticleWithSpherical(EGS_Particle p) {
     phi = atan2(y, x)*180/M_PI;
 
     PRINT_PARTICLE_WITH_DIR(p);
-    cout << " R           = " << R << endl;
-    cout << " r           = " << r << endl;
-    cout << " z           = " << z << endl;
-    cout << " theta (deg) = " << theta << endl;
-    cout << " phi (deg)   = " << phi << endl;
+    cout << " R           = " << R << "\n";
+    cout << " r           = " << r << "\n";
+    cout << " z           = " << z << "\n";
+    cout << " theta (deg) = " << theta << "\n";
+    cout << " phi (deg)   = " << phi << "\n";
 
 }
 
@@ -1983,7 +1983,7 @@ void EB_Application::outputResults() {
         out.open(fname.c_str());
         out << std::fixed << std::showpoint << std::setprecision(6);
         for (vector<EGS_Vector>::iterator it = p_init_locs.begin(); it != p_init_locs.end(); ++it) {
-            out << (*it).x << "\t" << (*it).y << "\t" << (*it).z << endl;
+            out << (*it).x << "\t" << (*it).y << "\t" << (*it).z << "\n";
         }
         out.close();
         egsInformation("\nInitial Particle Positions\n%s\n",sep.c_str());
@@ -2173,7 +2173,7 @@ int EB_Application::egsApplicationOutputData(ostream *out) {
     if (!egsStoreI64(*out,current_case)) {
         return 3;
     }
-    (*out) << endl;
+    (*out) << "\n";
     if (!rndm->storeState(*out)) {
         return 4;
     }
@@ -2203,14 +2203,14 @@ int EB_Application::egsAdvApplicationOutputData(ostream *out) {
     }
     EGS_Float *array = new EGS_Float [np];
     egsGetRNGArray(array);
-    (*out) << "  " << np << "  " << ip << endl;
+    (*out) << "  " << np << "  " << ip << "\n";
     for (int j=0; j<np; j++) {
         (*out) << array[j] << " ";
     }
-    (*out) << endl;
+    (*out) << "\n";
     double ch_steps, all_steps;
     egsGetSteps(&ch_steps,&all_steps);
-    (*out) << ch_steps << "  " << all_steps << endl;
+    (*out) << ch_steps << "  " << all_steps << "\n";
     delete [] array;
     return out->good() ? 0 : 13;
 
