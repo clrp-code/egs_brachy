@@ -135,7 +135,7 @@
 
     output volume correction files for phantoms = phantom    
            # name of the phantom for which to output volume correction data
-    volume correction file format = binary # text or binary
+    volume correction file format = gzip # text or gzip
 
 :stop scoring options:
 
