@@ -1031,8 +1031,10 @@ int EB_Application::initVarianceReduction() {
 
 
     EGS_Input *ri = vr->takeInputItem("particle recycling");
-    if (ri && !score_scat) {
-
+    if (ri) {
+        if (score_scat) {
+            egsFatal("Primary-scatter dose scoring is not available with recycling. Please turn off recycling or disable scatter dose scoring.\n");
+        }
         egsInformation("Particle Recycling\n");
         recycle_opts = new RecycleOpts(ri);
         recycle_opts->printInfo();
@@ -1043,11 +1045,8 @@ int EB_Application::initVarianceReduction() {
         egsInformation("\n");
 
         delete ri;
-    } else {
-        egsFatal("Primary-scatter dose scoring is not available with recycling. Please turn off recycling or disable scatter dose scoring.\n");
     }
-
-
+    
     /* Range rejection */
     vector<string> yn_choices;
     yn_choices.push_back("no");
