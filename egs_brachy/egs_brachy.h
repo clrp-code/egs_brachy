@@ -58,6 +58,7 @@
 #include "egs_interpolator.h"
 #include "egs_alias_table.h"
 #include "egs_rndm.h"
+#include "egs_run_control.h"
 #include "egs_scoring.h"
 #include "egs_transformations.h"
 #include "egs_autoenvelope/egs_autoenvelope.h" // required for Superposition mode
@@ -83,7 +84,7 @@
 #define SAME_POSITION_TOLERANCE 1E-10
 #define EB_EPSILON 1E-10
 
-
+class EB_UniformRunControl;
 
 /*! \brief The main egs_brachy application class. See the [Main Page](\ref egs_brachy_main)
  * for full documentation. */
@@ -478,6 +479,8 @@ public:
         return output_volcor_format;
     }
 
+    int howManyJobsDone();
+
 protected:
 
     void addRecycledParticlesToStack(EGS_Particle *p, bool new_hist=false);
@@ -513,4 +516,46 @@ protected:
     vector<EGS_AffineTransform *> createTransforms(EGS_Input *input);
 
 };
+
+class EGS_EXPORT EB_UniformRunControl : public EGS_RunControl {
+
+public:
+
+    EB_UniformRunControl(EB_Application *app, string egsdat_format);
+    ~EB_UniformRunControl() {};
+
+    void  describeRCO();
+
+    int  startSimulation();
+
+    /*!  \brief Uses 'watcher' jobs to determine if the simulation has finished.
+
+    If the current job is a 'watcher' job, it waits for some time before issuing
+    the signal to recombine all available parallel jobs. These 'watcher' jobs
+    can also produce intermediate results while waiting. If all jobs complete while
+    waiting, the 'watcher' job combines all results and exits.
+
+    */
+    int  finishSimulation();
+
+protected:
+
+    EB_Application *app; 
+
+    string output_egsdat_format; ///< text or gzip
+    
+    int milliseconds;   // time interval for checking
+    // if all jobs finished (default 1000 ms)
+
+    int check_intervals;// Number of intervals to check
+    // if all jobs done (default 5)
+
+    int    njob;
+    int    npar;
+    int    ipar;
+    int    ifirst;
+    bool   check_egsdat;// If true, and a 'watcher' job, produce intermediate results
+    bool   watcher_job; // If true, job is a 'watcher'
+};
+
 #endif
