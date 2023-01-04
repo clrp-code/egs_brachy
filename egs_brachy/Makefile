@@ -50,7 +50,6 @@ egspp_geom_libs = $(link2_prefix)egs_autoenvelope$(link2_suffix)
 
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
-TURN_OFF_MACOS_WARNINGS = -Wno-macro-redefined -Wno-gnu-static-float-init
 TURN_OFF_MACOS_COMPACT_UNWIND = -Wl,-no_compact_unwind
 endif
 
@@ -59,7 +58,7 @@ user_libs = $(TURN_OFF_MACOS_COMPACT_UNWIND) $(egspp_geom_libs) $(link2_prefix)i
 include $(HEN_HOUSE)makefiles$(DSEP)cpp_makefile
 
 
-INCL = -g -Wall -Wno-sign-compare $(TURN_OFF_MACOS_WARNINGS) -I. -I.$(DSEP)gzstream -I$(HEN_HOUSE)lib$(DSEP)$(my_machine) -I$(abs_egspp) -I$(abs_egspp)$(DSEP)geometry -I$(egs_interface) -I$(HEN_HOUSE)iaea_phsp -I.$(DSEP)zlib
+INCL = -g -Wall -Wno-sign-compare -I. -I.$(DSEP)gzstream -I$(HEN_HOUSE)lib$(DSEP)$(my_machine) -I$(abs_egspp) -I$(abs_egspp)$(DSEP)geometry -I$(egs_interface) -I$(HEN_HOUSE)iaea_phsp -I.$(DSEP)zlib
 
 gzstream_$(my_machine).$(obje): gzstream$(DSEP)gzstream.C
 phsp_$(my_machine).$(obje): phsp.cpp $(common_eb_deps)
