@@ -46,6 +46,7 @@
 #include <string>
 #include <iomanip>
 #include <assert.h>
+#include <sys/stat.h>
 #include "gzstream.h"
 #include "zlib.h"
 
@@ -793,8 +794,22 @@ int EB_Application::initRunControl() {
     int format = run_control->getInput("egsdat file format", format_choices, 0);
     output_egsdat_format = format == 0 ? "text" : "gzip";
 
-    return EGS_AdvancedApplication::initRunControl();
-
+    if (run) {
+        delete run;
+    }
+    if (simple_run) {
+        run = new EGS_RunControl(this);
+    }
+    else if (uniform_run) {
+        run = new EB_UniformRunControl(this, output_egsdat_format);
+    }
+    else {
+        run = EGS_RunControl::getRunControlObject(this);
+    }
+    if (!run) {
+        return 1;
+    }
+    return 0;
 }
 
 int EB_Application::initRunMode() {
@@ -2592,6 +2607,174 @@ int EB_Application::addState(istream &data) {
 
 }
 /* end of stop/restart functionality  ****************************************/
+
+bool fileExists(const string &name) {
+    struct stat buffer;
+    return (stat(name.c_str(), &buffer) == 0);
+}
+
+int EB_Application::howManyJobsDone() {
+
+    char buf[512];
+    int  n_of_egsdat = 0;
+
+    bool use_gz = output_egsdat_format == "gzip";
+    string name("%s_w%d.egsdat");
+    name += (use_gz ? ".gz" : "");
+
+    for (int i = first_parallel; i < first_parallel + n_parallel; i++) {
+        sprintf(buf,name.c_str(),final_output_file.c_str(),i);
+        string dfile = egsJoinPath(app_dir,buf);
+        if (fileExists(dfile)) {
+            n_of_egsdat++;
+        }
+    }
+
+    return n_of_egsdat;
+}
+
+EB_UniformRunControl::EB_UniformRunControl(EB_Application *a, string egsdat_format) :
+    EGS_RunControl(a), app(a), output_egsdat_format(egsdat_format), milliseconds(1000), check_intervals(5),
+    njob(0), npar(app->getNparallel()), ipar(app->getIparallel()), ifirst(app->getFirstParallel()),
+    check_egsdat(true), watcher_job(false) {
+
+    rco_type = uniform;
+
+    if (input) {
+
+        /*Change waiting time to check for parallel run completion*/
+        int dummy;
+        int err = input->getInput("interval wait time", dummy);
+        if (!err) {
+            milliseconds = dummy;
+        }
+
+        /*Change how many times to check for parallel run completion*/
+        err = input->getInput("number of intervals", dummy);
+        if (!err) {
+            check_intervals = dummy;
+        }
+
+        /* Define watcher jobs to check for parallel run completion*/
+        vector<int> w_jobs;
+        err = input->getInput("watcher jobs", w_jobs);
+        if (!err) {
+            for (int i = 0; i < w_jobs.size(); i++) {
+                if (ipar == w_jobs[i]) {
+                    watcher_job = true;
+                    break;
+                }
+            }
+        }
+        else { // use defaults
+            /* last job is watcher job */
+            if (ipar == ifirst + npar - 1) {
+                watcher_job = true;
+            }
+            else {
+                watcher_job = false;
+            }
+        }
+
+        /* Request checking parallel run completion */
+        vector<string> check_options;
+        check_options.push_back("yes");
+        check_options.push_back("no");
+        int ichk = input->getInput("check jobs completed",check_options,0);
+        if (ichk != 0) {
+            check_egsdat = false;    // true by default
+        }
+
+    }
+    else { // use defaults if no RCO input found
+        /* last job is watcher job */
+        if (ipar == ifirst + npar - 1) {
+            watcher_job = true;
+        }
+    }
+}
+
+int EB_UniformRunControl::startSimulation() {
+
+
+    /* Check run completion based on *egsdat files requires erasing
+       existing files from previous runs.
+     */
+    bool use_gz = output_egsdat_format == "gzip";
+    string name("%s_w%d.egsdat");
+    name += (use_gz ? ".gz" : "");
+
+    if (check_egsdat) {
+        char buf[512];
+        sprintf(buf,name.c_str(),app->getFinalOutputFile().c_str(), ipar);
+        string datFile = egsJoinPath(app->getAppDir(),buf);
+        if (remove(datFile.c_str()) == 0) {
+            egsWarning("EB_UniformRunControl: %s deleted\n",
+                       datFile.c_str());
+        }
+    }
+
+    return EGS_RunControl::startSimulation();
+}
+
+void EB_UniformRunControl::describeRCO() {
+
+    EGS_RunControl::describeRCO();
+
+    if (watcher_job) {
+        if (check_egsdat) {
+            egsInformation(
+                "   Watcher job: remains running after completion checking\n"
+                "                for other jobs finishing every %d s for %d s!\n",
+                milliseconds/1000, check_intervals*milliseconds/1000);
+        }
+        else {
+            egsInformation(
+                "   Option to check for finishing jobs is OFF!\n\n");
+        }
+    }
+
+}
+
+void rco_sleep(const int &mscnds) {
+#ifdef WIN32
+    Sleep(mscnds);
+#else
+    usleep(mscnds * 1000);
+#endif
+}
+
+int EB_UniformRunControl::finishSimulation() {
+    int err = EGS_RunControl::finishSimulation();
+    if (err < 0) {
+        return err;
+    }
+    /* Check and wait for all jobs to finish */
+    if (watcher_job) {
+        int interval = 0, njobs_done = 0, njobs_done_old= 0;
+        while (interval < check_intervals) {
+            rco_sleep(milliseconds);
+            if (check_egsdat) {
+                njobs_done = app->howManyJobsDone();
+                //egsInformation("\n-> Finished %d jobs...\n",njobs_done);
+                if (njobs_done == npar - 1) {
+                    watcher_job=false;//don't enter this after all jobs done!
+                    break;
+                }
+                // Only combine if new jobs finished
+                if (njobs_done_old < njobs_done) {
+                    egsInformation("=> Combining %d jobs ...\n",njobs_done);
+                    app->combinePartialResults();
+                }
+                njobs_done_old = njobs_done;
+            }
+            interval++;
+        }
+        return 1;
+    }
+    /*I am not a watcher job, do not combine results yet!*/
+    return 0;
+}
 
 #ifdef BUILD_APP_LIB
 APP_LIB(EB_Application);
