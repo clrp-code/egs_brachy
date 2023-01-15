@@ -11,6 +11,7 @@
 #-------------------------------------------------------------------------------
 :start run control:
     ncase = 1e5
+    geometry error limit = 100
 :stop run control:
 
 #-------------------------------------------------------------------------------
@@ -92,7 +93,7 @@
     # volume correction data from a previous run
 
     :start volume correction from file:
-        phantom file = phantom ex06a_hdr_source_with_applicator_volume_correction.phantom.volcor 
+        phantom file = phantom ex_hdr_source_with_applicator_volume_correction.phantom.volcor.gz
             # the volume corrections will be applied to the 'phantom' geometry
     :stop volume correction from file:
 
