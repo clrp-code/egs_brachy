@@ -48,12 +48,7 @@ other_dep_user_code = $(source_deps) $(ABS_EGSPP)egs_transformations.h $(ABS_EGS
 
 egspp_geom_libs = $(link2_prefix)egs_autoenvelope$(link2_suffix)
 
-UNAME := $(shell uname)
-ifeq ($(UNAME), Darwin)
-TURN_OFF_MACOS_COMPACT_UNWIND = -Wl,-no_compact_unwind
-endif
-
-user_libs = $(TURN_OFF_MACOS_COMPACT_UNWIND) $(egspp_geom_libs) $(link2_prefix)iaea_phsp $(link2_prefix)z
+user_libs = $(egspp_geom_libs) $(link2_prefix)iaea_phsp $(link2_prefix)z
 
 include $(HEN_HOUSE)makefiles$(DSEP)cpp_makefile
 
@@ -87,14 +82,13 @@ docs: _docs/egs_brachy.md
 	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
 	rm -rf docs/*
 
-UNAME := $(shell uname)
-ifeq ($(UNAME), Darwin)
-eb_iaeaphsp:
-	cd eb_iaeaphsp_source; $(make_prog)
-	ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
+ifeq ($(shell uname), Darwin)
+	eb_iaeaphsp:
+		$(make_prog) -C eb_iaeaphsp_source
+		ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
 else
-eb_iaeaphsp:
-	cd eb_iaeaphsp_source; $(make_prog)
+	eb_iaeaphsp:
+		$(make_prog) -C eb_iaeaphsp_source
 endif
 
 test:
