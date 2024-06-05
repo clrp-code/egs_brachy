@@ -82,13 +82,18 @@ docs: _docs/egs_brachy.md
 	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
 	rm -rf docs/*
 
-ifeq ($(shell uname), Darwin)
-	eb_iaeaphsp:
-		$(make_prog) -C eb_iaeaphsp_source
-		ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
+ifeq ($(OS), Windows_NT)
+eb_iaeaphsp:
+	$(make_prog) -C eb_iaeaphsp_source
 else
-	eb_iaeaphsp:
-		$(make_prog) -C eb_iaeaphsp_source
+ifeq ($(shell uname), Darwin)
+eb_iaeaphsp:
+	$(make_pr og) -C eb_iaeaphsp_source
+	ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
+else
+eb_iaeaphsp:
+	$(make_prog) -C eb_iaeaphsp_source
+endif
 endif
 
 test:
