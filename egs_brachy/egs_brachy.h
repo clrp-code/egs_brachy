@@ -517,7 +517,7 @@ protected:
 
 };
 
-class EGS_EXPORT EB_UniformRunControl : public EGS_RunControl {
+class EB_UniformRunControl : public EGS_RunControl {
 
 public:
 
