@@ -1,20 +1,11 @@
 var searchData=
 [
-  ['base_5fgeom_0',['base_geom',['../classebvolcor_1_1VolumeCorrector.html#a47e818008f6c159a72fd8949fd54ee36',1,'ebvolcor::VolumeCorrector']]],
-  ['base_5ftransform_1',['base_transform',['../classebvolcor_1_1VolumeCorrector.html#ad42675ffe68ac5a25b51f8b3d4358a18',1,'ebvolcor::VolumeCorrector::base_transform()'],['../classEB__Application.html#aa3f0da1d63aaab0ae41c6995abc1a5a8',1,'EB_Application::base_transform()']]],
-  ['base_5ftransform_5finv_2',['base_transform_inv',['../classebvolcor_1_1VolumeCorrector.html#a5c8edf83741a7ce56dd4774192a41d21',1,'ebvolcor::VolumeCorrector::base_transform_inv()'],['../classEB__Application.html#ab2fa0ae403b76d2aa6b4f75c942b59a8',1,'EB_Application::base_transform_inv()']]],
-  ['basespectrumscorer_3',['BaseSpectrumScorer',['../classBaseSpectrumScorer.html',1,'BaseSpectrumScorer'],['../classBaseSpectrumScorer.html#ab014a4dbc4b968a6319a0d30f9632644',1,'BaseSpectrumScorer::BaseSpectrumScorer()']]],
-  ['bcse_5ffactor_4',['bcse_factor',['../classEB__Application.html#a696702c60b1ab3a58f9bc2cfbe670450',1,'EB_Application']]],
-  ['bcse_5fmed_5fnum_5',['bcse_med_num',['../classEB__Application.html#a78b0615d21da30fb8bd6464fcbd5494e',1,'EB_Application']]],
-  ['benchmark_5fdoses_6',['BENCHMARK_DOSES',['../namespaceeb__tests_1_1variable__w__recycling_1_1test.html#a24fa50d75638f21aa20755ad167ea7ec',1,'eb_tests::variable_w_recycling::test']]],
-  ['bin_5fwidth_7',['bin_width',['../classBaseSpectrumScorer.html#a42b83966022a5804fdfe53c5aa5ab418',1,'BaseSpectrumScorer']]],
-  ['bin_5fwidth_8',['BIN_WIDTH',['../namespaceeb__tests_1_1spec__eflu_1_1test.html#a04b895b637554f3812b7379791386f0f',1,'eb_tests.spec_eflu.test.BIN_WIDTH()'],['../namespaceeb__tests_1_1spec__vox_1_1test.html#aeb03b6c405d394ab33dfa44e2dcfa43d',1,'eb_tests.spec_vox.test.BIN_WIDTH()']]],
-  ['bins_9',['bins',['../classBaseSpectrumScorer.html#a1a8cefbaf18e686e0770fe0f501b2cd2',1,'BaseSpectrumScorer']]],
-  ['boundary_5fstep_10',['boundary_step',['../classPHSPControl.html#afa206009dac020aed428c7f17888bb5c',1,'PHSPControl']]],
-  ['bounds_11',['bounds',['../classebvolcor_1_1Options.html#a54f2e085587d16166627cc87221c1e6a',1,'ebvolcor::Options']]],
-  ['bounds_5fvolume_12',['bounds_volume',['../classebvolcor_1_1Options.html#aa75ed93f61981f1d65326c1f40c252c6',1,'ebvolcor::Options::bounds_volume()'],['../structebvolcor_1_1Results.html#aa7c41ba066ceb1487d23a1b1bed3ab2e',1,'ebvolcor::Results::bounds_volume()']]],
-  ['buf_13',['buf',['../classgzstreambase.html#a131e2a0d578c43cb4eb34d668bf75fdb',1,'gzstreambase']]],
-  ['buffer_14',['buffer',['../classgzstreambuf.html#afea1535417524acb188dc4390d918269',1,'gzstreambuf']]],
-  ['buffersize_15',['bufferSize',['../classgzstreambuf.html#a46652e438b6c4e9174ca79c171b1a140',1,'gzstreambuf']]],
-  ['build_5ftree_16',['build_tree',['../classGeomInfo.html#a69757e31c89ca80066203a699faede28',1,'GeomInfo']]]
+  ['2_0',['2',['../md_geom.html#Ir192_HDRIr2A85-2',1,'Ir2.A85-2'],['../md_geom.html#I125_LDRPharmaSeed_BT-125-2',1,'PharmaSeed_BT-125-2'],['../md_geom.html#Co60_HDRRalston_type-2',1,'Ralston_type-2']]],
+  ['2_200cmx2_200cmx2_200cm_5f1mm_5fxyz_5fwater_20geom_1',['2.0cmx2.0cmx2.0cm_1mm_xyz_water.geom',['../md_geom.html#autotoc_md8',1,'']]],
+  ['2_200cmx2_200cmx2_200cm_5f2mm_5fxyz_5fwater_20geom_2',['2.0cmx2.0cmx2.0cm_2mm_xyz_water.geom',['../md_geom.html#autotoc_md9',1,'']]],
+  ['2_20clrp_5fepv2_3',['CLRP egs++ eye plaque models vesrion 2 (CLRP_EPv2)',['../md__2Users_2marc_2Developer_2EGSnrc_2HEN__HOUSE_2user__codes_2egs__brachy_2egs__brachy_2lib_2geometry_2eye__plaques_2README.html',1,'']]],
+  ['20_201cmx20_201cmx20_201cm_5f1mm_5fxyz_5fwater_20geom_4',['20.1cmx20.1cmx20.1cm_1mm_xyz_water.geom',['../md_geom.html#autotoc_md10',1,'']]],
+  ['20_201cmx20_201cmx20_201cm_5fbox_5fxyz_5fwater_20geom_5',['20.1cmx20.1cmx20.1cm_box_xyz_water.geom',['../md_geom.html#autotoc_md11',1,'']]],
+  ['2cm_5f2mm_5fxyz_5fwater_20geom_6',['30.2cmx30.2cmx30.2cm_2mm_xyz_water.geom',['../md_geom.html#autotoc_md15',1,'']]],
+  ['2cmx30_202cmx30_202cm_5f2mm_5fxyz_5fwater_20geom_7',['30.2cmx30.2cmx30.2cm_2mm_xyz_water.geom',['../md_geom.html#autotoc_md15',1,'']]]
 ];

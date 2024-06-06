@@ -1,10 +1,22 @@
 var searchData=
 [
-  ['unc_0',['unc',['../structebvolcor_1_1RegVolume.html#af48930daeb6ae2150c791249c2d5e439',1,'ebvolcor::RegVolume']]],
-  ['underflow_1',['underflow',['../classgzstreambuf.html#a84ab99df5fd4df27425573757973e3f4',1,'gzstreambuf']]],
-  ['unsetflag_2',['unsetFlag',['../classLatch.html#ae45227eb44d21be1a46f16cdc3ddc129',1,'Latch::unsetFlag(Flag flag, EGS_Particle *p)'],['../classLatch.html#ab4fa3f271b54f427eb416ba02f709bff',1,'Latch::unsetFlag(Flag flag, int &amp;latch)']]],
-  ['unsubscribe_3',['unsubscribe',['../classPublisher.html#aa0876b116dce8b19a1a1086c6fcc5133',1,'Publisher']]],
-  ['update_4',['update',['../classLatch.html#ae6fb0ac7c8d1f4d3a4c078bc0d695921',1,'Latch::update()'],['../classEB__Phantom.html#a2b93fab63fcaf44a13324752db3a67fe',1,'EB_Phantom::update()'],['../classPHSPControl.html#a9ce0935d1b2923b04be855bd8fb85dc8',1,'PHSPControl::update()'],['../classSubscriber.html#a46254c65cd8ec1076031809958496092',1,'Subscriber::update()'],['../classEnergyScoringStats.html#a8bf45d9c5a332e5e28145d9ba4a3eefb',1,'EnergyScoringStats::update()'],['../classBaseSpectrumScorer.html#aa8b7112e624c03eb1830888f990beef1',1,'BaseSpectrumScorer::update()']]],
-  ['user_5fcode_5',['USER_CODE',['../namespacerun__tests.html#a9fc9c5690aa8e101e4adac8598370b24',1,'run_tests']]],
-  ['utils_2epy_6',['utils.py',['../utils_8py.html',1,'']]]
+  ['last_5fposition_0',['last_position',['../classEB__Application.html#abeb90213d794461d89fb407d72644736',1,'EB_Application']]],
+  ['last_5fr_1',['last_R',['../classEB__Application.html#a4c532000dfd05e2111a2506d366ff38e',1,'EB_Application']]],
+  ['latch_2',['Latch',['../classLatch.html',1,'']]],
+  ['latch_2ecpp_3',['latch.cpp',['../latch_8cpp.html',1,'']]],
+  ['latch_2eh_4',['latch.h',['../latch_8h.html',1,'']]],
+  ['latch_5fcontrol_5',['latch_control',['../classEB__Application.html#a5f788f816261712e257103ef3e0ce8e0',1,'EB_Application']]],
+  ['ldr_20sources_6',['ldr sources',['../md_geom.html#Cs131_LDR',1,'Cs131 LDR Sources'],['../md_geom.html#Cs137_LDR',1,'Cs137 LDR Sources'],['../md_geom.html#I125_LDR',1,'I125 LDR Sources'],['../md_geom.html#Ir192_LDR',1,'Ir192 LDR Sources'],['../md_geom.html#Pd103_LDR',1,'Pd103 LDR Sources']]],
+  ['level_7',['level',['../classEB__TimingTree.html#a015112b9b2d614fe915a025fbe6b2097',1,'EB_TimingTree']]],
+  ['library_8',['library',['../md_geom.html#egs_brachyapplicators',1,'Applicator Library'],['../md_geom.html#egs_brachyplaques',1,'Eye Plaques Library'],['../md_geom.html#egs_brachyphantoms',1,'Phantom Library'],['../md_geom.html#egs_brachysources',1,'Source Library'],['../md_geom.html#autotoc_md3',1,'The egs_brachy Geometry Library'],['../index.html#library',1,'The egs_brachy Library'],['../index.html#geomlib',1,'The geometry library'],['../index.html#libgeom',1,'The Geometry Library']]],
+  ['license_9',['License',['../index.html#license',1,'']]],
+  ['limitations_10',['Limitations',['../index.html#autotoc_md0',1,'']]],
+  ['list_20of_20the_20current_20tests_11',['A list of the current tests',['../index.html#curtests',1,'']]],
+  ['loadfilevolumecorrections_12',['loadFileVolumeCorrections',['../classebvolcor_1_1VolumeCorrector.html#a2ec8f5f55eac1d7de0ed2ce5e7a5d053',1,'ebvolcor::VolumeCorrector']]],
+  ['loadvolumes_13',['loadVolumes',['../namespaceebvolcor.html#a696467264593582cdcf7333ce2eaa7d3',1,'ebvolcor']]],
+  ['local_5fscoring_5fregion_14',['local_scoring_region',['../classEnergyFluenceSpectrumInVoxel.html#a219b53ef77c5e66be7457f562fc35332',1,'EnergyFluenceSpectrumInVoxel::local_scoring_region'],['../classFluenceSpectrumInVoxel.html#ab78a68b5b957b32cbb0b07ce07d66728',1,'FluenceSpectrumInVoxel::local_scoring_region']]],
+  ['localtoglobal_15',['localToGlobal',['../classGeomInfo.html#a4acf5ac3b0cb2a4f06e11ab24b3b0e3a',1,'GeomInfo']]],
+  ['log_5fmax_16',['log_max',['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX:&#160;sobol.cpp'],['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX:&#160;sobol.cpp']]],
+  ['low_5fenergy_5fdefault_17',['low_energy_default',['../md_transport.html#autotoc_md131',1,'']]],
+  ['low_5fenergy_5fsk_5fcalc_18',['low_energy_sk_calc',['../md_transport.html#autotoc_md132',1,'']]]
 ];
