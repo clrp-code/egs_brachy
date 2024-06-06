@@ -32,7 +32,7 @@ var searchData=
   ['initscatscoring_29',['initScatScoring',['../classEB__Application.html#a883ded782e63933485a01d4c0718990e',1,'EB_Application']]],
   ['initscoring_30',['initScoring',['../classEB__Application.html#ae84b43b96aeeb89b21244740cf9fcf7c',1,'EB_Application']]],
   ['initsimulation_31',['initSimulation',['../classEB__Application.html#a0db5e7276f0c296947e4dbceaa211e23',1,'EB_Application']]],
-  ['initsource_32',['initSource',['../classEB__Application.html#a0bcf72f0735c49dc198cc6f415e87781',1,'EB_Application::initSource()'],['../classPHSPControl.html#a2b55fe005571b7088b70536ce65e4fd1',1,'PHSPControl::initSource()']]],
+  ['initsource_32',['initsource',['../classPHSPControl.html#a2b55fe005571b7088b70536ce65e4fd1',1,'PHSPControl::initSource()'],['../classEB__Application.html#a0bcf72f0735c49dc198cc6f415e87781',1,'EB_Application::initSource()']]],
   ['initsourceparams_33',['initSourceParams',['../classEB__IAEASource.html#ae2d5c697bc38bfed4e58fa1528374da7',1,'EB_IAEASource']]],
   ['initsourcetransforms_34',['initSourceTransforms',['../classEB__Application.html#a1fff7ad2a86a02b7f9f1df5aad2eb31f',1,'EB_Application']]],
   ['initspectrumscoring_35',['initSpectrumScoring',['../classEB__Application.html#a7b1ea589237b731a69f75cd60fb15213',1,'EB_Application']]],
@@ -41,13 +41,13 @@ var searchData=
   ['initxccscaling_38',['initXCCScaling',['../classEB__Application.html#add8f8806b3ab48c3e813598f001da597',1,'EB_Application']]],
   ['is_5fopen_39',['is_open',['../classgzstreambuf.html#a89e97aaae92b72d41c20223ed7e71308',1,'gzstreambuf']]],
   ['isgzip_40',['isGZip',['../namespaceebvolcor.html#aa3880e5f3b1d8f850bcfebf001e0f0e7',1,'ebvolcor']]],
-  ['ismultscat_41',['isMultScat',['../classLatch.html#aa1ce5ad2bd00b9e6d5254abca5501f9d',1,'Latch::isMultScat(EGS_Particle *p)'],['../classLatch.html#a3eb4089fae51e58e4ab1b4de5924f619',1,'Latch::isMultScat(int latch)']]],
+  ['ismultscat_41',['ismultscat',['../classLatch.html#a3eb4089fae51e58e4ab1b4de5924f619',1,'Latch::isMultScat(int latch)'],['../classLatch.html#aa1ce5ad2bd00b9e6d5254abca5501f9d',1,'Latch::isMultScat(EGS_Particle *p)']]],
   ['isphantom_42',['isPhantom',['../classGeomInfo.html#a9375e7fd460ae41e9e93e2b08b46bfa3',1,'GeomInfo']]],
-  ['isprimary_43',['isPrimary',['../classLatch.html#af820cec756dca43475652bd33034d771',1,'Latch::isPrimary(EGS_Particle *p)'],['../classLatch.html#a70bb42a44ee8ee3a07aaee79af50d2d1',1,'Latch::isPrimary(int latch)']]],
+  ['isprimary_43',['isprimary',['../classLatch.html#a70bb42a44ee8ee3a07aaee79af50d2d1',1,'Latch::isPrimary(int latch)'],['../classLatch.html#af820cec756dca43475652bd33034d771',1,'Latch::isPrimary(EGS_Particle *p)']]],
   ['isrunning_44',['isRunning',['../classEB__Timer.html#a60d10ecf5f8a07312f8fddcc7af48417',1,'EB_Timer']]],
-  ['issinglescat_45',['isSingleScat',['../classLatch.html#afdb63404a4c82bd33e93da0e2a889455',1,'Latch::isSingleScat(EGS_Particle *p)'],['../classLatch.html#adce30d30a828f881bfb878222b5cbda0',1,'Latch::isSingleScat(int latch)']]],
+  ['issinglescat_45',['issinglescat',['../classLatch.html#adce30d30a828f881bfb878222b5cbda0',1,'Latch::isSingleScat(int latch)'],['../classLatch.html#afdb63404a4c82bd33e93da0e2a889455',1,'Latch::isSingleScat(EGS_Particle *p)']]],
   ['issource_46',['isSource',['../classGeomInfo.html#a406cd357fb04adc8cfd093b458ea901c',1,'GeomInfo']]],
   ['isstopped_47',['isStopped',['../classEB__Timer.html#af7ce5b83d89718ae9361ae098db2ed7e',1,'EB_Timer']]],
   ['isstuck_48',['isStuck',['../classEB__Application.html#a6f5a261b7c6f58d212c83f76d6e3915e',1,'EB_Application']]],
-  ['isvalid_49',['isValid',['../classEB__IAEASource.html#ad021505a7c8818693181ffd9d78bc6ab',1,'EB_IAEASource::isValid()'],['../classBaseSpectrumScorer.html#a664f0d172be1eeea2fad581ba1642b0d',1,'BaseSpectrumScorer::isValid()']]]
+  ['isvalid_49',['isvalid',['../classBaseSpectrumScorer.html#a664f0d172be1eeea2fad581ba1642b0d',1,'BaseSpectrumScorer::isValid()'],['../classEB__IAEASource.html#ad021505a7c8818693181ffd9d78bc6ab',1,'EB_IAEASource::isValid()']]]
 ];

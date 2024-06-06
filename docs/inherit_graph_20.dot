@@ -5,7 +5,15 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="std::streambuf",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
-  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
-  Node1 [label="gzstreambuf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgzstreambuf.html",tooltip=" "];
+  Node0 [id="Node000000",label="std::ios",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [id="edge8_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="gzstreambase",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classgzstreambase.html",tooltip=" "];
+  Node1 -> Node2 [id="edge9_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="igzstream",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classigzstream.html",tooltip=" "];
+  Node1 -> Node4 [id="edge10_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ogzstream",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classogzstream.html",tooltip=" "];
+  Node3 [id="Node000003",label="std::istream",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node3 -> Node2 [id="edge11_Node000003_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="std::ostream",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node4 [id="edge12_Node000005_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }
