@@ -88,7 +88,7 @@ eb_iaeaphsp:
 else
 ifeq ($(shell uname), Darwin)
 eb_iaeaphsp:
-	$(make_pr og) -C eb_iaeaphsp_source
+	$(make_prog) -C eb_iaeaphsp_source
 	ln -sf ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.dylib ${HEN_HOUSE}/egs++/dso/${my_machine}/libeb_iaeaphsp_source.so
 else
 eb_iaeaphsp:
