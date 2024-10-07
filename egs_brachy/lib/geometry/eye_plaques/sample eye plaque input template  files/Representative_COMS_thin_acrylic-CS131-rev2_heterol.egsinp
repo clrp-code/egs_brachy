@@ -7,7 +7,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 :start run control:
-    ncase = 1e11 
+    ncase = 1e6
     geometry error limit=2000
     run mode = normal
 	calculation =  first # combine
@@ -19,7 +19,7 @@
 
 
 :start media definition:
-    material data file = {PATH_TO_EGS_BRACHY}/lib/media/material.dat 
+    material data file = lib/media/material.dat 
 :stop media definition:
 
 :start run mode:
@@ -35,14 +35,14 @@
 	:start geometry:
         library = egs_glib
         name = water_box
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
 	:stop geometry:
 	
 #The scoring phantom
 	:start geometry:
         library = egs_glib
         name = water_phantom
-		include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/COMSphant.geom
+		include file = lib/geometry/phantoms/COMSphant.geom
 		# COMSphantLarge.geom
 	:stop geometry:
 
@@ -50,7 +50,7 @@
     :start geometry:
         library = egs_glib
         name = empty_plaque
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/eye_plaques/Representative_models/COMS_thin_acrylic.geom
+        include file = lib/geometry/eye_plaques/Representative_models/COMS_thin_acrylic_Cta/COMS_thin_acrylic.geom
     :stop geometry
 	
     :start geometry:
@@ -66,7 +66,7 @@
 	:start geometry:
         library = egs_glib
         name = seed
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.geom
+        include file = lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.geom
 	
     :stop geometry
 	
@@ -82,13 +82,13 @@
             inscribed geometry name = seed
 
             :start transformations:
-                include file = {PATH_TO_EGS_BRACHY}/lib/geometry/transformations/eye_plaques/COMS16mm
+                include file = lib/geometry/transformations/eye_plaques/COMS16mm
             :stop transformations:
 
 			:start region discovery:
 				correction type = discover
-                density of random points (cm^-3) = 1E9
-                include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/boundary.shape
+                density of random points (cm^-3) = 1E7
+                include file = lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/boundary.shape
 
             :stop region discovery:
 
@@ -128,7 +128,7 @@
 
     :start extra volume correction:
 
-        correction type = correct # Other modes: zero dose # correct, none, zero dose
+        correction type = none # Other modes: zero dose # correct, none, zero dose
         density of random points (cm^-3) = 1E9
 
         :start shape:
@@ -153,12 +153,12 @@
         name = Cs131_CS1_rev2
         charge = 0
 
-       include file ={PATH_TO_EGS_BRACHY}/lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.shape
+       include file =lib/geometry/sources/Cs131_LDR/Proxcelan_CS1_rev2/Proxcelan_CS1_rev2.shape
 		
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = {PATH_TO_EGS_BRACHY}/lib/spectra/Cs131_NNDC_2.6_line.spectrum
+            spectrum file = lib/spectra/Cs131_NNDC_2.6_line.spectrum
 			
 			
         :stop spectrum:
@@ -166,7 +166,7 @@
     :stop source:
 
     :start transformations :
-        include file =  {PATH_TO_EGS_BRACHY}/lib/geometry/transformations/eye_plaques/COMS16mm
+        include file =  lib/geometry/transformations/eye_plaques/COMS16mm
     :stop transformations:
 
     simulation source = Cs131_CS1_rev2
@@ -181,7 +181,7 @@
      #score energy deposition = yes
      output voxel info files  = yes
 
-    muen file = {PATH_TO_EGS_BRACHY}/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
     dose scaling factor = 1.00 # For absolute dose # 
 	# scaling factor,dose/sk for I-6711=2.699551E+11 ,Pd103-200=1.556154E+09 ,Cs131-Isoray=2.6914205587E+09 , Sk is from the CLRPv2 TG43 database # This scaling factors are based on the data from CLRP Tg43v2 and CLRP_EPv2 databases
@@ -190,7 +190,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   	Transport parameters	#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-include file = {PATH_TO_EGS_BRACHY}/lib/transport/low_energy_default
+include file = lib/transport/low_energy_default
 
 :start rng definition:
     type = ranmar

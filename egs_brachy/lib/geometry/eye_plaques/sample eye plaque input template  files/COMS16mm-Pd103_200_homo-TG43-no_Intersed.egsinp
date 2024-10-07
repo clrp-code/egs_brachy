@@ -3,7 +3,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 :start run control:
-    ncase = 1e11 # 1e8 for test # 1e11 final  # 
+    ncase = 1e6 # 1e8 for test # 1e11 final  # 
     geometry error limit=2000
   #  run mode = normal
 	 nbatch = 5
@@ -18,7 +18,7 @@
 
 
 :start media definition:
-    material data file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/media/m.dat
+    material data file = lib/media/material.dat
 :stop media definition:
 
 # :start run mode:
@@ -34,14 +34,14 @@
 	:start geometry:
         library = egs_glib
         name = water_box
-        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
 	:stop geometry:
 	
 #The scoring phantom
 	:start geometry:
         library = egs_glib
         name = water_phantom
-		include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/phantoms/COMSphant.geom
+		include file = lib/geometry/phantoms/COMSphant.geom
 		# COMSphantLarge.geom
 	:stop geometry:
 
@@ -49,7 +49,7 @@
     :start geometry:
         library = egs_glib
         name = empty_plaque
-        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/eye_plaques/COMS/COMS16mm/COMS16mm_water.geom
+        include file = lib/geometry/eye_plaques/COMS/COMS16mm/COMS16mm_water.geom
     :stop geometry
 	
     :start geometry:
@@ -65,8 +65,7 @@
 	:start geometry:
         library = egs_glib
         name = seed
-        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
-		# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/OncoSeed_6711.geom
+        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
     :stop geometry
 	
 #Insertion of the seeds into the plaque
@@ -82,14 +81,13 @@
             inscribed geometry name = seed
 
             :start transformations:
-                include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
+                include file = lib/geometry/transformations/eye_plaques/COMS16mm
             :stop transformations:
 
 			:start region discovery:
 				correction type = discover
-                density of random points (cm^-3) = 1E9
-                include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
-				# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/boundary.shape
+                density of random points (cm^-3) = 1E7
+                include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
             :stop region discovery:
 
         :stop inscribed geometry:
@@ -131,7 +129,7 @@
 
     :start extra volume correction:
 
-        correction type = correct # zero dose # correct, none, zero dose
+        correction type = none # zero dose # correct, none, zero dose
         density of random points (cm^-3) = 1E9
 
         :start shape:
@@ -156,20 +154,18 @@
         name = Pd103_Theraseed_200
         charge = 0
 
-        include file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
-		# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/sources/OncoSeed_6711/OncoSeed_6711.shape
+        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/spectra/Pd103_NNDC_2.6_line.spectrum
-			# /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/spectra/I125_NCRP_line.spectrum 
+            spectrum file = lib/spectra/Pd103_NNDC_2.6_line.spectrum
 			
         :stop spectrum:
 
     :stop source:
 
     :start transformations :
-        include file =  /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
+        include file =  lib/geometry/transformations/eye_plaques/COMS16mm
     :stop transformations:
 
     simulation source = Pd103_Theraseed_200
@@ -184,7 +180,7 @@
      #score energy deposition = yes
      output voxel info files  = yes
 
-    muen file = /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
     dose scaling factor = 1.00 # For absolute dose # 2.699551E+11    # 
 	# Habib: scaling factor,  dose/sk for I-6711= 2.699551E+11 , Pd103-200=1.556154E+09 ,  Cs131-Isoray=       . Sk is from the CLRPv2 TG43 database 
@@ -193,7 +189,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   	Transport parameters	#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-include file =  /home/habibs/EGSnrc_2020/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/transport/low_energy_default
+include file =  lib/transport/low_energy_default
 
 :start rng definition:
     type = ranmar

@@ -7,7 +7,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 :start run control:
-    ncase = 1e11  
+    ncase = 1e6
     geometry error limit=2000
 	 nbatch = 5
     nchunk = 20
@@ -22,7 +22,7 @@
 
 
 :start media definition:
-    material data file = {PATH_TO_EGS_BRACHY}/lib/media/material.dat
+    material data file = lib/media/material.dat
 :stop media definition:
 
 
@@ -36,14 +36,14 @@
 	:start geometry:
         library = egs_glib
         name = water_box
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
 	:stop geometry:
 	
 #The scoring phantom
 	:start geometry:
         library = egs_glib
         name = water_phantom
-		include file = {PATH_TO_EGS_BRACHY}/lib/geometry/phantoms/COMSphant.geom
+		include file = lib/geometry/phantoms/COMSphant.geom
 		# COMSphantLarge.geom
 	:stop geometry:
 
@@ -51,7 +51,7 @@
     :start geometry:
         library = egs_glib
         name = empty_plaque
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/eye_plaques/BEBIG/BEBIG16mm/BEBIG16mm.geom
+        include file = lib/geometry/eye_plaques/BEBIG/BEBIG16mm/BEBIG16mm.geom
     :stop geometry
 	
     :start geometry:
@@ -67,7 +67,7 @@
 	:start geometry:
         library = egs_glib
         name = seed
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/IsoSeed_I25_S06_S16/IsoSeed_I25_S06_S16.geom
+        include file = lib/geometry/sources/I125_LDR/IsoSeed_I25_S06_S16/IsoSeed_I25_S06_S16.geom
     :stop geometry
 	
 #Insertion of the seeds into the plaque
@@ -83,7 +83,7 @@
             inscribed geometry name = seed
 
             :start transformations:
-               # include file = {PATH_TO_EGS_BRACHY}/geometry/transformations/eye_plaques/COMS16mm " 
+               # include file = geometry/transformations/eye_plaques/COMS16mm " 
 			   # You can read the firls from the path #to your egs_brachy ot just simply copy the source trasnformations as you see in below
 
 			  # Translations for a 16mm BEBIG Eye Plaque
@@ -157,8 +157,8 @@
 
 			:start region discovery:
 				correction type = discover
-                density of random points (cm^-3) = 1E9
-                include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/IsoSeed_I25_S06_S16/boundary.shape
+                density of random points (cm^-3) = 1E7
+                include file = lib/geometry/sources/I125_LDR/IsoSeed_I25_S06_S16/boundary.shape
             :stop region discovery:
 
         :stop inscribed geometry:
@@ -199,7 +199,7 @@
 
     :start extra volume correction:
 
-        correction type = correct # other modes: zero dose # correct, none, zero dose
+        correction type = none # other modes: zero dose # correct, none, zero dose
         density of random points (cm^-3) = 1E9
 
         :start shape:
@@ -224,18 +224,18 @@
         name = BEBIG_I125-S06/S16
         charge = 0
 
-        include file = {PATH_TO_EGS_BRACHY}/lib/geometry/sources/IsoSeed_I25_S06_S16/IsoSeed_I25_S06_S16.shape
+        include file = lib/geometry/sources/I125_LDR/IsoSeed_I25_S06_S16/IsoSeed_I25_S06_S16.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = {PATH_TO_EGS_BRACHY}/lib/spectra/I125_NCRP_line.spectrum 
+            spectrum file = lib/spectra/I125_NCRP_line.spectrum 
         :stop spectrum:
 
     :stop source:
 
     :start transformations :
 	
-       #  include file =  {PATH_TO_EGS_BRACHY}/lib/geometry/transformations/eye_plaques/COMS16mm
+       #  include file =  lib/geometry/transformations/eye_plaques/COMS16mm
 	   #  ALL 13 seeds are active in  BEBIG16mm plaque
 	   
 	# Translations for a 16mm BEBIG Eye Plaque
@@ -323,7 +323,7 @@
      #score energy deposition = yes
      output voxel info files  = yes
 
-    muen file = {PATH_TO_EGS_BRACHY}/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
     dose scaling factor = 1.00 # For absolute dose 
 	#  For  dose/sk for I-6711= 2.699551E+11    . Sk is from the CLRPv2 TG43 database 
@@ -332,7 +332,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   	Transport parameters	#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-include file =  /home/habibs/EGSnrc_with_egs_brachy/egs_home/egs_brachy/lib/transport/low_energy_default
+include file =  lib/transport/low_energy_default
 
 :start rng definition:
     type = ranmar

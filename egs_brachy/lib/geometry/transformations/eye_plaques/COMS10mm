@@ -1,0 +1,25 @@
+
+:start transformation:
+    translation = -0.230, -0.230, -0.201
+    rotation =  2.3562 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.230, -0.230, -0.201
+    rotation =  0.7854 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.230, 0.230, -0.201
+    rotation =  5.4978 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.230, 0.230, -0.201
+    rotation =  3.9269 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.000, 0.000, -0.240
+    rotation =  4.7124 1.5708
+:stop transformation:
