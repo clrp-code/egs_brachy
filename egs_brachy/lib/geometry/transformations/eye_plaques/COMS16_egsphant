@@ -1,0 +1,66 @@
+# Translations for a 16mm COMS Eye Plaque
+
+:start transformation:
+    translation = -0.568, -0.273, -1.217
+    rotation =  2.6878 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.140, -0.614, -1.217
+    rotation =  1.7979 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.393, -0.493, -1.217
+    rotation =  0.8901 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.630, 0.000, -1.217
+    rotation =  0.000 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.393, 0.493, -1.217
+    rotation =  5.3931 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.140, 0.614, -1.217
+    rotation =  4.4855 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.568, 0.273, -1.217
+    rotation =  3.5954 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = -0.450, 0.000, -1.294
+    rotation =  3.1416 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = 0, -0.450, -1.294
+    rotation =  1.5708 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = 0.450, 0.000, -1.294
+    rotation =  6.2834 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = 0, 0.450, -1.294
+    rotation =  4.7124 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = 0, -0.180, -1.358
+    rotation =  1.5708 1.5708
+:stop transformation:	
+
+:start transformation:
+    translation = 0, 0.180, -1.358
+    rotation =  4.7124 1.5708
+:stop transformation:	
