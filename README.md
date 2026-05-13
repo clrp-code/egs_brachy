@@ -18,36 +18,27 @@ For a complete discussion of all egs\_brachy features as well as
 discussions about benchmarking and calculation efficiency, please refer
 to the paper listed below.
 
-The initial release of egs_brachy is version 2017.09.15 beta. We will continue
-to update and maintain egs_brachy, as well as this manual and the html
+The initial release of egs\_brachy is version 2017.09.15 beta. We will continue
+to update and maintain egs\_brachy, as well as this manual and the html
 documentation.
 
 
 ## License
 
-The egs_brachy code (all pieces of code associated with the egs_brachy code
+The egs\_brachy code (all pieces of code associated with the egs\_brachy code
     system) is copyrighted Rowan Thomson, Dave Rogers, Randle Taylor, and Marc
-Chamberland. egs_brachy is distributed as free software according to the terms
+Chamberland. egs\_brachy is distributed as free software according to the terms
 of the GNU Affero General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option), any later
 version (http://www.gnu.org/licenses/).
 
-## Documentation
+## Documentation and Installation
 
-The pdf users guide to egs\_brachy is available at
-[https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
+Technical documentation for egs\_brachy (including brief installation instructions) is
+available in html at https://clrp-code.github.io/egs_brachy/ .
 
-Technical documentation for egs\_brachy (including installation instructions) is
-available in html
-([https://clrp-code.github.io/egs_brachy/](https://clrp-code.github.io/egs_brachy/)).
-
-## Installation
-
-Brief installation instructions can be accessed in the html technical
-documentation at
-[https://clrp-code.github.io/egs_brachy/](https://clrp-code.github.io/egs_brachy/)
-with more detailed instructions available in the egs_brachy user manual pdf
-[https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf) .
+A pdf of the user's guide to egs\_brachy (with more detailed installation instructions) is available
+[here](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
 
 ## Contact
 
