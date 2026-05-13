@@ -99,7 +99,11 @@ endif
 test:
 	python run_tests.py
 
-all: eb_iaeaphsp
+all: eb_iaeaphsp fix_fortran
 
+fix_fortran: egsnrc_${my_machine}.F
+	@echo [FIX] Fixing egsnrc_${my_machine}.F
+	@sed -i.bak 's/a\$$/a/g' egsnrc_${my_machine}.F
+	@rm -f egsnrc_${my_machine}.F.bak
 
-.PHONY: clean library docs all sweep
+.PHONY: clean library docs all sweep fix_fortran
