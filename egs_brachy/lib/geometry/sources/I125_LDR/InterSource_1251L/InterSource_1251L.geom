@@ -1,5 +1,6 @@
-# #            seed name: I125-InterSource_1251L
-#
+# seed name: I125- InterSource_1251L
+# air kerma: 4.8726E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

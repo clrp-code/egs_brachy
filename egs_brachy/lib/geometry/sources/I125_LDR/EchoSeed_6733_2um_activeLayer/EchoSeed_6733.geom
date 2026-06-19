@@ -1,5 +1,6 @@
-# #            seed name: I125-EchoSeed_6733
-#
+# seed name: I125- EchoSeed_6733_2um_activeLayer
+# air kerma: 3.96419E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

@@ -1,5 +1,6 @@
-#            seed name: I125-Best2301
-#
+# seed name: I125- Best2301
+# air kerma: 4.1352E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

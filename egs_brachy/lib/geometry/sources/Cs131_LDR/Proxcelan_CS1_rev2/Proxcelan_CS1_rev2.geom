@@ -1,5 +1,6 @@
-#               seed name: Cs131-Proxcelan_CS1_rev2
-#
+# seed name: Cs131- Proxcelan_CS1_rev2
+# air kerma: 3.7155E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

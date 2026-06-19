@@ -1,6 +1,6 @@
-# #            seed name: I125-I-Seed_AgX100
-# #            air kerma: 3.94658E-14
-#
+# seed name: I125- I-Seed_AgX100
+# air kerma: 3.94658E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

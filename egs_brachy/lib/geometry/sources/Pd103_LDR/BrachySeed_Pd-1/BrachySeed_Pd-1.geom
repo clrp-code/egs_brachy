@@ -1,5 +1,6 @@
-#               seed name: Pd103-BrachySeed_Pd-1
-#
+# seed name: Pd103- BrachySeed_Pd-1
+# air kerma: 5.7029E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

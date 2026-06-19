@@ -1,6 +1,6 @@
-# #            seed name: I125-SelectSeed_130.002
-# #            air kerma: 4.0042E-14
-#
+# seed name: I125- SelectSeed_130.002
+# air kerma: 4.0042E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

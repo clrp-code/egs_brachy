@@ -1,4 +1,5 @@
-#           I125-Advantage_IAI_125A
+# seed name: I125- Advantage_IAI_125A
+# air kerma: 4.08677E-14
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #

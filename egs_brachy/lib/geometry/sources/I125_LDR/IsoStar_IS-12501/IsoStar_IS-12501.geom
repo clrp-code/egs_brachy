@@ -1,5 +1,6 @@
-# #            seed name: I125-IsoStar_IS-12501
-#
+# seed name: I125- IsoStar_IS-12501
+# air kerma: 4.17368E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

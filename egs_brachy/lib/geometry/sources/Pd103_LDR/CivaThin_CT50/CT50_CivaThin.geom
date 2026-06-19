@@ -1,5 +1,6 @@
-#               seed name: Pd103-CT50 CivaThin
-#
+# seed name: Pd103- CivaThin_CT50
+# air kerma: 1.12786E-13
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

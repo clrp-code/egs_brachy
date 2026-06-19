@@ -1,5 +1,6 @@
-# #            seed name: PharmaSeed_BT-125-1
-#
+# seed name: I125- PharmaSeed_BT-125-1
+# air kerma: 3.959E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

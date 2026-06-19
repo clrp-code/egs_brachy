@@ -1,5 +1,6 @@
-#               seed name: Pd103-InterSource_1031L
-#
+# seed name: Pd103- InterSource_1031L
+# air kerma: 6.1888E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc
