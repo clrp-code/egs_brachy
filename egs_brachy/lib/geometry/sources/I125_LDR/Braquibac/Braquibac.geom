@@ -1,5 +1,6 @@
-# #            seed name: I125-Braquibac
-#
+# seed name: I125- Braquibac
+# air kerma: 3.49892E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

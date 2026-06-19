@@ -1,5 +1,6 @@
-# #            seed name: I125-STM_1251
-#
+# seed name: I125- STM_1251
+# air kerma: 3.51032E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

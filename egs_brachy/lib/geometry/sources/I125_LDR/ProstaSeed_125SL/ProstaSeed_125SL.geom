@@ -1,6 +1,6 @@
-# #            seed name: I125-ProstaSeed_125SL
-# #            air kerma: 4.35671E-14
-#
+# seed name: I125- ProstaSeed_125SL
+# air kerma: 4.35671E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

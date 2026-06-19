@@ -1,5 +1,6 @@
-#               seed name: Pd103- Prospera_Med3633
-#
+# seed name: Pd103- Prospera_Med3633
+# air kerma: 8.0819E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

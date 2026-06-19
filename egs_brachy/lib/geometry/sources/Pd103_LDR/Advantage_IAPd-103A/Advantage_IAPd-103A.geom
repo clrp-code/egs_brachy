@@ -1,5 +1,6 @@
-#               seed name: Pd103-Advantage_IAPd-103A
-#
+# seed name: Pd103- Advantage_IAPd-103A
+# air kerma: 8.1498E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

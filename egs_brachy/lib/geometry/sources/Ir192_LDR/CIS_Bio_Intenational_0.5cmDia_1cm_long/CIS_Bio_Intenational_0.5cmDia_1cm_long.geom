@@ -1,5 +1,5 @@
-# seed name: Ir192- BEBIG_wire_1cm
-# air kerma: 1.21841E-13
+# seed name: Ir192- CIS_Bio_Intenational_0.5cmDia_1cm_long
+# air kerma: 1.17421E-13
 
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -33,7 +33,7 @@
     :start geometry:
         name = the_seed
         library = egs_rz
-        radii = 0.005 0.015
+        radii = 0.015 0.025
         z-planes = -0.5 0.5
         :start media input:
            media = Pt75Ir25 Pt

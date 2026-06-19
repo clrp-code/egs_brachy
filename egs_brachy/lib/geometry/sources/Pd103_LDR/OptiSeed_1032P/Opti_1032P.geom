@@ -1,5 +1,6 @@
-#               seed name: Pd103-Opti_1032P
-#
+# seed name: Pd103- OptiSeed_1032P
+# air kerma: 1.16629E-13
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

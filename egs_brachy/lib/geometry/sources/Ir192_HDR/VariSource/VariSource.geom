@@ -1,4 +1,5 @@
-#              Ir192, Varian, VariSource HDR
+# seed name: Ir192- VariSource
+# air kerma: 1.21587E-13
 #
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
@@ -20,10 +21,10 @@
 #       egs_brachy: a versatile and fast Monte Carlo code for brachytherapy
 #       Phys Med Biol 61(2016) 8214 -- 8231
 # and
-#       Habib Safigholi, Marc J.P. Chamberland, Randle E.P. Taylor,
-#       Christian H. Allen, Martin P. Martinov, D. W. O. Rogers and Rowan
-#       M. Thomson,  Update of the CLRP TG-43 parameter database for
-#       low-energy brachytherapy sources, Med. Phys. 47 (2020)
+#       Habib Safigholi, Marc J.P. Chamberland, Randle E.P. Taylor, Martin P. Martinov,
+#       D. W. O. Rogers and Rowan M. Thomson,  Update of the CLRP Monte Carlo TG-43
+#       parameter database for high-energy brachytherapy sources, Med. Phys. 50 (2023)
+#       1928-1941
 #
 #
 #

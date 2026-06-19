@@ -1,5 +1,6 @@
-#               seed name: Pd103- PharmaSeed_BT-103-3
-#
+# seed name: Pd103- PharmaSeed_BT-103-3
+# air kerma: 7.592E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

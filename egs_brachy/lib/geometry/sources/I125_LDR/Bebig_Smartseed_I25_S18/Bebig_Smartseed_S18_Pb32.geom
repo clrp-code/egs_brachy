@@ -1,5 +1,6 @@
-#            seed name: I125-Bebig_Smartseed_S18
-#
+# seed name: I125- Bebig_Smartseed_I25_S18
+# air kerma: 5.30596E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc
@@ -28,7 +29,7 @@
 
 
 # 
-#IBt-Bebig I-125 Smart-seed  brachytherapy source modeled based on the Abboud paper published in Medphys @ 2010. 
+#IBt-Bebig I-125 Smart-seed with 32% lead glass marker; source modeled based on the Abboud paper published in Medphys @ 2010. 
 #
 :start geometry definition:
      # The set of planes needed for the CD geometry to cut the source length

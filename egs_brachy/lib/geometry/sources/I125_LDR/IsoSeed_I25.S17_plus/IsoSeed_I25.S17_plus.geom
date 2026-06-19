@@ -1,5 +1,6 @@
-# #            seed name: I125-IsoSeed_I25.S17_plus
-#
+# seed name: I125- IsoSeed_I25.S17_plus
+# air kerma: 4.0141E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

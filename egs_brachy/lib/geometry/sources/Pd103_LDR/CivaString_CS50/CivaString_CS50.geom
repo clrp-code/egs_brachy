@@ -1,5 +1,6 @@
-#               seed name: Pd103-CivaString_CS50
-#
+# seed name: Pd103- CivaString_CS50
+# air kerma: 1.12495E-13
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc

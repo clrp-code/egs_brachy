@@ -1,5 +1,6 @@
-#               seed name: Pd103-Best_2335
-#
+# seed name: Pd103- BestPd-103_2335
+# air kerma: 6.5805E-14
+
 #  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
 #
 # This file is part of the egs_brachy package to be used with EGSnrc
