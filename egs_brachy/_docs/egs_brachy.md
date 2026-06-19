@@ -295,8 +295,8 @@ When using geometries from the distributed library, please cite the relevant CLR
 
 **Source models** ([lib/geometry/sources](../lib/geometry/sources)): dose-rate constants and TG-43 parameters are tabulated in the CLRP TG-43 parameter database version 2 papers.  Air-kerma strength per history factors are recorded on the `# air kerma:` line at the top of each source `.geom` file (see the [user manual](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf)).
 
-- Low-energy ($^{103}$Pd, $^{125}$I, $^{131}$Cs) sources: Safigholi H, Chamberland MJP, Taylor REP, Allen CH, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP TG-43 parameter database for low-energy brachytherapy sources, Med. Phys. **47**, 4656-4669 (2020). https://doi.org/10.1002/mp.14249
-- High-energy ($^{169}$Yb, $^{192}$Ir, $^{137}$Cs, $^{60}$Co) sources: Safigholi H, Chamberland MJP, Taylor REP, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP Monte Carlo TG-43 parameter database for high-energy brachytherapy sources, Med. Phys. **50**, 1928-1941 (2023). https://doi.org/10.1002/mp.16176
+- Low-energy ($^{103}$Pd, $^{125}$I, $^{131}$Cs) sources: Safigholi H, Chamberland MJP, Taylor REP, Allen CH, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP TG-43 parameter database for low-energy brachytherapy sources, Med. Phys. **47**, 4656-4669 (2020). https://doi.org/10.1002/mp.14249 ([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf))
+- High-energy ($^{169}$Yb, $^{192}$Ir, $^{137}$Cs, $^{60}$Co) sources: Safigholi H, Chamberland MJP, Taylor REP, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP Monte Carlo TG-43 parameter database for high-energy brachytherapy sources, Med. Phys. **50**, 1928-1941 (2023). https://doi.org/10.1002/mp.16176 ([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_he_2023.pdf))
 
 Database: https://physics.carleton.ca/clrp/egs_brachy/seed_database_v2
 
