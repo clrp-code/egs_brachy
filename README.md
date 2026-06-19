@@ -46,10 +46,9 @@ A pdf of the user's guide to egs\_brachy (with more detailed installation instru
 
 Hosted CLRP database papers (pdf):
 
+- [CLRP TG-43 low-energy source database (2020)](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf)
+- [CLRP TG-43 high-energy source database (2023)](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_he_2023.pdf)
 - [CLRP eye plaque database (2021)](https://clrp-code.github.io/egs_brachy/pdf/clrp_eye_plaque_2021.pdf)
-
-Low- and high-energy CLRP TG-43 source database papers are linked by DOI
-in [CLRP database references](#clrp-database-references) below.
 
 ## Contact
 
@@ -82,12 +81,14 @@ Please cite:
 Safigholi H, Chamberland M J P, Taylor R E P, Allen C H, Martinov M P,
 Rogers D W O, Thomson R M **2020** Update of the CLRP TG-43 parameter
 database for low-energy brachytherapy sources, _Med. Phys._ [**47** 4656–4669](https://doi.org/10.1002/mp.14249)
+([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf))
 
 when using low-energy ($^{103}$Pd, $^{125}$I, $^{131}$Cs) source models, and:
 
 Safigholi H, Chamberland M J P, Taylor R E P, Martinov M P, Rogers D W O,
 Thomson R M **2023** Update of the CLRP Monte Carlo TG-43 parameter database
 for high-energy brachytherapy sources, _Med. Phys._ [**50** 1928–1941](https://doi.org/10.1002/mp.16176)
+([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_he_2023.pdf))
 
 when using high-energy ($^{169}$Yb, $^{192}$Ir, $^{137}$Cs, $^{60}$Co) source
 models.

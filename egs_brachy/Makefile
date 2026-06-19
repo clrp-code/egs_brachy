@@ -80,6 +80,8 @@ docs: _docs/egs_brachy.md
 	cp -rf docs ../
 	cp _docs/egs_brachy_user_manual.pdf ../docs/pdf
 	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
+	cp _docs/clrp_tg43_le_2020.pdf ../docs/pdf
+	cp _docs/clrp_tg43_he_2023.pdf ../docs/pdf
 	cp _docs/clrp_eye_plaque_2021.pdf ../docs/pdf
 	rm -rf docs/*
 
