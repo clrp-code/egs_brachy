@@ -6,6 +6,8 @@
 
 egs_brachy is an egs++ application for rapid brachytherapy calculations for both photon and electron sources.  The current documentation serves as a Technical Reference Manual to complement the egs_brachy user manual (https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf) and our initial egs_brachy paper (https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_paper2016.pdf):   MJP Chamberland, REP Taylor, DWO Rogers, and RM Thomson, egs_brachy: a versatile and fast Monte Carlo code for brachytherapy, Phys. Med. Biol. 61, 8214-8231 (2016).  Please cite this paper when egs_brachy is used in publications.
 
+When using source or eye-plaque models from the distributed geometry library, please also cite the relevant CLRP database papers (see [CLRP database references](#clrprefs) below).
+
 egs_brachy was written by [Randle Taylor](http://randlet.com) in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the [Carleton Laboratory for Radiotherapy Physics](http://www.physics.carleton.ca/clrp/).
 
 For more information please contact:
@@ -286,6 +288,23 @@ The geometry library (see [The Geometry Library](#libgeom) below) consists of us
 distributions [lib/geometry/sources](../lib/geometry/sources),
 eye plaques [lib/geometry/eye_plaques](../lib/geometry/eye_plaques) and sets of transformations
 [lib/geometry/transformations/](../lib/geometry/transformations/).
+
+\subsubsection clrprefs CLRP database references
+
+When using geometries from the distributed library, please cite the relevant CLRP database publications.
+
+**Source models** ([lib/geometry/sources](../lib/geometry/sources)): dose-rate constants and TG-43 parameters are tabulated in the CLRP TG-43 parameter database version 2 papers.  Air-kerma strength per history factors are recorded on the `# air kerma:` line at the top of each source `.geom` file (see the [user manual](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf)).
+
+- Low-energy ($^{103}$Pd, $^{125}$I, $^{131}$Cs) sources: Safigholi H, Chamberland MJP, Taylor REP, Allen CH, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP TG-43 parameter database for low-energy brachytherapy sources, Med. Phys. **47**, 4656-4669 (2020). https://doi.org/10.1002/mp.14249
+- High-energy ($^{169}$Yb, $^{192}$Ir, $^{137}$Cs, $^{60}$Co) sources: Safigholi H, Chamberland MJP, Taylor REP, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP Monte Carlo TG-43 parameter database for high-energy brachytherapy sources, Med. Phys. **50**, 1928-1941 (2023). https://doi.org/10.1002/mp.16176
+
+Database: https://physics.carleton.ca/clrp/egs_brachy/seed_database_v2
+
+**Eye plaques** ([lib/geometry/eye_plaques](../lib/geometry/eye_plaques)):
+
+- Safigholi H, Parsons Z, Deering SG, Thomson RM, Update of the CLRP eye plaque brachytherapy database for photon-emitting sources, Med. Phys. **48**, 3373-3383 (2021). https://doi.org/10.1002/mp.14844 ([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_eye_plaque_2021.pdf))
+
+Database: https://physics.carleton.ca/clrp/eye_plaque_v2 (DOI http://doi.org/10.22215/clrp/EPv2)
 
 
 \subsection scoringopts Scoring options
