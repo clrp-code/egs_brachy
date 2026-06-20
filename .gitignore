@@ -2,6 +2,8 @@
 .idea/*
 *.make
 *.egsinp
+!egs_brachy/eb_tests/**/*.egsinp
+!egs_brachy/lib/**/*.egsinp
 *.egsdat
 *.mederr
 egsrun_*/
