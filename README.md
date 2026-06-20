@@ -54,7 +54,7 @@ Hosted CLRP database papers (pdf):
 
 For more information about egs\_brachy please contact:
 
-- Marc Chamberland <marc.chamberland@uvmhealth.org>
+- Marc Chamberland <mchamberland@mac.com>
 - Rowan Thomson <rthomson@physics.carleton.ca>
 - Dave Rogers <drogers@physics.carleton.ca>
 
@@ -83,14 +83,14 @@ Rogers D W O, Thomson R M **2020** Update of the CLRP TG-43 parameter
 database for low-energy brachytherapy sources, _Med. Phys._ [**47** 4656–4669](https://doi.org/10.1002/mp.14249)
 ([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf))
 
-when using low-energy ($^{103}$Pd, $^{125}$I, $^{131}$Cs) source models, and:
+when using low-energy (<sup>103</sup>Pd, <sup>125</sup>I, <sup>131</sup>Cs) source models, and:
 
 Safigholi H, Chamberland M J P, Taylor R E P, Martinov M P, Rogers D W O,
 Thomson R M **2023** Update of the CLRP Monte Carlo TG-43 parameter database
 for high-energy brachytherapy sources, _Med. Phys._ [**50** 1928–1941](https://doi.org/10.1002/mp.16176)
 ([pdf](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_he_2023.pdf))
 
-when using high-energy ($^{169}$Yb, $^{192}$Ir, $^{137}$Cs, $^{60}$Co) source
+when using high-energy (<sup>169</sup>Yb, <sup>192</sup>Ir, <sup>137</sup>Cs, <sup>60</sup>Co) source
 models.
 
 Database: [https://physics.carleton.ca/clrp/egs_brachy/seed_database_v2](https://physics.carleton.ca/clrp/egs_brachy/seed_database_v2)
