@@ -1,0 +1,5 @@
+## A null transformation
+
+:start transformation:
+    translation = 0, 0, 0
+:stop transformation:

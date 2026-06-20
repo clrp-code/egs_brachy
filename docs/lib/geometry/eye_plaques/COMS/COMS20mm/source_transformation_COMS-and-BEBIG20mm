@@ -1,0 +1,146 @@
+#     Seed transformation: COMS20mm-and-BEBIG20mm
+#
+#   Copyright (C) 2021, Rowan M Thomson
+#
+# This file is part of the egs_brachy package to be used with EGSnrc
+#
+#  egs_brachy is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Affero General Public License as published
+#  by the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  egs_brachy is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  Affero General Public License for more details:
+#  <http://www.gnu.org/licenses/>.
+#
+# If you use this file, please cite
+#       M Chamberland, R E P Taylor, D W O Rogers and R M Thomson
+#       egs_brachy: a versatile and fast Monte Carlo code for brachytherapy
+#       Phys Med Biol 61(2016) 8214 - 8231
+# and
+#      H Safigholi, Z Parsons, S G Deering, and R M Thomson,
+#     Update of the CLRP eye plaque brachytherapy database for
+#     photon-emitting sources, Medical Physics 48(2021) 3373 - 3383.
+#
+#
+:start transformation:
+    translation = -0.808, -0.294, 0.064
+    rotation =  2.7925 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.43, -0.745, 0.064
+    rotation =  2.0944 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.149, -0.847, 0.064
+    rotation = 1.3962 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.659, -0.553, 0.064
+    rotation = 0.6981 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.86, 0.00, 0.064
+    rotation =  6.2831 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.659, 0.553, 0.064
+    rotation =  5.5850 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.149, 0.847, 0.064
+    rotation =  4.8869 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.43, 0.745, 0.064
+    rotation =  4.1888 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.808, 0.294, 0.064
+    rotation =  3.4907 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.653, -0.149, -0.065
+    rotation =  2.9147 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.291, -0.604, -0.065
+    rotation =  2.0245 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.291, -0.604, -0.065
+    rotation =  1.117 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.653, -0.149, -0.065
+    rotation =  0.02269 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.524, 0.418, -0.065
+    rotation =  5.602 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, 0.67, -0.065
+    rotation =  4.7124 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.524, 0.418, -0.065
+    rotation =  3.8222 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.38, -0.276, -0.157
+    rotation =  2.5132 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.145, -0.447, -0.157
+    rotation =  1.2566 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.47, 0.0, -0.157
+    rotation =  6.2831 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.145, 0.447, -0.157
+    rotation =  5.0265 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.38, 0.276, -0.157
+    rotation =  3.7699 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, -0.225, -0.221
+    rotation =  1.5708 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, 0.225, -0.221
+    rotation =  4.7124 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, 0.00, -0.24
+    rotation =  4.7124 1.5708
+:stop transformation:

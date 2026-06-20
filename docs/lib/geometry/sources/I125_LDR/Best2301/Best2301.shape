@@ -1,0 +1,39 @@
+:start shape:
+
+    library = egs_shape_collection
+
+    :start shape:
+        # end cap 1 - V = (4/3)*PI*(0.0225**3 - 0.0125**3) / 2 = 1.976585378E-5
+        library = egs_spherical_shell
+        midpoint = 0 0 -0.175
+        inner radius = 0.0125
+        outer radius = 0.0225
+        hemisphere = -1
+    :stop shape:
+
+    :start shape:
+        # end cap 2 - V = (4/3)*PI*(0.0225**3 - 0.0125**3) / 2 = 1.976585378E-5
+        library = egs_spherical_shell
+        midpoint = 0 0 0.175
+        inner radius = 0.0125
+        outer radius = 0.0225
+        hemisphere = 1
+    :stop shape:
+
+    :start shape:
+        # centre - V = 0.35*PI*(0.0225**2 - 0.0125**2) = 3.848451001E-4
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.0225
+            inner radius = 0.0125
+        :stop shape:
+
+        extension = -0.175, 0.175
+    :stop shape:
+
+    probabilities = 1.976585378E-5 1.976585378E-5 3.848451001E-4
+	
+
+:stop shape:
+

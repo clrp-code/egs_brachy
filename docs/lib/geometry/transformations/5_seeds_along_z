@@ -1,0 +1,22 @@
+## Seeds located along the z axis at:
+## (0, 0, -2), (0, 0, -1), (0, 0, 0), (0, 0, 1), (0, 0, 2)
+
+:start transformation:
+    translation = 0, 0, -2
+:stop transformation:
+
+:start transformation:
+    translation = 0, 0, -1
+:stop transformation:
+
+:start transformation:
+    translation = 0, 0,  0
+:stop transformation:
+
+:start transformation:
+    translation = 0, 0,  1
+:stop transformation:
+
+:start transformation:
+    translation = 0, 0,  2
+:stop transformation:

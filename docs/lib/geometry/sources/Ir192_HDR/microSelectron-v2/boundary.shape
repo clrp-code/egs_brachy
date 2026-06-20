@@ -1,0 +1,11 @@
+:start shape:
+    type = box
+    box size = 0.0901 0.0901 0.49501
+   # midpoint = 0 0 -0.125
+    :start transformation:
+        translation = 0, 0, -0.0046  # .495/2 -0.2015001
+    :stop transformation:
+:stop shape:
+
+
+

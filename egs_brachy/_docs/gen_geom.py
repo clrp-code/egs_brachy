@@ -7,6 +7,13 @@ root = os.path.join("..", "lib")
 abs_root = os.path.abspath(root)
 geom = os.path.join(abs_root, "geometry")
 
+
+def docs_lib_path(path):
+    """Path from the published docs/ root to a file under lib/."""
+    rel = os.path.relpath(os.path.abspath(path), abs_root)
+    return "lib/" + rel.replace("\\", "/")
+
+
 def get_readme(dir_path):
 
     """Look in directory dir_path for a file called README.md and return
@@ -20,17 +27,20 @@ def get_readme(dir_path):
 
 
 def get_filetype_links(dir_path, extension):
-    relpath = os.path.relpath(dir_path)
-    files = [os.path.join(relpath, g) for g in os.listdir(dir_path) if g.endswith(extension)]
-    links = ["[%s](%s)" % (os.path.split(f)[1], f) for f in files]
+    files = [g for g in os.listdir(dir_path) if g.endswith(extension)]
+    links = [
+        "[%s](%s)" % (g, docs_lib_path(os.path.join(dir_path, g)))
+        for g in files
+    ]
     return links
 
 
 def get_images(dir_path):
-    relpath = os.path.relpath(dir_path)
-    files = [os.path.join(relpath, g) for g in os.listdir(dir_path) if g.lower().endswith(".png")]
-    files = [f.replace('../lib', '../egs_brachy/lib') for f in files]
-    images = ['<img style="width: 200px;" src="%s"  />' % f for f in files]
+    files = [g for g in os.listdir(dir_path) if g.lower().endswith(".png")]
+    images = [
+        '<img style="width: 200px;" src="%s"  />' % docs_lib_path(os.path.join(dir_path, g))
+        for g in files
+    ]
     return images
 
 

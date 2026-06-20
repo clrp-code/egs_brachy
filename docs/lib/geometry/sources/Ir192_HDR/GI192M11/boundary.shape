@@ -1,0 +1,7 @@
+:start shape:
+    type = box
+    box size = 0.10001 0.10001 6.48901
+    :start transformation:
+        translation = 0., 0., -2.985505
+    :stop transformation:
+:stop shape:
