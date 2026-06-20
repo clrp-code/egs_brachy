@@ -668,7 +668,29 @@ Bremsstrahlung Cross Section Enhancement</h3>
 Voxel volume correction details</h2>
 <p>egs_brachy has three methods available for doing voxel volume correction calculations in rectilinear, cylindrical and spherical geometries. There is a 'fast' method that uses the same technique described in the egs_autoenvelope documentation and a more general purpose routine which can be used for larger volumes with multiple overlapping phantom geometries. In addition to those two methods, corrected voxel volumes can be precomputed (either manually or by egs_brachy) and read from a file. Finally, there is a fourth method, <code>phantom region volumes</code> that can be used to specify manually calcualted voxel volumes in the input file for other geometry types (e.g. conical geometries).</p>
 <p>See <a href="https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp">eb_tests/volume_correction/vc.egsinp</a> for examples of the fast &amp; general volume correction methods.</p>
-<h3><a class="anchor" id="sourcevc"></a>
+<h3><a class="anchor" id="coverthresh"></a>
+Total coverage threshold</h3>
+<p>Volume correction uses Monte Carlo sampling to estimate how much of each phantom voxel remains available for dose scoring after subtracting overlapping geometry (sources, applicators, etc.). For voxels that are almost entirely occupied, the tiny uncorrected volume that remains can produce dose values with very large statistical uncertainties.</p>
+<p>The optional input <code>total coverage threshold %</code> controls when a voxel is treated as fully covered and its corrected volume set to zero (so no dose is scored there). If the estimated uncorrected fraction of the nominal voxel volume is at most <code>(100 - threshold)</code> percent, the voxel is zeroed. With the default <code>99.9</code>, voxels with 0.1% or less of their nominal volume remaining are zeroed; with <code>98</code>, voxels with 2% or less remaining are zeroed. A lower threshold is sometimes used for complex applicators such as eye plaques, where slightly more aggressive zeroing avoids unreliable dose in thin voxels at geometry boundaries.</p>
+<p>This input may appear in either <code>:start source volume correction:</code> or <code>:start extra volume correction:</code> blocks. Values may be given as a percentage (<code>99.9</code>, <code>98</code>) or as a fraction between 0 and 1. If omitted, egs_brachy uses 99.9%.</p>
+<p>See <a href="https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp">vc.egsinp</a> for a test input with a non-default threshold on an <code>extra volume correction</code> block, and the eye-plaque template <a href="https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/lib/geometry/eye_plaques/sample%20eye%20plaque%20input%20template%20%20files/BEBIG16mm-hetero-I125-S06_3rdSeedActive-.egsinp">BEBIG16mm-hetero-I125-S06_3rdSeedActive-.egsinp</a> for a clinical geometry example using <code>98</code>.</p>
+<pre class="fragment">:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+        total coverage threshold % = 98   # zero voxels with &lt;= 2% uncorrected volume
+
+        :start shape:
+            type = box
+            box size = 4
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+</pre><h3><a class="anchor" id="sourcevc"></a>
 Fast voxel volume corrections for sources</h3>
 <p>The input block for this type of volume correction looks like:</p>
 <pre class="fragment">:start volume correction:
@@ -713,6 +735,7 @@ General purpose volume corrections</h3>
 
         correction type = correct # correct, none, zero dose
         density of random points (cm^-3) = 1E5
+        total coverage threshold % = 98   # optional; see #coverthresh (default 99.9)
 
         # correct volume of region for all geometries within
         # x,y,z = +/- 2cm around origin

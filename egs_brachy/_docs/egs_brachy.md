@@ -958,6 +958,55 @@ voxel volumes in the input file for other geometry types (e.g. conical
 See [eb_tests/volume_correction/vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp) for
 examples of the fast & general volume correction methods.
 
+\subsubsection coverthresh Total coverage threshold
+
+Volume correction uses Monte Carlo sampling to estimate how much of each phantom
+voxel remains available for dose scoring after subtracting overlapping geometry
+(sources, applicators, etc.). For voxels that are almost entirely occupied, the
+tiny uncorrected volume that remains can produce dose values with very large
+statistical uncertainties.
+
+The optional input `total coverage threshold %` controls when a voxel is treated
+as fully covered and its corrected volume set to zero (so no dose is scored there).
+If the estimated uncorrected fraction of the nominal voxel volume is at most
+`(100 - threshold)` percent, the voxel is zeroed. With the default `99.9`, voxels
+with 0.1% or less of their nominal volume remaining are zeroed; with `98`, voxels
+with 2% or less remaining are zeroed. A lower threshold is sometimes used for
+complex applicators such as eye plaques, where slightly more aggressive zeroing
+avoids unreliable dose in thin voxels at geometry boundaries.
+
+This input may appear in either `:start source volume correction:` or
+`:start extra volume correction:` blocks. Values may be given as a percentage
+(`99.9`, `98`) or as a fraction between 0 and 1. If omitted, egs_brachy uses
+99.9%.
+
+See [vc.egsinp](https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp)
+for a test input with a non-default threshold on an `extra volume correction`
+block, and the eye-plaque template
+[BEBIG16mm-hetero-I125-S06_3rdSeedActive-.egsinp](https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/lib/geometry/eye_plaques/sample%20eye%20plaque%20input%20template%20%20files/BEBIG16mm-hetero-I125-S06_3rdSeedActive-.egsinp)
+for a clinical geometry example using `98`.
+
+\verbatim
+
+:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+        total coverage threshold % = 98   # zero voxels with <= 2% uncorrected volume
+
+        :start shape:
+            type = box
+            box size = 4
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+
+\endverbatim
+
 \subsubsection sourcevc Fast voxel volume corrections for sources
 
 The input block for this type of volume correction looks like:
@@ -1014,6 +1063,7 @@ The input block for the general purpose volume corrections is shown below:
 
         correction type = correct # correct, none, zero dose
         density of random points (cm^-3) = 1E5
+        total coverage threshold % = 98   # optional; see #coverthresh (default 99.9)
 
         # correct volume of region for all geometries within
         # x,y,z = +/- 2cm around origin
