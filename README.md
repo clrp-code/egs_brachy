@@ -44,6 +44,11 @@ available in html at https://clrp-code.github.io/egs_brachy/ .
 A pdf of the user's guide to egs\_brachy (with more detailed installation instructions) is available
 [here](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
 
+A graphical user interface for egs\_brachy, [eb\_gui](https://github.com/clrp-code/eb_gui), is
+available separately. eb\_gui helps set up egs\_brachy calculations and includes tools for DICOM
+conversion and 3ddose analysis. Installation instructions and a user guide are in the
+[eb\_gui repository](https://github.com/clrp-code/eb_gui).
+
 Hosted CLRP database papers (pdf):
 
 - [CLRP TG-43 low-energy source database (2020)](https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf)

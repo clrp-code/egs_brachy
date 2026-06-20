@@ -15,6 +15,10 @@ For more information please contact:
    - Rowan Thomson (rthomson@physics.carleton.ca) -or-
    - Dave Rogers (drogers@physics.carleton.ca)
 
+CLRP also distributes [eb_gui](https://github.com/clrp-code/eb_gui), a Qt-based graphical user
+interface for egs_brachy. eb_gui assists with setting up egs_brachy calculations and provides tools
+for DICOM conversion and `.3ddose` analysis. Installation instructions and a user guide
+(`eb_gui_UserGuide.pdf`) are in the [eb_gui repository](https://github.com/clrp-code/eb_gui).
 
 
 \section license License
