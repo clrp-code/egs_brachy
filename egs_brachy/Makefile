@@ -78,6 +78,8 @@ docs: _docs/egs_brachy.md
 	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_technical_manual.pdf
 	rm -rf docs/latex
 	cp -rf docs ../
+	mkdir -p ../docs/lib
+	cp -r lib/geometry ../docs/lib/
 	cp _docs/egs_brachy_user_manual.pdf ../docs/pdf
 	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
 	cp _docs/clrp_tg43_le_2020.pdf ../docs/pdf

@@ -1,0 +1,395 @@
+:start transformation:
+translation =	26.6870	12.5584	-26.9294	
+rotation =	2.148698264	-0.718279476	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.3579	12.2430	-26.7237	
+rotation =	2.148698264	-0.718279476	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.0289	11.9277	-26.5181	
+rotation =	2.148698264	-0.718279476	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.6744	11.6325	-26.3255	
+rotation =	2.148698264	-0.795151708	0
+:stop transformation:
+
+:start transformation:
+translation = 	25.3174	11.3393	-26.1343	
+rotation =	2.148698264	-0.795151708	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.9604	11.0460	-25.9431	
+rotation =	2.148698264	-0.795151708	0
+:stop transformation:
+
+:start transformation:
+translation = 	24.6208	10.7614	-25.7126	
+rotation =	2.279422599	-0.732959503	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.7332	14.1771	-26.6280	
+rotation =	2.196721121	-0.838874551	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.3654	13.9044	-26.4274	
+rotation =	2.220345749	-0.804180086	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.0052	13.6282	-26.2176	
+rotation =	2.220345749	-0.804180086	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.6451	13.3520	-26.0078
+rotation =	2.220345749	-0.804180086	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.3148	13.0587	-25.7773	
+rotation =	2.252094552	-0.640464233	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.0160	12.7473	-25.5248	
+rotation =	2.252094552	-0.640464233	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.7133	12.4391	-25.2735	
+rotation =	2.279422599	-0.732959503	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.3788	12.1569	-25.0316	
+rotation =	2.279422599	-0.732959503	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.0442	11.8748	-24.7898	
+rotation =	2.279422599	-0.732959503	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.7183	11.5780	-24.5542	
+rotation =	2.220345749	-0.696709077	0
+:stop transformation:
+
+:start transformation:
+translation = 	24.3975	11.2726	-24.3223	
+rotation =	2.220345749	-0.696709077	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.2069	14.7464	-25.2322	
+rotation =	2.252094552	-0.852522354	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.8304	14.4908	-25.0250	
+rotation =	2.252094552	-0.852522354	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.4539	14.2352	-24.8178	
+rotation =	2.252094552	-0.852522354	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.0884	13.9654	-24.6100	
+rotation =	2.196721121	-0.778438055	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.7373	13.6769	-24.4014	
+rotation =	2.196721121	-0.778438055	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.3863	13.3884	-24.1928	
+rotation =	2.196721121	-0.778438055	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.1197	13.0573	-23.9460	
+rotation =	2.220345749	-0.409014309	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.9208	12.6919	-23.6686	
+rotation =	2.220345749	-0.409014309	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.6637	12.3603	-23.4111	
+rotation =	2.252094552	-0.767948784	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.3163	12.0810	-23.1846	
+rotation =	2.252094552	-0.767948784	0
+:stop transformation:
+
+:start transformation:	
+translation = 	23.9690	11.8016	-22.9580	
+rotation =	2.252094552	-0.767948784	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.4401	15.4228	-23.6608	
+rotation =	2.381829899	-0.594893403	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.1183	15.1455	-23.4055	
+rotation =	2.220345749	-0.832424466	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.7485	14.8775	-23.2019
+rotation =	2.220345749	-0.832424466	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.3787	14.6095	-22.9984	
+rotation =	2.220345749	-0.832424466	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.0166	14.3386	-22.7854	
+rotation =	2.252094552	-0.78922501	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.6617	14.0651	-22.5636	
+rotation =	2.252094552	-0.78922501	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.3068	13.7915	-22.3418	
+rotation =	2.252094552	-0.78922501	0
+:stop transformation:
+
+:start transformation:	
+translation = 	24.9765	13.4990	-22.1072	
+rotation =	2.245537269	-0.706667049	0
+:stop transformation:
+
+:start transformation:	
+translation = 	28.6399	13.2799	-26.9999	
+rotation =	2.308611387	-0.822118795	0
+:stop transformation:
+
+:start transformation:	
+translation = 	28.2736	13.0281	-26.7710	
+rotation =	2.308611387	-0.822118795	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.9073	12.7763	-26.5420	
+rotation =	2.308611387	-0.822118795	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.5359	12.5233	-26.3228	
+rotation =	2.279422599	-0.840694233	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.1633	12.2701	-26.1058	
+rotation =	2.279422599	-0.840694233	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.7935	12.0137	-25.8887	
+rotation =	2.17454566	-0.694349627	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.4735	11.6974	-25.6706	
+rotation =	2.17454566	-0.694349627	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.1536	11.3811	-25.4525	
+rotation =	2.17454566	-0.694349627	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.8281	11.0672	-25.2395	
+rotation =	2.148698264	-0.743512226	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.4896	10.7589	-25.0384	
+rotation =	2.148698264	-0.743512226	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.9970	13.6540	-25.3433	
+rotation =	2.347930216	-0.745538823	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.6657	13.3609	-25.1108	
+rotation =	2.220345749	-0.71996167	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.3360	13.0616	-24.8835	
+rotation =	2.220345749	-0.71996167	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.0071	12.7607	-24.6571	
+rotation =	2.196721121	-0.709835262	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.6812	12.4533	-24.4349	
+rotation =	2.196721121	-0.709835262	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.3554	12.1460	-24.2128	
+rotation =	2.196721121	-0.709835262	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.0782	11.8062	-23.9802	
+rotation =	2.148698264	-0.471496466	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.8510	11.4331	-23.7368	
+rotation =	2.148698264	-0.471496466	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.6209	11.0616	-23.4950	
+rotation =	2.106836293	-0.747982989	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.9656	14.4642	-24.2039	
+rotation =	2.308611387	-0.902583857	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.6498	14.1790	-23.9614	
+rotation =	2.252094552	-0.499634779	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.4103	13.8381	-23.6849	
+rotation =	2.252094552	-0.499634779	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.1349	13.5153	-23.4281	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.7872	13.2292	-23.2108	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.4395	12.9430	-22.9935	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.1070	12.6370	-22.7807	
+rotation =	2.148698264	-0.697257259	0
+:stop transformation:
+
+:start transformation:	
+translation = 	25.7860	12.3160	-22.5713	
+rotation =	2.148698264	-0.697257259	0
+:stop transformation:
+
+:start transformation:
+translation = 	25.4649	11.9949	-22.3619	
+rotation =	2.148698264	-0.697257259	0
+:stop transformation:
+
+:start transformation:	
+translation = 	28.3604	15.0552	-22.7752	
+rotation =	2.35619449	-0.955316618	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.9867	14.8319	-22.5534	
+rotation =	2.339802516	-0.334633912	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.7803	14.5095	-22.2450	
+rotation =	2.308611387	-0.772933104	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.4312	14.2447	-22.0043	
+rotation =	2.308611387	-0.772933104	0
+:stop transformation:
+
+:start transformation:	
+translation = 	28.1137	11.9544	-25.0676	
+rotation =	2.308611387	-0.800869572	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.7547	11.6969	-24.8335	
+rotation =	2.308611387	-0.800869572	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.4006	11.4271	-24.6066	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.0529	11.1409	-24.3893	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	26.7052	10.8548	-24.1720	
+rotation =	2.220345749	-0.768997048	0
+:stop transformation:
+
+:start transformation:	
+translation = 	28.3139	12.6292	-24.0880	
+rotation =	2.220345749	-0.813784924	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.9505	12.3557	-23.8803	
+rotation =	2.220345749	-0.813784924	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.6265	12.0441	-23.6657	
+rotation =	2.148698264	-0.641299702	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.3274	11.7085	-23.4469	
+rotation =	2.148698264	-0.641299702	0
+:stop transformation:
+
+:start transformation:	
+translation = 	27.0283	11.3729	-23.2280	
+rotation =	2.148698264	-0.641299702	0
+:stop transformation:
+

@@ -1,0 +1,119 @@
+# two cylindrical shell sources for TheraSeed
+:start shape:
+
+    library = egs_shape_collection
+
+    # midpoints of sources at -0.10575, 0.10575
+
+    :start shape:
+        # source 1 end cap 1 - V = 0.00022*PI*0.02822**2 = 5.504103E-7   # for light source
+		# source 2 end cap 2 - V = 0.00105*PI*0.02905**2 = 2.7837578E-06  # for heavy source
+        library = egs_extended_shape
+        :start shape: 
+            library = egs_circle
+            radius = 0.02822         # light seed
+			       # 0.02905         # heavy seed
+			# 
+        :stop shape:
+#
+        extension = -0.15047, -0.15025  # light seed
+		          # -0.1513 , -0.15025  # heavy seed 
+		#   
+    :stop shape:
+
+    :start shape:
+        # source 1 end cap 2 - V = 0.00022*PI*0.02822**2 = 5.504103E-7  # for light source
+	   # source 2 end cap 2 - V = 0.00105*PI*0.02905**2 = 2.7837578E-06  # for heavy source
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822         # light seed
+			      # 0.02905          # heavy seed
+			# 
+        :stop shape:
+
+        extension = -0.06125, -0.06103  #  light source
+		          # -0.06125 , -0.0602  # heavy seed
+		# 
+		#   
+    :stop shape:
+
+    :start shape:
+         #source 1 centre V= (0.15025-0.06125)*PI*(0.02822**2-0.028**2) = 3.458226E-6    # for light source
+		# source 2 center = (0.15025-0.06125)*PI*(0.02905**2-0.028**2) = 1.6748844E-05   # for heavy  seed
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822         # light seed
+			       # 0.02905         # heavy seed
+			# 
+            inner radius = 0.028
+        :stop shape:
+
+        extension = -0.15025, -0.06125   # light source
+		          # -0.15025 , -0.06125  # heavy source
+		# 
+		          
+    :stop shape:
+
+    :start shape:
+        # source 2 end cap 1 - V = 0.00022*PI*0.02822**2 = 5.504103E-7    # for light source
+        # source 2 end cap 2 - V = 0.00105*PI*0.02905**2 = 2.7837578E-06  # for heavy source
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822  # light seed
+			       # 0.02905  # heavy seed
+			# 
+        :stop shape:
+
+        extension = 0.06103, 0.06125        # light seed
+		          # 0.06125 , 0.0602        # heavy seed 
+		# 
+
+    :stop shape:
+
+    :start shape:
+        # source 2 end cap 2 - V = 0.00022*PI*0.02822**2 = 5.504103E-7    # for light source
+		# source 2 end cap 2 - V = 0.00105*PI*0.02905**2 = 2.7837578E-06  # for heavy source
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822         # light seed
+			       # 0.02905         # heavy seed
+			# 
+        :stop shape:
+
+        extension = 0.15025, 0.15047  # light source
+	              # 0.15025, 0.1513   # heavy seed 
+		          #  
+
+    :stop shape:
+
+    :start shape:
+        # source 2 centre - V = (0.15025-0.06125)*PI*(0.02822**2-0.028**2) = 3.458226E-6  # for light seed
+		# source 2 center = (0.15025-0.06125)*PI*(0.02905**2-0.028**2) = 1.6748844E-05   # for heavy  seed
+        library = egs_extended_shape
+        :start shape:
+            library = egs_circle
+            radius = 0.02822         # light seed
+			       # 0.02905         # heavy seed
+			# 
+            inner radius = 0.028
+        :stop shape:
+
+        extension = 0.06125, 0.15025            # light seed
+		          # 0.06125 , 0.15025           # heavy seed
+		# 
+                 
+    :stop shape:
+
+
+    probabilities =  6.0364628E-02  6.0364628E-02 3.7927074E-01 6.0364628E-02 6.0364628E-02 3.7927074E-01   # normalized for light seed
+	               # 6.2370339E-02  6.2370339E-02 3.7525932E-01 6.2370339E-02 6.2370339E-02 3.7525932E-01   # normalized for heavy seed
+
+	               
+	              
+
+:stop shape:
+

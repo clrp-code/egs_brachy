@@ -1,0 +1,379 @@
+## 125 seed locations at -2, -1, 0, 1, 2 in X, Y, Z
+
+:start transformation:
+    translation = -2,-2,-2
+:stop transformation:
+:start transformation:
+    translation = -2,-2,-1
+:stop transformation:
+:start transformation:
+    translation = -2,-2,0
+:stop transformation:
+:start transformation:
+    translation = -2,-2,1
+:stop transformation:
+:start transformation:
+    translation = -2,-2,2
+:stop transformation:
+:start transformation:
+    translation = -2,-1,-2
+:stop transformation:
+:start transformation:
+    translation = -2,-1,-1
+:stop transformation:
+:start transformation:
+    translation = -2,-1,0
+:stop transformation:
+:start transformation:
+    translation = -2,-1,1
+:stop transformation:
+:start transformation:
+    translation = -2,-1,2
+:stop transformation:
+:start transformation:
+    translation = -2,0,-2
+:stop transformation:
+:start transformation:
+    translation = -2,0,-1
+:stop transformation:
+:start transformation:
+    translation = -2,0,0
+:stop transformation:
+:start transformation:
+    translation = -2,0,1
+:stop transformation:
+:start transformation:
+    translation = -2,0,2
+:stop transformation:
+:start transformation:
+    translation = -2,1,-2
+:stop transformation:
+:start transformation:
+    translation = -2,1,-1
+:stop transformation:
+:start transformation:
+    translation = -2,1,0
+:stop transformation:
+:start transformation:
+    translation = -2,1,1
+:stop transformation:
+:start transformation:
+    translation = -2,1,2
+:stop transformation:
+:start transformation:
+    translation = -2,2,-2
+:stop transformation:
+:start transformation:
+    translation = -2,2,-1
+:stop transformation:
+:start transformation:
+    translation = -2,2,0
+:stop transformation:
+:start transformation:
+    translation = -2,2,1
+:stop transformation:
+:start transformation:
+    translation = -2,2,2
+:stop transformation:
+:start transformation:
+    translation = -1,-2,-2
+:stop transformation:
+:start transformation:
+    translation = -1,-2,-1
+:stop transformation:
+:start transformation:
+    translation = -1,-2,0
+:stop transformation:
+:start transformation:
+    translation = -1,-2,1
+:stop transformation:
+:start transformation:
+    translation = -1,-2,2
+:stop transformation:
+:start transformation:
+    translation = -1,-1,-2
+:stop transformation:
+:start transformation:
+    translation = -1,-1,-1
+:stop transformation:
+:start transformation:
+    translation = -1,-1,0
+:stop transformation:
+:start transformation:
+    translation = -1,-1,1
+:stop transformation:
+:start transformation:
+    translation = -1,-1,2
+:stop transformation:
+:start transformation:
+    translation = -1,0,-2
+:stop transformation:
+:start transformation:
+    translation = -1,0,-1
+:stop transformation:
+:start transformation:
+    translation = -1,0,0
+:stop transformation:
+:start transformation:
+    translation = -1,0,1
+:stop transformation:
+:start transformation:
+    translation = -1,0,2
+:stop transformation:
+:start transformation:
+    translation = -1,1,-2
+:stop transformation:
+:start transformation:
+    translation = -1,1,-1
+:stop transformation:
+:start transformation:
+    translation = -1,1,0
+:stop transformation:
+:start transformation:
+    translation = -1,1,1
+:stop transformation:
+:start transformation:
+    translation = -1,1,2
+:stop transformation:
+:start transformation:
+    translation = -1,2,-2
+:stop transformation:
+:start transformation:
+    translation = -1,2,-1
+:stop transformation:
+:start transformation:
+    translation = -1,2,0
+:stop transformation:
+:start transformation:
+    translation = -1,2,1
+:stop transformation:
+:start transformation:
+    translation = -1,2,2
+:stop transformation:
+:start transformation:
+    translation = 0,-2,-2
+:stop transformation:
+:start transformation:
+    translation = 0,-2,-1
+:stop transformation:
+:start transformation:
+    translation = 0,-2,0
+:stop transformation:
+:start transformation:
+    translation = 0,-2,1
+:stop transformation:
+:start transformation:
+    translation = 0,-2,2
+:stop transformation:
+:start transformation:
+    translation = 0,-1,-2
+:stop transformation:
+:start transformation:
+    translation = 0,-1,-1
+:stop transformation:
+:start transformation:
+    translation = 0,-1,0
+:stop transformation:
+:start transformation:
+    translation = 0,-1,1
+:stop transformation:
+:start transformation:
+    translation = 0,-1,2
+:stop transformation:
+:start transformation:
+    translation = 0,0,-2
+:stop transformation:
+:start transformation:
+    translation = 0,0,-1
+:stop transformation:
+:start transformation:
+    translation = 0,0,0
+:stop transformation:
+:start transformation:
+    translation = 0,0,1
+:stop transformation:
+:start transformation:
+    translation = 0,0,2
+:stop transformation:
+:start transformation:
+    translation = 0,1,-2
+:stop transformation:
+:start transformation:
+    translation = 0,1,-1
+:stop transformation:
+:start transformation:
+    translation = 0,1,0
+:stop transformation:
+:start transformation:
+    translation = 0,1,1
+:stop transformation:
+:start transformation:
+    translation = 0,1,2
+:stop transformation:
+:start transformation:
+    translation = 0,2,-2
+:stop transformation:
+:start transformation:
+    translation = 0,2,-1
+:stop transformation:
+:start transformation:
+    translation = 0,2,0
+:stop transformation:
+:start transformation:
+    translation = 0,2,1
+:stop transformation:
+:start transformation:
+    translation = 0,2,2
+:stop transformation:
+:start transformation:
+    translation = 1,-2,-2
+:stop transformation:
+:start transformation:
+    translation = 1,-2,-1
+:stop transformation:
+:start transformation:
+    translation = 1,-2,0
+:stop transformation:
+:start transformation:
+    translation = 1,-2,1
+:stop transformation:
+:start transformation:
+    translation = 1,-2,2
+:stop transformation:
+:start transformation:
+    translation = 1,-1,-2
+:stop transformation:
+:start transformation:
+    translation = 1,-1,-1
+:stop transformation:
+:start transformation:
+    translation = 1,-1,0
+:stop transformation:
+:start transformation:
+    translation = 1,-1,1
+:stop transformation:
+:start transformation:
+    translation = 1,-1,2
+:stop transformation:
+:start transformation:
+    translation = 1,0,-2
+:stop transformation:
+:start transformation:
+    translation = 1,0,-1
+:stop transformation:
+:start transformation:
+    translation = 1,0,0
+:stop transformation:
+:start transformation:
+    translation = 1,0,1
+:stop transformation:
+:start transformation:
+    translation = 1,0,2
+:stop transformation:
+:start transformation:
+    translation = 1,1,-2
+:stop transformation:
+:start transformation:
+    translation = 1,1,-1
+:stop transformation:
+:start transformation:
+    translation = 1,1,0
+:stop transformation:
+:start transformation:
+    translation = 1,1,1
+:stop transformation:
+:start transformation:
+    translation = 1,1,2
+:stop transformation:
+:start transformation:
+    translation = 1,2,-2
+:stop transformation:
+:start transformation:
+    translation = 1,2,-1
+:stop transformation:
+:start transformation:
+    translation = 1,2,0
+:stop transformation:
+:start transformation:
+    translation = 1,2,1
+:stop transformation:
+:start transformation:
+    translation = 1,2,2
+:stop transformation:
+:start transformation:
+    translation = 2,-2,-2
+:stop transformation:
+:start transformation:
+    translation = 2,-2,-1
+:stop transformation:
+:start transformation:
+    translation = 2,-2,0
+:stop transformation:
+:start transformation:
+    translation = 2,-2,1
+:stop transformation:
+:start transformation:
+    translation = 2,-2,2
+:stop transformation:
+:start transformation:
+    translation = 2,-1,-2
+:stop transformation:
+:start transformation:
+    translation = 2,-1,-1
+:stop transformation:
+:start transformation:
+    translation = 2,-1,0
+:stop transformation:
+:start transformation:
+    translation = 2,-1,1
+:stop transformation:
+:start transformation:
+    translation = 2,-1,2
+:stop transformation:
+:start transformation:
+    translation = 2,0,-2
+:stop transformation:
+:start transformation:
+    translation = 2,0,-1
+:stop transformation:
+:start transformation:
+    translation = 2,0,0
+:stop transformation:
+:start transformation:
+    translation = 2,0,1
+:stop transformation:
+:start transformation:
+    translation = 2,0,2
+:stop transformation:
+:start transformation:
+    translation = 2,1,-2
+:stop transformation:
+:start transformation:
+    translation = 2,1,-1
+:stop transformation:
+:start transformation:
+    translation = 2,1,0
+:stop transformation:
+:start transformation:
+    translation = 2,1,1
+:stop transformation:
+:start transformation:
+    translation = 2,1,2
+:stop transformation:
+:start transformation:
+    translation = 2,2,-2
+:stop transformation:
+:start transformation:
+    translation = 2,2,-1
+:stop transformation:
+:start transformation:
+    translation = 2,2,0
+:stop transformation:
+:start transformation:
+    translation = 2,2,1
+:stop transformation:
+:start transformation:
+    translation = 2,2,2
+:stop transformation:
+
+

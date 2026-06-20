@@ -1,0 +1,106 @@
+# Translations for a 18mm COMS Eye Plaque
+
+:start transformation:
+    translation = -0.77, 0.00, -0.003
+    rotation =  3.142 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.544, -0.544, -0.003
+    rotation =  2.356 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, -0.77, -0.003
+    rotation = 1.5708 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.544, -0.544, -0.003
+    rotation = 0.7854 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.77, 0.00, -0.003
+    rotation =  6.2831 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.544, 0.544, -0.003
+    rotation =  5.4978 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.000, 0.77, -0.003
+    rotation =  4.7124 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.544, 0.544, -0.003
+    rotation =  3.927 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.62, 0.00, -0.092
+    rotation =  3.142 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.31, -0.537, -0.092
+    rotation =  2.0944 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.31, -0.537, -0.092
+    rotation =  1.0472 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.62, 0.00, -0.092
+    rotation =  6.2831 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.31, 0.537, -0.092
+    rotation =  5.236 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.31, 0.537, -0.092
+    rotation =  4.1888 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.318, -0.318, -0.164
+    rotation =  2.356 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.318, -0.318, -0.164
+    rotation =  0.7854 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.318, 0.318, -0.164
+    rotation =  5.4978 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = -0.318, 0.318, -0.164
+    rotation =  3.927 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, -0.2, -0.225
+    rotation =  1.5708 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, 0.2, -0.225
+    rotation =  4.7124 1.5708
+:stop transformation:
+
+:start transformation:
+    translation = 0.00, 0.00, -0.24
+    rotation =  4.7124 1.5708
+:stop transformation:

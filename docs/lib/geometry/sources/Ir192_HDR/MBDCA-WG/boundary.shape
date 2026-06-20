@@ -1,0 +1,9 @@
+# This defines the bounding volume for volume correction and region discovery
+# for the MBDCA-WG source model
+:start shape:
+    type = box
+    box size = 0.10001 0.10001 0.70001
+    :start transformation:
+        translation = 0 0 -0.115
+    :stop transformation:
+:stop shape:

@@ -1,0 +1,28 @@
+# three spherical sources for CDC-3, Cs137-LDR Source
+
+:start shape:
+
+    library = egs_shape_collection
+
+ :start shape:
+    type = sphere
+    radius = 0.055
+	midpoint = 0, 0, -0.11 
+ :stop shape:
+ 
+ :start shape:
+    type = sphere
+    radius = 0.055
+	midpoint = 0, 0, 0 
+ :stop shape:
+ 
+ :start shape:
+    type = sphere
+    radius = 0.055
+	midpoint = 0, 0, 0.11 
+ :stop shape:
+ 
+ probabilities = 1 1 1
+
+:stop shape:
+
