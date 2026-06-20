@@ -11,7 +11,7 @@ When using source or eye-plaque models from the distributed geometry library, pl
 egs_brachy was written by [Randle Taylor](http://randlet.com) in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the [Carleton Laboratory for Radiotherapy Physics](http://www.physics.carleton.ca/clrp/).
 
 For more information please contact:
-   - Marc Chamberland (marc.chamberland@uvmhealth.org) -or-
+   - Marc Chamberland (mchamberland@mac.com) -or-
    - Rowan Thomson (rthomson@physics.carleton.ca) -or-
    - Dave Rogers (drogers@physics.carleton.ca)
 
