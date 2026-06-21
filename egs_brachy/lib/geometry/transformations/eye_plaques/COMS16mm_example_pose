@@ -1,0 +1,6 @@
+# Additional shared pose used in the split-transform eye-plaque example
+# (COMS16mm-I125-6711-hetero-splitTransforms.egsinp). Include inside a
+# :start transformation: block in both the outer egs_gtransformed geometry
+# wrapper and the source coordinate transform.
+
+translation = 0.05 0 0

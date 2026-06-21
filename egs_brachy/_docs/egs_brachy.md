@@ -681,7 +681,16 @@ At initialization, egs\_brachy composes this transform with each entry from
 This matches the geometry workflow where `egs_gtransformed` wraps an
 `egs_autoenvelope` containing transformed seeds.
 
-An example for an eye plaque simulation:
+An example for an eye plaque simulation is distributed with egs\_brachy as
+[COMS16mm-I125-6711-hetero-splitTransforms.egsinp](lib/geometry/eye_plaques/sample%20eye%20plaque%20input%20template%20%20files/COMS16mm-I125-6711-hetero-splitTransforms.egsinp).
+Local seed placements come from
+[COMS16mm](lib/geometry/transformations/eye_plaques/COMS16mm); the shared
+applicator pose is in
+[COMS16mm_example_pose](lib/geometry/transformations/eye_plaques/COMS16mm_example_pose)
+(referenced from both the outer `egs_gtransformed` wrapper and
+`source coordinate transform`). For setups in which the autoenvelope base
+geometry is the untransformed plaque, the pose file can instead be
+[COMS16mm_phantom_pose](lib/geometry/transformations/eye_plaques/COMS16mm_phantom_pose).
 
 \verbatim
 
@@ -689,22 +698,21 @@ An example for an eye plaque simulation:
 
   :start source:
       library = egs_isotropic_source
-      name = IsoSeed_Pd-103
+      name = 6711
       ...
   :stop source:
 
   :start transformations:
-      include file = plan1_seed.trafo
+      include file = lib/geometry/transformations/eye_plaques/COMS16mm
   :stop transformations:
 
   :start source coordinate transform:
       :start transformation:
-          translation = 0.06280314749153265 -1.1575224702173754 -0.3101572111156239
-          rotation = -1.832595714594046 -0.05235987755982994 3.141592653589793
+          include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
       :stop transformation:
   :stop source coordinate transform:
 
-  simulation source = IsoSeed_Pd-103
+  simulation source = 6711
 
 :stop source definition:
 
@@ -715,13 +723,20 @@ backward compatibility. Do not use `egs_transformed_source` for this
 workflow; egs\_brachy applies source placements from the `transformations`
 block after sampling the base source.
 
-Geometry inscriptions in `egs_autoenvelope` (or an `egs_gtransformed`
-wrapper) must still use the **world** seed transforms. The
-`source coordinate transform` applies only to particle initialization in
-the `source definition` block. For eye-plaque simulations, seed positions
-relative to the plaque go in `transformations`; the plaque pose in the
-phantom goes in `source coordinate transform`; inscribed geometry uses the
-same world transforms as before.
+The intended workflow uses the same two-level transform structure in both
+the geometry definition and the source definition. Seed positions relative
+to an applicator (for example, an eye plaque) are listed once, typically
+via the same `include file` in both places. In the geometry block, an
+`egs_autoenvelope` inscribes each seed in the applicator using those local
+transforms. An outer `egs_gtransformed` wrapper around the autoenvelope
+assembly then applies the applicator pose in the simulation frame (see
+[COMS16mm-I125-6711-hetero-splitTransforms.egsinp](lib/geometry/eye_plaques/sample%20eye%20plaque%20input%20template%20%20files/COMS16mm-I125-6711-hetero-splitTransforms.egsinp)
+for a worked example). In the source definition, the `transformations` block
+lists the same local seed placements, while `source coordinate transform`
+carries the same affine transform as the outer `egs_gtransformed` wrapper.
+The per-seed geometry inscriptions and the source `transformations` entries
+must agree; the outer `egs_gtransformed` and `source coordinate transform`
+blocks must agree with each other.
 
 A regression test in `eb_tests/source_coordinate_transform/` verifies that
 composed transforms reproduce the `seeds_in_xyz` gold-standard dose. When a
