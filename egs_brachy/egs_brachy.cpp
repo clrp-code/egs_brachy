@@ -242,6 +242,12 @@ void EB_Application::describeSimulation() {
     if (source) {
         egsInformation("\n\negs_brachy Source Information\n%s\n", string(80,'=').c_str());
         egsInformation("%s\n\n", source->getSourceDescription());
+        if (applied_source_coord_transform) {
+            egsInformation(
+                "Applied source coordinate transform to %d source location(s)\n",
+                (int)source_transforms.size()
+            );
+        }
         egsInformation("Number of source locations = %d\n", source_transforms.size());
         egsInformation("Single source generator    = %s\n", (single_generator ? "yes" : "no"));
         egsInformation("Source | Location (x cm, y cm, z cm)  | Rotated | Weight\n%s\n", string(80,'-').c_str());
@@ -448,10 +454,7 @@ int EB_Application::initSourceTransforms() {
             source_transforms[i] = composed;
         }
         delete coord_transform;
-        egsInformation(
-            "Applied source coordinate transform to %d source location(s)\n",
-            (int)source_transforms.size()
-        );
+        applied_source_coord_transform = true;
     }
 
     nsources = (int)source_transforms.size();

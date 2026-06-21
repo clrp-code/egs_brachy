@@ -13,6 +13,7 @@ if "-v" in sys.argv:
 
 timing_hard_fail = "--timing-hard-fail" in sys.argv
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 EGS_HOME = os.environ["EGS_HOME"]
 EGS_BRACHY = os.path.join(EGS_HOME, "egs_brachy")
 
@@ -78,7 +79,7 @@ def dyn_import(name):
 def create_egsinp(test_module):
     egsinp = test_module.EGSINP
     path_components = test_module.__name__.split(".") + [egsinp]
-    src = os.path.join(*path_components)
+    src = os.path.join(SCRIPT_DIR, *path_components)
     shutil.copy(src, TEST_EGSINP_PATH)
 
 
@@ -92,7 +93,7 @@ def find_cpu_time(egslst):
 def run_simulation():
 
     command = "%s -i %s" % (USER_CODE, TEST_EGSINP_FILE)
-    p = Popen(command, shell=True,
+    p = Popen(command, shell=True, cwd=EGS_BRACHY,
             stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)
     (stdin, stdout, stderr) = (p.stdin, p.stdout, p.stderr)
     egslst = stdout.read()
@@ -108,23 +109,29 @@ def run_simulation():
 def cleanup():
     to_clean = glob.glob(TEST_EGSINP_PATH_ROOT+".*")
     for f in to_clean:
-        # sanity check to make sure we're not deleting anything outside of this directory
-        file_is_in_current_dir = os.path.dirname(f) == os.path.dirname(os.path.abspath(__file__))
-        if file_is_in_current_dir:
-            try:
-                os.remove(f)
-            except PermissionError as e:
-                print(e)
-                print("{} was not deleted because of a permission error.".format(os.path.basename(f)))
+        if os.path.dirname(os.path.abspath(f)) != os.path.abspath(EGS_BRACHY):
+            continue
+        try:
+            os.remove(f)
+        except PermissionError as e:
+            print(e)
+            print("{} was not deleted because of a permission error.".format(os.path.basename(f)))
 
 
 def find_tests():
     if len(sys.argv) > 1:
-        tests = glob.glob(os.path.join(os.path.normpath(sys.argv[1]), "__init__.py"))
+        test_path = os.path.normpath(sys.argv[1])
+        if not os.path.isabs(test_path):
+            test_path = os.path.join(SCRIPT_DIR, test_path)
+        tests = glob.glob(os.path.join(test_path, "__init__.py"))
     else:
-        tests = glob.glob("eb_tests/*/__init__.py")
+        tests = glob.glob(os.path.join(SCRIPT_DIR, "eb_tests", "*", "__init__.py"))
 
-    return [x.replace(os.path.join(os.path.sep, "__init__.py"), "").replace(os.path.sep, ".") for x in tests]
+    rel = os.path.relpath
+    return [
+        rel(x, SCRIPT_DIR).replace(os.path.join(os.path.sep, "__init__.py"), "").replace(os.path.sep, ".")
+        for x in tests
+    ]
 
 
 def run_all_tests():
@@ -132,6 +139,7 @@ def run_all_tests():
     pass_count = 0
     warn_count = 0
     all_tests = find_tests()
+    orig_cwd = os.getcwd()
     for t in all_tests:
 
         print(("Running test '%s'..." % (t,)))
@@ -148,11 +156,14 @@ def run_all_tests():
             if actual_time < 0:
                 print("Simulation did not complete. egs_brachy crash likely")
                 continue
+            os.chdir(EGS_BRACHY)
             results_pass, actual_results, expected_results = test_module.compare_results(egslst, TEST_EGSINP_FILE)
         except:
             print(("Exception while running test '%s'..." % t))
             traceback.print_exc()
             continue
+        finally:
+            os.chdir(orig_cwd)
 
         timing_passes = actual_time <= TIMING_MARGIN*time_limit
         if not timing_passes and not timing_hard_fail:
