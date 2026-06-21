@@ -1,0 +1,29 @@
+\doxysection{gen\+\_\+docs.\+py}
+\label{gen__docs_8py_source}\mbox{\hyperlink{gen__docs_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ gen\_geom}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ gen\_specs}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ gen\_transport}
+\DoxyCodeLine{00004\ \textcolor{keyword}{import}\ gen\_media}
+\DoxyCodeLine{00005\ \textcolor{keyword}{import}\ gen\_tests}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ modules\ =\ [}
+\DoxyCodeLine{00009\ \ \ \ \ (gen\_geom,\ \textcolor{stringliteral}{"{}geom.md"{}}),}
+\DoxyCodeLine{00010\ \ \ \ \ (gen\_specs,\ \textcolor{stringliteral}{"{}spectra.md"{}}),}
+\DoxyCodeLine{00011\ \ \ \ \ (gen\_transport,\ \textcolor{stringliteral}{"{}transport.md"{}}),}
+\DoxyCodeLine{00012\ \ \ \ \ (gen\_media,\ \textcolor{stringliteral}{"{}media.md"{}}),}
+\DoxyCodeLine{00013\ \ \ \ \ (gen\_tests,\ \textcolor{stringliteral}{"{}tests.md"{}}),}
+\DoxyCodeLine{00014\ ]}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{def\ }gen\_docs():}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{for}\ module,\ outfile\ \textcolor{keywordflow}{in}\ modules:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ module.gen\_docs(outfile)}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{00023\ \ \ \ \ gen\_docs()}
+\DoxyCodeLine{00024\ }
+
+\end{DoxyCode}

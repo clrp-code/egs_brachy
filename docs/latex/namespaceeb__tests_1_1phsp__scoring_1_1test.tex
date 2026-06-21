@@ -1,0 +1,128 @@
+\doxysection{eb\+\_\+tests.\+phsp\+\_\+scoring.\+test Namespace Reference}
+\label{namespaceeb__tests_1_1phsp__scoring_1_1test}\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a53b564df279dd43393230bd3d3bdfbd9}{compare\+\_\+results}} (egslst, inp\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a154df0a049530c9b496865879ff92700}{EGSINP}} = "{}phsp\+\_\+score.\+egsinp"{}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a2870a5fac4f2453084cbd72953705673}{TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ}} = 10/2993.
+\item 
+tuple \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a0d1908fbd91d05193342187ff4d9c0a2}{SOURCE\+\_\+\+WEIGHTS}} = (1., 9.)
+\item 
+tuple \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a62bc9cc11c59203dd88851fec3cc5776}{MAX\+\_\+E}} = (0.\+05, 0.\+025,)
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_aeffa2d959c14f91419a48ed0cb882abc}{NHIST}} = 1000
+\item 
+float \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a3e8813d2d7d72957b099de7c32099d51}{RM}} = 0.\+511
+\item 
+dict \mbox{\hyperlink{namespaceeb__tests_1_1phsp__scoring_1_1test_a60b878449c9b43d8a896f8bfbba84ca6}{EXPECTED}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A test that generates an IAEAphsp source with egs_brachy and then checks
+the IAEA file to make sure it was created correctly.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!compare\_results@{compare\_results}}
+\index{compare\_results@{compare\_results}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{compare\_results()}{compare\_results()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a53b564df279dd43393230bd3d3bdfbd9} 
+eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+compare\+\_\+results (\begin{DoxyParamCaption}\item[{}]{egslst}{, }\item[{}]{inp\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00029}{29}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+
+
+\label{doc-var-members}
+\doxysubsection{Variable Documentation}
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!EGSINP@{EGSINP}}
+\index{EGSINP@{EGSINP}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{EGSINP}{EGSINP}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a154df0a049530c9b496865879ff92700} 
+str eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+EGSINP = "{}phsp\+\_\+score.\+egsinp"{}}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00013}{13}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!EXPECTED@{EXPECTED}}
+\index{EXPECTED@{EXPECTED}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{EXPECTED}{EXPECTED}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a60b878449c9b43d8a896f8bfbba84ca6} 
+dict eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+EXPECTED}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \{}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{'num\_e'}:\ NHIST*SOURCE\_WEIGHTS[0]/sum(SOURCE\_WEIGHTS),}
+\DoxyCodeLine{00003\ \ \ \ \ \textcolor{stringliteral}{'num\_p'}:\ NHIST*SOURCE\_WEIGHTS[1]/sum(SOURCE\_WEIGHTS),}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{stringliteral}{'max\_energy'}:\ 0.05,}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{stringliteral}{'num\_orig'}:\ NHIST,}
+\DoxyCodeLine{00006\ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00021}{21}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!MAX\_E@{MAX\_E}}
+\index{MAX\_E@{MAX\_E}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{MAX\_E}{MAX\_E}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a62bc9cc11c59203dd88851fec3cc5776} 
+tuple eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+MAX\+\_\+E = (0.\+05, 0.\+025,)}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00017}{17}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!NHIST@{NHIST}}
+\index{NHIST@{NHIST}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{NHIST}{NHIST}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_aeffa2d959c14f91419a48ed0cb882abc} 
+int eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+NHIST = 1000}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00018}{18}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!RM@{RM}}
+\index{RM@{RM}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{RM}{RM}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a3e8813d2d7d72957b099de7c32099d51} 
+float eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+RM = 0.\+511}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00019}{19}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!SOURCE\_WEIGHTS@{SOURCE\_WEIGHTS}}
+\index{SOURCE\_WEIGHTS@{SOURCE\_WEIGHTS}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{SOURCE\_WEIGHTS}{SOURCE\_WEIGHTS}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a0d1908fbd91d05193342187ff4d9c0a2} 
+tuple eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+SOURCE\+\_\+\+WEIGHTS = (1., 9.)}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00016}{16}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}!TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}}
+\index{TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}!eb\_tests.phsp\_scoring.test@{eb\_tests.phsp\_scoring.test}}
+\doxysubsubsection{\texorpdfstring{TIME\_LIMIT\_S\_PER\_MHZ}{TIME\_LIMIT\_S\_PER\_MHZ}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1phsp__scoring_1_1test_a2870a5fac4f2453084cbd72953705673} 
+int eb\+\_\+tests.\+phsp\+\_\+scoring.\+test.\+TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ = 10/2993.}
+
+
+
+Definition at line \mbox{\hyperlink{phsp__scoring_2test_8py_source_l00014}{14}} of file \mbox{\hyperlink{phsp__scoring_2test_8py_source}{test.\+py}}.
+

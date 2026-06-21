@@ -1,0 +1,114 @@
+\doxysection{eb\+\_\+tests.\+utils Namespace Reference}
+\label{namespaceeb__tests_1_1utils}\index{eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_a67cad7e78b4943b69676ee7ad7322dc3}{extract\+\_\+all\+\_\+doses}} (egslst)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_ac148fb6da9524690598a8cd2e87b13f1}{values\+\_\+close}} (a, b, max\+\_\+percent\+\_\+diff=0.\+001)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_a3ea787470f4caaccac0aed44b990eebd}{values\+\_\+close\+\_\+abs}} (a, b, max\+\_\+diff=0.\+001)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_a313f31121c451a96fb3269398216186d}{read\+\_\+csv\+\_\+spectrum}} (fname)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_a8532191245c7f9a567f61856ba53d315}{doses\+\_\+approx\+\_\+equal}} (d1, d1\+\_\+unc, d2, d2\+\_\+unc, max\+\_\+percent\+\_\+diff=None, compare\+\_\+unc=True, max\+\_\+unc\+\_\+percent\+\_\+diff=None)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_aa9d4a7ec9621a50912d4a7277adb82d4}{read3ddose}} (fname)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1utils_a5fe33e1aeff3874ca6621259397d1eb0}{compare\+\_\+3ddose\+\_\+files}} (f1, f2, max\+\_\+percent\+\_\+diff=None)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceeb__tests_1_1utils_a88d2e59fe1d3b70f27f3df3f3f0a35ea}{REG\+\_\+\+DOSE\+\_\+\+UNC\+\_\+\+RE}} = "{}\textbackslash{}s+(\textbackslash{}d)+\textbackslash{}s+\textbackslash{}d+\textbackslash{}s+\textbackslash{}d+\textbackslash{}..\texorpdfstring{$\ast$}{*}?\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\textbackslash{}s+\textbackslash{}+/-\/\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\%\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\textbackslash{}s+\textbackslash{}+/-\/\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\%"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{eb\_tests.utils@{eb\_tests.utils}!compare\_3ddose\_files@{compare\_3ddose\_files}}
+\index{compare\_3ddose\_files@{compare\_3ddose\_files}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{compare\_3ddose\_files()}{compare\_3ddose\_files()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a5fe33e1aeff3874ca6621259397d1eb0} 
+eb\+\_\+tests.\+utils.\+compare\+\_\+3ddose\+\_\+files (\begin{DoxyParamCaption}\item[{}]{f1}{, }\item[{}]{f2}{, }\item[{}]{max\+\_\+percent\+\_\+diff}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00089}{89}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!doses\_approx\_equal@{doses\_approx\_equal}}
+\index{doses\_approx\_equal@{doses\_approx\_equal}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{doses\_approx\_equal()}{doses\_approx\_equal()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a8532191245c7f9a567f61856ba53d315} 
+eb\+\_\+tests.\+utils.\+doses\+\_\+approx\+\_\+equal (\begin{DoxyParamCaption}\item[{}]{d1}{, }\item[{}]{d1\+\_\+unc}{, }\item[{}]{d2}{, }\item[{}]{d2\+\_\+unc}{, }\item[{}]{max\+\_\+percent\+\_\+diff}{ = {\ttfamily None}, }\item[{}]{compare\+\_\+unc}{ = {\ttfamily True}, }\item[{}]{max\+\_\+unc\+\_\+percent\+\_\+diff}{ = {\ttfamily None}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00049}{49}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!extract\_all\_doses@{extract\_all\_doses}}
+\index{extract\_all\_doses@{extract\_all\_doses}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{extract\_all\_doses()}{extract\_all\_doses()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a67cad7e78b4943b69676ee7ad7322dc3} 
+eb\+\_\+tests.\+utils.\+extract\+\_\+all\+\_\+doses (\begin{DoxyParamCaption}\item[{}]{egslst}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}return all regions and doses from egslst file. This may
+include doses from more than one phantom\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00007}{7}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!read3ddose@{read3ddose}}
+\index{read3ddose@{read3ddose}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{read3ddose()}{read3ddose()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_aa9d4a7ec9621a50912d4a7277adb82d4} 
+eb\+\_\+tests.\+utils.\+read3ddose (\begin{DoxyParamCaption}\item[{}]{fname}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00065}{65}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!read\_csv\_spectrum@{read\_csv\_spectrum}}
+\index{read\_csv\_spectrum@{read\_csv\_spectrum}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{read\_csv\_spectrum()}{read\_csv\_spectrum()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a313f31121c451a96fb3269398216186d} 
+eb\+\_\+tests.\+utils.\+read\+\_\+csv\+\_\+spectrum (\begin{DoxyParamCaption}\item[{}]{fname}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00033}{33}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!values\_close@{values\_close}}
+\index{values\_close@{values\_close}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{values\_close()}{values\_close()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_ac148fb6da9524690598a8cd2e87b13f1} 
+eb\+\_\+tests.\+utils.\+values\+\_\+close (\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{, }\item[{}]{max\+\_\+percent\+\_\+diff}{ = {\ttfamily 0.001}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00024}{24}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+\index{eb\_tests.utils@{eb\_tests.utils}!values\_close\_abs@{values\_close\_abs}}
+\index{values\_close\_abs@{values\_close\_abs}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{values\_close\_abs()}{values\_close\_abs()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a3ea787470f4caaccac0aed44b990eebd} 
+eb\+\_\+tests.\+utils.\+values\+\_\+close\+\_\+abs (\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{, }\item[{}]{max\+\_\+diff}{ = {\ttfamily 0.001}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00030}{30}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+
+
+
+\label{doc-var-members}
+\doxysubsection{Variable Documentation}
+\index{eb\_tests.utils@{eb\_tests.utils}!REG\_DOSE\_UNC\_RE@{REG\_DOSE\_UNC\_RE}}
+\index{REG\_DOSE\_UNC\_RE@{REG\_DOSE\_UNC\_RE}!eb\_tests.utils@{eb\_tests.utils}}
+\doxysubsubsection{\texorpdfstring{REG\_DOSE\_UNC\_RE}{REG\_DOSE\_UNC\_RE}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1utils_a88d2e59fe1d3b70f27f3df3f3f0a35ea} 
+str eb\+\_\+tests.\+utils.\+REG\+\_\+\+DOSE\+\_\+\+UNC\+\_\+\+RE = "{}\textbackslash{}s+(\textbackslash{}d)+\textbackslash{}s+\textbackslash{}d+\textbackslash{}s+\textbackslash{}d+\textbackslash{}..\texorpdfstring{$\ast$}{*}?\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\textbackslash{}s+\textbackslash{}+/-\/\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\%\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\textbackslash{}s+\textbackslash{}+/-\/\textbackslash{}s+(.\texorpdfstring{$\ast$}{*}?)\%"{}}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8py_source_l00004}{4}} of file \mbox{\hyperlink{utils_8py_source}{utils.\+py}}.
+

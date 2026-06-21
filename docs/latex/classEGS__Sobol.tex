@@ -1,0 +1,288 @@
+\doxysection{EGS\+\_\+\+Sobol Class Reference}
+\label{classEGS__Sobol}\index{EGS\_Sobol@{EGS\_Sobol}}
+
+
+EGS\+\_\+\+Random\+Generator wrapper for Sobol library.  
+
+
+
+
+{\ttfamily \#include $<$egs\+\_\+sobol.\+h$>$}
+
+
+
+Inheritance diagram for EGS\+\_\+\+Sobol\+:
+% FIG 0
+
+
+Collaboration diagram for EGS\+\_\+\+Sobol\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEGS__Sobol_a248382fd7896d4334cfee4b0e6e6f186}{EGS\+\_\+\+Sobol}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}inp)
+\item 
+\mbox{\hyperlink{classEGS__Sobol_aee8c3cce44ad287258da4c1c4cdb8497}{EGS\+\_\+\+Sobol}} (int dimension=3, EGS\+\_\+\+I64 iseed=-\/1)
+\item 
+\mbox{\hyperlink{classEGS__Sobol_a4b913bb84cf5c499f69cb6dcc6285f56}{EGS\+\_\+\+Sobol}} (const \mbox{\hyperlink{classEGS__Sobol}{EGS\+\_\+\+Sobol}} \&r)
+\item 
+\mbox{\hyperlink{classEGS__Sobol_a1c48a308b06c2338cc67c205f2ec23ad}{\texorpdfstring{$\sim$}{\string~}\+EGS\+\_\+\+Sobol}} ()
+\item 
+void \mbox{\hyperlink{classEGS__Sobol_a821f01d1c415749d7f435c626782d503}{fill\+Array}} (int n, EGS\+\_\+\+Float \texorpdfstring{$\ast$}{*}array)
+\begin{DoxyCompactList}\small\item\em Fill the array pointed to by {\itshape array} with random numbers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEGS__Sobol_a80cfcfd849b87b5816149ccdd8bc1826}{describe\+RNG}} () const
+\begin{DoxyCompactList}\small\item\em Output information about this RNG using egs\+Information(). \end{DoxyCompactList}\item 
+EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEGS__Sobol_a874af935b7a6a536fc5a0b3a925212c3}{get\+Copy}} ()
+\item 
+void \mbox{\hyperlink{classEGS__Sobol_a966fdcad1495bb932ac89b7ba18177fe}{set\+State}} (EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*}r)
+\item 
+void \mbox{\hyperlink{classEGS__Sobol_a1f458c9c2fdfc77d91b918680d8d7d52}{save\+State}} ()
+\item 
+void \mbox{\hyperlink{classEGS__Sobol_ab5bcbbe4a8695cb5d90ad4361bbf6a64}{reset\+State}} ()
+\item 
+int \mbox{\hyperlink{classEGS__Sobol_a8b882ea65a569bd1767584460b5c7fd4}{rng\+Size}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classEGS__Sobol_afc0a51c8dfb448a3beaaa5ae4dddcc6d}{store\+Private\+State}} (ostream \&data)
+\item 
+bool \mbox{\hyperlink{classEGS__Sobol_a695cd42f3b20ad9c2611a13f1a79ac5c}{set\+Private\+State}} (istream \&data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEGS__Sobol_a7d08ae34afeb373f75e8ddff72ef9087}{set\+State}} (int dimension, EGS\+\_\+\+I64 \mbox{\hyperlink{classEGS__Sobol_afe0731a2a1c104e0acb9b3bc6595f2ae}{init\+\_\+seed}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEGS__Sobol_a3f06bceb963461be3e300c5edd95b582}{dim}}
+\item 
+EGS\+\_\+\+I64 \mbox{\hyperlink{classEGS__Sobol_afe0731a2a1c104e0acb9b3bc6595f2ae}{init\+\_\+seed}}
+\item 
+EGS\+\_\+\+I64 \mbox{\hyperlink{classEGS__Sobol_aac5bd96a4de389bd29ca34ccd9d33ca1}{cur\+\_\+seed}}
+\begin{DoxyCompactList}\small\item\em initial seed for random number generator \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEGS__Sobol}{EGS\+\_\+\+Sobol}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEGS__Sobol_ae53c24c02337abd73637c5c9e26f4262}{copy}}
+\begin{DoxyCompactList}\small\item\em current seed being used for random number generator (required to reinitialize \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+EGS\+\_\+\+Random\+Generator wrapper for Sobol library. 
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00071}{71}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{EGS\_Sobol()}{EGS\_Sobol()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a248382fd7896d4334cfee4b0e6e6f186} 
+EGS\+\_\+\+Sobol\+::\+EGS\+\_\+\+Sobol (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00075}{75}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{EGS\_Sobol()}{EGS\_Sobol()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_aee8c3cce44ad287258da4c1c4cdb8497} 
+EGS\+\_\+\+Sobol\+::\+EGS\+\_\+\+Sobol (\begin{DoxyParamCaption}\item[{int}]{dimension}{ = {\ttfamily 3}, }\item[{EGS\+\_\+\+I64}]{iseed}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00094}{94}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\index{EGS\_Sobol@{EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{EGS\_Sobol()}{EGS\_Sobol()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a4b913bb84cf5c499f69cb6dcc6285f56} 
+EGS\+\_\+\+Sobol\+::\+EGS\+\_\+\+Sobol (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEGS__Sobol}{EGS\+\_\+\+Sobol}} \&}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00108}{108}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!````~EGS\_Sobol@{\texorpdfstring{$\sim$}{\string~}EGS\_Sobol}}
+\index{````~EGS\_Sobol@{\texorpdfstring{$\sim$}{\string~}EGS\_Sobol}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EGS\_Sobol()}{\string~EGS\_Sobol()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a1c48a308b06c2338cc67c205f2ec23ad} 
+EGS\+\_\+\+Sobol\+::\texorpdfstring{$\sim$}{\string~}\+EGS\+\_\+\+Sobol (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00114}{114}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EGS\_Sobol@{EGS\_Sobol}!describeRNG@{describeRNG}}
+\index{describeRNG@{describeRNG}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{describeRNG()}{describeRNG()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a80cfcfd849b87b5816149ccdd8bc1826} 
+void EGS\+\_\+\+Sobol\+::describe\+RNG (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Output information about this RNG using egs\+Information(). 
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!fillArray@{fillArray}}
+\index{fillArray@{fillArray}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{fillArray()}{fillArray()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a821f01d1c415749d7f435c626782d503} 
+void EGS\+\_\+\+Sobol\+::fill\+Array (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{EGS\+\_\+\+Float \texorpdfstring{$\ast$}{*}}]{array}{}\end{DoxyParamCaption})}
+
+
+
+Fill the array pointed to by {\itshape array} with random numbers. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00130}{130}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!getCopy@{getCopy}}
+\index{getCopy@{getCopy}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{getCopy()}{getCopy()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a874af935b7a6a536fc5a0b3a925212c3} 
+EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*} EGS\+\_\+\+Sobol\+::get\+Copy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!resetState@{resetState}}
+\index{resetState@{resetState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{resetState()}{resetState()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_ab5bcbbe4a8695cb5d90ad4361bbf6a64} 
+void EGS\+\_\+\+Sobol\+::reset\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!rngSize@{rngSize}}
+\index{rngSize@{rngSize}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{rngSize()}{rngSize()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a8b882ea65a569bd1767584460b5c7fd4} 
+int EGS\+\_\+\+Sobol\+::rng\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00136}{136}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!saveState@{saveState}}
+\index{saveState@{saveState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{saveState()}{saveState()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a1f458c9c2fdfc77d91b918680d8d7d52} 
+void EGS\+\_\+\+Sobol\+::save\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!setPrivateState@{setPrivateState}}
+\index{setPrivateState@{setPrivateState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{setPrivateState()}{setPrivateState()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a695cd42f3b20ad9c2611a13f1a79ac5c} 
+bool EGS\+\_\+\+Sobol\+::set\+Private\+State (\begin{DoxyParamCaption}\item[{istream \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Reads the same data stored by \doxylink{classEGS__Sobol_afc0a51c8dfb448a3beaaa5ae4dddcc6d}{store\+Private\+State()} 
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!setState@{setState}}
+\index{setState@{setState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a966fdcad1495bb932ac89b7ba18177fe} 
+void EGS\+\_\+\+Sobol\+::set\+State (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!setState@{setState}}
+\index{setState@{setState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a7d08ae34afeb373f75e8ddff72ef9087} 
+void EGS\+\_\+\+Sobol\+::set\+State (\begin{DoxyParamCaption}\item[{int}]{dimension}{, }\item[{EGS\+\_\+\+I64}]{init\+\_\+seed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!storePrivateState@{storePrivateState}}
+\index{storePrivateState@{storePrivateState}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{storePrivateState()}{storePrivateState()}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_afc0a51c8dfb448a3beaaa5ae4dddcc6d} 
+bool EGS\+\_\+\+Sobol\+::store\+Private\+State (\begin{DoxyParamCaption}\item[{ostream \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Stores the pointers ix and jx, the carry c, the initial seeds that were used to initialize the generator and the 97 element array u. 
+
+Definition at line \mbox{\hyperlink{egs__sobol_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{egs__sobol_8cpp_source}{egs\+\_\+sobol.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EGS\_Sobol@{EGS\_Sobol}!copy@{copy}}
+\index{copy@{copy}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{copy}{copy}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_ae53c24c02337abd73637c5c9e26f4262} 
+\mbox{\hyperlink{classEGS__Sobol}{EGS\+\_\+\+Sobol}}\texorpdfstring{$\ast$}{*} EGS\+\_\+\+Sobol\+::copy\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+current seed being used for random number generator (required to reinitialize 
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00159}{159}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!cur\_seed@{cur\_seed}}
+\index{cur\_seed@{cur\_seed}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{cur\_seed}{cur\_seed}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_aac5bd96a4de389bd29ca34ccd9d33ca1} 
+EGS\+\_\+\+I64 EGS\+\_\+\+Sobol\+::cur\+\_\+seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initial seed for random number generator 
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00157}{157}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!dim@{dim}}
+\index{dim@{dim}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{dim}{dim}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_a3f06bceb963461be3e300c5edd95b582} 
+int EGS\+\_\+\+Sobol\+::dim\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00155}{155}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+\index{EGS\_Sobol@{EGS\_Sobol}!init\_seed@{init\_seed}}
+\index{init\_seed@{init\_seed}!EGS\_Sobol@{EGS\_Sobol}}
+\doxysubsubsection{\texorpdfstring{init\_seed}{init\_seed}}
+{\footnotesize\ttfamily \label{classEGS__Sobol_afe0731a2a1c104e0acb9b3bc6595f2ae} 
+EGS\+\_\+\+I64 EGS\+\_\+\+Sobol\+::init\+\_\+seed\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__sobol_8h_source_l00156}{156}} of file \mbox{\hyperlink{egs__sobol_8h_source}{egs\+\_\+sobol.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__sobol_8h}{egs\+\_\+sobol.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__sobol_8cpp}{egs\+\_\+sobol.\+cpp}}\end{DoxyCompactItemize}

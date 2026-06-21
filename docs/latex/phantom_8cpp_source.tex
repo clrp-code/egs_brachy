@@ -1,0 +1,1032 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/phantom.cpp}
+\label{phantom_8cpp_source}\mbox{\hyperlink{phantom_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ phantom.cpp}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}phantom.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}gzstream.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}latch.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}egs\_run\_control.h"{}}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ Used\ internally\ for\ keeping\ track\ of\ results\ for\ regions,\ allowing\ us}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ to\ sort\ by\ dose\ etc\ */}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{struct\ }RegionResult\ \{}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ reg;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{double}\ volume;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{double}\ volume\_unc;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{double}\ tlen;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ tlen\_err;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ edep;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{double}\ edep\_err;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ comparison\ function\ useful\ for\ sorting\ vectors\ of\ RegionResults\ */}}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{bool}\ tlenRegTopResultCompare(\textcolor{keyword}{const}\ RegionResult\ \&firstElem,\ \textcolor{keyword}{const}\ RegionResult\ \&secondElem)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ firstElem.tlen\ >\ secondElem.tlen;}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{bool}\ edepRegTopResultCompare(\textcolor{keyword}{const}\ RegionResult\ \&firstElem,\ \textcolor{keyword}{const}\ RegionResult\ \&secondElem)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ firstElem.edep\ >\ secondElem.edep;}
+\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ utility\ function\ for\ replacing\ spaces\ with\ underscores\ in\ a\ string\ */}}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{string}\ space2underscore(std::string\ text)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::string::iterator\ it\ =\ text.begin();\ it\ !=\ text.end();\ ++it)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*it\ ==\ \textcolor{charliteral}{'\ '})\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ *it\ =\ \textcolor{charliteral}{'\_'};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ text;}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/*\ geometries\ that\ support\ getting\ regional\ volume/mass\ can\ be\ used\ as\ phantoms}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ without\ specifying\ their\ volumes.\ Other\ geometry\ type\ need\ to\ have\ their}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ *\ volumes\ specified\ using\ \`{}phantom\ region\ volumes`\ inputs.}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ EB\_Phantom::autovol\_phantom\_geom\_types[]\ =\ \{\textcolor{stringliteral}{"{}EGS\_cSpheres"{}},\ \textcolor{stringliteral}{"{}EGS\_cSphericalShell"{}},\ \textcolor{stringliteral}{"{}EGS\_XYZGeometry"{}},\ \textcolor{stringliteral}{"{}EGS\_XYZGeometryT"{}},\ \textcolor{stringliteral}{"{}EGS\_RZ"{}}\};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{/*\ geometries\ that\ support\ 3ddose\ files\ */}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ EB\_Phantom::threeddose\_geom\_types[]\ =\ \{\textcolor{stringliteral}{"{}EGS\_cSpheres"{}},\ \textcolor{stringliteral}{"{}EGS\_cSphericalShell"{}},\ \textcolor{stringliteral}{"{}EGS\_XYZGeometry"{}},\ \textcolor{stringliteral}{"{}EGS\_XYZGeometryT"{}},\ \textcolor{stringliteral}{"{}EGS\_RZ"{}}\};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*\ initializer\ for\ phantom\ class\ */}}
+\DoxyCodeLine{00104\ EB\_Phantom::EB\_Phantom(EGS\_Application\ *parent,\ EGS\_BaseGeometry\ *geom,\ set<int>\ global\_regions,\ \textcolor{keywordtype}{int}\ nsource,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Publisher\ *pub)\ :}
+\DoxyCodeLine{00106\ \ \ \ \ app(parent),\ tlen\_score(0),\ edep\_score(0),}
+\DoxyCodeLine{00107\ \ \ \ \ prim\_score(0),\ sscat\_score(0),\ mscat\_score(0),}
+\DoxyCodeLine{00108\ \ \ \ \ nsources(nsource),}
+\DoxyCodeLine{00109\ \ \ \ \ dose\_scale(1.),}
+\DoxyCodeLine{00110\ \ \ \ \ total\_radiant\_e(0),}
+\DoxyCodeLine{00111\ \ \ \ \ cur\_history(0),}
+\DoxyCodeLine{00112\ \ \ \ \ publisher(pub),}
+\DoxyCodeLine{00113\ \ \ \ \ geometry(geom),\ global\_regions(global\_regions)\ \{}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ global\_reg\_start\ =\ *global\_regions.begin();}
+\DoxyCodeLine{00116\ \ \ \ \ global\_reg\_stop\ =\ *global\_regions.rbegin();}
+\DoxyCodeLine{00117\ \ \ \ \ needs\_user\_geoms\ =\ needsUserVolumes(geom-\/>getType());}
+\DoxyCodeLine{00118\ \ \ \ \ can\_write\_3ddose\ =\ canWrite3ddose(geom-\/>getType());}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ publisher-\/>subscribe(\textcolor{keyword}{this},\ NEW\_HISTORY);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ EB\_Phantom::update(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ NEW\_HISTORY)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ setHistory(*((EGS\_I64\ *)data));}
+\DoxyCodeLine{00127\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_ESCAPING\_SOURCE)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p\ =\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(data);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ total\_radiant\_e\ +=\ p-\/>E*p-\/>wt;}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ EB\_Phantom::scoreTlen(\textcolor{keywordtype}{int}\ ir,\ EGS\_Float\ dose,\ EGS\_Particle\ *p)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (ir\ <\ 0\ ||\ ir\ >=\ geometry-\/>regions())\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}bad\ \%d\ \(\backslash\)n"{}},\ ir);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ tlen\_score-\/>score(ir,\ dose);}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{if}\ (prim\_score)\ \{}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Latch::isPrimary(p))\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ prim\_score-\/>score(ir,\ dose);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Latch::isSingleScat(p))\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ sscat\_score-\/>score(ir,\ dose);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Latch::isMultScat(p))\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ mscat\_score-\/>score(ir,\ dose);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ EB\_Phantom::scoreEdep(\textcolor{keywordtype}{int}\ ir,\ EGS\_Float\ dose)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ edep\_score-\/>score(ir,\ dose);}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ EB\_Phantom::setDoseScale(EGS\_Float\ scale)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ dose\_scale\ =\ scale;}
+\DoxyCodeLine{00164\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{bool}\ EB\_Phantom::needsUserVolumes(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&geom\_type)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ input\ geometry\ is\ one\ that\ egs\_brachy\ can\ handle}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ (int)(\textcolor{keyword}{sizeof}(autovol\_phantom\_geom\_types)/\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<end;\ i++)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (autovol\_phantom\_geom\_types[i]\ ==\ geom\_type)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keywordtype}{bool}\ EB\_Phantom::canWrite3ddose(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&geom\_type)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ input\ geometry\ is\ one\ that\ egs\_brachy\ can\ handle}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{int}\ end\ =\ (int)(\textcolor{keyword}{sizeof}(threeddose\_geom\_types)/\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<end;\ i++)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (threeddose\_geom\_types[i]\ ==\ geom\_type)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ vector<int>\ EB\_Phantom::getRegionsWithCorrections()\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ vector<int>\ regs;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::map<int,\ double>::iterator\ it=corrected\_volumes.begin();\ it\ !=\ corrected\_volumes.end();\ \ ++it)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ regs.push\_back(it-\/>first);}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ regs;}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ EB\_Phantom::setCorrectedVolume(\textcolor{keywordtype}{int}\ ir,\ \textcolor{keywordtype}{double}\ corrected\_vol,\ \textcolor{keywordtype}{double}\ unc)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ corrected\_volumes[ir]\ =\ corrected\_vol;}
+\DoxyCodeLine{00204\ \ \ \ \ volume\_uncertainty[ir]\ =\ unc;}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{comment}{/*\ turn\ on\ interaction\ scoring\ */}}
+\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ EB\_Phantom::enableTLenScoring()\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{if}\ (!tlen\_score)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ tlen\_score\ =\ \textcolor{keyword}{new}\ EGS\_ScoringArray(geometry-\/>regions());}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{/*\ turn\ on\ interaction\ scoring\ */}}
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{void}\ EB\_Phantom::enableInteractionScoring()\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{if}\ (!edep\_score)\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ edep\_score\ =\ \textcolor{keyword}{new}\ EGS\_ScoringArray(geometry-\/>regions());}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{comment}{/*\ turn\ on\ interaction\ scoring\ */}}
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ EB\_Phantom::enableScatterScoring()\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (!prim\_score)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ prim\_score\ =\ \textcolor{keyword}{new}\ EGS\_ScoringArray(geometry-\/>regions());}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ sscat\_score=\ \textcolor{keyword}{new}\ EGS\_ScoringArray(geometry-\/>regions());}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ mscat\_score=\ \textcolor{keyword}{new}\ EGS\_ScoringArray(geometry-\/>regions());}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ publisher-\/>subscribe(\textcolor{keyword}{this},\ PARTICLE\_ESCAPING\_SOURCE);}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{comment}{/*\ needs\ to\ be\ called\ at\ start\ of\ every\ history\ for\ every\ phantom\ for}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ *\ proper\ scoring\ of\ statistics\ */}}
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{void}\ EB\_Phantom::setHistory(EGS\_I64\ current\_case)\ \{}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ cur\_history\ =\ current\_case;}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ tlen\_score-\/>setHistory(current\_case);}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ edep\_score-\/>setHistory(current\_case);}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{if}\ (prim\_score)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ prim\_score-\/>setHistory(current\_case);}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ sscat\_score-\/>setHistory(current\_case);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ mscat\_score-\/>setHistory(current\_case);}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{keywordtype}{void}\ EB\_Phantom::setEffectiveHistories(EGS\_Float\ neff)\ \{}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ effective\_histories\ =\ neff;}
+\DoxyCodeLine{00256\ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{comment}{/*\ call\ to\ tell\ phantom\ to\ output\ its\ results\ */}}
+\DoxyCodeLine{00259\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputResults(\textcolor{keywordtype}{int}\ top\_n,\ \textcolor{keywordtype}{string}\ output\_3ddose,\ \textcolor{keywordtype}{string}\ output\_egsphant,\ \textcolor{keywordtype}{string}\ output\_voxinfo,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ output\_volcor)\ \{}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{if}\ (output\_voxinfo\ ==\ \textcolor{stringliteral}{"{}text"{}}\ ||\ output\_voxinfo\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ outputVoxelInfo(output\_voxinfo);}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{if}\ (output\_volcor\ ==\ \textcolor{stringliteral}{"{}text"{}}\ ||\ output\_volcor\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ outputVolumeCorrection(output\_volcor);}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ vector<RegionResult>\ region\_results\ =\ getRegionResults();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (top\_n)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ outputTopDoses(top\_n,\ region\_results);}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{if}\ (can\_write\_3ddose\ \&\&\ (output\_3ddose\ ==\ \textcolor{stringliteral}{"{}text"{}}\ ||\ output\_3ddose\ ==\ \textcolor{stringliteral}{"{}gzip"{}}))\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ output3ddoseResults(output\_3ddose);}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordflow}{if}\ (can\_write\_3ddose\ \&\&\ \ (output\_egsphant==\ \textcolor{stringliteral}{"{}text"{}}\ ||\ output\_egsphant\ ==\ \textcolor{stringliteral}{"{}gzip"{}}))\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ outputEGSPhant(output\_egsphant);}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \}}
+\DoxyCodeLine{00285\ EGS\_Float\ EB\_Phantom::getRealRho(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordtype}{int}\ med\ =\ geometry-\/>medium(ireg);}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{return}\ geometry-\/>getRelativeRho(ireg)*the\_media-\/>rho[med];}
+\DoxyCodeLine{00288\ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ EGS\_Float\ EB\_Phantom::getRealMass(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{if}\ (needs\_user\_geoms\ \&\&\ !hasVolCor(ireg))\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00294\ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{return}\ getCorrectedVolume(ireg)*getRealRho(ireg);}
+\DoxyCodeLine{00296\ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ EGS\_Float\ EB\_Phantom::getUncorrectedMass(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{return}\ needs\_user\_geoms\ ?\ -\/1\ :\ getUncorrectedVolume(ireg)*getRealRho(ireg);}
+\DoxyCodeLine{00300\ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ EGS\_Float\ EB\_Phantom::getUncorrectedVolume(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{if}\ (needs\_user\_geoms)\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ EGS\_Float\ volume\ =\ geometry-\/>getVolume(ireg);}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ volume;}
+\DoxyCodeLine{00308\ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{keywordtype}{bool}\ EB\_Phantom::hasVolCor(\textcolor{keywordtype}{int}\ ireg)\{}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{return}\ corrected\_volumes.find(ireg)\ !=\ corrected\_volumes.end();}
+\DoxyCodeLine{00312\ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ EGS\_Float\ EB\_Phantom::getCorrectedVolume(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_correction\ =\ hasVolCor(ireg);}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordflow}{if}\ (needs\_user\_geoms\ \&\&\ !has\_correction)\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00319\ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ has\_correction\ ?\ corrected\_volumes[ireg]\ :\ getUncorrectedVolume(ireg);}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ EGS\_Float\ EB\_Phantom::getVolumeUncertainty(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_correction\ =\ hasVolCor(ireg);}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{if}\ (needs\_user\_geoms\ \&\&\ !has\_correction)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{return}\ has\_correction\ ?\ volume\_uncertainty[ireg]\ :\ 0;}
+\DoxyCodeLine{00330\ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keywordtype}{void}\ EB\_Phantom::getCurrentScore(\textcolor{keywordtype}{int}\ ireg,\ \textcolor{keywordtype}{double}\ \&sum,\ \textcolor{keywordtype}{double}\ \&sum2)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ tlen\_score-\/>currentScore(ireg,\ sum,\ sum2);}
+\DoxyCodeLine{00335\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ edep\_score-\/>currentScore(ireg,\ sum,\ sum2);}
+\DoxyCodeLine{00337\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ sum\ =\ 0;}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ sum2\ =\ 0;}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{double}\ EB\_Phantom::getTlenNorm(\textcolor{keywordtype}{int}\ ireg)\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{double}\ eff\_hist\_norm\ =\ (double)effective\_histories/cur\_history;}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{return}\ 1.60217662E-\/10*nsources*dose\_scale/eff\_hist\_norm;}
+\DoxyCodeLine{00347\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{keywordtype}{void}\ EB\_Phantom::getResult(EGS\_ScoringArray\ *score,\ \textcolor{keywordtype}{int}\ ireg,\ \textcolor{keywordtype}{string}\ type,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ score-\/>currentResult(ireg,\ r,\ dr);}
+\DoxyCodeLine{00352\ \ \ \ \ dr\ =\ r\ >\ 0\ ?\ dr/r:\ 1;}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{comment}{//\ scoring\ arrays\ are\ already\ normalized\ to\ number\ of\ statistically}}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{comment}{//\ independent\ histories}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{comment}{//\ correct\ norm\ from\ per\ history\ to\ per\ effective\ history}}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{double}\ eff\_hist\_norm\ =\ (double)effective\_histories/cur\_history;}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{comment}{//egsInformation("{}Normalization:\ effective\_histories\ \%d,\ cur\_history\ \%d,\ eff\_hist\_norm\ \%f\(\backslash\)n"{},effective\_histories,\ cur\_history,\ eff\_hist\_norm);}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}tlen"{}})\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ r\ *=\ 1.60217662E-\/10*nsources*dose\_scale/eff\_hist\_norm;}
+\DoxyCodeLine{00365\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}edep"{}})\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ r\ *=\ 1.60217662E-\/10*nsources*dose\_scale/eff\_hist\_norm;}
+\DoxyCodeLine{00367\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ scatter\ norm}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ r\ *=\ (cur\_history/total\_radiant\_e)*nsources*dose\_scale/eff\_hist\_norm;}
+\DoxyCodeLine{00369\ \ \ \ \ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \textcolor{comment}{//\ Note:\ this\ could\ be\ made\ more\ memory\ efficient\ by\ using\ an\ ordered\ set;}}
+\DoxyCodeLine{00375\ \textcolor{comment}{//\ For\ every\ iteration,\ insert\ new\ region\ result\ and\ then\ if\ the}}
+\DoxyCodeLine{00376\ \textcolor{comment}{//\ set\ has\ more\ than\ TOP\_N\ results,\ reduce\ the\ size\ to\ TOP\_N}}
+\DoxyCodeLine{00377\ vector<RegionResult>\ EB\_Phantom::getRegionResults()\ \{}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{int}\ nreg\ =\ geometry-\/>regions();}
+\DoxyCodeLine{00380\ \ \ \ \ vector<RegionResult>\ region\_results;}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{comment}{//\ retrieve\ results\ and\ add\ to\ region\_results\ to\ allow\ for\ sorting\ by\ top\ doses}}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ireg\ =\ 0;\ ireg\ <\ nreg;\ ireg++)\ \{}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ result=0,\ dr=0;}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(tlen\_score,\ ireg,\ \textcolor{stringliteral}{"{}tlen"{}},\ result,\ dr);}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ result\_edep=0,\ result\_edep\_dr=0;}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(edep\_score,\ ireg,\ \textcolor{stringliteral}{"{}edep"{}},\ result\_edep,\ result\_edep\_dr);}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ EGS\_Float\ volume\ =\ getCorrectedVolume(ireg);}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ EGS\_Float\ dv\ =\ getVolumeUncertainty(ireg);}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ RegionResult\ regr\ =\ \{\ ireg,\ volume,\ dv,\ result,\ dr,\ result\_edep,\ result\_edep\_dr\ \};}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ region\_results.push\_back(regr);}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ region\_results;}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{comment}{/*\ output\ statistics\ about\ dose\ arrays\ */}}
+\DoxyCodeLine{00408\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputDoseStats(EGS\_ScoringArray\ *score,\ \textcolor{keywordtype}{string}\ type)\ \{}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{int}\ nreg\ =\ score-\/>regions();}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ EGS\_Float\ avg\_dose=0,\ \textcolor{comment}{//\ average\ dose}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_err=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ on\ dose}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_tot\_err=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ on\ dose}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_0=0,\ \textcolor{comment}{//\ average\ non\ zero\ dose}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_0\_err=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ on\ non\ zero\ doses}}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_tot\_gt\_0\_err=0,\ \ \textcolor{comment}{//\ average\ total\ error\ on\ non\ zero\ doses}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_20=0,\ \ \textcolor{comment}{//\ average\ dose\ >\ 20\%\ max\ dose}}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_20\_err=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ on\ doses\ >\ 20\%\ max\ dose}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_tot\_gt\_20\_err=0,\ \ \textcolor{comment}{//\ average\ total\ uncertainty\ on\ doses\ >\ 20\%\ max\ dose}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ of\ volume\ corrections\ (only\ includes\ regions\ which\ have\ volume\ corrections)}}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_0=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ of\ volume\ corrections\ (only\ includes\ regions\ which\ have\ volume\ corrections)}}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_99=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ of\ volume\ corrections\ where\ Vcor\ /\ Vnominal\ >\ 0.01}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_50=0,\ \ \textcolor{comment}{//\ average\ uncertainty\ of\ volume\ corrections\ where\ Vcor\ /\ Vnominal\ >\ 0.001}}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_d20=0\ \ \textcolor{comment}{//\ average\ uncertainty\ of\ volume\ corrections\ where\ D\ >\ 0.2*Dmax}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_gt\_0=0,\ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ non\ zero\ dose}}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ n\_gt\_20=0,\ \textcolor{comment}{//\ \#\ of\ voxels\ with\ dose\ >=\ 20\%\ Dmax}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ n\_vol\_cor=0,\ \ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ a\ volume\ correction}}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ n\_vol\_cor\_no\_dose=0,\ \ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ a\ volume\ correction\ but\ no\ dose\ scored}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ n\_vol\_cor\_d20=0,\ \ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ a\ volume\ correction\ and\ D\ >\ 0.2*Dmax}}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ n\_vol\_cor\_0=0,\ \ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ a\ volume\ correction\ and\ dose\ scored}}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ n\_vol\_cor\_99=0,\ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ less\ than\ 99\%\ coverage}}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ n\_vol\_cor\_50=0,\ \ \textcolor{comment}{//\ \#\ of\ voxels\ with\ less\ than\ 99.9\%\ coverage}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ n\_vol\_cor\_1000=0;\ \textcolor{comment}{//\ \#\ of\ voxels\ with\ less\ than\ 100\%\ coverage}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{comment}{//\ first\ find\ max\ dose\ so\ we\ can\ check\ voxels\ for\ >=\ 20\%\ Dmax}}
+\DoxyCodeLine{00443\ \ \ \ \ EGS\_Float\ max\_dose\ =\ 0;}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{comment}{//\ find\ max\ dose\ so\ e}}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nreg;\ i++)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ EGS\_Float\ r,\ dr;}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ getResult(score,\ i,\ type,\ r,\ dr);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ max\_dose\ =\ max(max\_dose,\ r);}
+\DoxyCodeLine{00449\ \ \ \ \ \}}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nreg;\ i++)\ \{}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ EGS\_Float\ dose,\ dose\_err;}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ getResult(score,\ i,\ type,\ dose,\ dose\_err);}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vol\_nom\ =\ getUncorrectedVolume(i);}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vol\_cor\ =\ getCorrectedVolume(i);}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vol\_err\ =\ getVolumeUncertainty(i);}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_vol\_cor\ =\ hasVolCor(i);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vol\_cor\ <=\ 0)\{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_1000++;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vol\ cor\ stats}}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_vol\_cor)\{}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor++;}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\ +=\ vol\_err;}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dose\ >\ 0)\{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_0++;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_0\ +=\ vol\_err;}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_no\_dose++;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dose\ >\ 0\ \&\&\ (vol\_cor\ /\ vol\_nom\ <=\ 0.500))\{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_50++;}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_50\ +=\ vol\_err;}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dose\ >\ 0\ \&\&\ (vol\_cor\ /\ vol\_nom\ <=\ 0.01))\{}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_99++;}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_99\ +=\ vol\_err;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ all\ voxels\ including\ zero\ doses}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ avg\_dose\ +=\ dose;}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ avg\_dose\_err\ +=\ \ dose\_err;}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ avg\_tot\_err\ +=\ sqrt(dose\_err*dose\_err\ +\ vol\_err*vol\_err);}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ all\ non\ zero\ doses}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dose\ >\ 0)\{}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ n\_gt\_0++;}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_0\ +=\ dose;}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_0\_err\ +=\ dose\_err;}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_tot\_gt\_0\_err\ +=\ sqrt(dose\_err*dose\_err\ +\ vol\_err*vol\_err);}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Doses\ >=\ 0.2}}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dose\ >=\ max\_dose*0.20)\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ n\_gt\_20++;}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_20\ +=\ dose;}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_dose\_gt\_20\_err\ +=\ dose\_err;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_tot\_gt\_20\_err\ +=\ sqrt(dose\_err*dose\_err\ +\ vol\_err*vol\_err);}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_vol\_cor)\{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_vol\_err\_d20\ +=\ vol\_err;}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_vol\_cor\_d20++;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \ \ \ \ \}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordtype}{string}\ units\ =\ \textcolor{stringliteral}{"{}Gy/hist"{}};}
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}pr"{}}\ ||\ type\ ==\ \textcolor{stringliteral}{"{}ss"{}}\ ||\ type\ ==\ \textcolor{stringliteral}{"{}ms"{}}\ ||\ type\ ==\ \textcolor{stringliteral}{"{}to"{}})\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ units\ =\ \textcolor{stringliteral}{"{}Gy/R"{}};}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ \ Total\ radiant\ energy\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.3G\ MeV\(\backslash\)n"{}},\ total\_radiant\_e);}
+\DoxyCodeLine{00524\ \ \ \ \ \}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ \ Dose\ Scaling\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.3G\(\backslash\)n"{}},\ dose\_scale);}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ \ \#\ of\ voxels\ with\ vol\ corrections\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3F\%)\(\backslash\)n"{}},\ n\_vol\_cor,\ nreg,\ 100.*n\_vol\_cor/nreg);}
+\DoxyCodeLine{00529\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \#\ of\ voxels\ with\ vol\ correction\ \&\ D\ >\ 0\ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3F\%)\(\backslash\)n"{}},\ n\_vol\_cor\_0,\ nreg,\ 100.*n\_vol\_cor\_0/nreg);}
+\DoxyCodeLine{00530\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \#\ of\ voxels\ with\ vol\ correction\ \&\ D\ =\ 0\ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3F\%)\(\backslash\)n"{}},\ n\_vol\_cor\_no\_dose,\ nreg,\ 100.*n\_vol\_cor\_no\_dose/nreg);}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ vol\ correction\ where:\(\backslash\)n"{}});}
+\DoxyCodeLine{00533\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ D\ >\ 0\ \&\ at\ least\ 0\%\%\ of\ voxel\ covered\ \ \ \ \ \ \ =\ \ \%.2F\%\ (\%d\ voxels)\(\backslash\)n"{}},}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ n\_vol\_cor\_0\ >\ 0\ ?\ 100.*avg\_vol\_err\_0/n\_vol\_cor\_0\ :\ 0,\ n\_vol\_cor\_0);}
+\DoxyCodeLine{00535\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ vol\ corrections\ where:\(\backslash\)n"{}});}
+\DoxyCodeLine{00536\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ D\ >\ 0\ \&\ at\ least\ 50\%\%\ of\ voxel\ covered\ \ \ \ \ \ =\ \ \%.2F\%\ (\%d\ voxels)\(\backslash\)n"{}},}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ n\_vol\_cor\_50\ >\ 0\ ?\ 100.*avg\_vol\_err\_50/n\_vol\_cor\_50\ :\ 0,\ n\_vol\_cor\_50);}
+\DoxyCodeLine{00538\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ vol\ corrections\ where:\(\backslash\)n"{}});}
+\DoxyCodeLine{00539\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ D\ >\ 0\ \&\ at\ least\ 99\%\%\ of\ voxel\ covered\ \ \ \ \ \ =\ \ \%.2F\%\ (\%d\ voxels)\(\backslash\)n"{}},}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ n\_vol\_cor\_99\ >\ 0\ ?\ 100.*avg\_vol\_err\_99/n\_vol\_cor\_99\ :\ 0,\ n\_vol\_cor\_99);}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ \ Max\ dose\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.5E\ \%s\(\backslash\)n"{}},\ max\_dose,\ units.c\_str());}
+\DoxyCodeLine{00543\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \#\ of\ voxels\ with\ D\ >\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3G\%)\(\backslash\)n"{}},\ n\_gt\_0,\ nreg,\ 100.*n\_gt\_0/nreg);}
+\DoxyCodeLine{00544\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \#\ of\ voxels\ with\ D\ =\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3G\%)\(\backslash\)n"{}},\ nreg\ \ -\/\ n\_gt\_0,\ nreg,\ 100.*(nreg\ -\/\ n\_gt\_0)/nreg);}
+\DoxyCodeLine{00545\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ dose\ for\ D\ >\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.5E\ \%s\(\backslash\)n"{}},\ avg\_dose\_gt\_0\ /\ n\_gt\_0,\ units.c\_str());}
+\DoxyCodeLine{00546\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ dose\ for\ D\ >=\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.5E\ \%s\(\backslash\)n"{}},\ avg\_dose\ /\ nreg,\ units.c\_str());}
+\DoxyCodeLine{00547\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ dose\ for\ D\ >\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.2F\%\(\backslash\)n"{}},}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ n\_gt\_0\ ?\ 100.*avg\_dose\_gt\_0\_err\ /\ n\_gt\_0\ :\ 0);}
+\DoxyCodeLine{00549\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ vol\ cors\ for\ D\ >\ 0\ \ \ \ \ \ \ \ \ \ \ =\ \ \%.2F\%\ (\%d\ voxels)\(\backslash\)n"{}},}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ n\_vol\_cor\_0\ ?\ 100.*avg\_vol\_err\_0\ /\ n\_vol\_cor\_0\ :\ 0,\ n\_vol\_cor\_0);}
+\DoxyCodeLine{00551\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ total\ error\ on\ dose\ for\ D\ >\ 0\ \ \ \ \ \ \ \ \ =\ \ \%.2F\%\(\backslash\)n"{}},}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ n\_gt\_0\ ?\ 100.*avg\_tot\_gt\_0\_err\ /\ n\_gt\_0\ :\ 0);}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00554\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\ \ \ \ 20\%\%\ of\ Dmax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.5E\ \%s\(\backslash\)n"{}},\ 0.2*max\_dose,\ units.c\_str());}
+\DoxyCodeLine{00555\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ \#\ of\ voxels\ with\ D\ >=\ 20\%\%*Dmax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%d\ /\ \%d\ (\%.3G\%)\(\backslash\)n"{}},\ n\_gt\_20,\ nreg,\ 100.*n\_gt\_20/nreg);}
+\DoxyCodeLine{00556\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ dose\ for\ D\ >\ 20\%\%*Dmax\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ \%.5E\ \%s\(\backslash\)n"{}},\ avg\_dose\_gt\_20\ /\ n\_gt\_20,\ units.c\_str());}
+\DoxyCodeLine{00557\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ doses\ for\ D\ >=\ 20\%\%*Dmax\ \ \ \ \ \ =\ \ \%.2F\%\(\backslash\)n"{}},}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ n\_gt\_20\ ?\ 100.*avg\_dose\_gt\_20\_err\ /\ n\_gt\_20\ :\ 0);}
+\DoxyCodeLine{00559\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ error\ on\ vol\ cors\ for\ D\ >=\ 20\%\%*Dmax\ \ \ =\ \ \%.2F\%\ (\%d\ voxels)\(\backslash\)n"{}},}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ n\_vol\_cor\_d20\ ?\ 100.*avg\_vol\_err\_d20\ /\ n\_vol\_cor\_d20\ :\ 0,\ n\_vol\_cor\_d20);}
+\DoxyCodeLine{00561\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\ \ \ \ Average\ total\ error\ on\ dose\ for\ D\ >=\ 20\%\%*Dmax\ =\ \ \%.2F\%\(\backslash\)n"{}},}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ n\_gt\_20\ ?\ 100.*avg\_tot\_gt\_20\_err\ /\ n\_gt\_20\ :\ 0);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \}}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \textcolor{comment}{/*\ output\ Top\ N\ doses\ for\ tracklength\ and\ interaction\ scoring\ */}}
+\DoxyCodeLine{00567\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputTopDoses(\textcolor{keywordtype}{int}\ top\_n,\ vector<RegionResult>\ region\_results)\ \{}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \ \ \ \ top\_n\ =\ min(top\_n,\ geometry-\/>regions());}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordtype}{string}\ fmt\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nTop\ \%d\ dose\ results\ for\ geometry\ named\ '\%s'"{}};}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(dose\_scale\ -\/1)\ >\ 1E-\/10)\ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ fmt\ +=\ \textcolor{stringliteral}{"{}\ (scaled)"{}};}
+\DoxyCodeLine{00574\ \ \ \ \ \}}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00576\ \ \ \ \ egsInformation((fmt+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}).c\_str(),\ top\_n,\ (geometry-\/>getName()).c\_str());}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordtype}{string}\ title\ =\ (}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ Region\ \ Med\ \#\ \ \ \ \ \ \ \ \ \ Volume\ (Nominal)\ /\ cm\string^3\ \ \ \ \ \ \ \ \ Tracklength\ Dose\ /\ Gy/hist\ (Derr,\ Verr)\ \ \ \ \ "{}}}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Interaction\ Dose\ /\ Gy/hist\ (Derr,\ Verr)\(\backslash\)n"{}}}
+\DoxyCodeLine{00581\ \ \ \ \ );}
+\DoxyCodeLine{00582\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ \textcolor{keywordtype}{string}(title.size()-\/1,\ \textcolor{charliteral}{'='}).c\_str());}
+\DoxyCodeLine{00583\ \ \ \ \ egsInformation(title.c\_str());}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keywordtype}{string}\ sep(title.size()-\/1,\ \textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{00586\ \ \ \ \ egsInformation((sep+\textcolor{stringliteral}{"{}\(\backslash\)n"{}}).c\_str());}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{comment}{//\ display\ top\ n\ results}}
+\DoxyCodeLine{00589\ \ \ \ \ vector<RegionResult>\ top\_results(top\_n);}
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{if}\ (!tlen\_score\ \&\&\ edep\_score)\ \{}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ partial\_sort\_copy(region\_results.begin(),\ region\_results.end(),\ top\_results.begin(),\ top\_results.end(),}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ edepRegTopResultCompare);}
+\DoxyCodeLine{00593\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ partial\_sort\_copy(region\_results.begin(),\ region\_results.end(),\ top\_results.begin(),\ top\_results.end(),}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tlenRegTopResultCompare);}
+\DoxyCodeLine{00596\ \ \ \ \ \}}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<RegionResult>::iterator\ rrit=top\_results.begin();\ rrit!=top\_results.end();\ rrit++)\ \{}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ RegionResult\ rr\ =\ *rrit;}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vol\ =\ getCorrectedVolume(rr.reg);}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dv\ =\ getVolumeUncertainty(rr.reg);}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ uncorvol\ =\ getUncorrectedVolume(rr.reg);}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\_tlen\_unc\ =\ std::sqrt(dv*dv\ +\ rr.tlen\_err*rr.tlen\_err);}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\_edep\_unc\ =\ std::sqrt(dv*dv\ +\ rr.edep\_err*rr.edep\_err);}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ med\ =\ geometry-\/>medium(rr.reg);}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ fmt;}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (total\_tlen\_unc\ >\ 0.001)\{}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ fmt\ =\ \textcolor{stringliteral}{"{}\%7d\ \ \%5d\ \%11.3E(\%8.3E)\ +/-\/\ \%6.2f\%\%\ \ \ \ \%12.3E\ +/-\/\ \%6.2f\%\%\ (\%6.2f\%\%,\ \%6.2f\%\%)\ \ \ \ \%10.3E\ +/-\/\ \%6.2f\%\%\ (\%6.2f\%\%,\ \%6.2f\%\%)\(\backslash\)n"{}};}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ fmt\ =\ \textcolor{stringliteral}{"{}\%7d\ \ \%5d\ \%11.3E(\%8.3E)\ +/-\/\ \%6.3f\%\%\ \ \ \ \%11.4E\ +/-\/\ \%6.3f\%\%\ (\%6.3f\%\%,\ \%6.3f\%\%)\ \ \ \ \%10.4E\ +/-\/\ \%7.3f\%\%\ (\%6.3f\%\%,\ \%6.3f\%\%)\(\backslash\)n"{}};}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ egsInformation(}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ fmt.c\_str(),}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ rr.reg,}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ med,}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ vol,}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ uncorvol,}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ 100*dv,}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ rr.tlen,}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ 100*total\_tlen\_unc,}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ 100*rr.tlen\_err,}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ 100*dv,}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ edep\_score\ ?\ rr.edep\ :\ 0,}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ edep\_score\ ?\ 100*total\_edep\_unc\ :\ 0,}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ edep\_score\ ?\ 100*rr.edep\_err\ :\ 0,}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ edep\_score\ ?\ 100*dv\ :\ 0}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00632\ \ \ \ \ \}}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ \}}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00636\ \textcolor{keywordtype}{void}\ EB\_Phantom::getScoringArrays(vector<EGS\_ScoringArray\ *>\ \&scores,\ vector<string>\ \&types,}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<string>\ \&descriptions)\ \{}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ scores.push\_back(tlen\_score);}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}tlen"{}});}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}tracklength"{}});}
+\DoxyCodeLine{00643\ \ \ \ \ \}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ scores.push\_back(edep\_score);}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}edep"{}});}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}energy\ deposition"{}});}
+\DoxyCodeLine{00649\ \ \ \ \ \}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordflow}{if}\ (prim\_score)\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ scores.push\_back(tlen\_score);}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ scores.push\_back(prim\_score);}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ scores.push\_back(sscat\_score);}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ scores.push\_back(mscat\_score);}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}to"{}});}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}pr"{}});}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}ss"{}});}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}ms"{}});}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}total\ primary\ +\ scattered"{}});}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}primary"{}});}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}single\ scattered"{}});}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ descriptions.push\_back(\textcolor{stringliteral}{"{}multiple\ scattered"{}});}
+\DoxyCodeLine{00664\ \ \ \ \ \}}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ \}}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \textcolor{keywordtype}{void}\ EB\_Phantom::getEGSdatScoringArrays(vector<EGS\_ScoringArray\ *>\ \&scores)\ \{}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00670\ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ scores.push\_back(tlen\_score);}
+\DoxyCodeLine{00672\ \ \ \ \ \}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ scores.push\_back(edep\_score);}
+\DoxyCodeLine{00676\ \ \ \ \ \}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \ \ \ \ \textcolor{keywordflow}{if}\ (prim\_score)\ \{}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ scores.push\_back(prim\_score);}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ scores.push\_back(sscat\_score);}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ scores.push\_back(mscat\_score);}
+\DoxyCodeLine{00682\ \ \ \ \ \}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \}}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \textcolor{comment}{/*\ create\ 3ddose\ file\ and\ write\ bounds/doses\ to\ it\ */}}
+\DoxyCodeLine{00688\ \textcolor{keywordtype}{void}\ EB\_Phantom::output3ddoseResults(\textcolor{keywordtype}{string}\ format)\ \{}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ \ \ \ \ vector<EGS\_ScoringArray\ *>\ scores;}
+\DoxyCodeLine{00691\ \ \ \ \ vector<string>\ types;}
+\DoxyCodeLine{00692\ \ \ \ \ vector<string>\ descriptions;}
+\DoxyCodeLine{00693\ \ \ \ \ getScoringArrays(scores,\ types,\ descriptions);}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nDose\ Output\ Files\ for\ \%s\(\backslash\)n\%s\(\backslash\)n"{}},\ geometry-\/>getName().c\_str(),\ \textcolor{keywordtype}{string}(80,\textcolor{charliteral}{'='}).c\_str());}
+\DoxyCodeLine{00696\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ s=0;\ s\ <\ scores.size();\ s++)\ \{}
+\DoxyCodeLine{00697\ }
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ type\ =\ types[s];}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ sep\ =\ type\ ==\ \textcolor{stringliteral}{"{}tlen"{}}\ ?\ \textcolor{stringliteral}{"{}"{}}\ :\ \textcolor{stringliteral}{"{}."{}}+type;}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ space2underscore(\textcolor{stringliteral}{"{}."{}}+geometry-\/>getName())\ +\ sep\ +\ \textcolor{stringliteral}{"{}.3ddose"{}};}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ extension\ +=\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ ?\ \textcolor{stringliteral}{"{}.gz"{}}\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ app-\/>constructIOFileName(extension.c\_str(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ egsInformation(}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)nWriting\ \%s\ dose\ to\ \%s\%s:"{}},}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ descriptions[s].c\_str(),}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ app-\/>getOutputFile().c\_str(),}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ extension.c\_str()}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ outputDoseStats(scores[s],\ type);}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ ogzstream\ out;}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ output3DBounds(out);}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ output3DDoses(out,\ scores[s],\ type);}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ output3DBounds(out);}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \ \ \ \ output3DDoses(out,\ scores[s],\ type);}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00726\ }
+\DoxyCodeLine{00727\ \ \ \ \ \}}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \}}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \textcolor{comment}{/*\ write\ the\ boundaries\ section\ for\ a\ 3dose\ files.\ This\ will\ work\ for\ arbitrary\ EGS\_BaseGeometry}}
+\DoxyCodeLine{00733\ \textcolor{comment}{\ *\ classes,\ but\ will\ of\ course\ only\ be\ accurate\ for\ geometries\ which\ have\ implemented\ getNRegDir}}
+\DoxyCodeLine{00734\ \textcolor{comment}{\ *\ and\ getBound.\ */}}
+\DoxyCodeLine{00735\ \textcolor{keywordtype}{void}\ EB\_Phantom::output3DBounds(ostream\ \&out)\ \{}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \ \ \ \ \textcolor{keywordtype}{int}\ nx\ =\ max(1,\ geometry-\/>getNRegDir(XDIR));}
+\DoxyCodeLine{00738\ \ \ \ \ \textcolor{keywordtype}{int}\ ny\ =\ max(1,\ geometry-\/>getNRegDir(YDIR));}
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keywordtype}{int}\ nz\ =\ max(1,\ geometry-\/>getNRegDir(ZDIR));}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \ \ out\ <<\ nx\ <<\ \textcolor{stringliteral}{"{}\ \ "{}}\ <<\ ny\ <<\ \textcolor{stringliteral}{"{}\ \ "{}}\ <<\ nz\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dir=XDIR;\ dir\ <=\ ZDIR;\ dir++)\ \{}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nbounds\ =\ geometry-\/>getNRegDir(dir)\ +\ 1;}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nbounds\ <=\ 1)\ \{}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ -\/999\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}}\ <<\ 999\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ idx=0;\ idx\ <\ nbounds;\ idx++)\ \{}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ delim\ =\ (idx\ ==\ nbounds\ -\/\ 1)\ ?\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}\ :\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out<<\ geometry-\/>getBound(dir,\ idx)\ <<\ delim\ ;}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00755\ \ \ \ \ \}}
+\DoxyCodeLine{00756\ \}}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00758\ \textcolor{keywordtype}{void}\ EB\_Phantom::output3DDoses(ostream\ \&out,\ EGS\_ScoringArray\ *score,\ \textcolor{keywordtype}{string}\ type)\ \{}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \ \ \ \ \textcolor{comment}{//\ write\ doses\ on\ first\ loop,\ uncertainty\ on\ second}}
+\DoxyCodeLine{00762\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ loop\ =\ 0;\ loop\ <\ 2;\ loop++)\ \{}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ireg=0;\ ireg\ <\ score-\/>regions();\ ireg++)\ \{}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ result,\ dr,\ dv;}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(score,\ ireg,\ type,\ result,\ dr);}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (loop\ ==\ 0)\ \{}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ result\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dv\ =\ getVolumeUncertainty(ireg);}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ sqrt(dr*dr\ +\ dv*dv)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00777\ \ \ \ \ \}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \}}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \textcolor{keywordtype}{void}\ EB\_Phantom::writeEGSPhant(ostream\ \&out)\ \{}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ \ \ \textcolor{keywordtype}{int}\ nmed\ =\ EGS\_BaseGeometry::nMedia();}
+\DoxyCodeLine{00784\ }
+\DoxyCodeLine{00785\ \ \ \ \ out\ <<\ nmed\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nmed;\ i++)\ \{}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ out\ <<\ EGS\_BaseGeometry::getMediumName(i)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00788\ \ \ \ \ \}}
+\DoxyCodeLine{00789\ }
+\DoxyCodeLine{00790\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nmed;\ i++)\ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ out\ <<\ the\_etcontrol-\/>estepe\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00792\ \ \ \ \ \}}
+\DoxyCodeLine{00793\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \ \ \ \ output3DBounds(out);}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00797\ \ \ \ \ \textcolor{keywordtype}{int}\ nx\ =\ max(1,\ geometry-\/>getNRegDir(XDIR));}
+\DoxyCodeLine{00798\ \ \ \ \ \textcolor{keywordtype}{int}\ ny\ =\ max(1,\ geometry-\/>getNRegDir(YDIR));}
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keywordtype}{int}\ nz\ =\ max(1,\ geometry-\/>getNRegDir(ZDIR));}
+\DoxyCodeLine{00800\ \ \ \ \ \textcolor{keywordtype}{int}\ nreg\ =\ 0;}
+\DoxyCodeLine{00801\ }
+\DoxyCodeLine{00802\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ loop\ =\ 0;\ loop\ <\ 2;\ loop++)\ \{}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ kk=0;\ kk\ <\ nz;\ kk++)\ \{}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ jj=0;\ jj\ <\ ny;\ jj++)\ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii=0;\ ii\ <\ nx;\ ii++)\ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ireg\ =\ ii\ +\ jj*nx\ +\ kk*nx*ny;}
+\DoxyCodeLine{00807\ }
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (loop\ ==\ 0)\ \{}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nreg\ =\ geometry-\/>medium(ireg)+1;}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ char(49\ +\ nreg\ +\ (nreg>8?7:0)\ +\ (nreg>34?6:0));}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ getRealRho(ireg)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00819\ \ \ \ \ \}}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00821\ \}}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00823\ \textcolor{keywordtype}{string}\ EB\_Phantom::medIndex(\textcolor{keywordtype}{int}\ medium)\{}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ \textcolor{keywordtype}{string}\ medIdx\ =\ \textcolor{stringliteral}{"{}123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"{}};}
+\DoxyCodeLine{00826\ \ \ \ \ \textcolor{keywordflow}{if}\ (medium\ >=\ medIdx.length())\{}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}Too\ many\ media\ to\ write\ egsPhant"{}});}
+\DoxyCodeLine{00828\ \ \ \ \ \}}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00830\ \ \ \ \ \textcolor{keywordflow}{return}\ string(1,\ medIdx[medium]);}
+\DoxyCodeLine{00831\ \}}
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00833\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputEGSPhant(\textcolor{keywordtype}{string}\ format)\ \{}
+\DoxyCodeLine{00834\ }
+\DoxyCodeLine{00835\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nEGSPhant\ Output\ File\ for\ \%s\(\backslash\)n\%s\(\backslash\)n"{}},\ geometry-\/>getName().c\_str(),\ \textcolor{keywordtype}{string}(80,\textcolor{charliteral}{'='}).c\_str());}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ space2underscore(\textcolor{stringliteral}{"{}."{}}+geometry-\/>getName())\ +\ \textcolor{stringliteral}{"{}.egsphant"{}};}
+\DoxyCodeLine{00838\ \ \ \ \ extension\ +=\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ ?\ \textcolor{stringliteral}{"{}.gz"{}}\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00839\ \ \ \ \ \textcolor{keywordtype}{string}\ out\_name\ =\ app-\/>getOutputFile()+extension;}
+\DoxyCodeLine{00840\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ app-\/>constructIOFileName(extension.c\_str(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00841\ }
+\DoxyCodeLine{00842\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Writing\ egsphant\ file\ to\ \%s\(\backslash\)n"{}},\ (out\_name).c\_str());}
+\DoxyCodeLine{00843\ }
+\DoxyCodeLine{00844\ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ ogzstream\ ogout(fname.c\_str());}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ writeEGSPhant(ogout);}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ ogout.close();}
+\DoxyCodeLine{00848\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ ofstream\ out(fname.c\_str());}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ writeEGSPhant(out);}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00852\ \ \ \ \ \}}
+\DoxyCodeLine{00853\ \}}
+\DoxyCodeLine{00854\ }
+\DoxyCodeLine{00855\ EGS\_Float\ EB\_Phantom::avgVoxelVol()\ \{}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \ \ \ \ EGS\_Float\ total\ =\ 0;}
+\DoxyCodeLine{00858\ \ \ \ \ \textcolor{keywordtype}{int}\ nreg;}
+\DoxyCodeLine{00859\ \ \ \ \ \textcolor{keywordflow}{for}\ (nreg\ =\ 0;\ nreg\ <\ geometry-\/>regions();\ nreg++)\ \{}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ total\ +=\ getCorrectedVolume(nreg);}
+\DoxyCodeLine{00861\ \ \ \ \ \}}
+\DoxyCodeLine{00862\ \ \ \ \ \textcolor{keywordflow}{return}\ nreg\ >\ 0\ ?\ total\ /\ nreg\ :\ 0;}
+\DoxyCodeLine{00863\ \}}
+\DoxyCodeLine{00864\ }
+\DoxyCodeLine{00865\ \textcolor{keywordtype}{void}\ EB\_Phantom::writeVoxelInfo(ostream\ \&out)\ \{}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00867\ \ \ \ \ out\ <<\ std::setprecision(6)\ <<\ std::scientific;}
+\DoxyCodeLine{00868\ \ \ \ \ \textcolor{keywordtype}{string}\ header\ =\ (}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Region,\ Volume\ /\ cm\string^3,\ Nominal\ Volume\ /\ cm\string^3,\ Vol\ Cor\ Unc,\ Mass\ /\ g,\ Density\ /\ g/cm\string^3,\ Med,\ "{}}}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Dose\ (tracklength)\ /\ Gy/hist,\ Total\ Dose\ Unc\ (tracklength),\ Dose\ Unc\ (tracklength)"{}}}
+\DoxyCodeLine{00871\ \ \ \ \ );}
+\DoxyCodeLine{00872\ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\{}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ header\ +=\ \textcolor{stringliteral}{"{},\ Dose\ (interaction)\ /\ Gy/hist,\ Total\ Dose\ Unc\ (interaction),\ Dose\ Unc\ (interaction)"{}};}
+\DoxyCodeLine{00874\ \ \ \ \ \}}
+\DoxyCodeLine{00875\ \ \ \ \ out\ <<\ header\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00876\ }
+\DoxyCodeLine{00877\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ geometry-\/>regions();\ i++)\ \{}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ EGS\_Float\ r=0,\ dr=0,\ r\_edep,\ dr\_edep,\ dv;}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tlen\_score)\ \{}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(tlen\_score,\ i,\ \textcolor{stringliteral}{"{}tlen"{}},\ r,\ dr);}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00882\ }
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\ \{}
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(edep\_score,\ i,\ \textcolor{stringliteral}{"{}edep"{}},\ r\_edep,\ dr\_edep);}
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ dv\ =\ getVolumeUncertainty(i);}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ out\ <<\ i\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ getCorrectedVolume(i)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ getUncorrectedVolume(i)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ dv\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ out\ <<\ getRealMass(i)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ getRealRho(i)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ EGS\_BaseGeometry::getMediumName(geometry-\/>medium(i))\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ out\ <<\ r\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ sqrt(dr*dr\ +\ dv*dv)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ dr;}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (edep\_score)\{}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ r\_edep\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ sqrt(dr\_edep*dr\_edep\ +\ dv*dv)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ dr\_edep;}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00894\ \ \ \ \ \}}
+\DoxyCodeLine{00895\ \}}
+\DoxyCodeLine{00896\ }
+\DoxyCodeLine{00897\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputVoxelInfo(\textcolor{keywordtype}{string}\ format)\ \{}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nVoxel\ Info\ File\ Output\ File\ for\ \%s\(\backslash\)n\%s\(\backslash\)n"{}},\ geometry-\/>getName().c\_str(),\ \textcolor{keywordtype}{string}(80,\textcolor{charliteral}{'='}).c\_str());}
+\DoxyCodeLine{00900\ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ space2underscore(\textcolor{stringliteral}{"{}."{}}+geometry-\/>getName())\ +\ \textcolor{stringliteral}{"{}.voxels"{}};}
+\DoxyCodeLine{00901\ \ \ \ \ extension\ +=\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ ?\ \textcolor{stringliteral}{"{}.gz"{}}\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00902\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ app-\/>constructIOFileName(extension.c\_str(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00904\ \ \ \ \ egsInformation(}
+\DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Writing\ voxel\ info\ file\ to\ \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ (app-\/>getOutputFile()\ +\ extension).c\_str()}
+\DoxyCodeLine{00907\ \ \ \ \ );}
+\DoxyCodeLine{00908\ }
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ ogzstream\ out;}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ writeVoxelInfo(out);}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00914\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00917\ \ \ \ \ \ \ \ \ writeVoxelInfo(out);}
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00919\ \ \ \ \ \}}
+\DoxyCodeLine{00920\ \}}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \textcolor{keywordtype}{void}\ EB\_Phantom::writeVolumeCorrection(ostream\ \&out)\ \{}
+\DoxyCodeLine{00923\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ nrecords\ =\ corrected\_volumes.size();}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00925\ \ \ \ \ out\ <<\ nrecords\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00926\ }
+\DoxyCodeLine{00927\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ geometry-\/>regions();\ i++)\ \{}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasVolCor(i))\ \{}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ i\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ getCorrectedVolume(i)\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ volume\_uncertainty[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00931\ \ \ \ \ \}}
+\DoxyCodeLine{00932\ \}}
+\DoxyCodeLine{00933\ }
+\DoxyCodeLine{00934\ \textcolor{keywordtype}{void}\ EB\_Phantom::outputVolumeCorrection(\textcolor{keywordtype}{string}\ format)\ \{}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00936\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nVolume\ Correction\ Output\ File\ for\ \%s\(\backslash\)n\%s\(\backslash\)n"{}},\ geometry-\/>getName().c\_str(),\ \textcolor{keywordtype}{string}(80,\textcolor{charliteral}{'='}).c\_str());}
+\DoxyCodeLine{00937\ \ \ \ \ \textcolor{keywordtype}{string}\ extension\ =\ space2underscore(\textcolor{stringliteral}{"{}."{}}+geometry-\/>getName())\ +\ \textcolor{stringliteral}{"{}.volcor"{}};}
+\DoxyCodeLine{00938\ \ \ \ \ extension\ +=\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ ?\ \textcolor{stringliteral}{"{}.gz"{}}\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ app-\/>constructIOFileName(extension.c\_str(),\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keywordtype}{string}\ gname\ =\ geometry-\/>getName();}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00942\ \ \ \ \ egsInformation(}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Writing\ volume\ correction\ file\ for\ \%s\ to\ \%s\ file\ \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ gname.c\_str(),\ format.c\_str(),\ (app-\/>getOutputFile()+\textcolor{stringliteral}{"{}."{}}+gname+\textcolor{stringliteral}{"{}.volcor"{}}).c\_str());}
+\DoxyCodeLine{00945\ }
+\DoxyCodeLine{00946\ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}gzip"{}})\ \{}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ ogzstream\ out(fname.c\_str());}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ writeVolumeCorrection(out);}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00950\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ writeVolumeCorrection(out);}
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ out.close();}
+\DoxyCodeLine{00955\ \ \ \ \ \}}
+\DoxyCodeLine{00956\ \}}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \textcolor{keywordtype}{int}\ EB\_Phantom::outputData(ostream\ *ofile)\ \{}
+\DoxyCodeLine{00959\ }
+\DoxyCodeLine{00960\ \ \ \ \ (*ofile)\ <<\ total\_radiant\_e\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00961\ }
+\DoxyCodeLine{00962\ \ \ \ \ vector<EGS\_ScoringArray\ *>\ scores;}
+\DoxyCodeLine{00963\ \ \ \ \ getEGSdatScoringArrays(scores);}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \ \ \ \ vector<EGS\_ScoringArray\ *>::iterator\ it\ =\ scores.begin();}
+\DoxyCodeLine{00966\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ scores.end();\ ++it)\ \{}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ (*it)-\/>storeState(*ofile);}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00971\ \ \ \ \ \}}
+\DoxyCodeLine{00972\ }
+\DoxyCodeLine{00973\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00975\ \}}
+\DoxyCodeLine{00976\ }
+\DoxyCodeLine{00977\ \textcolor{keywordtype}{int}\ EB\_Phantom::readData(istream\ *ifile)\ \{}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00979\ }
+\DoxyCodeLine{00980\ \ \ \ \ (*ifile)\ >>\ total\_radiant\_e;}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ \ \ \ \ vector<EGS\_ScoringArray\ *>\ scores;}
+\DoxyCodeLine{00983\ \ \ \ \ getEGSdatScoringArrays(scores);}
+\DoxyCodeLine{00984\ }
+\DoxyCodeLine{00985\ \ \ \ \ vector<EGS\_ScoringArray\ *>::iterator\ it\ =\ scores.begin();}
+\DoxyCodeLine{00986\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ scores.end();\ ++it)\ \{}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ (*it)-\/>setState(*ifile);}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00991\ \ \ \ \ \}}
+\DoxyCodeLine{00992\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{00994\ \}}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{00996\ \textcolor{keywordtype}{int}\ EB\_Phantom::addState(istream\ \&data)\ \{}
+\DoxyCodeLine{00997\ }
+\DoxyCodeLine{00998\ \ \ \ \ EGS\_Float\ total\_radiant\_e\_tmp;}
+\DoxyCodeLine{00999\ \ \ \ \ data\ >>\ total\_radiant\_e\_tmp;}
+\DoxyCodeLine{01000\ \ \ \ \ total\_radiant\_e\ +=\ total\_radiant\_e\_tmp;}
+\DoxyCodeLine{01001\ }
+\DoxyCodeLine{01002\ \ \ \ \ vector<EGS\_ScoringArray\ *>\ scores,\ tmp\_scores;}
+\DoxyCodeLine{01003\ \ \ \ \ getEGSdatScoringArrays(scores);}
+\DoxyCodeLine{01004\ }
+\DoxyCodeLine{01005\ \ \ \ \ vector<EGS\_ScoringArray\ *>::iterator\ it\ =\ scores.begin();}
+\DoxyCodeLine{01006\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ scores.end();\ ++it)\ \{}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ EGS\_ScoringArray\ tmp((*it)-\/>regions());}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ tmp.setState(data);}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ (**it)\ +=\ tmp;}
+\DoxyCodeLine{01016\ \ \ \ \ \}}
+\DoxyCodeLine{01017\ }
+\DoxyCodeLine{01018\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \}}
+\DoxyCodeLine{01021\ }
+\DoxyCodeLine{01022\ \textcolor{keywordtype}{void}\ EB\_Phantom::resetCounter()\ \{}
+\DoxyCodeLine{01023\ \ \ \ \ total\_radiant\_e\ =\ 0;}
+\DoxyCodeLine{01024\ }
+\DoxyCodeLine{01025\ \ \ \ \ vector<EGS\_ScoringArray\ *>\ scores;}
+\DoxyCodeLine{01026\ \ \ \ \ getEGSdatScoringArrays(scores);}
+\DoxyCodeLine{01027\ }
+\DoxyCodeLine{01028\ \ \ \ \ vector<EGS\_ScoringArray\ *>::iterator\ it\ =\ scores.begin();}
+\DoxyCodeLine{01029\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ scores.end();\ ++it)\ \{}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ (*it)-\/>reset();}
+\DoxyCodeLine{01031\ \ \ \ \ \}}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01033\ }
+\DoxyCodeLine{01034\ \}}
+
+\end{DoxyCode}

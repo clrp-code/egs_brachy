@@ -1,0 +1,75 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/ginfo.h File Reference}
+\label{ginfo_8h}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/ginfo.h@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/ginfo.h}}
+
+
+ginfo contains classes for organizing information about the geometries present in an egs\+\_\+brachy simulation.  
+
+
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}egs\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}egs\+\_\+input.\+h"{}}\newline
+{\ttfamily \#include "{}phantom.\+h"{}}\newline
+Include dependency graph for ginfo.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classNode}{Node}}
+\item 
+struct \mbox{\hyperlink{structGeomRegionInfo}{Geom\+Region\+Info}}
+\begin{DoxyCompactList}\small\item\em a struct to contain elementary information aboud a geometry \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGeomInfo}{Geom\+Info}}
+\begin{DoxyCompactList}\small\item\em a container for organizing meta data about the geometries \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pair$<$ EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}, int $>$ \mbox{\hyperlink{ginfo_8h_ac23e09524d51f151a1c6e24492ccf995}{Geom\+RegT}}
+\begin{DoxyCompactList}\small\item\em pair of geometry and local region number \end{DoxyCompactList}\item 
+typedef map$<$ string, \mbox{\hyperlink{structGeomRegionInfo}{Geom\+Region\+Info}} $>$ \mbox{\hyperlink{ginfo_8h_a8942736820fa961e051c8863f42149d0}{Geom\+Region\+Info\+MapT}}
+\begin{DoxyCompactList}\small\item\em a mapping from geometry name to information about that geometry \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ginfo contains classes for organizing information about the geometries present in an egs\+\_\+brachy simulation. 
+
+
+
+Definition in file \mbox{\hyperlink{ginfo_8h_source}{ginfo.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\index{ginfo.h@{ginfo.h}!GeomRegionInfoMapT@{GeomRegionInfoMapT}}
+\index{GeomRegionInfoMapT@{GeomRegionInfoMapT}!ginfo.h@{ginfo.h}}
+\doxysubsubsection{\texorpdfstring{GeomRegionInfoMapT}{GeomRegionInfoMapT}}
+{\footnotesize\ttfamily \label{ginfo_8h_a8942736820fa961e051c8863f42149d0} 
+typedef map$<$string, \mbox{\hyperlink{structGeomRegionInfo}{Geom\+Region\+Info}}$>$ \mbox{\hyperlink{ginfo_8h_a8942736820fa961e051c8863f42149d0}{Geom\+Region\+Info\+MapT}}}
+
+
+
+a mapping from geometry name to information about that geometry 
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8h_source_l00095}{95}} of file \mbox{\hyperlink{ginfo_8h_source}{ginfo.\+h}}.
+
+\index{ginfo.h@{ginfo.h}!GeomRegT@{GeomRegT}}
+\index{GeomRegT@{GeomRegT}!ginfo.h@{ginfo.h}}
+\doxysubsubsection{\texorpdfstring{GeomRegT}{GeomRegT}}
+{\footnotesize\ttfamily \label{ginfo_8h_ac23e09524d51f151a1c6e24492ccf995} 
+typedef pair$<$EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}, int$>$ \mbox{\hyperlink{ginfo_8h_ac23e09524d51f151a1c6e24492ccf995}{Geom\+RegT}}}
+
+
+
+pair of geometry and local region number 
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8h_source_l00079}{79}} of file \mbox{\hyperlink{ginfo_8h_source}{ginfo.\+h}}.
+

@@ -1,0 +1,132 @@
+\doxysection{EB\+\_\+\+Timing\+Tree Class Reference}
+\label{classEB__TimingTree}\index{EB\_TimingTree@{EB\_TimingTree}}
+
+
+{\ttfamily \#include $<$timing.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__TimingTree_a7430495ec0a0424c257c398bfe4cad16}{EB\+\_\+\+Timing\+Tree}} ()
+\item 
+\mbox{\hyperlink{classEB__TimingTree_a338ad92b6e9abe94506ea1992951b96d}{\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Timing\+Tree}} ()
+\item 
+void \mbox{\hyperlink{classEB__TimingTree_a5dd97383ede4d815acdfee21cd45ae8f}{add\+Timer}} (string name)
+\item 
+void \mbox{\hyperlink{classEB__TimingTree_a0ba2d1f8db888c1d02be64a967935a57}{stop\+Timer}} ()
+\item 
+void \mbox{\hyperlink{classEB__TimingTree_a4e42fddbe889fdfb8f842a641c366a67}{output\+Info}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{classEB__Timer}{EB\+\_\+\+Timer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__TimingTree_a22664a11934b4972de941cbe2c58f8d2}{running\+\_\+blocks}}
+\item 
+vector$<$ \mbox{\hyperlink{classEB__Timer}{EB\+\_\+\+Timer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__TimingTree_a381ad53630669332729bf02cee1989df}{stopped\+\_\+blocks}}
+\item 
+int \mbox{\hyperlink{classEB__TimingTree_a015112b9b2d614fe915a025fbe6b2097}{level}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00110}{110}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EB\_TimingTree@{EB\_TimingTree}!EB\_TimingTree@{EB\_TimingTree}}
+\index{EB\_TimingTree@{EB\_TimingTree}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{EB\_TimingTree()}{EB\_TimingTree()}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a7430495ec0a0424c257c398bfe4cad16} 
+EB\+\_\+\+Timing\+Tree\+::\+EB\+\_\+\+Timing\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00118}{118}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+\index{EB\_TimingTree@{EB\_TimingTree}!````~EB\_TimingTree@{\texorpdfstring{$\sim$}{\string~}EB\_TimingTree}}
+\index{````~EB\_TimingTree@{\texorpdfstring{$\sim$}{\string~}EB\_TimingTree}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EB\_TimingTree()}{\string~EB\_TimingTree()}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a338ad92b6e9abe94506ea1992951b96d} 
+EB\+\_\+\+Timing\+Tree\+::\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Timing\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00120}{120}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EB\_TimingTree@{EB\_TimingTree}!addTimer@{addTimer}}
+\index{addTimer@{addTimer}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{addTimer()}{addTimer()}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a5dd97383ede4d815acdfee21cd45ae8f} 
+void EB\+\_\+\+Timing\+Tree\+::add\+Timer (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00132}{132}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+\index{EB\_TimingTree@{EB\_TimingTree}!outputInfo@{outputInfo}}
+\index{outputInfo@{outputInfo}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{outputInfo()}{outputInfo()}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a4e42fddbe889fdfb8f842a641c366a67} 
+void EB\+\_\+\+Timing\+Tree\+::output\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00159}{159}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+\index{EB\_TimingTree@{EB\_TimingTree}!stopTimer@{stopTimer}}
+\index{stopTimer@{stopTimer}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{stopTimer()}{stopTimer()}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a0ba2d1f8db888c1d02be64a967935a57} 
+void EB\+\_\+\+Timing\+Tree\+::stop\+Timer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00139}{139}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EB\_TimingTree@{EB\_TimingTree}!level@{level}}
+\index{level@{level}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a015112b9b2d614fe915a025fbe6b2097} 
+int EB\+\_\+\+Timing\+Tree\+::level\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00115}{115}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+\index{EB\_TimingTree@{EB\_TimingTree}!running\_blocks@{running\_blocks}}
+\index{running\_blocks@{running\_blocks}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{running\_blocks}{running\_blocks}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a22664a11934b4972de941cbe2c58f8d2} 
+vector$<$\mbox{\hyperlink{classEB__Timer}{EB\+\_\+\+Timer}} \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Timing\+Tree\+::running\+\_\+blocks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00112}{112}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+\index{EB\_TimingTree@{EB\_TimingTree}!stopped\_blocks@{stopped\_blocks}}
+\index{stopped\_blocks@{stopped\_blocks}!EB\_TimingTree@{EB\_TimingTree}}
+\doxysubsubsection{\texorpdfstring{stopped\_blocks}{stopped\_blocks}}
+{\footnotesize\ttfamily \label{classEB__TimingTree_a381ad53630669332729bf02cee1989df} 
+vector$<$\mbox{\hyperlink{classEB__Timer}{EB\+\_\+\+Timer}} \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Timing\+Tree\+::stopped\+\_\+blocks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{timing_8h_source_l00113}{113}} of file \mbox{\hyperlink{timing_8h_source}{timing.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{timing_8h}{timing.\+h}}\end{DoxyCompactItemize}

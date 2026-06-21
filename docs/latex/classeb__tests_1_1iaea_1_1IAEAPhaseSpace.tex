@@ -1,0 +1,212 @@
+\doxysection{eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space Class Reference}
+\label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace}\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+
+
+Inheritance diagram for eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space\+:
+% FIG 0
+
+
+Collaboration diagram for eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a2d680544a183c412c4735456679278cd}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a660f4e171cb18bbdb40f67fcb0213d27}{path}}, mode=\textquotesingle{}r\textquotesingle{})
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a197f6793f416ca6add5132b24d392535}{num\+\_\+particles}} (self, particle\+\_\+type=\textquotesingle{}all\textquotesingle{})
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a09eda7e1c7ddc06f94719835f35bbbad}{num\+\_\+orig\+\_\+particles}} (self)
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a1effcbfbc763390aa803ee8bd3bfdadf}{maximum\+\_\+energy}} (self)
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ac5ea5c626969a292a8c2e4c3bccc8c71}{source\+\_\+id}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_af1c23e1f2c4a3d13e222574a2c45f364}{access}} = \mbox{\hyperlink{namespaceeb__tests_1_1iaea__types_a964825a2cc2e650feb3092f7784400c5}{iaea\+\_\+types.\+iaea\+\_\+file\+\_\+modes}}\mbox{[}mode\mbox{]}
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a660f4e171cb18bbdb40f67fcb0213d27}{path}} = os.\+path.\+realpath(path)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ac5deda04836340d322174c846205ee09}{header\+\_\+ext}} = \textquotesingle{}.IAEAheader\textquotesingle{}
+\item 
+str \mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ab4082e75e645c7b0effe7af7562b9aaf}{phsp\+\_\+ext}} = \textquotesingle{}.IAEAphsp\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a2e40a9b7149f75317e9d64e4d86cf554}{\+\_\+create\+\_\+source}} (self)
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a3a9ebbd442ef3714963b7a081df126c7}{\+\_\+set\+\_\+path}} (self, \mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a660f4e171cb18bbdb40f67fcb0213d27}{path}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_abb4f0927005c3010285f886e4c227117}{\+\_\+source\+\_\+id}} = \mbox{\hyperlink{namespaceeb__tests_1_1iaea__types_ab64f5e66c89a5ca836f4cef9794ba3d7}{iaea\+\_\+types.\+IAEA\+\_\+\+I32}}(-\/1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00025}{25}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a2d680544a183c412c4735456679278cd} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{path}{, }\item[{}]{mode}{ = {\ttfamily \textquotesingle{}r\textquotesingle{}}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Set up access to an IAEA phase space file
+
+Arguments:
+path -- The path to the iaea phase space file
+
+Keyword arguments:
+mode -- 'r' for read, 'w' for read/write or 'a' for 'append' (default 'r')
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00031}{31}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!\_create\_source@{\_create\_source}}
+\index{\_create\_source@{\_create\_source}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{\_create\_source()}{\_create\_source()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a2e40a9b7149f75317e9d64e4d86cf554} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+\_\+create\+\_\+source (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00052}{52}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!\_set\_path@{\_set\_path}}
+\index{\_set\_path@{\_set\_path}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{\_set\_path()}{\_set\_path()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a3a9ebbd442ef3714963b7a081df126c7} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+\_\+set\+\_\+path (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00122}{122}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!maximum\_energy@{maximum\_energy}}
+\index{maximum\_energy@{maximum\_energy}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{maximum\_energy()}{maximum\_energy()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a1effcbfbc763390aa803ee8bd3bfdadf} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+maximum\+\_\+energy (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return maximum energy in this source in (MeV)\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00108}{108}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!num\_orig\_particles@{num\_orig\_particles}}
+\index{num\_orig\_particles@{num\_orig\_particles}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{num\_orig\_particles()}{num\_orig\_particles()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a09eda7e1c7ddc06f94719835f35bbbad} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+num\+\_\+orig\+\_\+particles (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return max number of particles of type particle_type
+
+Keyword arguments:
+particle_type -- type or category of particle to check (default 'all')
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00088}{88}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!num\_particles@{num\_particles}}
+\index{num\_particles@{num\_particles}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{num\_particles()}{num\_particles()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a197f6793f416ca6add5132b24d392535} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+num\+\_\+particles (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{particle\+\_\+type}{ = {\ttfamily \textquotesingle{}all\textquotesingle{}}}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Return max number of particles of type particle_type
+
+Keyword arguments:
+particle_type -- type or category of particle to check (default 'all')
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00061}{61}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!source\_id@{source\_id}}
+\index{source\_id@{source\_id}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{source\_id()}{source\_id()}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ac5ea5c626969a292a8c2e4c3bccc8c71} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+source\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00119}{119}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!\_source\_id@{\_source\_id}}
+\index{\_source\_id@{\_source\_id}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{\_source\_id}{\_source\_id}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_abb4f0927005c3010285f886e4c227117} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+\_\+source\+\_\+id = \mbox{\hyperlink{namespaceeb__tests_1_1iaea__types_ab64f5e66c89a5ca836f4cef9794ba3d7}{iaea\+\_\+types.\+IAEA\+\_\+\+I32}}(-\/1)\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00042}{42}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!access@{access}}
+\index{access@{access}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{access}{access}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_af1c23e1f2c4a3d13e222574a2c45f364} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+access = \mbox{\hyperlink{namespaceeb__tests_1_1iaea__types_a964825a2cc2e650feb3092f7784400c5}{iaea\+\_\+types.\+iaea\+\_\+file\+\_\+modes}}\mbox{[}mode\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00045}{45}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!header\_ext@{header\_ext}}
+\index{header\_ext@{header\_ext}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{header\_ext}{header\_ext}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ac5deda04836340d322174c846205ee09} 
+str eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+header\+\_\+ext = \textquotesingle{}.IAEAheader\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00027}{27}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!path@{path}}
+\index{path@{path}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_a660f4e171cb18bbdb40f67fcb0213d27} 
+eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+path = os.\+path.\+realpath(path)}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00123}{123}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+\index{eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}!phsp\_ext@{phsp\_ext}}
+\index{phsp\_ext@{phsp\_ext}!eb\_tests.iaea.IAEAPhaseSpace@{eb\_tests.iaea.IAEAPhaseSpace}}
+\doxysubsubsection{\texorpdfstring{phsp\_ext}{phsp\_ext}}
+{\footnotesize\ttfamily \label{classeb__tests_1_1iaea_1_1IAEAPhaseSpace_ab4082e75e645c7b0effe7af7562b9aaf} 
+str eb\+\_\+tests.\+iaea.\+IAEAPhase\+Space.\+phsp\+\_\+ext = \textquotesingle{}.IAEAphsp\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{iaea_8py_source_l00028}{28}} of file \mbox{\hyperlink{iaea_8py_source}{iaea.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/eb\+\_\+tests/\mbox{\hyperlink{iaea_8py}{iaea.\+py}}\end{DoxyCompactItemize}

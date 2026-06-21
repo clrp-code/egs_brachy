@@ -1,0 +1,7 @@
+# Plaque placement for a 16 mm COMS eye plaque in the distributed COMSphant
+# scoring phantom. Include inside a :start transformation: block in both an
+# egs_gtransformed wrapper and the source coordinate transform when local seed
+# transforms (for example lib/geometry/transformations/eye_plaques/COMS16mm)
+# are defined relative to the plaque at the origin.
+
+translation = 0 0 1.13

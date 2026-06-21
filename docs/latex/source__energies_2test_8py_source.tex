@@ -1,0 +1,46 @@
+\doxysection{test.\+py}
+\label{source__energies_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/source\_energies/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/source\_energies/test.py}}
+\mbox{\hyperlink{source__energies_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{A\ test\ to\ ensure\ initialized/escaping\ source/escaping\ geometry\ energy\ tallies}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{are\ consistent\ with\ previously\ calculated\ values.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ values\_close}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ EGSINP\ =\ \textcolor{stringliteral}{"{}source\_energies.egsinp"{}}}
+\DoxyCodeLine{00015\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 2/2993.\ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ expected\_results\ =\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{stringliteral}{'initialized'}:\ 1135.1,}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{stringliteral}{'escaping\_source'}:\ 898.8,}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{stringliteral}{'escaping\_geom'}:\ 702.01,}
+\DoxyCodeLine{00021\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ actual\_results\ =\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}initialized"{}}:\ float(re.findall(\textcolor{stringliteral}{"{}Total\ Energy\ Initialized\(\backslash\)s*:(.*?)\ MeV"{}},\ egslst,re.S)[0]),}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}escaping\_source"{}}:\ float(re.findall(\textcolor{stringliteral}{"{}Total\ Energy\ Escaping\ Sources\(\backslash\)s*:(.*?)\ MeV"{}},\ egslst,re.S)[0]),}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}escaping\_geom"{}}:\ float(re.findall(\textcolor{stringliteral}{"{}Total\ Energy\ Escaping\ Geometry\(\backslash\)s*:(.*?)\ MeV"{}},\ egslst,re.S)[0]),}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ all\_good\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{for}\ etype,\ expected\ \textcolor{keywordflow}{in}\ list(expected\_results.items()):}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ actual\ =\ \ actual\_results[etype]}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ values\_close(actual,\ expected,\ max\_percent\_diff=0.01):}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ all\_good\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ all\_good,\ actual\_results,\ expected\_results}
+
+\end{DoxyCode}

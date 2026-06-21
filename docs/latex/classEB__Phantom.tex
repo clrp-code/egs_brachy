@@ -1,0 +1,1167 @@
+\doxysection{EB\+\_\+\+Phantom Class Reference}
+\label{classEB__Phantom}\index{EB\_Phantom@{EB\_Phantom}}
+
+
+A class to represent a single phantom for scoring dose in egs\+\_\+brachy.  
+
+
+
+
+{\ttfamily \#include $<$phantom.\+h$>$}
+
+
+
+Inheritance diagram for EB\+\_\+\+Phantom\+:
+% FIG 0
+
+
+Collaboration diagram for EB\+\_\+\+Phantom\+:
+% FIG 1
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21}{Geom\+Directions}} \{ \mbox{\hyperlink{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21a90f6dcbd6ca2dcb827694950e1b7c5da}{XDIR}}
+, \mbox{\hyperlink{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21a21c5bd2397d48a3415254aa7c6dceeda}{YDIR}}
+, \mbox{\hyperlink{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21ac9f193854c99713bf23088deb52d03f8}{ZDIR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__Phantom_a67d26e8c5646d6987e05f0eeaf7027d0}{EB\+\_\+\+Phantom}} (EGS\+\_\+\+Application \texorpdfstring{$\ast$}{*}, EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}, set$<$ int $>$ \mbox{\hyperlink{classEB__Phantom_ae858108660e1242a6c2df36081f539e3}{global\+\_\+regions}}, int nsource, \mbox{\hyperlink{classPublisher}{Publisher}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEB__Phantom_ab7b7eac63854e3277e5964588235e6ea}{publisher}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__Phantom_a2224594f1886d37719df663573846cc0}{\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Phantom}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a07dce58bd302b10f86aa2063e50dad24}{score\+Tlen}} (int ir, EGS\+\_\+\+Float dose, EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em add tracklength dose to region ir \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a6c7462314525c74cdea48dfaf7a88407}{score\+Edep}} (int ir, EGS\+\_\+\+Float dose)
+\begin{DoxyCompactList}\small\item\em add energy deposition dose to region ir \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a36dcad67c78b20c4962b6c89022671ae}{get\+Current\+Score}} (int ireg, double \&sum, double \&sum2)
+\begin{DoxyCompactList}\small\item\em get current tlen score for region \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classEB__Phantom_a414735f8f7b5cef7333dc261049afd5d}{get\+Tlen\+Norm}} (int ireg)
+\item 
+void \mbox{\hyperlink{classEB__Phantom_ad987bf8d58dd9cf53605ca7a5c0b4040}{set\+Dose\+Scale}} (EGS\+\_\+\+Float)
+\begin{DoxyCompactList}\small\item\em set dose scaling factor for output \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a2b93fab63fcaf44a13324752db3a67fe}{update}} (\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} message, void \texorpdfstring{$\ast$}{*}data)
+\item 
+bool \mbox{\hyperlink{classEB__Phantom_a0dfc9ed7062c0205b67476c4e6368f6a}{has\+Vol\+Cor}} (int ireg)
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_ad2090c102f6eb914a0470ab216e2ebf1}{get\+Corrected\+Volume}} (int ireg)
+\begin{DoxyCompactList}\small\item\em get uncorrected volume for a given region \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_aeccfea95da9b3d3697b6b52ac3e1b32c}{get\+Volume\+Uncertainty}} (int ireg)
+\begin{DoxyCompactList}\small\item\em get volume unc \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_a2f3c80d5d6a098492c52ab1c6189db19}{get\+Uncorrected\+Volume}} (int ireg)
+\begin{DoxyCompactList}\small\item\em get corrected volume for a given region \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{classEB__Phantom_a3a0ee280ede298c33784f07bdb3b2efd}{get\+Regions\+With\+Corrections}} ()
+\begin{DoxyCompactList}\small\item\em return a vector of all regions which were corrected \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a8f4022bb119866ba8b06338c53e8b759}{set\+Corrected\+Volume}} (int ir, double fraction, double unc=0)
+\begin{DoxyCompactList}\small\item\em Allow user to tell phantom what the actual volume of a region is. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_ab0cd2b014484bbbde70507de1f87eedd}{enable\+TLen\+Scoring}} ()
+\begin{DoxyCompactList}\small\item\em enable\+TLen\+Scoring must be called before simulation begins if you want to score dose with tracklength estimator in addition to tracklength scoring \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_af34e277855323f2caea8d51c6fbff627}{enable\+Interaction\+Scoring}} ()
+\begin{DoxyCompactList}\small\item\em enable\+Interaction\+Scoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a603fd5af6ac3a744ac7bf32a71d02708}{enable\+Scatter\+Scoring}} ()
+\begin{DoxyCompactList}\small\item\em enable\+Interaction\+Scoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a6166060d7824c23f90c99d790ddf81a6}{set\+History}} (EGS\+\_\+\+I64 current\+\_\+case)
+\begin{DoxyCompactList}\small\item\em set current history on scoring arrays for proper statistics \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a5dd263a8216c1cca43b2a1c580421043}{set\+Effective\+Histories}} (EGS\+\_\+\+Float current\+\_\+case)
+\begin{DoxyCompactList}\small\item\em set number of effective histories for normalizing scoring arrays \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_af6ebb861d6a8da169920aca7d788702c}{avg\+Voxel\+Vol}} ()
+\begin{DoxyCompactList}\small\item\em return average voxel volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a107157695270761830d0efe93a277820}{output\+Voxel\+Info}} (string format)
+\begin{DoxyCompactList}\small\item\em write voxel volumes, mass, desnity etc \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_ae16f38b9c092e603ebab3201895eb451}{write\+Voxel\+Info}} (ostream \&)
+\begin{DoxyCompactList}\small\item\em write voxel info file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_acef9734c47684cfc7ea2a29c82b1e228}{output\+Volume\+Correction}} (string format)
+\begin{DoxyCompactList}\small\item\em intialize and output write voxel volumes to file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a5a26112dff8bf46b77070ae633fec986}{write\+Volume\+Correction}} (ostream \&)
+\begin{DoxyCompactList}\small\item\em write voxel volumes to file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a9f8805b368bfbe07517622f433627bb6}{output\+Results}} (int top\+\_\+n=20, string output\+\_\+3ddose="{}text"{}, string output\+\_\+egsphant="{}text"{}, string output\+\_\+voxinfo="{}text"{}, string output\+\_\+volcor="{}text"{})
+\begin{DoxyCompactList}\small\item\em tell phantom to output its results. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Phantom_a3dab8b1020d6ca4ee881c0be852b1614}{global\+Reg\+Is\+In\+Phant}} (int global\+\_\+reg)
+\begin{DoxyCompactList}\small\item\em check whether a global region falls within this phantom \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Phantom_a9770534e38462a58685faf702b735c86}{global\+To\+Local}} (int global\+\_\+reg)
+\begin{DoxyCompactList}\small\item\em convert global region to local phantom region \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Phantom_ae3858fc38f13a3221e2a4736f4f8ab4d}{output\+Data}} (ostream \texorpdfstring{$\ast$}{*}ofile)
+\item 
+int \mbox{\hyperlink{classEB__Phantom_a6b73634962ef557f58ae7745f3fe7075}{read\+Data}} (istream \texorpdfstring{$\ast$}{*}ifile)
+\item 
+void \mbox{\hyperlink{classEB__Phantom_a57fe9993dd74aa1a5812c8ea91338dec}{reset\+Counter}} ()
+\item 
+int \mbox{\hyperlink{classEB__Phantom_aa0ff83489c4ba4724092ae94e908bd1c}{add\+State}} (istream \&ifile)
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_a550c3b3a50dcc87126a779961def37d9}{get\+Real\+Rho}} (int ireg)
+\begin{DoxyCompactList}\small\item\em return actual density for region \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_a6c7f81d71dc671374074436e45385e80}{get\+Real\+Mass}} (int ireg)
+\begin{DoxyCompactList}\small\item\em return (corrected) real mass for region \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_aea26c2b5fb49e6f4700ac72d5ea8d1ff}{get\+Uncorrected\+Mass}} (int ireg)
+\begin{DoxyCompactList}\small\item\em return uncorrected for region \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a06e770be97a6ea5e13717036f745c6ea}{get\+Result}} (EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}, int ireg, string type, EGS\+\_\+\+Float \&r, EGS\+\_\+\+Float \&dr)
+\begin{DoxyCompactList}\small\item\em get result for region from scoring array and normalize based on the type requested. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSubscriber}{Subscriber}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classSubscriber_a1dc3a1ecfecf7dd1a596d1a7217ec97f}{\texorpdfstring{$\sim$}{\string~}\+Subscriber}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classEB__Phantom_adc16d4d742788fecc79f0eb05fdeb570}{needs\+User\+Volumes}} (const string \&geom\+\_\+type)
+\begin{DoxyCompactList}\small\item\em function for checking whether a given geometry type requires user specified volumes \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEB__Phantom_a9da62805481c6a54f2627068faa389a5}{can\+Write3ddose}} (const string \&geom\+\_\+type)
+\begin{DoxyCompactList}\small\item\em function for checking whether a given geometry type can output 3ddose files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_a354f9d3bb4d6d855220abcf906291f23}{geometry}}
+\begin{DoxyCompactList}\small\item\em the phantom geometry object \end{DoxyCompactList}\item 
+set$<$ int $>$ \mbox{\hyperlink{classEB__Phantom_ae858108660e1242a6c2df36081f539e3}{global\+\_\+regions}}
+\begin{DoxyCompactList}\small\item\em the set of all global regions contained in this phantom \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Phantom_a48e1e47c0dbbbc32def814aa69e8bab4}{global\+\_\+reg\+\_\+start}}
+\begin{DoxyCompactList}\small\item\em starting global region index for this phantom \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Phantom_a1bb8d4bc12779b2a4d1d2fb5fae6bd83}{global\+\_\+reg\+\_\+stop}}
+\begin{DoxyCompactList}\small\item\em ending global region index for this phantom \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Phantom_a65d4c8adadbcb4c28d22ad3ba7bbfa06}{needs\+\_\+user\+\_\+geoms}}
+\begin{DoxyCompactList}\small\item\em this phantom requires user specified geometries \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Phantom_a2d9a45103cc248fc12f62b3410b6740a}{can\+\_\+write\+\_\+3ddose}}
+\begin{DoxyCompactList}\small\item\em this phantom can output 3ddose files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEB__Phantom_ab55e95f5ec19d2689310f5ab66725328}{output\+Dose\+Stats}} (EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}score, string type)
+\begin{DoxyCompactList}\small\item\em write some stats about dose arrays \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a4f455e7e778139009c78cce12eafe597}{output\+Top\+Doses}} (int top\+\_\+n, vector$<$ \mbox{\hyperlink{structRegionResult}{Region\+Result}} $>$ region\+\_\+results)
+\begin{DoxyCompactList}\small\item\em write the top\+\_\+n doses to console \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a0f9abdb33a1c80f00e282e0bafb57ca1}{output3ddose\+Results}} (string)
+\begin{DoxyCompactList}\small\item\em write the phantom boundaries, doses and uncertainties to 3ddose file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a37642532dc6888c149025f8213d82971}{output3\+DDoses}} (ostream \&out, EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}score, string type)
+\begin{DoxyCompactList}\small\item\em write input scoring array to 3ddose file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_ad0e25952bf7695564d3e3dda75f4410d}{output3\+DBounds}} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em write the phantom bounds to 3ddose file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a074af3450a355a416b1d50c6c2fb16e9}{output\+EGSPhant}} (string)
+\begin{DoxyCompactList}\small\item\em initialize and write an egsphant file for this phantom \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_aa2f7f935cdbed9da01ff78ca922cc2a3}{write\+EGSPhant}} (ostream \&)
+\begin{DoxyCompactList}\small\item\em write actual egsphant data to file for this phantom \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Phantom_a91f887301acdad94df46d477f3af2e6f}{med\+Index}} (int medium)
+\begin{DoxyCompactList}\small\item\em get medium index 1-\/9A-\/Z \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{structRegionResult}{Region\+Result}} $>$ \mbox{\hyperlink{classEB__Phantom_a85b34e103c1e5cf0b9fdd4c6a5df64e8}{get\+Region\+Results}} ()
+\begin{DoxyCompactList}\small\item\em create a vector of \doxylink{structRegionResult}{Region\+Result} structs which can then be sorted by dose value. used for output routines \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_a90bdb720591918e2328daf16c9e37721}{get\+Scoring\+Arrays}} (vector$<$ EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \&scores, vector$<$ string $>$ \&types, vector$<$ string $>$ \&descriptions)
+\begin{DoxyCompactList}\small\item\em get all active scoring arrays, their types and descriptions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Phantom_aae9f93440641d158987d5ba7ce2f8b9f}{get\+EGSdat\+Scoring\+Arrays}} (vector$<$ EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \&scores)
+\begin{DoxyCompactList}\small\item\em get all active scoring arrays for writing to egsdat file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+EGS\+\_\+\+Application \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_a776d62d9ae4fc0ffdf74ba8f5f89d140}{app}}
+\begin{DoxyCompactList}\small\item\em Parent application instance. Required for constructing filenames. \end{DoxyCompactList}\item 
+EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_abc0cb1403f0054acb3940f9805d21c6e}{tlen\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Tracklength dose scoring array. \end{DoxyCompactList}\item 
+EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_af925fe0de4b2d3f917eb43702164d0ea}{edep\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Interaction scored dose scoring array. \end{DoxyCompactList}\item 
+EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_aa17880934c708bb92f8533f443876e2f}{prim\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Tracklenth scored dose from primary particles. \end{DoxyCompactList}\item 
+EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_a80b8f147a1812def245a389605ebd758}{sscat\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Tracklenth scored dose from single scattered particles. \end{DoxyCompactList}\item 
+EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_a9b8b18de997258ff5fbb021bb3509fff}{mscat\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Tracklenth scored dose from multiple scattered particles. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Phantom_aec2edadd7f55c912d0f86d851422a738}{nsources}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_ad0774694fd2fae0ac87dbe005cde31bc}{dose\+\_\+scale}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_a87731f6b7f8431e35286ca115db304ef}{total\+\_\+radiant\+\_\+e}}
+\item 
+EGS\+\_\+\+I64 \mbox{\hyperlink{classEB__Phantom_abbc896e10dce8fdc1d86e7ab12bb871d}{cur\+\_\+history}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Phantom_a4a6452c4ce3326c02b0f3d3f56a7f89c}{effective\+\_\+histories}}
+\item 
+\mbox{\hyperlink{classPublisher}{Publisher}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Phantom_ab7b7eac63854e3277e5964588235e6ea}{publisher}}
+\item 
+std\+::map$<$ int, double $>$ \mbox{\hyperlink{classEB__Phantom_acec480fd064f1a582e92580a46bbe253}{corrected\+\_\+volumes}}
+\begin{DoxyCompactList}\small\item\em Corrected volume in a given region. \end{DoxyCompactList}\item 
+std\+::map$<$ int, double $>$ \mbox{\hyperlink{classEB__Phantom_a145669b652013373a51a6e12af3d4acc}{volume\+\_\+uncertainty}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const string \mbox{\hyperlink{classEB__Phantom_a6e605a16e4a68d4a1486ae36a9071f5b}{autovol\+\_\+phantom\+\_\+geom\+\_\+types}} \mbox{[}$\,$\mbox{]} = \{"{}EGS\+\_\+c\+Spheres"{}, "{}EGS\+\_\+c\+Spherical\+Shell"{}, "{}EGS\+\_\+\+XYZGeometry"{}, "{}EGS\+\_\+\+XYZGeometry\+T"{}, "{}EGS\+\_\+\+RZ"{}\}
+\item 
+static const string \mbox{\hyperlink{classEB__Phantom_a6975d930588b0a29cd9d07036c64419f}{threeddose\+\_\+geom\+\_\+types}} \mbox{[}$\,$\mbox{]} = \{"{}EGS\+\_\+c\+Spheres"{}, "{}EGS\+\_\+c\+Spherical\+Shell"{}, "{}EGS\+\_\+\+XYZGeometry"{}, "{}EGS\+\_\+\+XYZGeometry\+T"{}, "{}EGS\+\_\+\+RZ"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to represent a single phantom for scoring dose in egs\+\_\+brachy. 
+
+A simulation may have an arbitrary number of these phantoms. This class handles scoring both tracklength and interaction scoring, outputing the top N doses to the console and output to 3ddose files.
+
+Region numbers are all \textquotesingle{}local\textquotesingle{} region numbers. That is the phantom does not know anything about its global region number. egs\+\_\+brachy should convert to local region number before calling any method taking a region number as input. 
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00071}{71}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+
+
+\label{doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\index{EB\_Phantom@{EB\_Phantom}!GeomDirections@{GeomDirections}}
+\index{GeomDirections@{GeomDirections}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{GeomDirections}{GeomDirections}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21} 
+enum \mbox{\hyperlink{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21}{EB\+\_\+\+Phantom\+::\+Geom\+Directions}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XDIR@{XDIR}!EB\_Phantom@{EB\_Phantom}}\index{EB\_Phantom@{EB\_Phantom}!XDIR@{XDIR}}}\label{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21a90f6dcbd6ca2dcb827694950e1b7c5da} 
+XDIR&XDIR=0 x dir for rectilinear, r dir for spherical, z dir for cylindrical. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{YDIR@{YDIR}!EB\_Phantom@{EB\_Phantom}}\index{EB\_Phantom@{EB\_Phantom}!YDIR@{YDIR}}}\label{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21a21c5bd2397d48a3415254aa7c6dceeda} 
+YDIR&YDIR=1 y dir for rectilinear, r dir for cylindrical. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZDIR@{ZDIR}!EB\_Phantom@{EB\_Phantom}}\index{EB\_Phantom@{EB\_Phantom}!ZDIR@{ZDIR}}}\label{classEB__Phantom_a01b33eda67ba8fdc8cbaedeba3a4ed21ac9f193854c99713bf23088deb52d03f8} 
+ZDIR&ZDIR=2 z dir for rectilinear. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00135}{135}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EB\_Phantom@{EB\_Phantom}!EB\_Phantom@{EB\_Phantom}}
+\index{EB\_Phantom@{EB\_Phantom}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{EB\_Phantom()}{EB\_Phantom()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a67d26e8c5646d6987e05f0eeaf7027d0} 
+EB\+\_\+\+Phantom\+::\+EB\+\_\+\+Phantom (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Application \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}}]{geom}{, }\item[{set$<$ int $>$}]{global\+\_\+regions}{, }\item[{int}]{nsource}{, }\item[{\mbox{\hyperlink{classPublisher}{Publisher}} \texorpdfstring{$\ast$}{*}}]{publisher}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} constructor. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!````~EB\_Phantom@{\texorpdfstring{$\sim$}{\string~}EB\_Phantom}}
+\index{````~EB\_Phantom@{\texorpdfstring{$\sim$}{\string~}EB\_Phantom}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EB\_Phantom()}{\string~EB\_Phantom()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a2224594f1886d37719df663573846cc0} 
+EB\+\_\+\+Phantom\+::\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Phantom (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} destructor. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00145}{145}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EB\_Phantom@{EB\_Phantom}!addState@{addState}}
+\index{addState@{addState}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{addState()}{addState()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aa0ff83489c4ba4724092ae94e908bd1c} 
+int EB\+\_\+\+Phantom\+::add\+State (\begin{DoxyParamCaption}\item[{istream \&}]{ifile}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00996}{996}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!avgVoxelVol@{avgVoxelVol}}
+\index{avgVoxelVol@{avgVoxelVol}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{avgVoxelVol()}{avgVoxelVol()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_af6ebb861d6a8da169920aca7d788702c} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::avg\+Voxel\+Vol (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+return average voxel volume 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00855}{855}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!canWrite3ddose@{canWrite3ddose}}
+\index{canWrite3ddose@{canWrite3ddose}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{canWrite3ddose()}{canWrite3ddose()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a9da62805481c6a54f2627068faa389a5} 
+bool EB\+\_\+\+Phantom\+::can\+Write3ddose (\begin{DoxyParamCaption}\item[{const string \&}]{geom\+\_\+type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+function for checking whether a given geometry type can output 3ddose files 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!enableInteractionScoring@{enableInteractionScoring}}
+\index{enableInteractionScoring@{enableInteractionScoring}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{enableInteractionScoring()}{enableInteractionScoring()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_af34e277855323f2caea8d51c6fbff627} 
+void EB\+\_\+\+Phantom\+::enable\+Interaction\+Scoring (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+enable\+Interaction\+Scoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00215}{215}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!enableScatterScoring@{enableScatterScoring}}
+\index{enableScatterScoring@{enableScatterScoring}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{enableScatterScoring()}{enableScatterScoring()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a603fd5af6ac3a744ac7bf32a71d02708} 
+void EB\+\_\+\+Phantom\+::enable\+Scatter\+Scoring (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+enable\+Interaction\+Scoring must be called before simulation begins if you want to score dose with interaction scoring in addition to tracklength scoring 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!enableTLenScoring@{enableTLenScoring}}
+\index{enableTLenScoring@{enableTLenScoring}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{enableTLenScoring()}{enableTLenScoring()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ab0cd2b014484bbbde70507de1f87eedd} 
+void EB\+\_\+\+Phantom\+::enable\+TLen\+Scoring (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+enable\+TLen\+Scoring must be called before simulation begins if you want to score dose with tracklength estimator in addition to tracklength scoring 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getCorrectedVolume@{getCorrectedVolume}}
+\index{getCorrectedVolume@{getCorrectedVolume}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getCorrectedVolume()}{getCorrectedVolume()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ad2090c102f6eb914a0470ab216e2ebf1} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Corrected\+Volume (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+get uncorrected volume for a given region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00314}{314}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getCurrentScore@{getCurrentScore}}
+\index{getCurrentScore@{getCurrentScore}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getCurrentScore()}{getCurrentScore()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a36dcad67c78b20c4962b6c89022671ae} 
+void EB\+\_\+\+Phantom\+::get\+Current\+Score (\begin{DoxyParamCaption}\item[{int}]{ireg}{, }\item[{double \&}]{sum}{, }\item[{double \&}]{sum2}{}\end{DoxyParamCaption})}
+
+
+
+get current tlen score for region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00332}{332}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getEGSdatScoringArrays@{getEGSdatScoringArrays}}
+\index{getEGSdatScoringArrays@{getEGSdatScoringArrays}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getEGSdatScoringArrays()}{getEGSdatScoringArrays()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aae9f93440641d158987d5ba7ce2f8b9f} 
+void EB\+\_\+\+Phantom\+::get\+EGSdat\+Scoring\+Arrays (\begin{DoxyParamCaption}\item[{vector$<$ EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \&}]{scores}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get all active scoring arrays for writing to egsdat file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00668}{668}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getRealMass@{getRealMass}}
+\index{getRealMass@{getRealMass}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getRealMass()}{getRealMass()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6c7f81d71dc671374074436e45385e80} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Real\+Mass (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+return (corrected) real mass for region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00291}{291}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getRealRho@{getRealRho}}
+\index{getRealRho@{getRealRho}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getRealRho()}{getRealRho()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a550c3b3a50dcc87126a779961def37d9} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Real\+Rho (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+return actual density for region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getRegionResults@{getRegionResults}}
+\index{getRegionResults@{getRegionResults}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getRegionResults()}{getRegionResults()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a85b34e103c1e5cf0b9fdd4c6a5df64e8} 
+vector$<$ \mbox{\hyperlink{structRegionResult}{Region\+Result}} $>$ EB\+\_\+\+Phantom\+::get\+Region\+Results (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+create a vector of \doxylink{structRegionResult}{Region\+Result} structs which can then be sorted by dose value. used for output routines 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00377}{377}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getRegionsWithCorrections@{getRegionsWithCorrections}}
+\index{getRegionsWithCorrections@{getRegionsWithCorrections}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getRegionsWithCorrections()}{getRegionsWithCorrections()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a3a0ee280ede298c33784f07bdb3b2efd} 
+vector$<$ int $>$ EB\+\_\+\+Phantom\+::get\+Regions\+With\+Corrections (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+return a vector of all regions which were corrected 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00194}{194}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getResult@{getResult}}
+\index{getResult@{getResult}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getResult()}{getResult()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a06e770be97a6ea5e13717036f745c6ea} 
+void EB\+\_\+\+Phantom\+::get\+Result (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}}]{score}{, }\item[{int}]{ireg}{, }\item[{string}]{type}{, }\item[{EGS\+\_\+\+Float \&}]{r}{, }\item[{EGS\+\_\+\+Float \&}]{dr}{}\end{DoxyParamCaption})}
+
+
+
+get result for region from scoring array and normalize based on the type requested. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00349}{349}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getScoringArrays@{getScoringArrays}}
+\index{getScoringArrays@{getScoringArrays}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getScoringArrays()}{getScoringArrays()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a90bdb720591918e2328daf16c9e37721} 
+void EB\+\_\+\+Phantom\+::get\+Scoring\+Arrays (\begin{DoxyParamCaption}\item[{vector$<$ EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \&}]{scores}{, }\item[{vector$<$ string $>$ \&}]{types}{, }\item[{vector$<$ string $>$ \&}]{descriptions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get all active scoring arrays, their types and descriptions 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00636}{636}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getTlenNorm@{getTlenNorm}}
+\index{getTlenNorm@{getTlenNorm}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getTlenNorm()}{getTlenNorm()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a414735f8f7b5cef7333dc261049afd5d} 
+double EB\+\_\+\+Phantom\+::get\+Tlen\+Norm (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00344}{344}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getUncorrectedMass@{getUncorrectedMass}}
+\index{getUncorrectedMass@{getUncorrectedMass}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getUncorrectedMass()}{getUncorrectedMass()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aea26c2b5fb49e6f4700ac72d5ea8d1ff} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Uncorrected\+Mass (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+return uncorrected for region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00298}{298}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getUncorrectedVolume@{getUncorrectedVolume}}
+\index{getUncorrectedVolume@{getUncorrectedVolume}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getUncorrectedVolume()}{getUncorrectedVolume()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a2f3c80d5d6a098492c52ab1c6189db19} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Uncorrected\+Volume (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+get corrected volume for a given region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00302}{302}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!getVolumeUncertainty@{getVolumeUncertainty}}
+\index{getVolumeUncertainty@{getVolumeUncertainty}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{getVolumeUncertainty()}{getVolumeUncertainty()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aeccfea95da9b3d3697b6b52ac3e1b32c} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::get\+Volume\+Uncertainty (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+get volume unc 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00323}{323}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!globalRegIsInPhant@{globalRegIsInPhant}}
+\index{globalRegIsInPhant@{globalRegIsInPhant}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{globalRegIsInPhant()}{globalRegIsInPhant()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a3dab8b1020d6ca4ee881c0be852b1614} 
+bool EB\+\_\+\+Phantom\+::global\+Reg\+Is\+In\+Phant (\begin{DoxyParamCaption}\item[{int}]{global\+\_\+reg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+check whether a global region falls within this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00249}{249}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!globalToLocal@{globalToLocal}}
+\index{globalToLocal@{globalToLocal}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{globalToLocal()}{globalToLocal()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a9770534e38462a58685faf702b735c86} 
+int EB\+\_\+\+Phantom\+::global\+To\+Local (\begin{DoxyParamCaption}\item[{int}]{global\+\_\+reg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+convert global region to local phantom region 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00254}{254}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!hasVolCor@{hasVolCor}}
+\index{hasVolCor@{hasVolCor}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{hasVolCor()}{hasVolCor()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a0dfc9ed7062c0205b67476c4e6368f6a} 
+bool EB\+\_\+\+Phantom\+::has\+Vol\+Cor (\begin{DoxyParamCaption}\item[{int}]{ireg}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00310}{310}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!medIndex@{medIndex}}
+\index{medIndex@{medIndex}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{medIndex()}{medIndex()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a91f887301acdad94df46d477f3af2e6f} 
+string EB\+\_\+\+Phantom\+::med\+Index (\begin{DoxyParamCaption}\item[{int}]{medium}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get medium index 1-\/9A-\/Z 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00823}{823}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!needsUserVolumes@{needsUserVolumes}}
+\index{needsUserVolumes@{needsUserVolumes}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{needsUserVolumes()}{needsUserVolumes()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_adc16d4d742788fecc79f0eb05fdeb570} 
+bool EB\+\_\+\+Phantom\+::needs\+User\+Volumes (\begin{DoxyParamCaption}\item[{const string \&}]{geom\+\_\+type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+function for checking whether a given geometry type requires user specified volumes 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00166}{166}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!output3DBounds@{output3DBounds}}
+\index{output3DBounds@{output3DBounds}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{output3DBounds()}{output3DBounds()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ad0e25952bf7695564d3e3dda75f4410d} 
+void EB\+\_\+\+Phantom\+::output3\+DBounds (\begin{DoxyParamCaption}\item[{ostream \&}]{out}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write the phantom bounds to 3ddose file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00735}{735}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!output3ddoseResults@{output3ddoseResults}}
+\index{output3ddoseResults@{output3ddoseResults}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{output3ddoseResults()}{output3ddoseResults()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a0f9abdb33a1c80f00e282e0bafb57ca1} 
+void EB\+\_\+\+Phantom\+::output3ddose\+Results (\begin{DoxyParamCaption}\item[{string}]{format}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write the phantom boundaries, doses and uncertainties to 3ddose file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00688}{688}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!output3DDoses@{output3DDoses}}
+\index{output3DDoses@{output3DDoses}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{output3DDoses()}{output3DDoses()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a37642532dc6888c149025f8213d82971} 
+void EB\+\_\+\+Phantom\+::output3\+DDoses (\begin{DoxyParamCaption}\item[{ostream \&}]{out}{, }\item[{EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}}]{score}{, }\item[{string}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write input scoring array to 3ddose file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00758}{758}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputData@{outputData}}
+\index{outputData@{outputData}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputData()}{outputData()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ae3858fc38f13a3221e2a4736f4f8ab4d} 
+int EB\+\_\+\+Phantom\+::output\+Data (\begin{DoxyParamCaption}\item[{ostream \texorpdfstring{$\ast$}{*}}]{ofile}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00958}{958}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputDoseStats@{outputDoseStats}}
+\index{outputDoseStats@{outputDoseStats}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputDoseStats()}{outputDoseStats()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ab55e95f5ec19d2689310f5ab66725328} 
+void EB\+\_\+\+Phantom\+::output\+Dose\+Stats (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*}}]{score}{, }\item[{string}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write some stats about dose arrays 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00408}{408}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputEGSPhant@{outputEGSPhant}}
+\index{outputEGSPhant@{outputEGSPhant}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputEGSPhant()}{outputEGSPhant()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a074af3450a355a416b1d50c6c2fb16e9} 
+void EB\+\_\+\+Phantom\+::output\+EGSPhant (\begin{DoxyParamCaption}\item[{string}]{format}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialize and write an egsphant file for this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00833}{833}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputResults@{outputResults}}
+\index{outputResults@{outputResults}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputResults()}{outputResults()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a9f8805b368bfbe07517622f433627bb6} 
+void EB\+\_\+\+Phantom\+::output\+Results (\begin{DoxyParamCaption}\item[{int}]{top\+\_\+n}{ = {\ttfamily 20}, }\item[{string}]{output\+\_\+3ddose}{ = {\ttfamily "{}text"{}}, }\item[{string}]{output\+\_\+egsphant}{ = {\ttfamily "{}text"{}}, }\item[{string}]{output\+\_\+voxinfo}{ = {\ttfamily "{}text"{}}, }\item[{string}]{output\+\_\+volcor}{ = {\ttfamily "{}text"{}}}\end{DoxyParamCaption})}
+
+
+
+tell phantom to output its results. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00259}{259}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputTopDoses@{outputTopDoses}}
+\index{outputTopDoses@{outputTopDoses}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputTopDoses()}{outputTopDoses()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a4f455e7e778139009c78cce12eafe597} 
+void EB\+\_\+\+Phantom\+::output\+Top\+Doses (\begin{DoxyParamCaption}\item[{int}]{top\+\_\+n}{, }\item[{vector$<$ \mbox{\hyperlink{structRegionResult}{Region\+Result}} $>$}]{region\+\_\+results}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write the top\+\_\+n doses to console 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00567}{567}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputVolumeCorrection@{outputVolumeCorrection}}
+\index{outputVolumeCorrection@{outputVolumeCorrection}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputVolumeCorrection()}{outputVolumeCorrection()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_acef9734c47684cfc7ea2a29c82b1e228} 
+void EB\+\_\+\+Phantom\+::output\+Volume\+Correction (\begin{DoxyParamCaption}\item[{string}]{format}{}\end{DoxyParamCaption})}
+
+
+
+intialize and output write voxel volumes to file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00934}{934}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!outputVoxelInfo@{outputVoxelInfo}}
+\index{outputVoxelInfo@{outputVoxelInfo}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{outputVoxelInfo()}{outputVoxelInfo()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a107157695270761830d0efe93a277820} 
+void EB\+\_\+\+Phantom\+::output\+Voxel\+Info (\begin{DoxyParamCaption}\item[{string}]{format}{}\end{DoxyParamCaption})}
+
+
+
+write voxel volumes, mass, desnity etc 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00897}{897}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!readData@{readData}}
+\index{readData@{readData}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6b73634962ef557f58ae7745f3fe7075} 
+int EB\+\_\+\+Phantom\+::read\+Data (\begin{DoxyParamCaption}\item[{istream \texorpdfstring{$\ast$}{*}}]{ifile}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00977}{977}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{resetCounter()}{resetCounter()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a57fe9993dd74aa1a5812c8ea91338dec} 
+void EB\+\_\+\+Phantom\+::reset\+Counter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l01022}{1022}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!scoreEdep@{scoreEdep}}
+\index{scoreEdep@{scoreEdep}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{scoreEdep()}{scoreEdep()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6c7462314525c74cdea48dfaf7a88407} 
+void EB\+\_\+\+Phantom\+::score\+Edep (\begin{DoxyParamCaption}\item[{int}]{ir}{, }\item[{EGS\+\_\+\+Float}]{dose}{}\end{DoxyParamCaption})}
+
+
+
+add energy deposition dose to region ir 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!scoreTlen@{scoreTlen}}
+\index{scoreTlen@{scoreTlen}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{scoreTlen()}{scoreTlen()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a07dce58bd302b10f86aa2063e50dad24} 
+void EB\+\_\+\+Phantom\+::score\+Tlen (\begin{DoxyParamCaption}\item[{int}]{ir}{, }\item[{EGS\+\_\+\+Float}]{dose}{, }\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+add tracklength dose to region ir 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!setCorrectedVolume@{setCorrectedVolume}}
+\index{setCorrectedVolume@{setCorrectedVolume}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{setCorrectedVolume()}{setCorrectedVolume()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a8f4022bb119866ba8b06338c53e8b759} 
+void EB\+\_\+\+Phantom\+::set\+Corrected\+Volume (\begin{DoxyParamCaption}\item[{int}]{ir}{, }\item[{double}]{fraction}{, }\item[{double}]{unc}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Allow user to tell phantom what the actual volume of a region is. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00202}{202}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!setDoseScale@{setDoseScale}}
+\index{setDoseScale@{setDoseScale}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{setDoseScale()}{setDoseScale()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ad987bf8d58dd9cf53605ca7a5c0b4040} 
+void EB\+\_\+\+Phantom\+::set\+Dose\+Scale (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Float}]{scale}{}\end{DoxyParamCaption})}
+
+
+
+set dose scaling factor for output 
+
+add energy deposition dose to region ir 
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00162}{162}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!setEffectiveHistories@{setEffectiveHistories}}
+\index{setEffectiveHistories@{setEffectiveHistories}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{setEffectiveHistories()}{setEffectiveHistories()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a5dd263a8216c1cca43b2a1c580421043} 
+void EB\+\_\+\+Phantom\+::set\+Effective\+Histories (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Float}]{current\+\_\+case}{}\end{DoxyParamCaption})}
+
+
+
+set number of effective histories for normalizing scoring arrays 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00253}{253}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!setHistory@{setHistory}}
+\index{setHistory@{setHistory}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{setHistory()}{setHistory()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6166060d7824c23f90c99d790ddf81a6} 
+void EB\+\_\+\+Phantom\+::set\+History (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+I64}]{current\+\_\+case}{}\end{DoxyParamCaption})}
+
+
+
+set current history on scoring arrays for proper statistics 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00234}{234}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!update@{update}}
+\index{update@{update}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a2b93fab63fcaf44a13324752db3a67fe} 
+void EB\+\_\+\+Phantom\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}]{message}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSubscriber_a46254c65cd8ec1076031809958496092}{Subscriber}}.
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!writeEGSPhant@{writeEGSPhant}}
+\index{writeEGSPhant@{writeEGSPhant}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{writeEGSPhant()}{writeEGSPhant()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aa2f7f935cdbed9da01ff78ca922cc2a3} 
+void EB\+\_\+\+Phantom\+::write\+EGSPhant (\begin{DoxyParamCaption}\item[{ostream \&}]{out}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write actual egsphant data to file for this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00781}{781}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!writeVolumeCorrection@{writeVolumeCorrection}}
+\index{writeVolumeCorrection@{writeVolumeCorrection}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{writeVolumeCorrection()}{writeVolumeCorrection()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a5a26112dff8bf46b77070ae633fec986} 
+void EB\+\_\+\+Phantom\+::write\+Volume\+Correction (\begin{DoxyParamCaption}\item[{ostream \&}]{out}{}\end{DoxyParamCaption})}
+
+
+
+write voxel volumes to file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00922}{922}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!writeVoxelInfo@{writeVoxelInfo}}
+\index{writeVoxelInfo@{writeVoxelInfo}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{writeVoxelInfo()}{writeVoxelInfo()}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ae16f38b9c092e603ebab3201895eb451} 
+void EB\+\_\+\+Phantom\+::write\+Voxel\+Info (\begin{DoxyParamCaption}\item[{ostream \&}]{out}{}\end{DoxyParamCaption})}
+
+
+
+write voxel info file 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8cpp_source_l00865}{865}} of file \mbox{\hyperlink{phantom_8cpp_source}{phantom.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EB\_Phantom@{EB\_Phantom}!app@{app}}
+\index{app@{app}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a776d62d9ae4fc0ffdf74ba8f5f89d140} 
+EGS\+\_\+\+Application\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::app\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parent application instance. Required for constructing filenames. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00078}{78}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!autovol\_phantom\_geom\_types@{autovol\_phantom\_geom\_types}}
+\index{autovol\_phantom\_geom\_types@{autovol\_phantom\_geom\_types}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{autovol\_phantom\_geom\_types}{autovol\_phantom\_geom\_types}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6e605a16e4a68d4a1486ae36a9071f5b} 
+const string EB\+\_\+\+Phantom\+::autovol\+\_\+phantom\+\_\+geom\+\_\+types = \{"{}EGS\+\_\+c\+Spheres"{}, "{}EGS\+\_\+c\+Spherical\+Shell"{}, "{}EGS\+\_\+\+XYZGeometry"{}, "{}EGS\+\_\+\+XYZGeometry\+T"{}, "{}EGS\+\_\+\+RZ"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00097}{97}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!can\_write\_3ddose@{can\_write\_3ddose}}
+\index{can\_write\_3ddose@{can\_write\_3ddose}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{can\_write\_3ddose}{can\_write\_3ddose}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a2d9a45103cc248fc12f62b3410b6740a} 
+bool EB\+\_\+\+Phantom\+::can\+\_\+write\+\_\+3ddose}
+
+
+
+this phantom can output 3ddose files 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00297}{297}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!corrected\_volumes@{corrected\_volumes}}
+\index{corrected\_volumes@{corrected\_volumes}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{corrected\_volumes}{corrected\_volumes}}
+{\footnotesize\ttfamily \label{classEB__Phantom_acec480fd064f1a582e92580a46bbe253} 
+std\+::map$<$int, double$>$ EB\+\_\+\+Phantom\+::corrected\+\_\+volumes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Corrected volume in a given region. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00095}{95}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!cur\_history@{cur\_history}}
+\index{cur\_history@{cur\_history}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{cur\_history}{cur\_history}}
+{\footnotesize\ttfamily \label{classEB__Phantom_abbc896e10dce8fdc1d86e7ab12bb871d} 
+EGS\+\_\+\+I64 EB\+\_\+\+Phantom\+::cur\+\_\+history\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00090}{90}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!dose\_scale@{dose\_scale}}
+\index{dose\_scale@{dose\_scale}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{dose\_scale}{dose\_scale}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ad0774694fd2fae0ac87dbe005cde31bc} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::dose\+\_\+scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00087}{87}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!edep\_score@{edep\_score}}
+\index{edep\_score@{edep\_score}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{edep\_score}{edep\_score}}
+{\footnotesize\ttfamily \label{classEB__Phantom_af925fe0de4b2d3f917eb43702164d0ea} 
+EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::edep\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Interaction scored dose scoring array. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00080}{80}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!effective\_histories@{effective\_histories}}
+\index{effective\_histories@{effective\_histories}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{effective\_histories}{effective\_histories}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a4a6452c4ce3326c02b0f3d3f56a7f89c} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::effective\+\_\+histories\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00091}{91}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!geometry@{geometry}}
+\index{geometry@{geometry}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{geometry}{geometry}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a354f9d3bb4d6d855220abcf906291f23} 
+EGS\+\_\+\+Base\+Geometry\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::geometry}
+
+
+
+the phantom geometry object 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00284}{284}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!global\_reg\_start@{global\_reg\_start}}
+\index{global\_reg\_start@{global\_reg\_start}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{global\_reg\_start}{global\_reg\_start}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a48e1e47c0dbbbc32def814aa69e8bab4} 
+int EB\+\_\+\+Phantom\+::global\+\_\+reg\+\_\+start}
+
+
+
+starting global region index for this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00293}{293}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!global\_reg\_stop@{global\_reg\_stop}}
+\index{global\_reg\_stop@{global\_reg\_stop}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{global\_reg\_stop}{global\_reg\_stop}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a1bb8d4bc12779b2a4d1d2fb5fae6bd83} 
+int EB\+\_\+\+Phantom\+::global\+\_\+reg\+\_\+stop}
+
+
+
+ending global region index for this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00294}{294}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!global\_regions@{global\_regions}}
+\index{global\_regions@{global\_regions}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{global\_regions}{global\_regions}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ae858108660e1242a6c2df36081f539e3} 
+set$<$int$>$ EB\+\_\+\+Phantom\+::global\+\_\+regions}
+
+
+
+the set of all global regions contained in this phantom 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00291}{291}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!mscat\_score@{mscat\_score}}
+\index{mscat\_score@{mscat\_score}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{mscat\_score}{mscat\_score}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a9b8b18de997258ff5fbb021bb3509fff} 
+EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::mscat\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tracklenth scored dose from multiple scattered particles. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00084}{84}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!needs\_user\_geoms@{needs\_user\_geoms}}
+\index{needs\_user\_geoms@{needs\_user\_geoms}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{needs\_user\_geoms}{needs\_user\_geoms}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a65d4c8adadbcb4c28d22ad3ba7bbfa06} 
+bool EB\+\_\+\+Phantom\+::needs\+\_\+user\+\_\+geoms}
+
+
+
+this phantom requires user specified geometries 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00296}{296}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!nsources@{nsources}}
+\index{nsources@{nsources}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{nsources}{nsources}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aec2edadd7f55c912d0f86d851422a738} 
+int EB\+\_\+\+Phantom\+::nsources\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00086}{86}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!prim\_score@{prim\_score}}
+\index{prim\_score@{prim\_score}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{prim\_score}{prim\_score}}
+{\footnotesize\ttfamily \label{classEB__Phantom_aa17880934c708bb92f8533f443876e2f} 
+EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::prim\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tracklenth scored dose from primary particles. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00081}{81}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!publisher@{publisher}}
+\index{publisher@{publisher}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{publisher}{publisher}}
+{\footnotesize\ttfamily \label{classEB__Phantom_ab7b7eac63854e3277e5964588235e6ea} 
+\mbox{\hyperlink{classPublisher}{Publisher}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::publisher\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00093}{93}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!sscat\_score@{sscat\_score}}
+\index{sscat\_score@{sscat\_score}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{sscat\_score}{sscat\_score}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a80b8f147a1812def245a389605ebd758} 
+EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::sscat\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tracklenth scored dose from single scattered particles. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00082}{82}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!threeddose\_geom\_types@{threeddose\_geom\_types}}
+\index{threeddose\_geom\_types@{threeddose\_geom\_types}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{threeddose\_geom\_types}{threeddose\_geom\_types}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a6975d930588b0a29cd9d07036c64419f} 
+const string EB\+\_\+\+Phantom\+::threeddose\+\_\+geom\+\_\+types = \{"{}EGS\+\_\+c\+Spheres"{}, "{}EGS\+\_\+c\+Spherical\+Shell"{}, "{}EGS\+\_\+\+XYZGeometry"{}, "{}EGS\+\_\+\+XYZGeometry\+T"{}, "{}EGS\+\_\+\+RZ"{}\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00101}{101}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!tlen\_score@{tlen\_score}}
+\index{tlen\_score@{tlen\_score}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{tlen\_score}{tlen\_score}}
+{\footnotesize\ttfamily \label{classEB__Phantom_abc0cb1403f0054acb3940f9805d21c6e} 
+EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} EB\+\_\+\+Phantom\+::tlen\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tracklength dose scoring array. 
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00079}{79}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!total\_radiant\_e@{total\_radiant\_e}}
+\index{total\_radiant\_e@{total\_radiant\_e}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{total\_radiant\_e}{total\_radiant\_e}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a87731f6b7f8431e35286ca115db304ef} 
+EGS\+\_\+\+Float EB\+\_\+\+Phantom\+::total\+\_\+radiant\+\_\+e\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00089}{89}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+\index{EB\_Phantom@{EB\_Phantom}!volume\_uncertainty@{volume\_uncertainty}}
+\index{volume\_uncertainty@{volume\_uncertainty}!EB\_Phantom@{EB\_Phantom}}
+\doxysubsubsection{\texorpdfstring{volume\_uncertainty}{volume\_uncertainty}}
+{\footnotesize\ttfamily \label{classEB__Phantom_a145669b652013373a51a6e12af3d4acc} 
+std\+::map$<$int, double$>$ EB\+\_\+\+Phantom\+::volume\+\_\+uncertainty\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{phantom_8h_source_l00096}{96}} of file \mbox{\hyperlink{phantom_8h_source}{phantom.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{phantom_8h}{phantom.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{phantom_8cpp}{phantom.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,233 @@
+\doxysection{EB\+\_\+\+Uniform\+Run\+Control Class Reference}
+\label{classEB__UniformRunControl}\index{EB\_UniformRunControl@{EB\_UniformRunControl}}
+
+
+{\ttfamily \#include $<$egs\+\_\+brachy.\+h$>$}
+
+
+
+Inheritance diagram for EB\+\_\+\+Uniform\+Run\+Control\+:
+% FIG 0
+
+
+Collaboration diagram for EB\+\_\+\+Uniform\+Run\+Control\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__UniformRunControl_a656d6b1901cfa451de1c2d962aec18ff}{EB\+\_\+\+Uniform\+Run\+Control}} (\mbox{\hyperlink{classEB__Application}{EB\+\_\+\+Application}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEB__UniformRunControl_a6a76fc257e63929efd995ee70e685000}{app}}, string egsdat\+\_\+format)
+\item 
+\mbox{\hyperlink{classEB__UniformRunControl_aecb3ac5393d8e2791aba7ab2ec6873e3}{\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Uniform\+Run\+Control}} ()
+\item 
+void \mbox{\hyperlink{classEB__UniformRunControl_a8f20d12f06ce77b1ffc0495ff556140d}{describe\+RCO}} ()
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a02ab9ab649450f955b4c1c5dfffbb9f1}{start\+Simulation}} ()
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_ab75856e5832cdd5c035237f69925e017}{finish\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Uses \textquotesingle{}watcher\textquotesingle{} jobs to determine if the simulation has finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__Application}{EB\+\_\+\+Application}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__UniformRunControl_a6a76fc257e63929efd995ee70e685000}{app}}
+\item 
+string \mbox{\hyperlink{classEB__UniformRunControl_ab2025bf4da1bd61a377691f14132a943}{output\+\_\+egsdat\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a79074b126b544b11fd18eae9e346bed5}{milliseconds}}
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a2ee49a7cd36386862bf0ff23620795a7}{check\+\_\+intervals}}
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_ae0575483a0a19b16f8cfc5fe54a5cab1}{njob}}
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a485757a363e3c141c43b992d2bf8d986}{npar}}
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a180f63f0b56a8cfa20d213c18f6d4490}{ipar}}
+\item 
+int \mbox{\hyperlink{classEB__UniformRunControl_a1f6b68848c9530123340d7dd81f1652c}{ifirst}}
+\item 
+bool \mbox{\hyperlink{classEB__UniformRunControl_a4f34fe94ffe6835735bec8bf5163ed59}{check\+\_\+egsdat}}
+\item 
+bool \mbox{\hyperlink{classEB__UniformRunControl_af68fbca87db6f495fa87b9e34b1aadd1}{watcher\+\_\+job}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00523}{523}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{EB\_UniformRunControl()}{EB\_UniformRunControl()}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a656d6b1901cfa451de1c2d962aec18ff} 
+EB\+\_\+\+Uniform\+Run\+Control\+::\+EB\+\_\+\+Uniform\+Run\+Control (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEB__Application}{EB\+\_\+\+Application}} \texorpdfstring{$\ast$}{*}}]{app}{, }\item[{string}]{egsdat\+\_\+format}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02664}{2664}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!````~EB\_UniformRunControl@{\texorpdfstring{$\sim$}{\string~}EB\_UniformRunControl}}
+\index{````~EB\_UniformRunControl@{\texorpdfstring{$\sim$}{\string~}EB\_UniformRunControl}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EB\_UniformRunControl()}{\string~EB\_UniformRunControl()}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_aecb3ac5393d8e2791aba7ab2ec6873e3} 
+EB\+\_\+\+Uniform\+Run\+Control\+::\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Uniform\+Run\+Control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00528}{528}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!describeRCO@{describeRCO}}
+\index{describeRCO@{describeRCO}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{describeRCO()}{describeRCO()}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a8f20d12f06ce77b1ffc0495ff556140d} 
+void EB\+\_\+\+Uniform\+Run\+Control\+::describe\+RCO (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02748}{2748}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!finishSimulation@{finishSimulation}}
+\index{finishSimulation@{finishSimulation}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{finishSimulation()}{finishSimulation()}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_ab75856e5832cdd5c035237f69925e017} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::finish\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Uses \textquotesingle{}watcher\textquotesingle{} jobs to determine if the simulation has finished. 
+
+If the current job is a \textquotesingle{}watcher\textquotesingle{} job, it waits for some time before issuing the signal to recombine all available parallel jobs. These \textquotesingle{}watcher\textquotesingle{} jobs can also produce intermediate results while waiting. If all jobs complete while waiting, the \textquotesingle{}watcher\textquotesingle{} job combines all results and exits. 
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02775}{2775}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!startSimulation@{startSimulation}}
+\index{startSimulation@{startSimulation}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{startSimulation()}{startSimulation()}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a02ab9ab649450f955b4c1c5dfffbb9f1} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::start\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02725}{2725}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!app@{app}}
+\index{app@{app}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a6a76fc257e63929efd995ee70e685000} 
+\mbox{\hyperlink{classEB__Application}{EB\+\_\+\+Application}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Uniform\+Run\+Control\+::app\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00546}{546}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!check\_egsdat@{check\_egsdat}}
+\index{check\_egsdat@{check\_egsdat}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{check\_egsdat}{check\_egsdat}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a4f34fe94ffe6835735bec8bf5163ed59} 
+bool EB\+\_\+\+Uniform\+Run\+Control\+::check\+\_\+egsdat\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00560}{560}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!check\_intervals@{check\_intervals}}
+\index{check\_intervals@{check\_intervals}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{check\_intervals}{check\_intervals}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a2ee49a7cd36386862bf0ff23620795a7} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::check\+\_\+intervals\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00553}{553}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!ifirst@{ifirst}}
+\index{ifirst@{ifirst}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{ifirst}{ifirst}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a1f6b68848c9530123340d7dd81f1652c} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::ifirst\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00559}{559}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!ipar@{ipar}}
+\index{ipar@{ipar}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{ipar}{ipar}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a180f63f0b56a8cfa20d213c18f6d4490} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::ipar\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00558}{558}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!milliseconds@{milliseconds}}
+\index{milliseconds@{milliseconds}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{milliseconds}{milliseconds}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a79074b126b544b11fd18eae9e346bed5} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::milliseconds\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00550}{550}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!njob@{njob}}
+\index{njob@{njob}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{njob}{njob}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_ae0575483a0a19b16f8cfc5fe54a5cab1} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::njob\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00556}{556}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!npar@{npar}}
+\index{npar@{npar}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{npar}{npar}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_a485757a363e3c141c43b992d2bf8d986} 
+int EB\+\_\+\+Uniform\+Run\+Control\+::npar\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00557}{557}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!output\_egsdat\_format@{output\_egsdat\_format}}
+\index{output\_egsdat\_format@{output\_egsdat\_format}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{output\_egsdat\_format}{output\_egsdat\_format}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_ab2025bf4da1bd61a377691f14132a943} 
+string EB\+\_\+\+Uniform\+Run\+Control\+::output\+\_\+egsdat\+\_\+format\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00548}{548}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_UniformRunControl@{EB\_UniformRunControl}!watcher\_job@{watcher\_job}}
+\index{watcher\_job@{watcher\_job}!EB\_UniformRunControl@{EB\_UniformRunControl}}
+\doxysubsubsection{\texorpdfstring{watcher\_job}{watcher\_job}}
+{\footnotesize\ttfamily \label{classEB__UniformRunControl_af68fbca87db6f495fa87b9e34b1aadd1} 
+bool EB\+\_\+\+Uniform\+Run\+Control\+::watcher\+\_\+job\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00561}{561}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__brachy_8h}{egs\+\_\+brachy.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__brachy_8cpp}{egs\+\_\+brachy.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,123 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/pubsub.h File Reference}
+\label{pubsub_8h}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/pubsub.h@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/pubsub.h}}
+
+
+A simple pub/sub module to allow various egs\+\_\+brachy classes to subscribe to particle events.  
+
+
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+Include dependency graph for pubsub.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSubscriber}{Subscriber}}
+\item 
+class \mbox{\hyperlink{classPublisher}{Publisher}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pair$<$ bool, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} $>$ \mbox{\hyperlink{pubsub_8h_a705dcf94902abaa02d4a53e93a1b0163}{EBSend\+Message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} \{ \newline
+\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a27a8a93466859d0dd5e05640965fa2ad}{NEW\+\_\+\+HISTORY}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2aed0dcbd7ed0109ac1502d212bf10a6dc}{PARTICLE\+\_\+\+INITIALIZED}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a473680b17d3543dd0ba5bc65087094cf}{PARTICLE\+\_\+\+TAKING\+\_\+\+STEP}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ad8c07579108a82482016c6f287f52c74}{PARTICLE\+\_\+\+TOOK\+\_\+\+STEP}}
+, \newline
+\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a1d8288c098d88c25abf6595aebb2e8b6}{PARTICLE\+\_\+\+ESCAPING\+\_\+\+SOURCE}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a3bc711b2c582f57f39de155ca70129aa}{PARTICLE\+\_\+\+ESCAPED\+\_\+\+SOURCE}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2afaefda57a48e85b08a6e1269724cf260}{PARTICLE\+\_\+\+ESCAPING\+\_\+\+GEOM}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ac4280e49aedc2b1c6badcc23d4494a55}{PARTICLE\+\_\+\+ESCAPED\+\_\+\+GEOM}}
+, \newline
+\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ac91b6721ab83a9e8597a4cde22657133}{PHOTON\+\_\+\+SCATTER\+\_\+\+EVENT}}
+, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a782a07ef6c7f1126dcc673adb66c5ff6}{NON\+\_\+\+SOURCE\+\_\+\+PHOTON\+\_\+\+SCATTER\+\_\+\+EVENT}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple pub/sub module to allow various egs\+\_\+brachy classes to subscribe to particle events. 
+
+Adapted from \href{http://www.cs.sjsu.edu/~pearce/modules/patterns/events/pubsubimp.htm}{\texttt{http\+://www.\+cs.\+sjsu.\+edu/\texorpdfstring{$\sim$}{\string~}pearce/modules/patterns/events/pubsubimp.\+htm}} 
+
+Definition in file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\index{pubsub.h@{pubsub.h}!EBSendMessage@{EBSendMessage}}
+\index{EBSendMessage@{EBSendMessage}!pubsub.h@{pubsub.h}}
+\doxysubsubsection{\texorpdfstring{EBSendMessage}{EBSendMessage}}
+{\footnotesize\ttfamily \label{pubsub_8h_a705dcf94902abaa02d4a53e93a1b0163} 
+typedef pair$<$bool, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}$>$ \mbox{\hyperlink{pubsub_8h_a705dcf94902abaa02d4a53e93a1b0163}{EBSend\+Message}}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00069}{69}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+\label{doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\index{pubsub.h@{pubsub.h}!EB\_Message@{EB\_Message}}
+\index{EB\_Message@{EB\_Message}!pubsub.h@{pubsub.h}}
+\doxysubsubsection{\texorpdfstring{EB\_Message}{EB\_Message}}
+{\footnotesize\ttfamily \label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2} 
+enum \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NEW\_HISTORY@{NEW\_HISTORY}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!NEW\_HISTORY@{NEW\_HISTORY}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a27a8a93466859d0dd5e05640965fa2ad} 
+NEW\+\_\+\+HISTORY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_INITIALIZED@{PARTICLE\_INITIALIZED}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_INITIALIZED@{PARTICLE\_INITIALIZED}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2aed0dcbd7ed0109ac1502d212bf10a6dc} 
+PARTICLE\+\_\+\+INITIALIZED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_TAKING\_STEP@{PARTICLE\_TAKING\_STEP}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_TAKING\_STEP@{PARTICLE\_TAKING\_STEP}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a473680b17d3543dd0ba5bc65087094cf} 
+PARTICLE\+\_\+\+TAKING\+\_\+\+STEP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_TOOK\_STEP@{PARTICLE\_TOOK\_STEP}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_TOOK\_STEP@{PARTICLE\_TOOK\_STEP}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ad8c07579108a82482016c6f287f52c74} 
+PARTICLE\+\_\+\+TOOK\+\_\+\+STEP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_ESCAPING\_SOURCE@{PARTICLE\_ESCAPING\_SOURCE}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_ESCAPING\_SOURCE@{PARTICLE\_ESCAPING\_SOURCE}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a1d8288c098d88c25abf6595aebb2e8b6} 
+PARTICLE\+\_\+\+ESCAPING\+\_\+\+SOURCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_ESCAPED\_SOURCE@{PARTICLE\_ESCAPED\_SOURCE}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_ESCAPED\_SOURCE@{PARTICLE\_ESCAPED\_SOURCE}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a3bc711b2c582f57f39de155ca70129aa} 
+PARTICLE\+\_\+\+ESCAPED\+\_\+\+SOURCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_ESCAPING\_GEOM@{PARTICLE\_ESCAPING\_GEOM}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_ESCAPING\_GEOM@{PARTICLE\_ESCAPING\_GEOM}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2afaefda57a48e85b08a6e1269724cf260} 
+PARTICLE\+\_\+\+ESCAPING\+\_\+\+GEOM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARTICLE\_ESCAPED\_GEOM@{PARTICLE\_ESCAPED\_GEOM}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PARTICLE\_ESCAPED\_GEOM@{PARTICLE\_ESCAPED\_GEOM}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ac4280e49aedc2b1c6badcc23d4494a55} 
+PARTICLE\+\_\+\+ESCAPED\+\_\+\+GEOM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PHOTON\_SCATTER\_EVENT@{PHOTON\_SCATTER\_EVENT}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!PHOTON\_SCATTER\_EVENT@{PHOTON\_SCATTER\_EVENT}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2ac91b6721ab83a9e8597a4cde22657133} 
+PHOTON\+\_\+\+SCATTER\+\_\+\+EVENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NON\_SOURCE\_PHOTON\_SCATTER\_EVENT@{NON\_SOURCE\_PHOTON\_SCATTER\_EVENT}!pubsub.h@{pubsub.h}}\index{pubsub.h@{pubsub.h}!NON\_SOURCE\_PHOTON\_SCATTER\_EVENT@{NON\_SOURCE\_PHOTON\_SCATTER\_EVENT}}}\label{pubsub_8h_af1f086fdac6d8f062533820ad583abe2a782a07ef6c7f1126dcc673adb66c5ff6} 
+NON\+\_\+\+SOURCE\+\_\+\+PHOTON\+\_\+\+SCATTER\+\_\+\+EVENT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00054}{54}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+

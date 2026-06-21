@@ -1,0 +1,180 @@
+\doxysection{eb\+\_\+tests.\+spec\+\_\+eflu.\+test Namespace Reference}
+\label{namespaceeb__tests_1_1spec__eflu_1_1test}\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a85a3aa33b6d09862377b3ad8176e6a12}{expected}} (e)
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a8e715802325b47baeee7598150009da7}{compare\+\_\+results}} (egslst, inp\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab10d7f611be222c10ddbe9f9ad665de9}{EGSINP}} = "{}spec\+\_\+eflu.\+egsinp"{}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a9d19c5fff781ee5d1f69b068f09c9b1d}{TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ}} = 6/2993.
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb}{EMIN}}
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3}{EMAX}}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07}{NHIST}} = 1
+\item 
+float \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f}{BIN\+\_\+\+WIDTH}} = 0.\+001
+\item 
+tuple \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab4bfeb3b1020be82d292a2f761628b38}{AVG\+\_\+E}} = (\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3}{EMAX}}+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb}{EMIN}})/2.
+\item 
+tuple \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a12e85ed5494548c7b31eed5ccaf1e88a}{TOTAL\+\_\+E}} = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab4bfeb3b1020be82d292a2f761628b38}{AVG\+\_\+E}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07}{NHIST}}
+\item 
+tuple \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a182690ca0868ebb1c732927758fa3a67}{N\+\_\+\+BINS\+\_\+\+IN\+\_\+\+RANGE}} = (\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3}{EMAX}}-\/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb}{EMIN}})/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f}{BIN\+\_\+\+WIDTH}}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_aecf08a15a687aea3f9dc8381310d91fc}{SCORED\+\_\+\+IN\+\_\+\+BIN}} = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07}{NHIST}}/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a182690ca0868ebb1c732927758fa3a67}{N\+\_\+\+BINS\+\_\+\+IN\+\_\+\+RANGE}}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_adce20f0c37de5b5dcaae56d493a3ed72}{SCORED\+\_\+\+IN\+\_\+\+BIN\+\_\+\+PER\+\_\+\+MEV}} = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_aecf08a15a687aea3f9dc8381310d91fc}{SCORED\+\_\+\+IN\+\_\+\+BIN}} / \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f}{BIN\+\_\+\+WIDTH}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A test for comparing the calculated energy fluence spectrum on the surface of a
+source with the expected value. A uniform spectrum between 15keV-25keV in a
+near-vaccuum source is used so the expected spectrum can easily be calculated
+analytically.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!compare\_results@{compare\_results}}
+\index{compare\_results@{compare\_results}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{compare\_results()}{compare\_results()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a8e715802325b47baeee7598150009da7} 
+eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+compare\+\_\+results (\begin{DoxyParamCaption}\item[{}]{egslst}{, }\item[{}]{inp\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00035}{35}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!expected@{expected}}
+\index{expected@{expected}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{expected()}{expected()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a85a3aa33b6d09862377b3ad8176e6a12} 
+eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+expected (\begin{DoxyParamCaption}\item[{}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00030}{30}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+
+
+\label{doc-var-members}
+\doxysubsection{Variable Documentation}
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!AVG\_E@{AVG\_E}}
+\index{AVG\_E@{AVG\_E}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{AVG\_E}{AVG\_E}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_ab4bfeb3b1020be82d292a2f761628b38} 
+tuple eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+AVG\+\_\+E = (\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3}{EMAX}}+\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb}{EMIN}})/2.}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00023}{23}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!BIN\_WIDTH@{BIN\_WIDTH}}
+\index{BIN\_WIDTH@{BIN\_WIDTH}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{BIN\_WIDTH}{BIN\_WIDTH}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f} 
+float eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+BIN\+\_\+\+WIDTH = 0.\+001}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00022}{22}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!EGSINP@{EGSINP}}
+\index{EGSINP@{EGSINP}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{EGSINP}{EGSINP}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_ab10d7f611be222c10ddbe9f9ad665de9} 
+str eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+EGSINP = "{}spec\+\_\+eflu.\+egsinp"{}}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00015}{15}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!EMAX@{EMAX}}
+\index{EMAX@{EMAX}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{EMAX}{EMAX}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3} 
+eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+EMAX}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00018}{18}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!EMIN@{EMIN}}
+\index{EMIN@{EMIN}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{EMIN}{EMIN}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb} 
+eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+EMIN}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00018}{18}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!N\_BINS\_IN\_RANGE@{N\_BINS\_IN\_RANGE}}
+\index{N\_BINS\_IN\_RANGE@{N\_BINS\_IN\_RANGE}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{N\_BINS\_IN\_RANGE}{N\_BINS\_IN\_RANGE}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a182690ca0868ebb1c732927758fa3a67} 
+tuple eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+N\+\_\+\+BINS\+\_\+\+IN\+\_\+\+RANGE = (\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a37bb0a2a9bce07437e0159722c827ac3}{EMAX}}-\/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a87f0941c06b09cc5619f7d312bd58deb}{EMIN}})/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f}{BIN\+\_\+\+WIDTH}}}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00025}{25}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!NHIST@{NHIST}}
+\index{NHIST@{NHIST}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{NHIST}{NHIST}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07} 
+int eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+NHIST = 1}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00020}{20}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!SCORED\_IN\_BIN@{SCORED\_IN\_BIN}}
+\index{SCORED\_IN\_BIN@{SCORED\_IN\_BIN}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{SCORED\_IN\_BIN}{SCORED\_IN\_BIN}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_aecf08a15a687aea3f9dc8381310d91fc} 
+int eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+SCORED\+\_\+\+IN\+\_\+\+BIN = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07}{NHIST}}/\mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a182690ca0868ebb1c732927758fa3a67}{N\+\_\+\+BINS\+\_\+\+IN\+\_\+\+RANGE}}}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00027}{27}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!SCORED\_IN\_BIN\_PER\_MEV@{SCORED\_IN\_BIN\_PER\_MEV}}
+\index{SCORED\_IN\_BIN\_PER\_MEV@{SCORED\_IN\_BIN\_PER\_MEV}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{SCORED\_IN\_BIN\_PER\_MEV}{SCORED\_IN\_BIN\_PER\_MEV}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_adce20f0c37de5b5dcaae56d493a3ed72} 
+int eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+SCORED\+\_\+\+IN\+\_\+\+BIN\+\_\+\+PER\+\_\+\+MEV = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_aecf08a15a687aea3f9dc8381310d91fc}{SCORED\+\_\+\+IN\+\_\+\+BIN}} / \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_a04b895b637554f3812b7379791386f0f}{BIN\+\_\+\+WIDTH}}}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00028}{28}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}}
+\index{TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{TIME\_LIMIT\_S\_PER\_MHZ}{TIME\_LIMIT\_S\_PER\_MHZ}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a9d19c5fff781ee5d1f69b068f09c9b1d} 
+int eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ = 6/2993.}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00016}{16}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}!TOTAL\_E@{TOTAL\_E}}
+\index{TOTAL\_E@{TOTAL\_E}!eb\_tests.spec\_eflu.test@{eb\_tests.spec\_eflu.test}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_E}{TOTAL\_E}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1spec__eflu_1_1test_a12e85ed5494548c7b31eed5ccaf1e88a} 
+tuple eb\+\_\+tests.\+spec\+\_\+eflu.\+test.\+TOTAL\+\_\+E = \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab4bfeb3b1020be82d292a2f761628b38}{AVG\+\_\+E}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceeb__tests_1_1spec__eflu_1_1test_ab04d47b985dad000e83617d463f25d07}{NHIST}}}
+
+
+
+Definition at line \mbox{\hyperlink{spec__eflu_2test_8py_source_l00024}{24}} of file \mbox{\hyperlink{spec__eflu_2test_8py_source}{test.\+py}}.
+

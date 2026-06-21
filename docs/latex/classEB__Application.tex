@@ -1,0 +1,2110 @@
+\doxysection{EB\+\_\+\+Application Class Reference}
+\label{classEB__Application}\index{EB\_Application@{EB\_Application}}
+
+
+The main egs\+\_\+brachy application class. See the \doxylink{index_egs_brachy_main}{Main Page} for full documentation.  
+
+
+
+
+{\ttfamily \#include $<$egs\+\_\+brachy.\+h$>$}
+
+
+
+Inheritance diagram for EB\+\_\+\+Application\+:
+% FIG 0
+
+
+Collaboration diagram for EB\+\_\+\+Application\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__Application_a4e960cb1487fedf2b4302e6255da8504}{EB\+\_\+\+Application}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\begin{DoxyCompactList}\small\item\em egs\+\_\+brachy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__Application_a83fd40203d338a5b94ee1d69f9a7b4ea}{\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Application}} ()
+\begin{DoxyCompactList}\small\item\em egs\+\_\+brachy destructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a37530e5cd7d0f947c66d0b49c6a26b42}{describe\+User\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Print information about the egs\+\_\+brachy user code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a3e6b039efd8fafa6c135e3c5780bd72a}{describe\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Describe the simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a6225eed198559e34f013b85aeccdc25e}{print\+Included\+Files}} ()
+\item 
+int \mbox{\hyperlink{classEB__Application_a0db5e7276f0c296947e4dbceaa211e23}{init\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em set the run mode and then call EGS\+\_\+\+Advanced\+Application\+::init\+Simulation \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a05f165e59f53a503556c7d9d0d39201c}{init\+Run\+Control}} ()
+\begin{DoxyCompactList}\small\item\em egs\+\_\+brachy specific run control initialization \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a3a114ce66aa6920f44badb043ba39938}{init\+Run\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Get run mode from the input file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ae84b43b96aeeb89b21244740cf9fcf7c}{init\+Scoring}} ()
+\begin{DoxyCompactList}\small\item\em initialze all scoring and variance reduction parameters \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_aebe7b044bbd5fbb58e72a7f64518b1b7}{init\+Variance\+Reduction}} ()
+\begin{DoxyCompactList}\small\item\em initialze all variance reduction parameters \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a2b31595a9872db679e3f23cf03e8fd39}{init\+Russian\+Roulette}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initialize Russian roulette variance reduction if requested. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a5646126b47fcd851707e286219f30092}{init\+BCSE}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initialize BCSE variance reduction if requested. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ac2bf59e8ca5017cdd5f89669f800f30f}{ausgab}} (int iarg)
+\begin{DoxyCompactList}\small\item\em user scoring of dose, spectra etc \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a17a0b26ad1c57d5e55566c78886e097b}{output\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Output intermediate results. The egs\+\_\+brachy version outputs the standard egs++ data along with egs\+\_\+brachy specific information such as phantom and spectrum scoring information. egs\+\_\+brachy also allows you to output data in gzip format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a250d2d5f50967e06c35e771c1ef86b88}{output\+Data\+Helper}} (ostream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ad94dcc9bab7cd106a089f12045c5bce7}{egs\+Application\+Output\+Data}} (ostream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a516aa6b331006086c67f28572bca57eb}{egs\+Adv\+Application\+Output\+Data}} (ostream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_aab60a20b360b53bd84b7d7cab1d5a980}{egs\+Brachy\+Output\+Data}} (ostream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ac3d343265c889b1445fe3f834aaaefdb}{read\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Read data required for restarting simulations. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a8803725c6f43d1ecc885ec230c23ba13}{read\+Data\+Helper}} (istream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ac6691e0b80e7551342db8d785b459ed9}{egs\+Application\+Read\+Data}} (istream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_ad464ad7dd011af94e4005b2596be7056}{egs\+Adv\+Application\+Read\+Data}} (istream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a6f4f754e3efc5c1997fbbc5dd6375897}{egs\+Brachy\+Read\+Data}} (istream \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em helper function for output\+Data \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_aa0721b5ba777bc1bbf5d2dde0c46f58b}{combine\+Results}} ()
+\item 
+void \mbox{\hyperlink{classEB__Application_a9ee00492dd03c5725c7e7606142cc498}{reset\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Reset the application to a \textquotesingle{}pristine\textquotesingle{} state. Adapted from egs\+\_\+application.\+cpp to allow combining in text or gzip format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_aeabdb8cf81437f653ebfa513d280561b}{add\+State}} (istream \&data)
+\begin{DoxyCompactList}\small\item\em Add data from a parallel job. Add standard egs++ data as well as egs\+\_\+brachy specific scoring information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_aa6b861b46c730886aed48add8534ab50}{output\+Results}} ()
+\item 
+void \mbox{\hyperlink{classEB__Application_a760d7542f42d9521dca30aec0bf277cd}{get\+Current\+Result}} (double \&sum, double \&sum2, double \&norm, double \&count)
+\begin{DoxyCompactList}\small\item\em Reports the current results for this batch of the simulation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_a7dae64d1cacf232628102897312f3fd5}{get\+Phantom\+By\+Name}} (string name)
+\begin{DoxyCompactList}\small\item\em takes a phantom geometry name and returns the \doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} object \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEB__Application_a372127ee0cbb8cf18e608303a951667e}{start\+New\+Particle}} ()
+\begin{DoxyCompactList}\small\item\em Set source ecut/pcut if different from global ecut/pcut. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classEB__Application_a93f892f60ebd0523b94a43ee9680bed5}{enter\+New\+Region}} ()
+\item 
+virtual int \mbox{\hyperlink{classEB__Application_afe521ab3676e11558a11bbba2bdfaee1}{run\+Simulation}} ()
+\item 
+string \mbox{\hyperlink{classEB__Application_af3846f93c881bdbaad818bad26323ada}{get\+Output\+Volcor\+Format}} ()
+\item 
+int \mbox{\hyperlink{classEB__Application_a48973a8ca0ff311073dd58865d290c20}{how\+Many\+Jobs\+Done}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEB__Application_acf001bc92d20c6a3617270eddaa8c3d4}{nsources}}
+\begin{DoxyCompactList}\small\item\em total number of particle sources in current simulation \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a54ae700eb9947010e5004cd0f70b15b8}{effective\+\_\+histories}}
+\item 
+\mbox{\hyperlink{classLatch}{Latch}} \mbox{\hyperlink{classEB__Application_a5f788f816261712e257103ef3e0ce8e0}{latch\+\_\+control}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEB__Application_a81601b6ea93619a4973007daf1cfb76d}{add\+Recycled\+Particles\+To\+Stack}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p, bool new\+\_\+hist=false)
+\item 
+void \mbox{\hyperlink{classEB__Application_a12f6188474f290ad232e153e8d659958}{copy\+Particle\+To\+Source\+Loc}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p, int source, bool kill\+\_\+orig, bool rotate, EGS\+\_\+\+Float new\+\_\+wt)
+\item 
+void \mbox{\hyperlink{classEB__Application_a1461fa9fbaa7a90ba80039f93294012a}{do\+Photon\+Splitting}} (int)
+\item 
+int \mbox{\hyperlink{classEB__Application_add9ca8d08858e8d836ffa45e0f8ad63e}{simulate\+Single\+Shower}} ()
+\item 
+int \mbox{\hyperlink{classEB__Application_a912187410d943c5bf79add9dd550b0db}{start\+New\+Shower}} ()
+\item 
+int \mbox{\hyperlink{classEB__Application_aeb79bb270273bba5d80805b7d008d643}{init\+Geometry}} ()
+\begin{DoxyCompactList}\small\item\em override default init\+Geometry so we can manually create our own geometry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a0bcf72f0735c49dc198cc6f415e87781}{init\+Source}} ()
+\item 
+int \mbox{\hyperlink{classEB__Application_a1fff7ad2a86a02b7f9f1df5aad2eb31f}{init\+Source\+Transforms}} ()
+\begin{DoxyCompactList}\small\item\em read in the location of all particle sources and optionally apply a source coordinate transform mapping local placements to world coordinates \end{DoxyCompactList}\item 
+vector$<$ EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_a92d49716ff2aa18ccab7b39c90257df4}{create\+Transforms}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1}{Run\+Mode}} \{ \mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1aa533fe08362a12fec39fb90349666781}{RM\+\_\+\+NORMAL}}
+, \mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1a8e8aa3758621e2188083a10cb1badffd}{RM\+\_\+\+SUPERPOSITION}}
+, \mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1a358a7d2708d2ac73964f99f000e86340}{RM\+\_\+\+VC\+\_\+\+ONLY}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEB__Application_a311419542c7596b3b54cbbbc868afbcc}{create\+Phantoms}} ()
+\begin{DoxyCompactList}\small\item\em set up Phantom objects for any geometries that user has requested scoring for \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a784834a2c73f8957656defeea9ab561c}{correct\+Volumes}} ()
+\begin{DoxyCompactList}\small\item\em run the volume correction routines \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a097bdb59c8a02da3a718c2c46b4bd342}{check\+Source\+Overlaps}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{classEB__Application_a728488d854096c3c891aefca846edf4c}{init\+Track\+Length\+Scoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em track length scoring initialization \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a462f417e8ec69ef3fe46a927a51ff88c}{init\+Muen\+Data}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em load muen data for requested media \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_aebbefa487f32c4a9f6558f8103b2aa08}{init\+Output\+Files}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em set up whether to output extra info files \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a0719663f26b9554ac8ce5f8087527673}{init\+PHSPScoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em set up phsp scoring \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a11e268e6a3850db77dc164cdedd8e809}{init\+EDep\+Scoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em energy deposition scoring initialization \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a883ded782e63933485a01d4c0718990e}{init\+Scat\+Scoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em energy deposition scoring initialization \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_adb5af0480a36f2608727777e94bf6cee}{clear\+Ausgab\+Calls}} ()
+\begin{DoxyCompactList}\small\item\em disable all ausgab calls \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a42f3b3bd7e1413aade06ee78f81974ab}{enable\+Ausgab\+Calls}} (int ncalls, Ausgab\+Call calls\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em enable an array of ausgab calls \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_ae604629b0fef3eb989a36f6ad850cd1e}{init\+GCRScoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em setup which phantom/region will be used for get\+Current\+Result \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a44014f73df93302372776837f3414413}{init\+Ausgab\+Calls}} ()
+\begin{DoxyCompactList}\small\item\em setup any required ausgab calls \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a18fe32395024119cd8615f06ae10e08b}{init\+Dose\+Scaling}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initialize dose scaling factor if requested. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_add8f8806b3ab48c3e813598f001da597}{init\+XCCScaling}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initialize cross section scaling if requested. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEB__Application_a7b1ea589237b731a69f75cd60fb15213}{init\+Spectrum\+Scoring}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Initialize all spectrum scoring objects. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_aadb4e98427c5b314febb8dd4d948f912}{init\+Cross\+Sections}} ()
+\item 
+void \mbox{\hyperlink{classEB__Application_a5339d690accee4cfd95859ad65b1cb8d}{discard\+Top\+Particle}} (int idisc=1)
+\item 
+void \mbox{\hyperlink{classEB__Application_aa754e7f4ca3f2d60bfde763ba33f7ed0}{calc\+Effective\+Histories}} ()
+\item 
+bool \mbox{\hyperlink{classEB__Application_a6f5a261b7c6f58d212c83f76d6e3915e}{is\+Stuck}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1}{Run\+Mode}} \mbox{\hyperlink{classEB__Application_af5d32a3be3da6f31a74c513688081063}{run\+\_\+mode}}
+\begin{DoxyCompactList}\small\item\em Which run mode are we using (RM\+\_\+\+NORMAL, RM\+\_\+\+SUPERPOSITION or RM\+\_\+\+VC\+\_\+\+ONLY \texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_a478a59cb599955fe0a8af00f98e6131c}{run\+\_\+mode\+\_\+name}}
+\item 
+\mbox{\hyperlink{classEnergyScoringStats}{Energy\+Scoring\+Stats}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_a0b49a74537f5ececf149ef778e71b385}{escoring}}
+\begin{DoxyCompactList}\small\item\em Energy related scoring/stats. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classBaseSpectrumScorer}{Base\+Spectrum\+Scorer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_a00421e67770aec14cc37a23e860af997}{spectrum\+\_\+scorers}}
+\item 
+\mbox{\hyperlink{classRecycleOpts}{Recycle\+Opts}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_af692a20294ed8a7be0ad17901dba7202}{recycle\+\_\+opts}}
+\item 
+bool \mbox{\hyperlink{classEB__Application_af8de70242fa5f99f3911d250a370dab1}{single\+\_\+generator}}
+\item 
+bool \mbox{\hyperlink{classEB__Application_adc4e727e067d87a2fd7331eb832a9def}{is\+\_\+phsp\+\_\+source}}
+\item 
+vector$<$ EGS\+\_\+\+Float $>$ \mbox{\hyperlink{classEB__Application_a91100413c2c4ee7fc943b84c7c09a720}{source\+\_\+weights}}
+\item 
+int \mbox{\hyperlink{classEB__Application_a73f808aa7e78e7f9c9143724e1943220}{active\+\_\+source}}
+\item 
+\mbox{\hyperlink{classPHSPControl}{PHSPControl}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_ac0bb1f5abc58a05b125eb2a23ee5b334}{phsp}}
+\item 
+bool \mbox{\hyperlink{classEB__Application_af0882e82dfe7a7d6f8f31c8f72d859e1}{score\+\_\+tlen}}
+\begin{DoxyCompactList}\small\item\em true when tracklength estimator is enabled \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_ae10063d271b4cb1af66f8d5ee69992ab}{score\+\_\+edep}}
+\begin{DoxyCompactList}\small\item\em true when energy deposition is enabled \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_aa9d16ed7ca1ff15652567a9d82f72e32}{score\+\_\+scat}}
+\begin{DoxyCompactList}\small\item\em true when scatter scoring is enabled \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_a46a6cc7f4fc4024f84420b1151f0a740}{output\+\_\+egsdat\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_a799e8c2afa48fb5c0bde96728a37d78c}{output\+\_\+3ddose\+\_\+files}}
+\begin{DoxyCompactList}\small\item\em false if run mode is \textquotesingle{}volume correction only\textquotesingle{} \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_a8c77c3d7bd0ed2aa7de9e4cbce2347bf}{output\+\_\+dose\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_a5d15e3f96735125d5de0293160750379}{output\+\_\+egsphant}}
+\begin{DoxyCompactList}\small\item\em true if user requests egsphant ouput \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_aaaf25a0248e49fa9d70b36223bf5b0f6}{output\+\_\+egsphant\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_ab49f0f72ffc871e02400bd736641d426}{output\+\_\+voxinfo}}
+\begin{DoxyCompactList}\small\item\em true if user requests voxel info file \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_a4857cfe28827230cc12dafcea1d9c2ce}{output\+\_\+voxinfo\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{classEB__Application_a4842ff2a4baba07dccaf0cb72a0e409f}{output\+\_\+volcor\+\_\+phantoms}}
+\begin{DoxyCompactList}\small\item\em vector of phantom names to output volume correctino files for \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classEB__Application_a30ab960db00d65f54c618222815e1fd2}{output\+\_\+volcor\+\_\+format}}
+\begin{DoxyCompactList}\small\item\em text or gzip \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_afa6a95efac776f8a1673450c67704cee}{record\+\_\+n\+\_\+init}}
+\begin{DoxyCompactList}\small\item\em if \texorpdfstring{$>$}{>} 0 write initial pos of record\+\_\+n\+\_\+init particles to \{input\+\_\+file\}.pinit \end{DoxyCompactList}\item 
+vector$<$ EGS\+\_\+\+Vector $>$ \mbox{\hyperlink{classEB__Application_aefd18cbf96f5f3385754a7701512e117}{p\+\_\+init\+\_\+locs}}
+\item 
+EGS\+\_\+\+Vector \mbox{\hyperlink{classEB__Application_abeb90213d794461d89fb407d72644736}{last\+\_\+position}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a4c532000dfd05e2111a2506d366ff38e}{last\+\_\+R}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_ad057efadf212d22198c7d01690cc9b91}{cur\+\_\+R}}
+\item 
+int \mbox{\hyperlink{classEB__Application_a2b9acad611a244f85e8037c5dcaab150}{steps\+\_\+at\+\_\+same\+\_\+loc}}
+\item 
+EGS\+\_\+\+I64 \mbox{\hyperlink{classEB__Application_a237cf9d287a9d355db5ab4d9c4bb5882}{n\+\_\+stuck}}
+\item 
+EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_aa45f4ee605f83411bd3f5abf1a36258b}{source\+\_\+envelope\+\_\+geom}}
+\begin{DoxyCompactList}\small\item\em geometry that the sources are embedded in \end{DoxyCompactList}\item 
+EGS\+\_\+\+ASwitched\+Envelope \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_a8a5152d790080cbfdfd67e297c7ca590}{superpos\+\_\+geom}}
+\begin{DoxyCompactList}\small\item\em an ASwitched\+Env cast of simulation geometry. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_aa52a33f3c961e4a52ad039ea97936e00}{phantom\+\_\+geoms}}
+\begin{DoxyCompactList}\small\item\em pointers to all of the phantom objects \end{DoxyCompactList}\item 
+vector$<$ EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_a18af1ed397d05b819ffeb368b9abae06}{source\+\_\+transforms}}
+\begin{DoxyCompactList}\small\item\em transforms to locations of all sources \end{DoxyCompactList}\item 
+EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_aa3f0da1d63aaab0ae41c6995abc1a5a8}{base\+\_\+transform}}
+\begin{DoxyCompactList}\small\item\em same as source\+\_\+transforms\mbox{[}0\mbox{]} \end{DoxyCompactList}\item 
+EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_ab2fa0ae403b76d2aa6b4f75c942b59a8}{base\+\_\+transform\+\_\+inv}}
+\begin{DoxyCompactList}\small\item\em same as source\+\_\+transforms\mbox{[}0\mbox{]}.inverse() \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_ab8bfbe8de13718341d7b7279ec830ebb}{applied\+\_\+source\+\_\+coord\+\_\+transform}} = false
+\begin{DoxyCompactList}\small\item\em true if a source coordinate transform was composed in \end{DoxyCompactList}\item 
+map$<$ int, EGS\+\_\+\+Interpolator \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_aaf0f891feb292ea0ef48c3063d0fc26a}{media\+\_\+muen}}
+\begin{DoxyCompactList}\small\item\em Map from medium index to muen interpolator for that medium. \end{DoxyCompactList}\item 
+map$<$ string, string $>$ \mbox{\hyperlink{classEB__Application_a826c0fc6b8aa3b79b0235d165e94616c}{media\+\_\+muen\+\_\+names}}
+\item 
+bool \mbox{\hyperlink{classEB__Application_a35e8a07494835e8e28f0b65964601571}{do\+\_\+brem\+\_\+split}}
+\item 
+int \mbox{\hyperlink{classEB__Application_aaeb454cd7bc487d7e24fbb785f36dd1c}{nbr\+\_\+split}}
+\begin{DoxyCompactList}\small\item\em Number of times to split bremstrahlung phtons. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_ad564a643afe3e8974e08ece9939201f1}{do\+\_\+bcse}}
+\item 
+int \mbox{\hyperlink{classEB__Application_a78b0615d21da30fb8bd6464fcbd5494e}{bcse\+\_\+med\+\_\+num}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a696702c60b1ab3a58f9bc2cfbe670450}{bcse\+\_\+factor}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_acf26f12390f17f7946cd7091078ecca2}{flu\+\_\+cutoff}}
+\begin{DoxyCompactList}\small\item\em fluorescent photon cutoff energy \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_adfd7a6ca6b61e8d32c7ae1af157979f0}{source\+\_\+ecut}}
+\begin{DoxyCompactList}\small\item\em ecut for source objects \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a654cd312e59167ddbde180ee13289944}{source\+\_\+pcut}}
+\begin{DoxyCompactList}\small\item\em pcut for source objects \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_aeb0e721561c88874df5774274cfd6f37}{global\+\_\+ecut}}
+\begin{DoxyCompactList}\small\item\em ecut for source objects \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a74030f2f8f6e7a473ef1722600f511c8}{global\+\_\+pcut}}
+\begin{DoxyCompactList}\small\item\em pcut for source objects \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_a6362a9ab8859500749f7589fcebbc5d9}{global\+\_\+i\+\_\+do\+\_\+rr}}
+\begin{DoxyCompactList}\small\item\em enable range rejection outside of sources \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a4e37bafac82d17685ddf50bb6507124b}{global\+\_\+e\+\_\+max\+\_\+rr}}
+\begin{DoxyCompactList}\small\item\em max range rejection energy globally \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEB__Application_a583bfc716ee27ce0cb0b347b26d285f6}{source\+\_\+i\+\_\+do\+\_\+rr}}
+\begin{DoxyCompactList}\small\item\em enable range rejection in sources \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_ae7f6bac8beae9e67b09aa8e51ea90843}{source\+\_\+e\+\_\+max\+\_\+rr}}
+\begin{DoxyCompactList}\small\item\em max range rejection energy for source objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGeomInfo}{Geom\+Info}} \mbox{\hyperlink{classEB__Application_adb31e393ca05894a5ece744be20fdb1a}{ginfo}}
+\begin{DoxyCompactList}\small\item\em meta data about the geometries \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_a7bd791ae1bec595c120da42f729d5c45}{gcr\+\_\+phantom}}
+\begin{DoxyCompactList}\small\item\em phantom object to use in get\+Current\+Result (defaults to 1st phantom) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEB__Application_a540e2dcdb8c55d1e92e56d73ff8e31bc}{gcr\+\_\+phantom\+\_\+reg}}
+\begin{DoxyCompactList}\small\item\em region of phantom to use for get\+Current\+Result (default to 0) \end{DoxyCompactList}\item 
+map$<$ string, vector$<$ int $>$ $>$ \mbox{\hyperlink{classEB__Application_a18d1aa216e1566312a5ba6dee26fd258}{extra\+\_\+scoring\+\_\+reg}}
+\item 
+map$<$ string, vector$<$ EGS\+\_\+\+Float $>$ $>$ \mbox{\hyperlink{classEB__Application_a9d7f004dc38e03075fc583bca960bb6d}{extra\+\_\+scoring\+\_\+vols}}
+\item 
+map$<$ string, vector$<$ EGS\+\_\+\+Float $>$ $>$ \mbox{\hyperlink{classEB__Application_a0312454db9cc47bde8828983ad72b7ad}{extra\+\_\+scoring\+\_\+mass}}
+\item 
+map$<$ string, EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_a2d0c69d9c2c174e6ff5dd6dc227ed23d}{extra\+\_\+scoring\+\_\+doses}}
+\item 
+map$<$ string, EGS\+\_\+\+Scoring\+Array \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classEB__Application_a7b7f3a57cc1b7af2fa0f504221ebd508}{extra\+\_\+scoring\+\_\+doses\+\_\+edep}}
+\item 
+\mbox{\hyperlink{structebvolcor_1_1Results}{ebvolcor\+::\+Results}} \mbox{\hyperlink{classEB__Application_adbfe65f1504c6e214a086771bf3b6264}{source\+\_\+vc\+\_\+results}}
+\begin{DoxyCompactList}\small\item\em results from source volume correctio box phantom \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structebvolcor_1_1Results}{ebvolcor\+::\+Results}} \mbox{\hyperlink{classEB__Application_ab289d60c9899017d6da28f981e51fc32}{gen\+\_\+vc\+\_\+results}}
+\begin{DoxyCompactList}\small\item\em results from general volume correction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structebvolcor_1_1FileResults}{ebvolcor\+::\+File\+Results}} \mbox{\hyperlink{classEB__Application_afdbd91d55d696b9bd62b5e8e30d49dca}{file\+\_\+vc\+\_\+results}}
+\begin{DoxyCompactList}\small\item\em results from precomputed volume correction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPublisher}{Publisher}} \mbox{\hyperlink{classEB__Application_a34656a64e2118efecadc91cb8efabae5}{pevent\+\_\+pub}}
+\begin{DoxyCompactList}\small\item\em Particle event publisher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__TimingTree}{EB\+\_\+\+Timing\+Tree}} \mbox{\hyperlink{classEB__Application_a28251c54788bd1684e50615b356fc78d}{timing\+\_\+blocks}}
+\begin{DoxyCompactList}\small\item\em Track CPU times of various functions. \end{DoxyCompactList}\item 
+map$<$ int, EGS\+\_\+\+I64 $>$ \mbox{\hyperlink{classEB__Application_ab429ede550d643142940e1ad84d4f3af}{steps\+\_\+in\+\_\+sources}}
+\item 
+map$<$ int, EGS\+\_\+\+I64 $>$ \mbox{\hyperlink{classEB__Application_a1994adec999009dcf2ab6f5a16f485f9}{steps\+\_\+in\+\_\+phantoms}}
+\item 
+map$<$ int, EGS\+\_\+\+I64 $>$ \mbox{\hyperlink{classEB__Application_abb1898b9edafd8f9f370aee586420463}{steps\+\_\+in\+\_\+other}}
+\item 
+\mbox{\hyperlink{classogzstream}{ogzstream}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_aaccea22d03d09b4bafae49515ba2dee0}{gz\+\_\+data\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em GZip file for outputing egsdat. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classigzstream}{igzstream}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__Application_a4a9b6c9223099b508524ea2b6b7370b0}{gz\+\_\+data\+\_\+in}}
+\begin{DoxyCompactList}\small\item\em GZip file for outputing egsdat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const EGS\+\_\+\+Float \mbox{\hyperlink{classEB__Application_a81ab175fe6df53e668829b8d41793ffb}{DEFAULT\+\_\+\+BCSE\+\_\+\+FACTOR}} = 100
+\item 
+static string \mbox{\hyperlink{classEB__Application_a72aa0142e49801a420a13dd9dd54cc56}{revision}} = "{}\$Revision\+: 0.\+9.\+1 \$"{}
+\begin{DoxyCompactList}\small\item\em the usercode revision number \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main egs\+\_\+brachy application class. See the \doxylink{index_egs_brachy_main}{Main Page} for full documentation. 
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00091}{91}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+\label{doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\index{EB\_Application@{EB\_Application}!RunMode@{RunMode}}
+\index{RunMode@{RunMode}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{RunMode}{RunMode}}
+{\footnotesize\ttfamily \label{classEB__Application_ad360100513e3cc0c2822839c742fe1a1} 
+enum \mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1}{EB\+\_\+\+Application\+::\+Run\+Mode}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RM\_NORMAL@{RM\_NORMAL}!EB\_Application@{EB\_Application}}\index{EB\_Application@{EB\_Application}!RM\_NORMAL@{RM\_NORMAL}}}\label{classEB__Application_ad360100513e3cc0c2822839c742fe1a1aa533fe08362a12fec39fb90349666781} 
+RM\+\_\+\+NORMAL&Standard running mode. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RM\_SUPERPOSITION@{RM\_SUPERPOSITION}!EB\_Application@{EB\_Application}}\index{EB\_Application@{EB\_Application}!RM\_SUPERPOSITION@{RM\_SUPERPOSITION}}}\label{classEB__Application_ad360100513e3cc0c2822839c742fe1a1a8e8aa3758621e2188083a10cb1badffd} 
+RM\+\_\+\+SUPERPOSITION&Superposition mode for intersource effects. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RM\_VC\_ONLY@{RM\_VC\_ONLY}!EB\_Application@{EB\_Application}}\index{EB\_Application@{EB\_Application}!RM\_VC\_ONLY@{RM\_VC\_ONLY}}}\label{classEB__Application_ad360100513e3cc0c2822839c742fe1a1a358a7d2708d2ac73964f99f000e86340} 
+RM\+\_\+\+VC\+\_\+\+ONLY&Run volume correction routines then quit. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00093}{93}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EB\_Application@{EB\_Application}!EB\_Application@{EB\_Application}}
+\index{EB\_Application@{EB\_Application}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{EB\_Application()}{EB\_Application()}}
+{\footnotesize\ttfamily \label{classEB__Application_a4e960cb1487fedf2b4302e6255da8504} 
+EB\+\_\+\+Application\+::\+EB\+\_\+\+Application (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+egs\+\_\+brachy constructor 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00271}{271}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!````~EB\_Application@{\texorpdfstring{$\sim$}{\string~}EB\_Application}}
+\index{````~EB\_Application@{\texorpdfstring{$\sim$}{\string~}EB\_Application}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EB\_Application()}{\string~EB\_Application()}}
+{\footnotesize\ttfamily \label{classEB__Application_a83fd40203d338a5b94ee1d69f9a7b4ea} 
+EB\+\_\+\+Application\+::\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+Application (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+egs\+\_\+brachy destructor 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00308}{308}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EB\_Application@{EB\_Application}!addRecycledParticlesToStack@{addRecycledParticlesToStack}}
+\index{addRecycledParticlesToStack@{addRecycledParticlesToStack}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{addRecycledParticlesToStack()}{addRecycledParticlesToStack()}}
+{\footnotesize\ttfamily \label{classEB__Application_a81601b6ea93619a4973007daf1cfb76d} 
+void EB\+\_\+\+Application\+::add\+Recycled\+Particles\+To\+Stack (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{bool}]{new\+\_\+hist}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01623}{1623}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!addState@{addState}}
+\index{addState@{addState}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{addState()}{addState()}}
+{\footnotesize\ttfamily \label{classEB__Application_aeabdb8cf81437f653ebfa513d280561b} 
+int EB\+\_\+\+Application\+::add\+State (\begin{DoxyParamCaption}\item[{istream \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Add data from a parallel job. Add standard egs++ data as well as egs\+\_\+brachy specific scoring information. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02589}{2589}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!ausgab@{ausgab}}
+\index{ausgab@{ausgab}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{ausgab()}{ausgab()}}
+{\footnotesize\ttfamily \label{classEB__Application_ac2bf59e8ca5017cdd5f89669f800f30f} 
+int EB\+\_\+\+Application\+::ausgab (\begin{DoxyParamCaption}\item[{int}]{iarg}{}\end{DoxyParamCaption})}
+
+
+
+user scoring of dose, spectra etc 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01685}{1685}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!calcEffectiveHistories@{calcEffectiveHistories}}
+\index{calcEffectiveHistories@{calcEffectiveHistories}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{calcEffectiveHistories()}{calcEffectiveHistories()}}
+{\footnotesize\ttfamily \label{classEB__Application_aa754e7f4ca3f2d60bfde763ba33f7ed0} 
+void EB\+\_\+\+Application\+::calc\+Effective\+Histories (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01943}{1943}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!checkSourceOverlaps@{checkSourceOverlaps}}
+\index{checkSourceOverlaps@{checkSourceOverlaps}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{checkSourceOverlaps()}{checkSourceOverlaps()}}
+{\footnotesize\ttfamily \label{classEB__Application_a097bdb59c8a02da3a718c2c46b4bd342} 
+int EB\+\_\+\+Application\+::check\+Source\+Overlaps (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00476}{476}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!clearAusgabCalls@{clearAusgabCalls}}
+\index{clearAusgabCalls@{clearAusgabCalls}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{clearAusgabCalls()}{clearAusgabCalls()}}
+{\footnotesize\ttfamily \label{classEB__Application_adb5af0480a36f2608727777e94bf6cee} 
+void EB\+\_\+\+Application\+::clear\+Ausgab\+Calls (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+disable all ausgab calls 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01282}{1282}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!combineResults@{combineResults}}
+\index{combineResults@{combineResults}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{combineResults()}{combineResults()}}
+{\footnotesize\ttfamily \label{classEB__Application_aa0721b5ba777bc1bbf5d2dde0c46f58b} 
+int EB\+\_\+\+Application\+::combine\+Results (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02500}{2500}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!copyParticleToSourceLoc@{copyParticleToSourceLoc}}
+\index{copyParticleToSourceLoc@{copyParticleToSourceLoc}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{copyParticleToSourceLoc()}{copyParticleToSourceLoc()}}
+{\footnotesize\ttfamily \label{classEB__Application_a12f6188474f290ad232e153e8d659958} 
+void EB\+\_\+\+Application\+::copy\+Particle\+To\+Source\+Loc (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{, }\item[{int}]{source}{, }\item[{bool}]{kill\+\_\+orig}{, }\item[{bool}]{rotate}{, }\item[{EGS\+\_\+\+Float}]{new\+\_\+wt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01522}{1522}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!correctVolumes@{correctVolumes}}
+\index{correctVolumes@{correctVolumes}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{correctVolumes()}{correctVolumes()}}
+{\footnotesize\ttfamily \label{classEB__Application_a784834a2c73f8957656defeea9ab561c} 
+int EB\+\_\+\+Application\+::correct\+Volumes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+run the volume correction routines 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00625}{625}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!createPhantoms@{createPhantoms}}
+\index{createPhantoms@{createPhantoms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{createPhantoms()}{createPhantoms()}}
+{\footnotesize\ttfamily \label{classEB__Application_a311419542c7596b3b54cbbbc868afbcc} 
+int EB\+\_\+\+Application\+::create\+Phantoms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set up Phantom objects for any geometries that user has requested scoring for 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00716}{716}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!createTransforms@{createTransforms}}
+\index{createTransforms@{createTransforms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{createTransforms()}{createTransforms()}}
+{\footnotesize\ttfamily \label{classEB__Application_a92d49716ff2aa18ccab7b39c90257df4} 
+vector$<$ EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*} $>$ EB\+\_\+\+Application\+::create\+Transforms (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00391}{391}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!describeSimulation@{describeSimulation}}
+\index{describeSimulation@{describeSimulation}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{describeSimulation()}{describeSimulation()}}
+{\footnotesize\ttfamily \label{classEB__Application_a3e6b039efd8fafa6c135e3c5780bd72a} 
+void EB\+\_\+\+Application\+::describe\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Describe the simulation. 
+
+Add extra information to egs\+\_\+applications describe\+Simulation 
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00128}{128}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!describeUserCode@{describeUserCode}}
+\index{describeUserCode@{describeUserCode}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{describeUserCode()}{describeUserCode()}}
+{\footnotesize\ttfamily \label{classEB__Application_a37530e5cd7d0f947c66d0b49c6a26b42} 
+void EB\+\_\+\+Application\+::describe\+User\+Code (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Print information about the egs\+\_\+brachy user code. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!discardTopParticle@{discardTopParticle}}
+\index{discardTopParticle@{discardTopParticle}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{discardTopParticle()}{discardTopParticle()}}
+{\footnotesize\ttfamily \label{classEB__Application_a5339d690accee4cfd95859ad65b1cb8d} 
+void EB\+\_\+\+Application\+::discard\+Top\+Particle (\begin{DoxyParamCaption}\item[{int}]{idisc}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01615}{1615}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!doPhotonSplitting@{doPhotonSplitting}}
+\index{doPhotonSplitting@{doPhotonSplitting}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{doPhotonSplitting()}{doPhotonSplitting()}}
+{\footnotesize\ttfamily \label{classEB__Application_a1461fa9fbaa7a90ba80039f93294012a} 
+void EB\+\_\+\+Application\+::do\+Photon\+Splitting (\begin{DoxyParamCaption}\item[{int}]{iarg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01891}{1891}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsAdvApplicationOutputData@{egsAdvApplicationOutputData}}
+\index{egsAdvApplicationOutputData@{egsAdvApplicationOutputData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsAdvApplicationOutputData()}{egsAdvApplicationOutputData()}}
+{\footnotesize\ttfamily \label{classEB__Application_a516aa6b331006086c67f28572bca57eb} 
+int EB\+\_\+\+Application\+::egs\+Adv\+Application\+Output\+Data (\begin{DoxyParamCaption}\item[{ostream \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02235}{2235}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsAdvApplicationReadData@{egsAdvApplicationReadData}}
+\index{egsAdvApplicationReadData@{egsAdvApplicationReadData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsAdvApplicationReadData()}{egsAdvApplicationReadData()}}
+{\footnotesize\ttfamily \label{classEB__Application_ad464ad7dd011af94e4005b2596be7056} 
+int EB\+\_\+\+Application\+::egs\+Adv\+Application\+Read\+Data (\begin{DoxyParamCaption}\item[{istream \texorpdfstring{$\ast$}{*}}]{in}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02380}{2380}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsApplicationOutputData@{egsApplicationOutputData}}
+\index{egsApplicationOutputData@{egsApplicationOutputData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsApplicationOutputData()}{egsApplicationOutputData()}}
+{\footnotesize\ttfamily \label{classEB__Application_ad94dcc9bab7cd106a089f12045c5bce7} 
+int EB\+\_\+\+Application\+::egs\+Application\+Output\+Data (\begin{DoxyParamCaption}\item[{ostream \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02211}{2211}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsApplicationReadData@{egsApplicationReadData}}
+\index{egsApplicationReadData@{egsApplicationReadData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsApplicationReadData()}{egsApplicationReadData()}}
+{\footnotesize\ttfamily \label{classEB__Application_ac6691e0b80e7551342db8d785b459ed9} 
+int EB\+\_\+\+Application\+::egs\+Application\+Read\+Data (\begin{DoxyParamCaption}\item[{istream \texorpdfstring{$\ast$}{*}}]{in}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02357}{2357}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsBrachyOutputData@{egsBrachyOutputData}}
+\index{egsBrachyOutputData@{egsBrachyOutputData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsBrachyOutputData()}{egsBrachyOutputData()}}
+{\footnotesize\ttfamily \label{classEB__Application_aab60a20b360b53bd84b7d7cab1d5a980} 
+int EB\+\_\+\+Application\+::egs\+Brachy\+Output\+Data (\begin{DoxyParamCaption}\item[{ostream \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02262}{2262}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!egsBrachyReadData@{egsBrachyReadData}}
+\index{egsBrachyReadData@{egsBrachyReadData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{egsBrachyReadData()}{egsBrachyReadData()}}
+{\footnotesize\ttfamily \label{classEB__Application_a6f4f754e3efc5c1997fbbc5dd6375897} 
+int EB\+\_\+\+Application\+::egs\+Brachy\+Read\+Data (\begin{DoxyParamCaption}\item[{istream \texorpdfstring{$\ast$}{*}}]{in}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02408}{2408}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!enableAusgabCalls@{enableAusgabCalls}}
+\index{enableAusgabCalls@{enableAusgabCalls}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{enableAusgabCalls()}{enableAusgabCalls()}}
+{\footnotesize\ttfamily \label{classEB__Application_a42f3b3bd7e1413aade06ee78f81974ab} 
+void EB\+\_\+\+Application\+::enable\+Ausgab\+Calls (\begin{DoxyParamCaption}\item[{int}]{ncalls}{, }\item[{Ausgab\+Call}]{calls}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+enable an array of ausgab calls 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01410}{1410}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!enterNewRegion@{enterNewRegion}}
+\index{enterNewRegion@{enterNewRegion}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{enterNewRegion()}{enterNewRegion()}}
+{\footnotesize\ttfamily \label{classEB__Application_a93f892f60ebd0523b94a43ee9680bed5} 
+void EB\+\_\+\+Application\+::enter\+New\+Region (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01596}{1596}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!getCurrentResult@{getCurrentResult}}
+\index{getCurrentResult@{getCurrentResult}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{getCurrentResult()}{getCurrentResult()}}
+{\footnotesize\ttfamily \label{classEB__Application_a760d7542f42d9521dca30aec0bf277cd} 
+void EB\+\_\+\+Application\+::get\+Current\+Result (\begin{DoxyParamCaption}\item[{double \&}]{sum}{, }\item[{double \&}]{sum2}{, }\item[{double \&}]{norm}{, }\item[{double \&}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Reports the current results for this batch of the simulation. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02082}{2082}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!getOutputVolcorFormat@{getOutputVolcorFormat}}
+\index{getOutputVolcorFormat@{getOutputVolcorFormat}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{getOutputVolcorFormat()}{getOutputVolcorFormat()}}
+{\footnotesize\ttfamily \label{classEB__Application_af3846f93c881bdbaad818bad26323ada} 
+string EB\+\_\+\+Application\+::get\+Output\+Volcor\+Format (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00479}{479}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!getPhantomByName@{getPhantomByName}}
+\index{getPhantomByName@{getPhantomByName}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{getPhantomByName()}{getPhantomByName()}}
+{\footnotesize\ttfamily \label{classEB__Application_a7dae64d1cacf232628102897312f3fd5} 
+\mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}} \texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::get\+Phantom\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+takes a phantom geometry name and returns the \doxylink{classEB__Phantom}{EB\+\_\+\+Phantom} object 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00996}{996}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!howManyJobsDone@{howManyJobsDone}}
+\index{howManyJobsDone@{howManyJobsDone}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{howManyJobsDone()}{howManyJobsDone()}}
+{\footnotesize\ttfamily \label{classEB__Application_a48973a8ca0ff311073dd58865d290c20} 
+int EB\+\_\+\+Application\+::how\+Many\+Jobs\+Done (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02644}{2644}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initAusgabCalls@{initAusgabCalls}}
+\index{initAusgabCalls@{initAusgabCalls}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initAusgabCalls()}{initAusgabCalls()}}
+{\footnotesize\ttfamily \label{classEB__Application_a44014f73df93302372776837f3414413} 
+void EB\+\_\+\+Application\+::init\+Ausgab\+Calls (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+setup any required ausgab calls 
+
+For efficiency, only those ausgab calls which are strictly neccessary should be enabled 
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01289}{1289}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initBCSE@{initBCSE}}
+\index{initBCSE@{initBCSE}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initBCSE()}{initBCSE()}}
+{\footnotesize\ttfamily \label{classEB__Application_a5646126b47fcd851707e286219f30092} 
+int EB\+\_\+\+Application\+::init\+BCSE (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})}
+
+
+
+Initialize BCSE variance reduction if requested. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01224}{1224}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initCrossSections@{initCrossSections}}
+\index{initCrossSections@{initCrossSections}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initCrossSections()}{initCrossSections()}}
+{\footnotesize\ttfamily \label{classEB__Application_aadb4e98427c5b314febb8dd4d948f912} 
+int EB\+\_\+\+Application\+::init\+Cross\+Sections (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00876}{876}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initDoseScaling@{initDoseScaling}}
+\index{initDoseScaling@{initDoseScaling}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initDoseScaling()}{initDoseScaling()}}
+{\footnotesize\ttfamily \label{classEB__Application_a18fe32395024119cd8615f06ae10e08b} 
+void EB\+\_\+\+Application\+::init\+Dose\+Scaling (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize dose scaling factor if requested. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01473}{1473}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initEDepScoring@{initEDepScoring}}
+\index{initEDepScoring@{initEDepScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initEDepScoring()}{initEDepScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_a11e268e6a3850db77dc164cdedd8e809} 
+void EB\+\_\+\+Application\+::init\+EDep\+Scoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+energy deposition scoring initialization 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01417}{1417}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initGCRScoring@{initGCRScoring}}
+\index{initGCRScoring@{initGCRScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initGCRScoring()}{initGCRScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_ae604629b0fef3eb989a36f6ad850cd1e} 
+void EB\+\_\+\+Application\+::init\+GCRScoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+setup which phantom/region will be used for get\+Current\+Result 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00952}{952}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initGeometry@{initGeometry}}
+\index{initGeometry@{initGeometry}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initGeometry()}{initGeometry()}}
+{\footnotesize\ttfamily \label{classEB__Application_aeb79bb270273bba5d80805b7d008d643} 
+int EB\+\_\+\+Application\+::init\+Geometry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+override default init\+Geometry so we can manually create our own geometry. 
+
+This allows us to track region numbers for each geometry object individually 
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00313}{313}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initMuenData@{initMuenData}}
+\index{initMuenData@{initMuenData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initMuenData()}{initMuenData()}}
+{\footnotesize\ttfamily \label{classEB__Application_a462f417e8ec69ef3fe46a927a51ff88c} 
+void EB\+\_\+\+Application\+::init\+Muen\+Data (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+load muen data for requested media 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01353}{1353}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initOutputFiles@{initOutputFiles}}
+\index{initOutputFiles@{initOutputFiles}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initOutputFiles()}{initOutputFiles()}}
+{\footnotesize\ttfamily \label{classEB__Application_aebbefa487f32c4a9f6558f8103b2aa08} 
+void EB\+\_\+\+Application\+::init\+Output\+Files (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set up whether to output extra info files 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01007}{1007}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initPHSPScoring@{initPHSPScoring}}
+\index{initPHSPScoring@{initPHSPScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initPHSPScoring()}{initPHSPScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_a0719663f26b9554ac8ce5f8087527673} 
+void EB\+\_\+\+Application\+::init\+PHSPScoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{inp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set up phsp scoring 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01036}{1036}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initRunControl@{initRunControl}}
+\index{initRunControl@{initRunControl}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initRunControl()}{initRunControl()}}
+{\footnotesize\ttfamily \label{classEB__Application_a05f165e59f53a503556c7d9d0d39201c} 
+int EB\+\_\+\+Application\+::init\+Run\+Control (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+egs\+\_\+brachy specific run control initialization 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00816}{816}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initRunMode@{initRunMode}}
+\index{initRunMode@{initRunMode}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initRunMode()}{initRunMode()}}
+{\footnotesize\ttfamily \label{classEB__Application_a3a114ce66aa6920f44badb043ba39938} 
+int EB\+\_\+\+Application\+::init\+Run\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get run mode from the input file. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00843}{843}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initRussianRoulette@{initRussianRoulette}}
+\index{initRussianRoulette@{initRussianRoulette}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initRussianRoulette()}{initRussianRoulette()}}
+{\footnotesize\ttfamily \label{classEB__Application_a2b31595a9872db679e3f23cf03e8fd39} 
+int EB\+\_\+\+Application\+::init\+Russian\+Roulette (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})}
+
+
+
+Initialize Russian roulette variance reduction if requested. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01198}{1198}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initScatScoring@{initScatScoring}}
+\index{initScatScoring@{initScatScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initScatScoring()}{initScatScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_a883ded782e63933485a01d4c0718990e} 
+void EB\+\_\+\+Application\+::init\+Scat\+Scoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+energy deposition scoring initialization 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01436}{1436}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initScoring@{initScoring}}
+\index{initScoring@{initScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initScoring()}{initScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_ae84b43b96aeeb89b21244740cf9fcf7c} 
+int EB\+\_\+\+Application\+::init\+Scoring (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+initialze all scoring and variance reduction parameters 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00918}{918}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initSimulation@{initSimulation}}
+\index{initSimulation@{initSimulation}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initSimulation()}{initSimulation()}}
+{\footnotesize\ttfamily \label{classEB__Application_a0db5e7276f0c296947e4dbceaa211e23} 
+int EB\+\_\+\+Application\+::init\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+set the run mode and then call EGS\+\_\+\+Advanced\+Application\+::init\+Simulation 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00796}{796}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initSource@{initSource}}
+\index{initSource@{initSource}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initSource()}{initSource()}}
+{\footnotesize\ttfamily \label{classEB__Application_a0bcf72f0735c49dc198cc6f415e87781} 
+int EB\+\_\+\+Application\+::init\+Source (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00753}{753}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initSourceTransforms@{initSourceTransforms}}
+\index{initSourceTransforms@{initSourceTransforms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initSourceTransforms()}{initSourceTransforms()}}
+{\footnotesize\ttfamily \label{classEB__Application_a1fff7ad2a86a02b7f9f1df5aad2eb31f} 
+int EB\+\_\+\+Application\+::init\+Source\+Transforms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+read in the location of all particle sources and optionally apply a source coordinate transform mapping local placements to world coordinates 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00413}{413}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initSpectrumScoring@{initSpectrumScoring}}
+\index{initSpectrumScoring@{initSpectrumScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initSpectrumScoring()}{initSpectrumScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_a7b1ea589237b731a69f75cd60fb15213} 
+void EB\+\_\+\+Application\+::init\+Spectrum\+Scoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+input}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize all spectrum scoring objects. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01261}{1261}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initTrackLengthScoring@{initTrackLengthScoring}}
+\index{initTrackLengthScoring@{initTrackLengthScoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initTrackLengthScoring()}{initTrackLengthScoring()}}
+{\footnotesize\ttfamily \label{classEB__Application_a728488d854096c3c891aefca846edf4c} 
+void EB\+\_\+\+Application\+::init\+Track\+Length\+Scoring (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+track length scoring initialization 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01301}{1301}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initVarianceReduction@{initVarianceReduction}}
+\index{initVarianceReduction@{initVarianceReduction}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initVarianceReduction()}{initVarianceReduction()}}
+{\footnotesize\ttfamily \label{classEB__Application_aebe7b044bbd5fbb58e72a7f64518b1b7} 
+int EB\+\_\+\+Application\+::init\+Variance\+Reduction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+initialze all variance reduction parameters 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01047}{1047}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!initXCCScaling@{initXCCScaling}}
+\index{initXCCScaling@{initXCCScaling}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{initXCCScaling()}{initXCCScaling()}}
+{\footnotesize\ttfamily \label{classEB__Application_add8f8806b3ab48c3e813598f001da597} 
+void EB\+\_\+\+Application\+::init\+XCCScaling (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{scoring\+\_\+options}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize cross section scaling if requested. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01486}{1486}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!isStuck@{isStuck}}
+\index{isStuck@{isStuck}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{isStuck()}{isStuck()}}
+{\footnotesize\ttfamily \label{classEB__Application_a6f5a261b7c6f58d212c83f76d6e3915e} 
+bool EB\+\_\+\+Application\+::is\+Stuck (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01655}{1655}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!outputData@{outputData}}
+\index{outputData@{outputData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{outputData()}{outputData()}}
+{\footnotesize\ttfamily \label{classEB__Application_a17a0b26ad1c57d5e55566c78886e097b} 
+int EB\+\_\+\+Application\+::output\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Output intermediate results. The egs\+\_\+brachy version outputs the standard egs++ data along with egs\+\_\+brachy specific information such as phantom and spectrum scoring information. egs\+\_\+brachy also allows you to output data in gzip format. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02315}{2315}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!outputDataHelper@{outputDataHelper}}
+\index{outputDataHelper@{outputDataHelper}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{outputDataHelper()}{outputDataHelper()}}
+{\footnotesize\ttfamily \label{classEB__Application_a250d2d5f50967e06c35e771c1ef86b88} 
+int EB\+\_\+\+Application\+::output\+Data\+Helper (\begin{DoxyParamCaption}\item[{ostream \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02301}{2301}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!outputResults@{outputResults}}
+\index{outputResults@{outputResults}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{outputResults()}{outputResults()}}
+{\footnotesize\ttfamily \label{classEB__Application_aa6b861b46c730886aed48add8534ab50} 
+void EB\+\_\+\+Application\+::output\+Results (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01962}{1962}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!printIncludedFiles@{printIncludedFiles}}
+\index{printIncludedFiles@{printIncludedFiles}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{printIncludedFiles()}{printIncludedFiles()}}
+{\footnotesize\ttfamily \label{classEB__Application_a6225eed198559e34f013b85aeccdc25e} 
+void EB\+\_\+\+Application\+::print\+Included\+Files (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l00293}{293}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!readData@{readData}}
+\index{readData@{readData}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily \label{classEB__Application_ac3d343265c889b1445fe3f834aaaefdb} 
+int EB\+\_\+\+Application\+::read\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Read data required for restarting simulations. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02458}{2458}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!readDataHelper@{readDataHelper}}
+\index{readDataHelper@{readDataHelper}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{readDataHelper()}{readDataHelper()}}
+{\footnotesize\ttfamily \label{classEB__Application_a8803725c6f43d1ecc885ec230c23ba13} 
+int EB\+\_\+\+Application\+::read\+Data\+Helper (\begin{DoxyParamCaption}\item[{istream \texorpdfstring{$\ast$}{*}}]{in}{}\end{DoxyParamCaption})}
+
+
+
+helper function for output\+Data 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02443}{2443}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{resetCounter()}{resetCounter()}}
+{\footnotesize\ttfamily \label{classEB__Application_a9ee00492dd03c5725c7e7606142cc498} 
+void EB\+\_\+\+Application\+::reset\+Counter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reset the application to a \textquotesingle{}pristine\textquotesingle{} state. Adapted from egs\+\_\+application.\+cpp to allow combining in text or gzip format. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02562}{2562}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!runSimulation@{runSimulation}}
+\index{runSimulation@{runSimulation}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{runSimulation()}{runSimulation()}}
+{\footnotesize\ttfamily \label{classEB__Application_afe521ab3676e11558a11bbba2bdfaee1} 
+int EB\+\_\+\+Application\+::run\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02092}{2092}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!simulateSingleShower@{simulateSingleShower}}
+\index{simulateSingleShower@{simulateSingleShower}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{simulateSingleShower()}{simulateSingleShower()}}
+{\footnotesize\ttfamily \label{classEB__Application_add9ca8d08858e8d836ffa45e0f8ad63e} 
+int EB\+\_\+\+Application\+::simulate\+Single\+Shower (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02100}{2100}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!startNewParticle@{startNewParticle}}
+\index{startNewParticle@{startNewParticle}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{startNewParticle()}{startNewParticle()}}
+{\footnotesize\ttfamily \label{classEB__Application_a372127ee0cbb8cf18e608303a951667e} 
+void EB\+\_\+\+Application\+::start\+New\+Particle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set source ecut/pcut if different from global ecut/pcut. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l01581}{1581}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+\index{EB\_Application@{EB\_Application}!startNewShower@{startNewShower}}
+\index{startNewShower@{startNewShower}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{startNewShower()}{startNewShower()}}
+{\footnotesize\ttfamily \label{classEB__Application_a912187410d943c5bf79add9dd550b0db} 
+int EB\+\_\+\+Application\+::start\+New\+Shower (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8cpp_source_l02185}{2185}} of file \mbox{\hyperlink{egs__brachy_8cpp_source}{egs\+\_\+brachy.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EB\_Application@{EB\_Application}!active\_source@{active\_source}}
+\index{active\_source@{active\_source}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{active\_source}{active\_source}}
+{\footnotesize\ttfamily \label{classEB__Application_a73f808aa7e78e7f9c9143724e1943220} 
+int EB\+\_\+\+Application\+::active\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00112}{112}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!applied\_source\_coord\_transform@{applied\_source\_coord\_transform}}
+\index{applied\_source\_coord\_transform@{applied\_source\_coord\_transform}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{applied\_source\_coord\_transform}{applied\_source\_coord\_transform}}
+{\footnotesize\ttfamily \label{classEB__Application_ab8bfbe8de13718341d7b7279ec830ebb} 
+bool EB\+\_\+\+Application\+::applied\+\_\+source\+\_\+coord\+\_\+transform = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if a source coordinate transform was composed in 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00150}{150}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!base\_transform@{base\_transform}}
+\index{base\_transform@{base\_transform}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{base\_transform}{base\_transform}}
+{\footnotesize\ttfamily \label{classEB__Application_aa3f0da1d63aaab0ae41c6995abc1a5a8} 
+EGS\+\_\+\+Affine\+Transform\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::base\+\_\+transform\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+same as source\+\_\+transforms\mbox{[}0\mbox{]} 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00148}{148}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!base\_transform\_inv@{base\_transform\_inv}}
+\index{base\_transform\_inv@{base\_transform\_inv}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{base\_transform\_inv}{base\_transform\_inv}}
+{\footnotesize\ttfamily \label{classEB__Application_ab2fa0ae403b76d2aa6b4f75c942b59a8} 
+EGS\+\_\+\+Affine\+Transform\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::base\+\_\+transform\+\_\+inv\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+same as source\+\_\+transforms\mbox{[}0\mbox{]}.inverse() 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00149}{149}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!bcse\_factor@{bcse\_factor}}
+\index{bcse\_factor@{bcse\_factor}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{bcse\_factor}{bcse\_factor}}
+{\footnotesize\ttfamily \label{classEB__Application_a696702c60b1ab3a58f9bc2cfbe670450} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::bcse\+\_\+factor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00161}{161}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!bcse\_med\_num@{bcse\_med\_num}}
+\index{bcse\_med\_num@{bcse\_med\_num}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{bcse\_med\_num}{bcse\_med\_num}}
+{\footnotesize\ttfamily \label{classEB__Application_a78b0615d21da30fb8bd6464fcbd5494e} 
+int EB\+\_\+\+Application\+::bcse\+\_\+med\+\_\+num\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00160}{160}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!cur\_R@{cur\_R}}
+\index{cur\_R@{cur\_R}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{cur\_R}{cur\_R}}
+{\footnotesize\ttfamily \label{classEB__Application_ad057efadf212d22198c7d01690cc9b91} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::cur\+\_\+R\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00138}{138}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!DEFAULT\_BCSE\_FACTOR@{DEFAULT\_BCSE\_FACTOR}}
+\index{DEFAULT\_BCSE\_FACTOR@{DEFAULT\_BCSE\_FACTOR}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_BCSE\_FACTOR}{DEFAULT\_BCSE\_FACTOR}}
+{\footnotesize\ttfamily \label{classEB__Application_a81ab175fe6df53e668829b8d41793ffb} 
+const EGS\+\_\+\+Float EB\+\_\+\+Application\+::\+DEFAULT\+\_\+\+BCSE\+\_\+\+FACTOR = 100\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00162}{162}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!do\_bcse@{do\_bcse}}
+\index{do\_bcse@{do\_bcse}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{do\_bcse}{do\_bcse}}
+{\footnotesize\ttfamily \label{classEB__Application_ad564a643afe3e8974e08ece9939201f1} 
+bool EB\+\_\+\+Application\+::do\+\_\+bcse\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00159}{159}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!do\_brem\_split@{do\_brem\_split}}
+\index{do\_brem\_split@{do\_brem\_split}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{do\_brem\_split}{do\_brem\_split}}
+{\footnotesize\ttfamily \label{classEB__Application_a35e8a07494835e8e28f0b65964601571} 
+bool EB\+\_\+\+Application\+::do\+\_\+brem\+\_\+split\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00156}{156}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!effective\_histories@{effective\_histories}}
+\index{effective\_histories@{effective\_histories}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{effective\_histories}{effective\_histories}}
+{\footnotesize\ttfamily \label{classEB__Application_a54ae700eb9947010e5004cd0f70b15b8} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::effective\+\_\+histories}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00371}{371}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!escoring@{escoring}}
+\index{escoring@{escoring}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{escoring}{escoring}}
+{\footnotesize\ttfamily \label{classEB__Application_a0b49a74537f5ececf149ef778e71b385} 
+\mbox{\hyperlink{classEnergyScoringStats}{Energy\+Scoring\+Stats}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::escoring\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Energy related scoring/stats. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00103}{103}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!extra\_scoring\_doses@{extra\_scoring\_doses}}
+\index{extra\_scoring\_doses@{extra\_scoring\_doses}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{extra\_scoring\_doses}{extra\_scoring\_doses}}
+{\footnotesize\ttfamily \label{classEB__Application_a2d0c69d9c2c174e6ff5dd6dc227ed23d} 
+map$<$string, EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} $>$ EB\+\_\+\+Application\+::extra\+\_\+scoring\+\_\+doses\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00184}{184}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!extra\_scoring\_doses\_edep@{extra\_scoring\_doses\_edep}}
+\index{extra\_scoring\_doses\_edep@{extra\_scoring\_doses\_edep}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{extra\_scoring\_doses\_edep}{extra\_scoring\_doses\_edep}}
+{\footnotesize\ttfamily \label{classEB__Application_a7b7f3a57cc1b7af2fa0f504221ebd508} 
+map$<$string, EGS\+\_\+\+Scoring\+Array\texorpdfstring{$\ast$}{*} $>$ EB\+\_\+\+Application\+::extra\+\_\+scoring\+\_\+doses\+\_\+edep\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00185}{185}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!extra\_scoring\_mass@{extra\_scoring\_mass}}
+\index{extra\_scoring\_mass@{extra\_scoring\_mass}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{extra\_scoring\_mass}{extra\_scoring\_mass}}
+{\footnotesize\ttfamily \label{classEB__Application_a0312454db9cc47bde8828983ad72b7ad} 
+map$<$string, vector$<$EGS\+\_\+\+Float$>$ $>$ EB\+\_\+\+Application\+::extra\+\_\+scoring\+\_\+mass\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00183}{183}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!extra\_scoring\_reg@{extra\_scoring\_reg}}
+\index{extra\_scoring\_reg@{extra\_scoring\_reg}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{extra\_scoring\_reg}{extra\_scoring\_reg}}
+{\footnotesize\ttfamily \label{classEB__Application_a18d1aa216e1566312a5ba6dee26fd258} 
+map$<$string, vector$<$int$>$ $>$ EB\+\_\+\+Application\+::extra\+\_\+scoring\+\_\+reg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00181}{181}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!extra\_scoring\_vols@{extra\_scoring\_vols}}
+\index{extra\_scoring\_vols@{extra\_scoring\_vols}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{extra\_scoring\_vols}{extra\_scoring\_vols}}
+{\footnotesize\ttfamily \label{classEB__Application_a9d7f004dc38e03075fc583bca960bb6d} 
+map$<$string, vector$<$EGS\+\_\+\+Float$>$ $>$ EB\+\_\+\+Application\+::extra\+\_\+scoring\+\_\+vols\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00182}{182}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!file\_vc\_results@{file\_vc\_results}}
+\index{file\_vc\_results@{file\_vc\_results}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{file\_vc\_results}{file\_vc\_results}}
+{\footnotesize\ttfamily \label{classEB__Application_afdbd91d55d696b9bd62b5e8e30d49dca} 
+\mbox{\hyperlink{structebvolcor_1_1FileResults}{ebvolcor\+::\+File\+Results}} EB\+\_\+\+Application\+::file\+\_\+vc\+\_\+results\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+results from precomputed volume correction 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00189}{189}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!flu\_cutoff@{flu\_cutoff}}
+\index{flu\_cutoff@{flu\_cutoff}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{flu\_cutoff}{flu\_cutoff}}
+{\footnotesize\ttfamily \label{classEB__Application_acf26f12390f17f7946cd7091078ecca2} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::flu\+\_\+cutoff\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fluorescent photon cutoff energy 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00164}{164}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!gcr\_phantom@{gcr\_phantom}}
+\index{gcr\_phantom@{gcr\_phantom}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{gcr\_phantom}{gcr\_phantom}}
+{\footnotesize\ttfamily \label{classEB__Application_a7bd791ae1bec595c120da42f729d5c45} 
+\mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::gcr\+\_\+phantom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+phantom object to use in get\+Current\+Result (defaults to 1st phantom) 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00178}{178}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!gcr\_phantom\_reg@{gcr\_phantom\_reg}}
+\index{gcr\_phantom\_reg@{gcr\_phantom\_reg}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{gcr\_phantom\_reg}{gcr\_phantom\_reg}}
+{\footnotesize\ttfamily \label{classEB__Application_a540e2dcdb8c55d1e92e56d73ff8e31bc} 
+int EB\+\_\+\+Application\+::gcr\+\_\+phantom\+\_\+reg\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+region of phantom to use for get\+Current\+Result (default to 0) 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00179}{179}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!gen\_vc\_results@{gen\_vc\_results}}
+\index{gen\_vc\_results@{gen\_vc\_results}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{gen\_vc\_results}{gen\_vc\_results}}
+{\footnotesize\ttfamily \label{classEB__Application_ab289d60c9899017d6da28f981e51fc32} 
+\mbox{\hyperlink{structebvolcor_1_1Results}{ebvolcor\+::\+Results}} EB\+\_\+\+Application\+::gen\+\_\+vc\+\_\+results\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+results from general volume correction 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00188}{188}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!ginfo@{ginfo}}
+\index{ginfo@{ginfo}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{ginfo}{ginfo}}
+{\footnotesize\ttfamily \label{classEB__Application_adb31e393ca05894a5ece744be20fdb1a} 
+\mbox{\hyperlink{classGeomInfo}{Geom\+Info}} EB\+\_\+\+Application\+::ginfo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+meta data about the geometries 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00176}{176}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!global\_e\_max\_rr@{global\_e\_max\_rr}}
+\index{global\_e\_max\_rr@{global\_e\_max\_rr}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{global\_e\_max\_rr}{global\_e\_max\_rr}}
+{\footnotesize\ttfamily \label{classEB__Application_a4e37bafac82d17685ddf50bb6507124b} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::global\+\_\+e\+\_\+max\+\_\+rr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+max range rejection energy globally 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00171}{171}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!global\_ecut@{global\_ecut}}
+\index{global\_ecut@{global\_ecut}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{global\_ecut}{global\_ecut}}
+{\footnotesize\ttfamily \label{classEB__Application_aeb0e721561c88874df5774274cfd6f37} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::global\+\_\+ecut\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ecut for source objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00167}{167}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!global\_i\_do\_rr@{global\_i\_do\_rr}}
+\index{global\_i\_do\_rr@{global\_i\_do\_rr}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{global\_i\_do\_rr}{global\_i\_do\_rr}}
+{\footnotesize\ttfamily \label{classEB__Application_a6362a9ab8859500749f7589fcebbc5d9} 
+bool EB\+\_\+\+Application\+::global\+\_\+i\+\_\+do\+\_\+rr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+enable range rejection outside of sources 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00170}{170}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!global\_pcut@{global\_pcut}}
+\index{global\_pcut@{global\_pcut}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{global\_pcut}{global\_pcut}}
+{\footnotesize\ttfamily \label{classEB__Application_a74030f2f8f6e7a473ef1722600f511c8} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::global\+\_\+pcut\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pcut for source objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00168}{168}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!gz\_data\_in@{gz\_data\_in}}
+\index{gz\_data\_in@{gz\_data\_in}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{gz\_data\_in}{gz\_data\_in}}
+{\footnotesize\ttfamily \label{classEB__Application_a4a9b6c9223099b508524ea2b6b7370b0} 
+\mbox{\hyperlink{classigzstream}{igzstream}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::gz\+\_\+data\+\_\+in\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+GZip file for outputing egsdat. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00200}{200}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!gz\_data\_out@{gz\_data\_out}}
+\index{gz\_data\_out@{gz\_data\_out}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{gz\_data\_out}{gz\_data\_out}}
+{\footnotesize\ttfamily \label{classEB__Application_aaccea22d03d09b4bafae49515ba2dee0} 
+\mbox{\hyperlink{classogzstream}{ogzstream}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::gz\+\_\+data\+\_\+out\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+GZip file for outputing egsdat. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00199}{199}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!is\_phsp\_source@{is\_phsp\_source}}
+\index{is\_phsp\_source@{is\_phsp\_source}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{is\_phsp\_source}{is\_phsp\_source}}
+{\footnotesize\ttfamily \label{classEB__Application_adc4e727e067d87a2fd7331eb832a9def} 
+bool EB\+\_\+\+Application\+::is\+\_\+phsp\+\_\+source\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00109}{109}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!last\_position@{last\_position}}
+\index{last\_position@{last\_position}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{last\_position}{last\_position}}
+{\footnotesize\ttfamily \label{classEB__Application_abeb90213d794461d89fb407d72644736} 
+EGS\+\_\+\+Vector EB\+\_\+\+Application\+::last\+\_\+position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00136}{136}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!last\_R@{last\_R}}
+\index{last\_R@{last\_R}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{last\_R}{last\_R}}
+{\footnotesize\ttfamily \label{classEB__Application_a4c532000dfd05e2111a2506d366ff38e} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::last\+\_\+R\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00137}{137}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!latch\_control@{latch\_control}}
+\index{latch\_control@{latch\_control}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{latch\_control}{latch\_control}}
+{\footnotesize\ttfamily \label{classEB__Application_a5f788f816261712e257103ef3e0ce8e0} 
+\mbox{\hyperlink{classLatch}{Latch}} EB\+\_\+\+Application\+::latch\+\_\+control}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00373}{373}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!media\_muen@{media\_muen}}
+\index{media\_muen@{media\_muen}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{media\_muen}{media\_muen}}
+{\footnotesize\ttfamily \label{classEB__Application_aaf0f891feb292ea0ef48c3063d0fc26a} 
+map$<$int, EGS\+\_\+\+Interpolator \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Application\+::media\+\_\+muen\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Map from medium index to muen interpolator for that medium. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00152}{152}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!media\_muen\_names@{media\_muen\_names}}
+\index{media\_muen\_names@{media\_muen\_names}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{media\_muen\_names}{media\_muen\_names}}
+{\footnotesize\ttfamily \label{classEB__Application_a826c0fc6b8aa3b79b0235d165e94616c} 
+map$<$string, string$>$ EB\+\_\+\+Application\+::media\+\_\+muen\+\_\+names\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00153}{153}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!n\_stuck@{n\_stuck}}
+\index{n\_stuck@{n\_stuck}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{n\_stuck}{n\_stuck}}
+{\footnotesize\ttfamily \label{classEB__Application_a237cf9d287a9d355db5ab4d9c4bb5882} 
+EGS\+\_\+\+I64 EB\+\_\+\+Application\+::n\+\_\+stuck\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00140}{140}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!nbr\_split@{nbr\_split}}
+\index{nbr\_split@{nbr\_split}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{nbr\_split}{nbr\_split}}
+{\footnotesize\ttfamily \label{classEB__Application_aaeb454cd7bc487d7e24fbb785f36dd1c} 
+int EB\+\_\+\+Application\+::nbr\+\_\+split\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of times to split bremstrahlung phtons. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00157}{157}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!nsources@{nsources}}
+\index{nsources@{nsources}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{nsources}{nsources}}
+{\footnotesize\ttfamily \label{classEB__Application_acf001bc92d20c6a3617270eddaa8c3d4} 
+int EB\+\_\+\+Application\+::nsources}
+
+
+
+total number of particle sources in current simulation 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00369}{369}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_3ddose\_files@{output\_3ddose\_files}}
+\index{output\_3ddose\_files@{output\_3ddose\_files}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_3ddose\_files}{output\_3ddose\_files}}
+{\footnotesize\ttfamily \label{classEB__Application_a799e8c2afa48fb5c0bde96728a37d78c} 
+bool EB\+\_\+\+Application\+::output\+\_\+3ddose\+\_\+files\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+false if run mode is \textquotesingle{}volume correction only\textquotesingle{} 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00122}{122}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_dose\_format@{output\_dose\_format}}
+\index{output\_dose\_format@{output\_dose\_format}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_dose\_format}{output\_dose\_format}}
+{\footnotesize\ttfamily \label{classEB__Application_a8c77c3d7bd0ed2aa7de9e4cbce2347bf} 
+string EB\+\_\+\+Application\+::output\+\_\+dose\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00123}{123}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_egsdat\_format@{output\_egsdat\_format}}
+\index{output\_egsdat\_format@{output\_egsdat\_format}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_egsdat\_format}{output\_egsdat\_format}}
+{\footnotesize\ttfamily \label{classEB__Application_a46a6cc7f4fc4024f84420b1151f0a740} 
+string EB\+\_\+\+Application\+::output\+\_\+egsdat\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00120}{120}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_egsphant@{output\_egsphant}}
+\index{output\_egsphant@{output\_egsphant}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_egsphant}{output\_egsphant}}
+{\footnotesize\ttfamily \label{classEB__Application_a5d15e3f96735125d5de0293160750379} 
+bool EB\+\_\+\+Application\+::output\+\_\+egsphant\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if user requests egsphant ouput 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00124}{124}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_egsphant\_format@{output\_egsphant\_format}}
+\index{output\_egsphant\_format@{output\_egsphant\_format}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_egsphant\_format}{output\_egsphant\_format}}
+{\footnotesize\ttfamily \label{classEB__Application_aaaf25a0248e49fa9d70b36223bf5b0f6} 
+string EB\+\_\+\+Application\+::output\+\_\+egsphant\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00125}{125}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_volcor\_format@{output\_volcor\_format}}
+\index{output\_volcor\_format@{output\_volcor\_format}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_volcor\_format}{output\_volcor\_format}}
+{\footnotesize\ttfamily \label{classEB__Application_a30ab960db00d65f54c618222815e1fd2} 
+string EB\+\_\+\+Application\+::output\+\_\+volcor\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00131}{131}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_volcor\_phantoms@{output\_volcor\_phantoms}}
+\index{output\_volcor\_phantoms@{output\_volcor\_phantoms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_volcor\_phantoms}{output\_volcor\_phantoms}}
+{\footnotesize\ttfamily \label{classEB__Application_a4842ff2a4baba07dccaf0cb72a0e409f} 
+vector$<$string$>$ EB\+\_\+\+Application\+::output\+\_\+volcor\+\_\+phantoms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+vector of phantom names to output volume correctino files for 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00130}{130}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_voxinfo@{output\_voxinfo}}
+\index{output\_voxinfo@{output\_voxinfo}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_voxinfo}{output\_voxinfo}}
+{\footnotesize\ttfamily \label{classEB__Application_ab49f0f72ffc871e02400bd736641d426} 
+bool EB\+\_\+\+Application\+::output\+\_\+voxinfo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true if user requests voxel info file 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00127}{127}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!output\_voxinfo\_format@{output\_voxinfo\_format}}
+\index{output\_voxinfo\_format@{output\_voxinfo\_format}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{output\_voxinfo\_format}{output\_voxinfo\_format}}
+{\footnotesize\ttfamily \label{classEB__Application_a4857cfe28827230cc12dafcea1d9c2ce} 
+string EB\+\_\+\+Application\+::output\+\_\+voxinfo\+\_\+format\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+text or gzip 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00128}{128}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!p\_init\_locs@{p\_init\_locs}}
+\index{p\_init\_locs@{p\_init\_locs}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{p\_init\_locs}{p\_init\_locs}}
+{\footnotesize\ttfamily \label{classEB__Application_aefd18cbf96f5f3385754a7701512e117} 
+vector$<$EGS\+\_\+\+Vector$>$ EB\+\_\+\+Application\+::p\+\_\+init\+\_\+locs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00134}{134}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!pevent\_pub@{pevent\_pub}}
+\index{pevent\_pub@{pevent\_pub}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{pevent\_pub}{pevent\_pub}}
+{\footnotesize\ttfamily \label{classEB__Application_a34656a64e2118efecadc91cb8efabae5} 
+\mbox{\hyperlink{classPublisher}{Publisher}} EB\+\_\+\+Application\+::pevent\+\_\+pub\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Particle event publisher. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00191}{191}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!phantom\_geoms@{phantom\_geoms}}
+\index{phantom\_geoms@{phantom\_geoms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{phantom\_geoms}{phantom\_geoms}}
+{\footnotesize\ttfamily \label{classEB__Application_aa52a33f3c961e4a52ad039ea97936e00} 
+vector$<$\mbox{\hyperlink{classEB__Phantom}{EB\+\_\+\+Phantom}} \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Application\+::phantom\+\_\+geoms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pointers to all of the phantom objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00145}{145}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!phsp@{phsp}}
+\index{phsp@{phsp}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{phsp}{phsp}}
+{\footnotesize\ttfamily \label{classEB__Application_ac0bb1f5abc58a05b125eb2a23ee5b334} 
+\mbox{\hyperlink{classPHSPControl}{PHSPControl}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::phsp\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00114}{114}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!record\_n\_init@{record\_n\_init}}
+\index{record\_n\_init@{record\_n\_init}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{record\_n\_init}{record\_n\_init}}
+{\footnotesize\ttfamily \label{classEB__Application_afa6a95efac776f8a1673450c67704cee} 
+int EB\+\_\+\+Application\+::record\+\_\+n\+\_\+init\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+if \texorpdfstring{$>$}{>} 0 write initial pos of record\+\_\+n\+\_\+init particles to \{input\+\_\+file\}.pinit 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00133}{133}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!recycle\_opts@{recycle\_opts}}
+\index{recycle\_opts@{recycle\_opts}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{recycle\_opts}{recycle\_opts}}
+{\footnotesize\ttfamily \label{classEB__Application_af692a20294ed8a7be0ad17901dba7202} 
+\mbox{\hyperlink{classRecycleOpts}{Recycle\+Opts}}\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::recycle\+\_\+opts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00107}{107}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!revision@{revision}}
+\index{revision@{revision}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{revision}{revision}}
+{\footnotesize\ttfamily \label{classEB__Application_a72aa0142e49801a420a13dd9dd54cc56} 
+string EB\+\_\+\+Application\+::revision = "{}\$Revision\+: 0.\+9.\+1 \$"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+the usercode revision number 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00202}{202}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!run\_mode@{run\_mode}}
+\index{run\_mode@{run\_mode}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{run\_mode}{run\_mode}}
+{\footnotesize\ttfamily \label{classEB__Application_af5d32a3be3da6f31a74c513688081063} 
+\mbox{\hyperlink{classEB__Application_ad360100513e3cc0c2822839c742fe1a1}{Run\+Mode}} EB\+\_\+\+Application\+::run\+\_\+mode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Which run mode are we using (RM\+\_\+\+NORMAL, RM\+\_\+\+SUPERPOSITION or RM\+\_\+\+VC\+\_\+\+ONLY \texorpdfstring{$\ast$}{*}/. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00100}{100}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!run\_mode\_name@{run\_mode\_name}}
+\index{run\_mode\_name@{run\_mode\_name}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{run\_mode\_name}{run\_mode\_name}}
+{\footnotesize\ttfamily \label{classEB__Application_a478a59cb599955fe0a8af00f98e6131c} 
+string EB\+\_\+\+Application\+::run\+\_\+mode\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00101}{101}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!score\_edep@{score\_edep}}
+\index{score\_edep@{score\_edep}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{score\_edep}{score\_edep}}
+{\footnotesize\ttfamily \label{classEB__Application_ae10063d271b4cb1af66f8d5ee69992ab} 
+bool EB\+\_\+\+Application\+::score\+\_\+edep\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true when energy deposition is enabled 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00117}{117}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!score\_scat@{score\_scat}}
+\index{score\_scat@{score\_scat}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{score\_scat}{score\_scat}}
+{\footnotesize\ttfamily \label{classEB__Application_aa9d16ed7ca1ff15652567a9d82f72e32} 
+bool EB\+\_\+\+Application\+::score\+\_\+scat\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true when scatter scoring is enabled 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00118}{118}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!score\_tlen@{score\_tlen}}
+\index{score\_tlen@{score\_tlen}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{score\_tlen}{score\_tlen}}
+{\footnotesize\ttfamily \label{classEB__Application_af0882e82dfe7a7d6f8f31c8f72d859e1} 
+bool EB\+\_\+\+Application\+::score\+\_\+tlen\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+true when tracklength estimator is enabled 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00116}{116}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!single\_generator@{single\_generator}}
+\index{single\_generator@{single\_generator}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{single\_generator}{single\_generator}}
+{\footnotesize\ttfamily \label{classEB__Application_af8de70242fa5f99f3911d250a370dab1} 
+bool EB\+\_\+\+Application\+::single\+\_\+generator\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00108}{108}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_e\_max\_rr@{source\_e\_max\_rr}}
+\index{source\_e\_max\_rr@{source\_e\_max\_rr}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_e\_max\_rr}{source\_e\_max\_rr}}
+{\footnotesize\ttfamily \label{classEB__Application_ae7f6bac8beae9e67b09aa8e51ea90843} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::source\+\_\+e\+\_\+max\+\_\+rr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+max range rejection energy for source objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00174}{174}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_ecut@{source\_ecut}}
+\index{source\_ecut@{source\_ecut}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_ecut}{source\_ecut}}
+{\footnotesize\ttfamily \label{classEB__Application_adfd7a6ca6b61e8d32c7ae1af157979f0} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::source\+\_\+ecut\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ecut for source objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00165}{165}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_envelope\_geom@{source\_envelope\_geom}}
+\index{source\_envelope\_geom@{source\_envelope\_geom}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_envelope\_geom}{source\_envelope\_geom}}
+{\footnotesize\ttfamily \label{classEB__Application_aa45f4ee605f83411bd3f5abf1a36258b} 
+EGS\+\_\+\+Base\+Geometry\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::source\+\_\+envelope\+\_\+geom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+geometry that the sources are embedded in 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00142}{142}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_i\_do\_rr@{source\_i\_do\_rr}}
+\index{source\_i\_do\_rr@{source\_i\_do\_rr}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_i\_do\_rr}{source\_i\_do\_rr}}
+{\footnotesize\ttfamily \label{classEB__Application_a583bfc716ee27ce0cb0b347b26d285f6} 
+bool EB\+\_\+\+Application\+::source\+\_\+i\+\_\+do\+\_\+rr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+enable range rejection in sources 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00173}{173}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_pcut@{source\_pcut}}
+\index{source\_pcut@{source\_pcut}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_pcut}{source\_pcut}}
+{\footnotesize\ttfamily \label{classEB__Application_a654cd312e59167ddbde180ee13289944} 
+EGS\+\_\+\+Float EB\+\_\+\+Application\+::source\+\_\+pcut\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pcut for source objects 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00166}{166}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_transforms@{source\_transforms}}
+\index{source\_transforms@{source\_transforms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_transforms}{source\_transforms}}
+{\footnotesize\ttfamily \label{classEB__Application_a18af1ed397d05b819ffeb368b9abae06} 
+vector$<$EGS\+\_\+\+Affine\+Transform \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Application\+::source\+\_\+transforms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+transforms to locations of all sources 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00147}{147}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_vc\_results@{source\_vc\_results}}
+\index{source\_vc\_results@{source\_vc\_results}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_vc\_results}{source\_vc\_results}}
+{\footnotesize\ttfamily \label{classEB__Application_adbfe65f1504c6e214a086771bf3b6264} 
+\mbox{\hyperlink{structebvolcor_1_1Results}{ebvolcor\+::\+Results}} EB\+\_\+\+Application\+::source\+\_\+vc\+\_\+results\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+results from source volume correctio box phantom 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00187}{187}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!source\_weights@{source\_weights}}
+\index{source\_weights@{source\_weights}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{source\_weights}{source\_weights}}
+{\footnotesize\ttfamily \label{classEB__Application_a91100413c2c4ee7fc943b84c7c09a720} 
+vector$<$EGS\+\_\+\+Float$>$ EB\+\_\+\+Application\+::source\+\_\+weights\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00111}{111}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!spectrum\_scorers@{spectrum\_scorers}}
+\index{spectrum\_scorers@{spectrum\_scorers}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{spectrum\_scorers}{spectrum\_scorers}}
+{\footnotesize\ttfamily \label{classEB__Application_a00421e67770aec14cc37a23e860af997} 
+vector$<$\mbox{\hyperlink{classBaseSpectrumScorer}{Base\+Spectrum\+Scorer}} \texorpdfstring{$\ast$}{*}$>$ EB\+\_\+\+Application\+::spectrum\+\_\+scorers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00104}{104}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!steps\_at\_same\_loc@{steps\_at\_same\_loc}}
+\index{steps\_at\_same\_loc@{steps\_at\_same\_loc}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{steps\_at\_same\_loc}{steps\_at\_same\_loc}}
+{\footnotesize\ttfamily \label{classEB__Application_a2b9acad611a244f85e8037c5dcaab150} 
+int EB\+\_\+\+Application\+::steps\+\_\+at\+\_\+same\+\_\+loc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00139}{139}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!steps\_in\_other@{steps\_in\_other}}
+\index{steps\_in\_other@{steps\_in\_other}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{steps\_in\_other}{steps\_in\_other}}
+{\footnotesize\ttfamily \label{classEB__Application_abb1898b9edafd8f9f370aee586420463} 
+map$<$int, EGS\+\_\+\+I64$>$ EB\+\_\+\+Application\+::steps\+\_\+in\+\_\+other\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00197}{197}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!steps\_in\_phantoms@{steps\_in\_phantoms}}
+\index{steps\_in\_phantoms@{steps\_in\_phantoms}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{steps\_in\_phantoms}{steps\_in\_phantoms}}
+{\footnotesize\ttfamily \label{classEB__Application_a1994adec999009dcf2ab6f5a16f485f9} 
+map$<$int, EGS\+\_\+\+I64$>$ EB\+\_\+\+Application\+::steps\+\_\+in\+\_\+phantoms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00196}{196}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!steps\_in\_sources@{steps\_in\_sources}}
+\index{steps\_in\_sources@{steps\_in\_sources}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{steps\_in\_sources}{steps\_in\_sources}}
+{\footnotesize\ttfamily \label{classEB__Application_ab429ede550d643142940e1ad84d4f3af} 
+map$<$int, EGS\+\_\+\+I64$>$ EB\+\_\+\+Application\+::steps\+\_\+in\+\_\+sources\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00195}{195}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!superpos\_geom@{superpos\_geom}}
+\index{superpos\_geom@{superpos\_geom}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{superpos\_geom}{superpos\_geom}}
+{\footnotesize\ttfamily \label{classEB__Application_a8a5152d790080cbfdfd67e297c7ca590} 
+EGS\+\_\+\+ASwitched\+Envelope\texorpdfstring{$\ast$}{*} EB\+\_\+\+Application\+::superpos\+\_\+geom\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+an ASwitched\+Env cast of simulation geometry. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00143}{143}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+\index{EB\_Application@{EB\_Application}!timing\_blocks@{timing\_blocks}}
+\index{timing\_blocks@{timing\_blocks}!EB\_Application@{EB\_Application}}
+\doxysubsubsection{\texorpdfstring{timing\_blocks}{timing\_blocks}}
+{\footnotesize\ttfamily \label{classEB__Application_a28251c54788bd1684e50615b356fc78d} 
+\mbox{\hyperlink{classEB__TimingTree}{EB\+\_\+\+Timing\+Tree}} EB\+\_\+\+Application\+::timing\+\_\+blocks\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Track CPU times of various functions. 
+
+
+
+Definition at line \mbox{\hyperlink{egs__brachy_8h_source_l00193}{193}} of file \mbox{\hyperlink{egs__brachy_8h_source}{egs\+\_\+brachy.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__brachy_8h}{egs\+\_\+brachy.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{egs__brachy_8cpp}{egs\+\_\+brachy.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+\doxysection{test.\+py}
+\label{tg43mode__zeroweight_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/tg43mode\_zeroweight/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/tg43mode\_zeroweight/test.py}}
+\mbox{\hyperlink{tg43mode__zeroweight_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{A\ test\ to\ ensure\ superposition\ mode\ calculations\ work\ when\ a\ source\ has\ zero}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{weighting.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{Gold\ standard\ dose\ distribution\ was\ generated\ with\ egs\_brachy\ and\ \ gold\_standard.egsinp}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ (compare\_3ddose\_files,\ doses\_approx\_equal,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extract\_all\_doses,\ read3ddose)}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ EGSINP\ =\ \textcolor{stringliteral}{"{}tg43mode\_zeroweight.egsinp"{}}}
+\DoxyCodeLine{00018\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 2000/2993.\ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00019\ NCOMPARE\ =\ 10}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{def\ }get\_n\_highest\_dose\_pairs(dose1,\ dose2,\ n=NCOMPARE):}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ list(sorted(zip(dose1,\ dose2)))[-\/n:]}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ gold\_standard\ =\ read3ddose(os.path.join(os.path.dirname(os.path.abspath(\_\_file\_\_)),\ \textcolor{stringliteral}{"{}gold\_standard.3ddose"{}}))}
+\DoxyCodeLine{00027\ \ \ \ \ run\_doses\ =\ read3ddose(inp\_name+\textcolor{stringliteral}{"{}.phantom.3ddose"{}})}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{\#\ only\ look\ at\ voxels\ overlapped\ by\ zero\ activity\ source}}
+\DoxyCodeLine{00029\ \ \ \ \ dose\_pairs\ =\ list(zip(gold\_standard[\textcolor{stringliteral}{'doses'}],\ run\_doses[\textcolor{stringliteral}{'doses'}]))[7:12]}
+\DoxyCodeLine{00030\ \ \ \ \ dose\_diff\ =\ [abs(a-\/b)/a\ \textcolor{keywordflow}{for}\ a,\ b\ \textcolor{keywordflow}{in}\ dose\_pairs]}
+\DoxyCodeLine{00031\ \ \ \ \ doses\_close\ =\ max(dose\_diff)\ <\ 0.01}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{\#\ make\ sure\ energy\ deposition\ and\ tlen\ doses\ roughly\ equal}}
+\DoxyCodeLine{00034\ \ \ \ \ run\_doses\_edep\ =\ read3ddose(inp\_name+\textcolor{stringliteral}{"{}.phantom.edep.3ddose"{}})}
+\DoxyCodeLine{00035\ \ \ \ \ dose\_pairs\_edep\ =\ get\_n\_highest\_dose\_pairs(run\_doses[\textcolor{stringliteral}{'doses'}],\ run\_doses\_edep[\textcolor{stringliteral}{'doses'}],n=5)}
+\DoxyCodeLine{00036\ \ \ \ \ dose\_diff\_edep\ =\ [abs(a-\/b)/a\ \textcolor{keywordflow}{for}\ a,\ b\ \textcolor{keywordflow}{in}\ dose\_pairs\_edep]}
+\DoxyCodeLine{00037\ \ \ \ \ doses\_close\_edep\ =\ max(dose\_diff\_edep)\ <\ 0.10}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ actual\ =\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'edep'}:\ run\_doses\_edep[\textcolor{stringliteral}{'doses'}],}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'tlen'}:\ run\_doses[\textcolor{stringliteral}{'doses'}]}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ expected\ =\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'edep'}:\ run\_doses[\textcolor{stringliteral}{'doses'}],}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'tlen'}:\ gold\_standard[\textcolor{stringliteral}{'doses'}]}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close\ \textcolor{keywordflow}{and}\ doses\_close\_edep,\ actual,\ expected}
+\DoxyCodeLine{00049\ }
+
+\end{DoxyCode}

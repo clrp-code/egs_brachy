@@ -1,0 +1,368 @@
+\doxysection{run\+\_\+tests Namespace Reference}
+\label{namespacerun__tests}\index{run\_tests@{run\_tests}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a28bb2add9f42717b5e30acdd0f78716e}{dyn\+\_\+import}} (name)
+\item 
+\mbox{\hyperlink{namespacerun__tests_a3d1eda1adb02ce640e1cc0952de5057f}{create\+\_\+egsinp}} (test\+\_\+module)
+\item 
+\mbox{\hyperlink{namespacerun__tests_a3627edd31f2d8711e0e94ad09ba4fea7}{find\+\_\+cpu\+\_\+time}} (egslst)
+\item 
+\mbox{\hyperlink{namespacerun__tests_a672d45a95f251b4ccfad95cd1d1da9b7}{run\+\_\+simulation}} ()
+\item 
+\mbox{\hyperlink{namespacerun__tests_aacdb3a2de9e19a79c17b05474d6ba067}{cleanup}} ()
+\item 
+\mbox{\hyperlink{namespacerun__tests_a9fdd3732bed06df7ab9588ea59f270d0}{find\+\_\+tests}} ()
+\item 
+\mbox{\hyperlink{namespacerun__tests_a67174aa8b0ecf63b9c41752e5bbf09aa}{run\+\_\+all\+\_\+tests}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacerun__tests_a17965b2ccda25b1109fa1184281e5e2e}{VERBOSE}} = False
+\item 
+str \mbox{\hyperlink{namespacerun__tests_a4bc5d1005bf2b4edcc0f09879e8df905}{timing\+\_\+hard\+\_\+fail}} = "{}-\/-\/timing-\/hard-\/fail"{} in sys.\+argv
+\item 
+\mbox{\hyperlink{namespacerun__tests_a6f41fd75c158c76f1f178d2c10b25805}{SCRIPT\+\_\+\+DIR}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\item 
+\mbox{\hyperlink{namespacerun__tests_a180ca56bf02a2029483456852ff3251e}{EGS\+\_\+\+HOME}} = os.\+environ\mbox{[}"{}EGS\+\_\+\+HOME"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacerun__tests_ae11b39ddd28fb7af1bd6c95f1694cc7e}{EGS\+\_\+\+BRACHY}} = os.\+path.\+join(\mbox{\hyperlink{namespacerun__tests_a180ca56bf02a2029483456852ff3251e}{EGS\+\_\+\+HOME}}, "{}egs\+\_\+brachy"{})
+\item 
+str \mbox{\hyperlink{namespacerun__tests_aaec4970a1144c151478443b3b8ab5903}{USER\+\_\+\+CODE}} = "{}egs\+\_\+brachy"{}
+\item 
+str \mbox{\hyperlink{namespacerun__tests_afaec179983393c58628f7e1420800113}{TEST\+\_\+\+EGSINP\+\_\+\+FILE}} = "{}eb\+\_\+test\+\_\+run"{}
+\item 
+\mbox{\hyperlink{namespacerun__tests_ad23c4104f986bfaf3801a5cf464eb734}{TEST\+\_\+\+EGSINP\+\_\+\+PATH\+\_\+\+ROOT}} = os.\+path.\+join(\mbox{\hyperlink{namespacerun__tests_ae11b39ddd28fb7af1bd6c95f1694cc7e}{EGS\+\_\+\+BRACHY}}, \mbox{\hyperlink{namespacerun__tests_afaec179983393c58628f7e1420800113}{TEST\+\_\+\+EGSINP\+\_\+\+FILE}})
+\item 
+str \mbox{\hyperlink{namespacerun__tests_a2e73a1a5db576773bc1e87bda0941294}{TEST\+\_\+\+EGSINP\+\_\+\+PATH}} = \mbox{\hyperlink{namespacerun__tests_ad23c4104f986bfaf3801a5cf464eb734}{TEST\+\_\+\+EGSINP\+\_\+\+PATH\+\_\+\+ROOT}} + "{}.egsinp"{}
+\item 
+str \mbox{\hyperlink{namespacerun__tests_aa89b8c16278f791d46a40ac251dd78c4}{PASS\+\_\+\+FMT}} = "{}\%(pass\+\_\+fail)s -\/ \%(test)s -\/ ran in \%(actual\+\_\+time).\+3G s/MHz (\%(real\+\_\+time).\+3G s)"{}
+\item 
+str \mbox{\hyperlink{namespacerun__tests_a37b5e1337d9cdba59a8e2b62a10a3f7d}{TIMING\+\_\+\+WARN\+\_\+\+FMT}}
+\item 
+str \mbox{\hyperlink{namespacerun__tests_a6436b466ae09d288c2c9a42b1ce62f58}{FAIL\+\_\+\+FMT}}
+\item 
+str \mbox{\hyperlink{namespacerun__tests_ae9ed18af1e95508a9b909d9287f8d65b}{cpu\+\_\+speed\+\_\+cmd}} = "{}"{}"{}grep -\/i "{}cpu mhz"{} /proc/cpuinfo \texorpdfstring{$\vert$}{|} tail -\/1 \texorpdfstring{$\vert$}{|} awk -\/F "{}\+:"{} \textquotesingle{}\{print \$2\}\textquotesingle{}"{}"{}"{}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a225b1be3342abdb3298f29d464db2ada}{CPU\+\_\+\+MHZ}} = float(os.\+environ\mbox{[}"{}CPU\+\_\+\+MHZ"{}\mbox{]})
+\item 
+str \mbox{\hyperlink{namespacerun__tests_a299a5d7e0e15e8ac945ec8ced838d06e}{source}} = "{}CPU\+\_\+\+MHZ env variable"{}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a06d28bb51089525bed083a9fa060c3f6}{p}}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a75d2a89a18e32176ff744c1388bb66e1}{stdin}}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a2533ac2bce3f7f87b88206f17d84f96e}{stdout}}
+\item 
+\mbox{\hyperlink{namespacerun__tests_a7bf5b50ffe1dd8c1af27db785763fe8e}{stderr}}
+\item 
+float \mbox{\hyperlink{namespacerun__tests_a00990e599592a35bf6d9bcb6f1762132}{TIMING\+\_\+\+MARGIN}} = 1.\+05
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{run\_tests@{run\_tests}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{cleanup()}{cleanup()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_aacdb3a2de9e19a79c17b05474d6ba067} 
+run\+\_\+tests.\+cleanup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00109}{109}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!create\_egsinp@{create\_egsinp}}
+\index{create\_egsinp@{create\_egsinp}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{create\_egsinp()}{create\_egsinp()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a3d1eda1adb02ce640e1cc0952de5057f} 
+run\+\_\+tests.\+create\+\_\+egsinp (\begin{DoxyParamCaption}\item[{}]{test\+\_\+module}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00079}{79}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!dyn\_import@{dyn\_import}}
+\index{dyn\_import@{dyn\_import}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{dyn\_import()}{dyn\_import()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a28bb2add9f42717b5e30acdd0f78716e} 
+run\+\_\+tests.\+dyn\+\_\+import (\begin{DoxyParamCaption}\item[{}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00071}{71}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!find\_cpu\_time@{find\_cpu\_time}}
+\index{find\_cpu\_time@{find\_cpu\_time}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{find\_cpu\_time()}{find\_cpu\_time()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a3627edd31f2d8711e0e94ad09ba4fea7} 
+run\+\_\+tests.\+find\+\_\+cpu\+\_\+time (\begin{DoxyParamCaption}\item[{}]{egslst}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00086}{86}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!find\_tests@{find\_tests}}
+\index{find\_tests@{find\_tests}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{find\_tests()}{find\_tests()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a9fdd3732bed06df7ab9588ea59f270d0} 
+run\+\_\+tests.\+find\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00121}{121}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!run\_all\_tests@{run\_all\_tests}}
+\index{run\_all\_tests@{run\_all\_tests}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{run\_all\_tests()}{run\_all\_tests()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a67174aa8b0ecf63b9c41752e5bbf09aa} 
+run\+\_\+tests.\+run\+\_\+all\+\_\+tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00137}{137}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!run\_simulation@{run\_simulation}}
+\index{run\_simulation@{run\_simulation}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{run\_simulation()}{run\_simulation()}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a672d45a95f251b4ccfad95cd1d1da9b7} 
+run\+\_\+tests.\+run\+\_\+simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00093}{93}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+
+
+\label{doc-var-members}
+\doxysubsection{Variable Documentation}
+\index{run\_tests@{run\_tests}!CPU\_MHZ@{CPU\_MHZ}}
+\index{CPU\_MHZ@{CPU\_MHZ}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{CPU\_MHZ}{CPU\_MHZ}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a225b1be3342abdb3298f29d464db2ada} 
+run\+\_\+tests.\+CPU\+\_\+\+MHZ = float(os.\+environ\mbox{[}"{}CPU\+\_\+\+MHZ"{}\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00049}{49}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!cpu\_speed\_cmd@{cpu\_speed\_cmd}}
+\index{cpu\_speed\_cmd@{cpu\_speed\_cmd}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{cpu\_speed\_cmd}{cpu\_speed\_cmd}}
+{\footnotesize\ttfamily \label{namespacerun__tests_ae9ed18af1e95508a9b909d9287f8d65b} 
+str run\+\_\+tests.\+cpu\+\_\+speed\+\_\+cmd = "{}"{}"{}grep -\/i "{}cpu mhz"{} /proc/cpuinfo \texorpdfstring{$\vert$}{|} tail -\/1 \texorpdfstring{$\vert$}{|} awk -\/F "{}\+:"{} \textquotesingle{}\{print \$2\}\textquotesingle{}"{}"{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00044}{44}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!EGS\_BRACHY@{EGS\_BRACHY}}
+\index{EGS\_BRACHY@{EGS\_BRACHY}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{EGS\_BRACHY}{EGS\_BRACHY}}
+{\footnotesize\ttfamily \label{namespacerun__tests_ae11b39ddd28fb7af1bd6c95f1694cc7e} 
+run\+\_\+tests.\+EGS\+\_\+\+BRACHY = os.\+path.\+join(\mbox{\hyperlink{namespacerun__tests_a180ca56bf02a2029483456852ff3251e}{EGS\+\_\+\+HOME}}, "{}egs\+\_\+brachy"{})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00018}{18}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!EGS\_HOME@{EGS\_HOME}}
+\index{EGS\_HOME@{EGS\_HOME}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{EGS\_HOME}{EGS\_HOME}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a180ca56bf02a2029483456852ff3251e} 
+run\+\_\+tests.\+EGS\+\_\+\+HOME = os.\+environ\mbox{[}"{}EGS\+\_\+\+HOME"{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00017}{17}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!FAIL\_FMT@{FAIL\_FMT}}
+\index{FAIL\_FMT@{FAIL\_FMT}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{FAIL\_FMT}{FAIL\_FMT}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a6436b466ae09d288c2c9a42b1ce62f58} 
+str run\+\_\+tests.\+FAIL\+\_\+\+FMT}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \textcolor{stringliteral}{"{}"{}"{}\%(pass\_fail)s\ -\/\ \%(test)s}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{\ \ \ \ Timing:\ \%(timing\_pass\_fail)s}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Limit:\ \%(time\_limit).3G\ s/MHz}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Actual\ \ :\ \%(actual\_time).3G\ s/MHz}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ \ \ \ Results:\ \%(results\_pass\_fail)s}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Expected:\ \%(expected\_results)s}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Actual\ \ :\ \%(actual\_results)s}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00035}{35}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!p@{p}}
+\index{p@{p}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a06d28bb51089525bed083a9fa060c3f6} 
+run\+\_\+tests.\+p}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ Popen(cpu\_speed\_cmd,\ shell=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stdin=PIPE,\ stdout=PIPE,\ stderr=PIPE,\ close\_fds=\textcolor{keyword}{True})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00054}{54}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!PASS\_FMT@{PASS\_FMT}}
+\index{PASS\_FMT@{PASS\_FMT}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{PASS\_FMT}{PASS\_FMT}}
+{\footnotesize\ttfamily \label{namespacerun__tests_aa89b8c16278f791d46a40ac251dd78c4} 
+str run\+\_\+tests.\+PASS\+\_\+\+FMT = "{}\%(pass\+\_\+fail)s -\/ \%(test)s -\/ ran in \%(actual\+\_\+time).\+3G s/MHz (\%(real\+\_\+time).\+3G s)"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00026}{26}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!SCRIPT\_DIR@{SCRIPT\_DIR}}
+\index{SCRIPT\_DIR@{SCRIPT\_DIR}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{SCRIPT\_DIR}{SCRIPT\_DIR}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a6f41fd75c158c76f1f178d2c10b25805} 
+run\+\_\+tests.\+SCRIPT\+\_\+\+DIR = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00016}{16}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!source@{source}}
+\index{source@{source}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{source}{source}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a299a5d7e0e15e8ac945ec8ced838d06e} 
+str run\+\_\+tests.\+source = "{}CPU\+\_\+\+MHZ env variable"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00050}{50}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!stderr@{stderr}}
+\index{stderr@{stderr}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{stderr}{stderr}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a7bf5b50ffe1dd8c1af27db785763fe8e} 
+run\+\_\+tests.\+stderr}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00056}{56}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!stdin@{stdin}}
+\index{stdin@{stdin}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{stdin}{stdin}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a75d2a89a18e32176ff744c1388bb66e1} 
+run\+\_\+tests.\+stdin}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00056}{56}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!stdout@{stdout}}
+\index{stdout@{stdout}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{stdout}{stdout}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a2533ac2bce3f7f87b88206f17d84f96e} 
+run\+\_\+tests.\+stdout}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00056}{56}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!TEST\_EGSINP\_FILE@{TEST\_EGSINP\_FILE}}
+\index{TEST\_EGSINP\_FILE@{TEST\_EGSINP\_FILE}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{TEST\_EGSINP\_FILE}{TEST\_EGSINP\_FILE}}
+{\footnotesize\ttfamily \label{namespacerun__tests_afaec179983393c58628f7e1420800113} 
+str run\+\_\+tests.\+TEST\+\_\+\+EGSINP\+\_\+\+FILE = "{}eb\+\_\+test\+\_\+run"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00021}{21}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!TEST\_EGSINP\_PATH@{TEST\_EGSINP\_PATH}}
+\index{TEST\_EGSINP\_PATH@{TEST\_EGSINP\_PATH}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{TEST\_EGSINP\_PATH}{TEST\_EGSINP\_PATH}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a2e73a1a5db576773bc1e87bda0941294} 
+str run\+\_\+tests.\+TEST\+\_\+\+EGSINP\+\_\+\+PATH = \mbox{\hyperlink{namespacerun__tests_ad23c4104f986bfaf3801a5cf464eb734}{TEST\+\_\+\+EGSINP\+\_\+\+PATH\+\_\+\+ROOT}} + "{}.egsinp"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00023}{23}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!TEST\_EGSINP\_PATH\_ROOT@{TEST\_EGSINP\_PATH\_ROOT}}
+\index{TEST\_EGSINP\_PATH\_ROOT@{TEST\_EGSINP\_PATH\_ROOT}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{TEST\_EGSINP\_PATH\_ROOT}{TEST\_EGSINP\_PATH\_ROOT}}
+{\footnotesize\ttfamily \label{namespacerun__tests_ad23c4104f986bfaf3801a5cf464eb734} 
+run\+\_\+tests.\+TEST\+\_\+\+EGSINP\+\_\+\+PATH\+\_\+\+ROOT = os.\+path.\+join(\mbox{\hyperlink{namespacerun__tests_ae11b39ddd28fb7af1bd6c95f1694cc7e}{EGS\+\_\+\+BRACHY}}, \mbox{\hyperlink{namespacerun__tests_afaec179983393c58628f7e1420800113}{TEST\+\_\+\+EGSINP\+\_\+\+FILE}})}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00022}{22}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!timing\_hard\_fail@{timing\_hard\_fail}}
+\index{timing\_hard\_fail@{timing\_hard\_fail}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{timing\_hard\_fail}{timing\_hard\_fail}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a4bc5d1005bf2b4edcc0f09879e8df905} 
+str run\+\_\+tests.\+timing\+\_\+hard\+\_\+fail = "{}-\/-\/timing-\/hard-\/fail"{} in sys.\+argv}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00014}{14}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!TIMING\_MARGIN@{TIMING\_MARGIN}}
+\index{TIMING\_MARGIN@{TIMING\_MARGIN}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{TIMING\_MARGIN}{TIMING\_MARGIN}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a00990e599592a35bf6d9bcb6f1762132} 
+float run\+\_\+tests.\+TIMING\+\_\+\+MARGIN = 1.\+05}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00068}{68}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!TIMING\_WARN\_FMT@{TIMING\_WARN\_FMT}}
+\index{TIMING\_WARN\_FMT@{TIMING\_WARN\_FMT}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{TIMING\_WARN\_FMT}{TIMING\_WARN\_FMT}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a37b5e1337d9cdba59a8e2b62a10a3f7d} 
+str run\+\_\+tests.\+TIMING\+\_\+\+WARN\+\_\+\+FMT}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \textcolor{stringliteral}{"{}"{}"{}\%(pass\_fail)s\ -\/\ \%(test)s}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{\ \ \ \ Timing:\ \%(timing\_pass\_fail)s}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Limit:\ \%(time\_limit).3G\ s/MHz}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Actual\ \ :\ \%(actual\_time).3G\ s/MHz}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ \ \ \ Results:\ \%(results\_pass\_fail)s}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00028}{28}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!USER\_CODE@{USER\_CODE}}
+\index{USER\_CODE@{USER\_CODE}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{USER\_CODE}{USER\_CODE}}
+{\footnotesize\ttfamily \label{namespacerun__tests_aaec4970a1144c151478443b3b8ab5903} 
+str run\+\_\+tests.\+USER\+\_\+\+CODE = "{}egs\+\_\+brachy"{}}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00020}{20}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+
+\index{run\_tests@{run\_tests}!VERBOSE@{VERBOSE}}
+\index{VERBOSE@{VERBOSE}!run\_tests@{run\_tests}}
+\doxysubsubsection{\texorpdfstring{VERBOSE}{VERBOSE}}
+{\footnotesize\ttfamily \label{namespacerun__tests_a17965b2ccda25b1109fa1184281e5e2e} 
+bool run\+\_\+tests.\+VERBOSE = False}
+
+
+
+Definition at line \mbox{\hyperlink{run__tests_8py_source_l00009}{9}} of file \mbox{\hyperlink{run__tests_8py_source}{run\+\_\+tests.\+py}}.
+

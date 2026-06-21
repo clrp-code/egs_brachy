@@ -1,0 +1,486 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/egs\+\_\+brachy.h}
+\label{egs__brachy_8h_source}\mbox{\hyperlink{egs__brachy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ egs\_brachy.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#ifndef\ EGS\_BRACHY\_}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ EGS\_BRACHY\_}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ stdlib\ dependencies}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <stack>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ egs++\ dependencies}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}egs\_advanced\_application.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}egs\_functions.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}egs\_input.h"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}egs\_interface2.h"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}egs\_interpolator.h"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}egs\_alias\_table.h"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}egs\_rndm.h"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}egs\_run\_control.h"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}egs\_scoring.h"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}egs\_transformations.h"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}egs\_autoenvelope/egs\_autoenvelope.h"{}}\ \textcolor{comment}{//\ required\ for\ Superposition\ mode}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}egs\_rz/egs\_rz.h"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}egs\_spheres/egs\_spheres.h"{}}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ local\ dependencies}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#include\ "{}pubsub.h"{}}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ "{}ginfo.h"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#include\ "{}muen.h"{}}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ "{}phantom.h"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#include\ "{}eb\_volcor.h"{}}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#include\ "{}spec\_scoring.h"{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#include\ "{}recycle.h"{}}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#include\ "{}latch.h"{}}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#include\ "{}phsp.h"{}}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#include\ "{}timing.h"{}}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ PRINT\_PARTICLE(P)\ cout\ <<\ "{}\(\backslash\)nParticle\ in\ reg\ "{}<<P.ir\ <<\ "{}\ at\ "{}<<P.x.x\ <<\ "{}\ "{}<<P.x.y<<"{}\ "{}<<P.x.z\ <<\ "{}\ wt\ "{}<<P.wt<<\ "{}\ E\ "{}<<P.E\ <<\ "{}\ q\ "{}<<P.q\ <<\ "{}\ latch\ "{}<<P.latch<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ PRINT\_PARTICLE\_WITH\_DIR(P)\ cout\ <<\ "{}\(\backslash\)nParticle\ in\ reg\ "{}<<P.ir\ <<\ "{}\ at\ "{}<<P.x.x\ <<\ "{}\ "{}<<P.x.y<<"{}\ "{}<<P.x.z\ <<\ "{}\ dir\ "{}<<P.u.x\ <<\ "{}\ "{}<<P.u.y<<"{}\ "{}<<P.u.z\ <<\ "{}\ wt\ "{}<<P.wt<<\ "{}\ E\ "{}<<P.E\ <<\ "{}\ q\ "{}<<P.q\ <<\ "{}\ latch\ "{}<<P.latch<<"{}\(\backslash\)n"{};}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ NUM\_STUCK\_STEPS\ 1000}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ SAME\_POSITION\_TOLERANCE\ 1E-\/10}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ EB\_EPSILON\ 1E-\/10}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{class\ }EB\_UniformRunControl;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{class\ }APP\_EXPORT\ EB\_Application\ :\ \textcolor{keyword}{public}\ EGS\_AdvancedApplication\ \{}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{enum}\ RunMode\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ RM\_NORMAL,\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ RM\_SUPERPOSITION,\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ RM\_VC\_ONLY\ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ RunMode\ run\_mode;\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{string}\ run\_mode\_name;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ EnergyScoringStats\ *escoring;\ }
+\DoxyCodeLine{00104\ \ \ \ \ vector<BaseSpectrumScorer\ *>\ spectrum\_scorers;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//SpectrumScoringControl\ *spec\_scoring;}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ RecycleOpts\ *recycle\_opts;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ single\_generator;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_phsp\_source;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ vector<EGS\_Float>\ source\_weights;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ active\_source;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ PHSPControl\ *phsp;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ score\_tlen;\ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ score\_edep;\ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ score\_scat;\ \ \ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_egsdat\_format;\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_3ddose\_files;\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_dose\_format;\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_egsphant;\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_egsphant\_format;\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_voxinfo;\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_voxinfo\_format;\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ vector<string>\ output\_volcor\_phantoms;\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_volcor\_format;\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ record\_n\_init;\ }
+\DoxyCodeLine{00134\ \ \ \ \ vector<EGS\_Vector>\ p\_init\_locs;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ EGS\_Vector\ last\_position;}
+\DoxyCodeLine{00137\ \ \ \ \ EGS\_Float\ last\_R;}
+\DoxyCodeLine{00138\ \ \ \ \ EGS\_Float\ cur\_R;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ steps\_at\_same\_loc;}
+\DoxyCodeLine{00140\ \ \ \ \ EGS\_I64\ n\_stuck;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ EGS\_BaseGeometry\ *source\_envelope\_geom;\ \ }
+\DoxyCodeLine{00143\ \ \ \ \ EGS\_ASwitchedEnvelope\ *superpos\_geom;\ \ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ vector<EB\_Phantom\ *>\ phantom\_geoms;\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ vector<EGS\_AffineTransform\ *>\ source\_transforms;\ }
+\DoxyCodeLine{00148\ \ \ \ \ EGS\_AffineTransform\ *base\_transform;\ }
+\DoxyCodeLine{00149\ \ \ \ \ EGS\_AffineTransform\ *base\_transform\_inv;\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ applied\_source\_coord\_transform\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ map<int,\ EGS\_Interpolator\ *>\ media\_muen;\ }
+\DoxyCodeLine{00153\ \ \ \ \ map<string,\ string>\ media\_muen\_names;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{bool}\ do\_brem\_split;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{int}\ nbr\_split;\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ do\_bcse;}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ bcse\_med\_num;}
+\DoxyCodeLine{00161\ \ \ \ \ EGS\_Float\ bcse\_factor;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ EGS\_Float\ DEFAULT\_BCSE\_FACTOR;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ EGS\_Float\ flu\_cutoff;\ }
+\DoxyCodeLine{00165\ \ \ \ \ EGS\_Float\ source\_ecut;\ \ }
+\DoxyCodeLine{00166\ \ \ \ \ EGS\_Float\ source\_pcut;\ \ }
+\DoxyCodeLine{00167\ \ \ \ \ EGS\_Float\ global\_ecut;\ \ }
+\DoxyCodeLine{00168\ \ \ \ \ EGS\_Float\ global\_pcut;\ \ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ global\_i\_do\_rr;\ \ }
+\DoxyCodeLine{00171\ \ \ \ \ EGS\_Float\ global\_e\_max\_rr;\ \ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ source\_i\_do\_rr;\ \ }
+\DoxyCodeLine{00174\ \ \ \ \ EGS\_Float\ source\_e\_max\_rr;\ \ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ GeomInfo\ ginfo;\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ EB\_Phantom\ *gcr\_phantom;\ \ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{int}\ gcr\_phantom\_reg;\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ map<string,\ vector<int>\ >\ extra\_scoring\_reg;}
+\DoxyCodeLine{00182\ \ \ \ \ map<string,\ vector<EGS\_Float>\ >\ extra\_scoring\_vols;}
+\DoxyCodeLine{00183\ \ \ \ \ map<string,\ vector<EGS\_Float>\ >\ extra\_scoring\_mass;}
+\DoxyCodeLine{00184\ \ \ \ \ map<string,\ EGS\_ScoringArray*\ >\ extra\_scoring\_doses;}
+\DoxyCodeLine{00185\ \ \ \ \ map<string,\ EGS\_ScoringArray*\ >\ extra\_scoring\_doses\_edep;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ ebvolcor::Results\ \ source\_vc\_results;\ \ }
+\DoxyCodeLine{00188\ \ \ \ \ ebvolcor::Results\ \ gen\_vc\_results;\ }
+\DoxyCodeLine{00189\ \ \ \ \ ebvolcor::FileResults\ \ file\_vc\_results;\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ Publisher\ pevent\_pub;\ }
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ EB\_TimingTree\ timing\_blocks;\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ map<int,\ EGS\_I64>\ steps\_in\_sources;}
+\DoxyCodeLine{00196\ \ \ \ \ map<int,\ EGS\_I64>\ steps\_in\_phantoms;}
+\DoxyCodeLine{00197\ \ \ \ \ map<int,\ EGS\_I64>\ steps\_in\_other;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ ogzstream\ *gz\_data\_out;\ \ }
+\DoxyCodeLine{00200\ \ \ \ \ igzstream\ *gz\_data\_in;\ \ }
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{string}\ revision;\ \ \ \ }
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ createPhantoms();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{int}\ correctVolumes();}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)brief\ check\ sources\ for\ overlap\ using\ a\ simple\ MC\ routine\ */}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{int}\ checkSourceOverlaps(EGS\_Input\ *);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{void}\ initTrackLengthScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{void}\ initMuenData(EGS\_Input\ *);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{void}\ initOutputFiles(EGS\_Input\ *);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ initPHSPScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ initEDepScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{void}\ initScatScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{void}\ clearAusgabCalls();}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ enableAusgabCalls(\textcolor{keywordtype}{int}\ ncalls,\ AusgabCall\ calls[]);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{void}\ initGCRScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ initAusgabCalls();}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ initDoseScaling(EGS\_Input\ *);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{void}\ initXCCScaling(EGS\_Input\ *);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{void}\ initSpectrumScoring(EGS\_Input\ *);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{int}\ initCrossSections();}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{void}\ discardTopParticle(\textcolor{keywordtype}{int}\ idisc=1);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{void}\ calcEffectiveHistories();}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{bool}\ isStuck();}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00271\ \ \ \ \ EB\_Application(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ :}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ EGS\_AdvancedApplication(argc,argv),}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ run\_mode(RM\_NORMAL),}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ escoring(),}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ recycle\_opts(0),}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ active\_source(0),}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ phsp(0),}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ score\_edep(0),}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ score\_scat(0),}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ output\_3ddose\_files(true),}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ record\_n\_init(0),}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ n\_stuck(0),}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ superpos\_geom(0),}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ phantom\_geoms(),}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ do\_brem\_split(false),}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ nbr\_split(1),}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ do\_bcse(false),}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ bcse\_factor(1),}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ flu\_cutoff(0),}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ ginfo(),}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ gcr\_phantom(0),\ gcr\_phantom\_reg(0),}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ gz\_data\_out(0),}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ gz\_data\_in(0),}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ nsources(0),}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ effective\_histories(0)\ \{}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=-\/1;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ steps\_in\_sources[i]\ =\ 0;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ steps\_in\_phantoms[i]\ =\ 0;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ steps\_in\_other[i]\ =\ 0;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ pevent\_pub.subscribe(\&latch\_control,\ PARTICLE\_ESCAPING\_SOURCE);}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ pevent\_pub.subscribe(\&latch\_control,\ PARTICLE\_ESCAPED\_SOURCE);}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00308\ \ \ \ \ \string~EB\_Application()\ \{}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<EB\_Phantom>::size\_type\ pp=0;\ pp\ <\ phantom\_geoms.size();\ pp++)\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ phantom\_geoms[pp];}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ phantom\_geoms.clear();}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ map<int,\ EGS\_Interpolator\ *>::iterator\ mit\ =\ media\_muen.begin();}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ mit\ !=\ media\_muen.end();\ mit++)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ mit-\/>second;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ media\_muen.clear();}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<EGS\_AffineTransform\ *>::size\_type\ st=0;\ st\ <\ source\_transforms.size();\ st++)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ source\_transforms[st];}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ source\_transforms.clear();}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (map<string,\ EGS\_ScoringArray*\ >::iterator\ sa=extra\_scoring\_doses.begin();\ sa\ !=\ extra\_scoring\_doses.end();\ sa++)\ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ sa-\/>second;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ extra\_scoring\_doses.clear();}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (map<string,\ EGS\_ScoringArray*\ >::iterator\ sa=extra\_scoring\_doses\_edep.begin();\ sa\ !=\ extra\_scoring\_doses\_edep.end();\ sa++)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ sa-\/>second;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ extra\_scoring\_doses\_edep.clear();}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (phsp)\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ phsp;}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (escoring)\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ escoring;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ vector<BaseSpectrumScorer\ *>::iterator\ it\ =\ spectrum\_scorers.begin();}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ it\ !=\ spectrum\_scorers.end();\ it++)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ *it;}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ spectrum\_scorers.clear();}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (recycle\_opts)\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ recycle\_opts;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (base\_transform\_inv)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ base\_transform\_inv;}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gz\_data\_in)\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ gz\_data\_in;}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gz\_data\_out)\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ gz\_data\_out;}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \};}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordtype}{int}\ nsources;\ }
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ EGS\_Float\ effective\_histories;}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ Latch\ latch\_control;}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{void}\ describeUserCode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00382\ \ \ \ \ \textcolor{keywordtype}{void}\ describeSimulation();}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{void}\ printIncludedFiles();}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordtype}{int}\ initSimulation();}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordtype}{int}\ initRunControl();}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{int}\ initRunMode();}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{int}\ initScoring();}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{int}\ initVarianceReduction();}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{int}\ initRussianRoulette(EGS\_Input\ *);}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordtype}{int}\ initBCSE(EGS\_Input\ *);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{int}\ ausgab(\textcolor{keywordtype}{int}\ iarg);}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordtype}{int}\ outputData();}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordtype}{int}\ outputDataHelper(ostream\ *);}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordtype}{int}\ egsApplicationOutputData(ostream\ *);}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordtype}{int}\ egsAdvApplicationOutputData(ostream\ *);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordtype}{int}\ egsBrachyOutputData(ostream\ *);}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordtype}{int}\ readData();}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordtype}{int}\ readDataHelper(istream\ *);}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordtype}{int}\ egsApplicationReadData(istream\ *);}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordtype}{int}\ egsAdvApplicationReadData(istream\ *);}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordtype}{int}\ egsBrachyReadData(istream\ *);}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordtype}{int}\ combineResults();}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{void}\ resetCounter();}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordtype}{int}\ addState(istream\ \&data);}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)brief\ output\ any\ results\ to\ console\ */}}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{void}\ outputResults();}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordtype}{void}\ getCurrentResult(\textcolor{keywordtype}{double}\ \&sum,\ \textcolor{keywordtype}{double}\ \&sum2,\ \textcolor{keywordtype}{double}\ \&norm,}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \&count);}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00471\ \ \ \ \ EB\_Phantom*\ getPhantomByName(\textcolor{keywordtype}{string}\ name);}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ startNewParticle();}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ enterNewRegion();}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ runSimulation();}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordtype}{string}\ getOutputVolcorFormat()\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ output\_volcor\_format;}
+\DoxyCodeLine{00481\ \ \ \ \ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordtype}{int}\ howManyJobsDone();}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordtype}{void}\ addRecycledParticlesToStack(EGS\_Particle\ *p,\ \textcolor{keywordtype}{bool}\ new\_hist=\textcolor{keyword}{false});}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{void}\ copyParticleToSourceLoc(EGS\_Particle\ *p,\ \textcolor{keywordtype}{int}\ source,\ \textcolor{keywordtype}{bool}\ kill\_orig,\ \textcolor{keywordtype}{bool}\ rotate,\ EGS\_Float\ new\_wt);}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keywordtype}{void}\ doPhotonSplitting(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)brief\ initialize\ a\ single\ shower\ history.}}
+\DoxyCodeLine{00494\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00495\ \textcolor{comment}{\ \ \ \ \ *\ Particle\ is\ initiated\ from\ source\ and\ then\ transformed\ to\ location}}
+\DoxyCodeLine{00496\ \textcolor{comment}{\ \ \ \ \ *\ of\ next\ source\ */}}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordtype}{int}\ simulateSingleShower();}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordtype}{int}\ startNewShower();}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keywordtype}{int}\ initGeometry();}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)brief\ override\ default\ initSource\ to\ allow\ us\ to\ get\ source\ position\ weighting\ */}}
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordtype}{int}\ initSource();}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordtype}{int}\ initSourceTransforms();}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{comment}{/*\ \(\backslash\)brief\ take\ an\ input\ containging\ multiple\ \`{}transformation`\ input\ blocks}}
+\DoxyCodeLine{00517\ \textcolor{comment}{\ \ \ \ \ *\ and\ return\ a\ vector\ of\ pointers\ to\ the\ generated\ transforms.}}
+\DoxyCodeLine{00518\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00519\ \ \ \ \ vector<EGS\_AffineTransform\ *>\ createTransforms(EGS\_Input\ *input);}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \};}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00523\ \textcolor{keyword}{class\ }EB\_UniformRunControl\ :\ \textcolor{keyword}{public}\ EGS\_RunControl\ \{}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \ \ EB\_UniformRunControl(EB\_Application\ *app,\ \textcolor{keywordtype}{string}\ egsdat\_format);}
+\DoxyCodeLine{00528\ \ \ \ \ \string~EB\_UniformRunControl()\ \{\};}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{void}\ \ describeRCO();}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordtype}{int}\ \ startSimulation();}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keywordtype}{int}\ \ finishSimulation();}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \ \ \ \ EB\_Application\ *app;\ }
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordtype}{string}\ output\_egsdat\_format;\ }
+\DoxyCodeLine{00549\ \ \ \ \ }
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keywordtype}{int}\ milliseconds;\ \ \ \textcolor{comment}{//\ time\ interval\ for\ checking}}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{comment}{//\ if\ all\ jobs\ finished\ (default\ 1000\ ms)}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keywordtype}{int}\ check\_intervals;\textcolor{comment}{//\ Number\ of\ intervals\ to\ check}}
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{comment}{//\ if\ all\ jobs\ done\ (default\ 5)}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ njob;}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ npar;}
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ ipar;}
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ ifirst;}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ check\_egsdat;\textcolor{comment}{//\ If\ true,\ and\ a\ 'watcher'\ job,\ produce\ intermediate\ results}}
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ watcher\_job;\ \textcolor{comment}{//\ If\ true,\ job\ is\ a\ 'watcher'}}
+\DoxyCodeLine{00562\ \};}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

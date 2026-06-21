@@ -1,10 +1,10 @@
-digraph "/Users/marc/Developer/EGSnrc/HEN_HOUSE/user_codes/egs_brachy/egs_brachy/recycle.h"
+digraph "/Users/marc/Developer/clrp/EGSnrc-eb/HEN_HOUSE/user_codes/egs_brachy/egs_brachy/recycle.h"
 {
  // LATEX_PDF_SIZE
   bgcolor="transparent";
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  Node1 [id="Node000001",label="/Users/marc/Developer\l/EGSnrc/HEN_HOUSE/user\l_codes/egs_brachy/egs_brachy\l/recycle.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="class definitions for recycling"];
+  Node1 [id="Node000001",label="/Users/marc/Developer\l/clrp/EGSnrc-eb/HEN_HOUSE\l/user_codes/egs_brachy/egs\l_brachy/recycle.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="class definitions for recycling"];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="map",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
