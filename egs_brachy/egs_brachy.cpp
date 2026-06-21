@@ -429,6 +429,31 @@ int EB_Application::initSourceTransforms() {
         source_transforms.push_back(unity_trans);
         egsWarning("EB_Application:: missing or invalid source `transformations` input item. Assuming single source at origin\n");
     }
+
+    EGS_Input *coord_inp = source_inp->takeInputItem("source coordinate transform");
+    if (coord_inp) {
+        EGS_AffineTransform *coord_transform = EGS_AffineTransform::getTransformation(coord_inp);
+        if (coord_inp->getInputItem("transformation")) {
+            delete coord_inp;
+            egsFatal("EB_Application:: `source coordinate transform` must contain exactly one transformation\n");
+        }
+        delete coord_inp;
+        if (!coord_transform) {
+            egsFatal("EB_Application:: invalid `source coordinate transform` input\n");
+        }
+        for (size_t i = 0; i < source_transforms.size(); i++) {
+            EGS_AffineTransform *composed = new EGS_AffineTransform(
+                (*coord_transform) * (*source_transforms[i]));
+            delete source_transforms[i];
+            source_transforms[i] = composed;
+        }
+        delete coord_transform;
+        egsInformation(
+            "Applied source coordinate transform to %d source location(s)\n",
+            (int)source_transforms.size()
+        );
+    }
+
     nsources = (int)source_transforms.size();
     base_transform = source_transforms[0];
     base_transform_inv = new EGS_AffineTransform(base_transform->inverse());
