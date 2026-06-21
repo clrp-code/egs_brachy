@@ -147,6 +147,7 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
     vector<EGS_AffineTransform *> source_transforms; ///< transforms to locations of all sources
     EGS_AffineTransform *base_transform; ///< same as source_transforms[0]
     EGS_AffineTransform *base_transform_inv; ///< same as source_transforms[0].inverse()
+    bool applied_source_coord_transform = false; ///< true if a source coordinate transform was composed in
 
     map<int, EGS_Interpolator *> media_muen; ///< Map from medium index to muen interpolator for that medium
     map<string, string> media_muen_names;

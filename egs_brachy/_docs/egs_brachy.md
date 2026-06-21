@@ -715,6 +715,19 @@ backward compatibility. Do not use `egs_transformed_source` for this
 workflow; egs\_brachy applies source placements from the `transformations`
 block after sampling the base source.
 
+Geometry inscriptions in `egs_autoenvelope` (or an `egs_gtransformed`
+wrapper) must still use the **world** seed transforms. The
+`source coordinate transform` applies only to particle initialization in
+the `source definition` block. For eye-plaque simulations, seed positions
+relative to the plaque go in `transformations`; the plaque pose in the
+phantom goes in `source coordinate transform`; inscribed geometry uses the
+same world transforms as before.
+
+A regression test in `eb_tests/source_coordinate_transform/` verifies that
+composed transforms reproduce the `seeds_in_xyz` gold-standard dose. When a
+coordinate transform is applied, egs\_brachy reports it under
+`egs_brachy Source Information` in the run log.
+
 \subsubsection overlap Checking for overlapping sources
 
 egs\_brachy can optionally run a Monte Carlo calculation (similar to volume

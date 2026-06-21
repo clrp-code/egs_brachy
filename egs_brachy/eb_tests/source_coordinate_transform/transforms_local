@@ -2,7 +2,7 @@
     translation = -0.6, -0.7, -0.8
 :stop transformation:
 :start transformation:
-    translation = -0.6, -0.3, -0.8
+    translation = -0.6, 0.3, -0.8
 :stop transformation:
 :start transformation:
     translation = 0.4, -0.7, -0.8
@@ -15,7 +15,7 @@
     rotation = 1.57079632679 1.57079632679
 :stop transformation:
 :start transformation:
-    translation = -0.6, -0.3, -0.3
+    translation = -0.6, 0.3, -0.3
     rotation = 1.57079632679 1.57079632679
 :stop transformation:
 :start transformation:
@@ -30,7 +30,7 @@
     translation = -0.6, -0.7, 0.2
 :stop transformation:
 :start transformation:
-    translation = -0.6, -0.3, 0.2
+    translation = -0.6, 0.3, 0.2
 :stop transformation:
 :start transformation:
     translation = 0.4, -0.7, 0.2
