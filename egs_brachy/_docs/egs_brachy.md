@@ -666,6 +666,55 @@ An example `source definition` block is shown below for a 6702 seed:
 
 \endverbatim
 
+\subsubsection srccoord Source coordinate transform
+
+The optional `source coordinate transform` block maps all source locations
+from the coordinate system used by the `transformations` block into the
+simulation coordinate system. This is useful when source placements are
+defined in a local frame (for example, seed positions relative to an eye
+plaque) and a separate transform places the plaque in the simulation.
+
+The block contains exactly one standard egs++ `:start transformation:` input.
+At initialization, egs\_brachy composes this transform with each entry from
+`transformations` so that the world source location is
+\f$ T_{\mathrm{world},i} = T_{\mathrm{coord}} \cdot T_{\mathrm{seed},i} \f$.
+This matches the geometry workflow where `egs_gtransformed` wraps an
+`egs_autoenvelope` containing transformed seeds.
+
+An example for an eye plaque simulation:
+
+\verbatim
+
+:start source definition:
+
+  :start source:
+      library = egs_isotropic_source
+      name = IsoSeed_Pd-103
+      ...
+  :stop source:
+
+  :start transformations:
+      include file = plan1_seed.trafo
+  :stop transformations:
+
+  :start source coordinate transform:
+      :start transformation:
+          translation = 0.06280314749153265 -1.1575224702173754 -0.3101572111156239
+          rotation = -1.832595714594046 -0.05235987755982994 3.141592653589793
+      :stop transformation:
+  :stop source coordinate transform:
+
+  simulation source = IsoSeed_Pd-103
+
+:stop source definition:
+
+\endverbatim
+
+The existing `transformations` block is unchanged and remains required for
+backward compatibility. Do not use `egs_transformed_source` for this
+workflow; egs\_brachy applies source placements from the `transformations`
+block after sampling the base source.
+
 \subsubsection overlap Checking for overlapping sources
 
 egs\_brachy can optionally run a Monte Carlo calculation (similar to volume

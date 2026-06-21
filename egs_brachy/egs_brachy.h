@@ -507,7 +507,9 @@ protected:
     int initSource();
 
 
-    /*! \brief read in the location of all particle sources */
+    /*! \brief read in the location of all particle sources and optionally
+     * apply a source coordinate transform mapping local placements to world
+     * coordinates */
     int initSourceTransforms();
 
     /* \brief take an input containging multiple `transformation` input blocks
