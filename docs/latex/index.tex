@@ -1,0 +1,939 @@
+\chapter{EGS Brachy }
+\label{index}\index{EGS Brachy@{EGS Brachy}}
+\label{index_md_egs__brachy}%
+\Hypertarget{index_md_egs__brachy}%
+ \label{index_egs_brachy_main}%
+\Hypertarget{index_egs_brachy_main}%
+\hypertarget{index_gen_info}{}\doxysection{\texorpdfstring{General Information}{General Information}}\label{index_gen_info}
+egs\+\_\+brachy is an egs++ application for rapid brachytherapy calculations for both photon and electron sources. The current documentation serves as a Technical Reference Manual to complement the egs\+\_\+brachy user manual (\href{https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf}{\texttt{https\+://clrp-\/code.\+github.\+io/egs\+\_\+brachy/pdf/egs\+\_\+brachy\+\_\+user\+\_\+manual.\+pdf}}) and our initial egs\+\_\+brachy paper (\href{https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_paper2016.pdf}{\texttt{https\+://clrp-\/code.\+github.\+io/egs\+\_\+brachy/pdf/egs\+\_\+brachy\+\_\+paper2016.\+pdf}})\+: MJP Chamberland, REP Taylor, DWO Rogers, and RM Thomson, egs\+\_\+brachy\+: a versatile and fast Monte Carlo code for brachytherapy, Phys. Med. Biol. 61, 8214-\/8231 (2016). Please cite this paper when egs\+\_\+brachy is used in publications.
+
+When using source or eye-\/plaque models from the distributed geometry library, please also cite the relevant CLRP database papers (see \doxysectlink{index_clrprefs}{CLRP database references}{3} below).
+
+egs\+\_\+brachy was written by \href{http://randlet.com}{\texttt{Randle Taylor}} in collaboration with Marc Chamberland, Dave Rogers, and Rowan Thomson of the \href{http://www.physics.carleton.ca/clrp/}{\texttt{Carleton Laboratory for Radiotherapy Physics}}.
+
+For more information please contact\+:
+\begin{DoxyItemize}
+\item Marc Chamberland (\href{mailto:mchamberland@mac.com}{\texttt{mchamberland@mac.\+com}}) -\/or-\/
+\item Rowan Thomson (\href{mailto:rthomson@physics.carleton.ca}{\texttt{rthomson@physics.\+carleton.\+ca}}) -\/or-\/
+\item Dave Rogers (\href{mailto:drogers@physics.carleton.ca}{\texttt{drogers@physics.\+carleton.\+ca}})
+\end{DoxyItemize}
+
+CLRP also distributes \href{https://github.com/clrp-code/eb_gui}{\texttt{eb\+\_\+gui}}, a Qt-\/based graphical user interface for egs\+\_\+brachy. eb\+\_\+gui assists with setting up egs\+\_\+brachy calculations and provides tools for DICOM conversion and {\ttfamily .3ddose} analysis. Installation instructions and a user guide ({\ttfamily eb\+\_\+gui\+\_\+\+User\+Guide.\+pdf}) are in the \href{https://github.com/clrp-code/eb_gui}{\texttt{eb\+\_\+gui repository}}.\hypertarget{index_license}{}\doxysection{\texorpdfstring{License}{License}}\label{index_license}
+The egs\+\_\+brachy code (all pieces of code associated with the egs\+\_\+brachy code system) is copyrighted Rowan Thomson, Dave Rogers, Randle Taylor, and Marc Chamberland. egs\+\_\+brachy is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantability or fitness for a particular purpose. egs\+\_\+brachy is distributed as free software according to the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option), any later version (\href{https://www.gnu.org/licenses/}{\texttt{https\+://www.\+gnu.\+org/licenses/}}). (See also section 2 of the User Manual for egs\+\_\+brachy\+: \href{https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf}{\texttt{https\+://clrp-\/code.\+github.\+io/egs\+\_\+brachy/pdf/egs\+\_\+brachy\+\_\+user\+\_\+manual.\+pdf}})\hypertarget{index_installationinstruct}{}\doxysection{\texorpdfstring{Installation instructions (including EGSnrc installation)}{Installation instructions (including EGSnrc installation)}}\label{index_installationinstruct}
+\begin{DoxyVerb}git clone https://github.com/clrp-code/EGSnrc_CLRP
+cd EGSnrc_CLRP
+\end{DoxyVerb}
+
+
+Checkout the most-\/up-\/to-\/date \textquotesingle{}egs\+\_\+brachy\textquotesingle{} branch and download the egs\+\_\+brachy user code\+: \begin{DoxyVerb}git checkout egs_brachy
+git submodule update --init --recursive
+\end{DoxyVerb}
+
+
+Finally, configure EGSnrc by following the instructions for your OS (skip Step 2, which is already completed if you’ve been following these instructions)\+:
+
+
+\begin{DoxyItemize}
+\item Linux\+: \href{https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Linux}{\texttt{https\+://github.\+com/nrc-\/cnrc/\+EGSnrc/wiki/\+Install-\/\+EGSnrc-\/on-\/\+Linux}}
+\item Mac\+: \href{https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-macOS}{\texttt{https\+://github.\+com/nrc-\/cnrc/\+EGSnrc/wiki/\+Install-\/\+EGSnrc-\/on-\/mac\+OS}}
+\item Windows\+: \href{https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Windows}{\texttt{https\+://github.\+com/nrc-\/cnrc/\+EGSnrc/wiki/\+Install-\/\+EGSnrc-\/on-\/\+Windows}}
+\end{DoxyItemize}
+
+At this point you should have everything required to run egs\+\_\+brachy. If you did not choose to compile it when configuring EGSnrc, you should do so now\+: \begin{DoxyVerb}cd $EGS_HOME/egs_brachy
+make
+\end{DoxyVerb}
+\hypertarget{index_usage}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_usage}
+\hypertarget{index_runcontrol}{}\doxysubsection{\texorpdfstring{Run Control}{Run Control}}\label{index_runcontrol}
+egs\+\_\+brachy uses the same run control block as other egs++ user codes with the addition of one extra input {\ttfamily egsdat file format} which you can use to tell egs\+\_\+brachy to output its egsdat file in gzip format. Using gzip format can result in significantly smaller egsdat file sizes for simulations with a large number of regions defined.
+
+\begin{DoxyVerb}:start run control:
+    ncase = 10000
+    nbatch=1
+    geometry error limit = 10
+    calculation = first # first or restart or combine or analyze
+    egsdat file format = gzip # gzip or text
+:stop run control:
+\end{DoxyVerb}
+
+
+Detailed descriptions of the standard input options are available in \href{https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html}{\texttt{PIRS-\/898}}.\hypertarget{index_runmodes}{}\doxysubsection{\texorpdfstring{Run Modes}{Run Modes}}\label{index_runmodes}
+There are currently three different run modes available in egs\+\_\+brachy\+:
+
+
+\begin{DoxyEnumerate}
+\item \textquotesingle{}normal\textquotesingle{} (default)\+: a regular simulation. For an example see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/seeds_in_xyz/seeds_in_xyz.egsinp}{\texttt{eb\+\_\+tests/seeds\+\_\+in\+\_\+xyz/seeds\+\_\+in\+\_\+xyz.\+egsinp}}.
+\item \textquotesingle{}superposition\textquotesingle{} \+: This type of simulation requires the used of an EGS\+\_\+\+ASwitched\+Envelope as the simulation geometry. At the start of every history only a single inscribed geometry will be activated. This allows you to explore the effects of intersource attenuation by performing TG-\/43 dose superposition type calculations. For an example see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/tg43mode/tg43mode.egsinp}{\texttt{eb\+\_\+tests/tg43mode/tg43mode.\+egsinp}}.
+\item \textquotesingle{}volume correction only\textquotesingle{}\+: Just run the volume correction routines, print the results and then quit. No actual dose calculations will be done, so the number of histories specified in the run control input block (ncase) is ignored. For an example see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp}{\texttt{eb\+\_\+tests/volume\+\_\+correction/vc.\+egsinp}}.
+\end{DoxyEnumerate}
+
+The run mode is set using a \textquotesingle{}run mode\textquotesingle{} input block\+:
+
+\begin{DoxyVerb}:start run mode:
+
+    run mode = normal # 'normal', 'superposition', or 'volume correction only'
+
+:stop run mode:
+\end{DoxyVerb}
+
+
+In simulations with more than a single source, egs\+\_\+brachy uses the first source as a particle generator. That is, all particles are initiated at the location of the first source and transported until they escape the source geometry. From there, the particle is moved to the location of the next source before transport continues (more accurately, a new particle is added to the top of the stack at the location of the chosen source and the original particle is killed).
+
+This behaviour can be disabled by setting {\ttfamily single generator = no} in the run mode block (see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/single_generator/single_generator.egsinp}{\texttt{eb\+\_\+tests/single\+\_\+generator/single\+\_\+generator.\+egsinp}}).
+
+\begin{DoxyVerb}:start run mode:
+    run mode = normal
+    single generator = no
+:stop run mode:
+\end{DoxyVerb}
+
+
+Disabling the single generator (see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/single_generator/multiple_generator.egsinp}{\texttt{eb\+\_\+tests/single\+\_\+generator/multiple\+\_\+generator.\+egsinp}}) mode may be slightly faster for some simulations (there is an extra call to howfar for every particle escaping the source geometry in single generator mode). Note that in some situations (particle recycling for example) single generator will always be enabled by egs\+\_\+brachy.\hypertarget{index_geomspec}{}\doxysubsection{\texorpdfstring{Geometry Specification}{Geometry Specification}}\label{index_geomspec}
+In general, arbitrary egs++ geometries can be included in a simulation although, for the sake of efficiency, it is expected that EGS\+\_\+\+AEnvelope geometries will be used for most simulations.
+
+There are three egs\+\_\+brachy specific input keys that are required for the \textquotesingle{}geometry definition\textquotesingle{} input block (in addition to the standard egs++ \textquotesingle{}simulation geometry\textquotesingle{} key)\+:
+
+
+\begin{DoxyEnumerate}
+\item \textquotesingle{}source geometries\textquotesingle{} \+: this key specifies which geometries define the actual brachytherapy source object. This may be a single geometry name (e.\+g. when using the {\ttfamily egs\+\_\+glib} shim to load an externally defined geometry) or a list of all the sub-\/geometries used to compose a single source geometry when definining geometries inline.
+\item \textquotesingle{}phantom geometries\textquotesingle{}\+: this tells egs\+\_\+brachy which geometries to score dose in (1 or more phantom geometries are required). Currently 3 geometry types are allowed to be used as phantoms\+:
+\begin{DoxyEnumerate}
+\item EGS\+\_\+\+XYZGeometry (library egs\+\_\+ndgeometry, see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/seeds_in_xyz/seeds_in_xyz.egsinp}{\texttt{eb\+\_\+tests/seeds\+\_\+in\+\_\+xyz/seeds\+\_\+in\+\_\+xyz.\+egsinp}})
+\item EGS\+\_\+\+RZGeometry (library egs\+\_\+rz, see \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/stepped_source/stepped.egsinp}{\texttt{eb\+\_\+tests/stepped\+\_\+source/stepped.\+egsinp}})
+\item EGS\+\_\+c\+Spheres (library egs\+\_\+spheres, see \href{../eb_tests/scatter/scatter.egsinp}{\texttt{eb\+\_\+tests/scatter/scatter.\+egsinp}})
+\end{DoxyEnumerate}
+\item \textquotesingle{}source envelope geometry\textquotesingle{}\+: this input is only required for superposition run mode and must name the EGS\+\_\+\+ASwitched\+Envelope geometry that contains the sources.
+\end{DoxyEnumerate}
+
+Transformed EGS\+\_\+\+XYZGeometry phantoms (i.\+e., EGS\+\_\+\+XYZGeometryT) are allowed, however, the number of voxels in each direction and their bounds are not reported in any of the output due to current limitations in the egs++ geometry library. A warning to that effect is output when a transformed XYZ geometry is used as a phantom in a simulation. Other phantom geometry types could be added in future provided they implement the get\+Bound, get\+NReg\+Dir, and get\+Mass methods of the EGS\+\_\+\+Base\+Geometry class.
+
+An (abbreviated) example geometry specification might look like\+: \begin{DoxyVerb}:start geometry definition:
+
+  # all geometries that are a part of the source
+  source geometries = planes, end_cap_1, seed_middle, end_cap_2, seed
+
+  phantom geometries = phantom
+
+  simulation geometry = phantom_w_seeds
+
+  # only required for superposition run mode
+  source envelope geometry = phantom_w_seeds
+
+  :start geometry:
+
+      name = phantom
+      library = egs_ndgeometry
+      type    = EGS_XYZGeometry
+
+      # rest of geom definition
+
+  :stop geometry:
+
+  :start geometry:
+      library = egs_planes
+      name = planes
+      # ...
+  :stop geometry:
+
+  :start geometry:
+        name = end_cap_1
+        #...
+  :stop geometry:
+
+  :start geometry:
+        name = seed_middle
+        #...
+  :stop geometry:
+
+  :start geometry:
+        name = end_cap_2
+        #...
+  :stop geometry:
+
+  :start geometry:
+
+      library = egs_cdgeometry
+      name = seed
+      base geometry = planes
+      set geometry = 0 end_cap_1
+      set geometry = 1 seed_middle
+      set geometry = 2 end_cap_2
+
+  :stop geometry:
+
+  :start geometry:
+
+      library = egs_autoenvelope
+      name = phantom_w_seeds
+      base geometry = phantom
+
+      :start inscribed geometry:
+
+          inscribed geometry name = seed
+
+          # rest of auto envelope inscribed geom definition
+
+      :stop inscribed geometry:
+
+  :stop geometry:
+
+:stop geometry definition:
+\end{DoxyVerb}
+
+
+Detailed descriptions of the egs++ geometry classes are available in \href{https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html}{\texttt{PIRS-\/898}}, including instructions on how to assign media. Note that vacuum can be assigned to a region by using the egs++ built-\/in name {\ttfamily vacuum}.\hypertarget{index_ctdata}{}\doxysubsubsection{\texorpdfstring{Using CT data to create phantoms}{Using CT data to create phantoms}}\label{index_ctdata}
+Using the {\ttfamily egs\+\_\+glib} geometry library you can construct an {\ttfamily EGS\+\_\+\+XYZGeometry} using a {\ttfamily .egsphant} file like so\+:
+
+\begin{DoxyVerb}:start geometry:
+    library = egs_glib
+    type = egsphant
+    name = my_egsphant_geom
+    egsphant file = /path/to/some/egsphant/file
+    density file = /path/to/density/file
+:stop geometry:
+\end{DoxyVerb}
+
+
+The egsphant file may either be a typical .egsphant text file or gzipped .egsphant.\+gz file, and the latter compressed format is often advantageous in terms of memory) The density file indicates to egs\+\_\+brachy the nominal density of each medium in the egsphant (voxel-\/by-\/voxel densities are defined in the egsphant file), and currently egs\+\_\+brachy can read these data from a (a) material.\+dat file, (b) pegs4 data file, or (c) a simple text file of the format\+:
+
+\begin{DoxyVerb}MEDIUM=WATER
+RHO=1.000
+MEDIUM=AIR
+RHO=1.2E-3
+\end{DoxyVerb}
+
+
+{\itshape Note the egs\+\_\+glib geometry library in the main EGSnrc repository does not currently contain support for egsphant files. The egs\+\_\+glib contained in the egs\+\_\+brachy git branch is customized to include support for egsphant files.}
+
+It is also possible to use the egs\+\_\+ndgeometry library to contstruct an {\ttfamily EGS\+\_\+\+XYZGeometry} using a {\ttfamily .egsphant} file like so\+:
+
+\begin{DoxyVerb}:start geometry:
+
+    library = egs_ndgeometry
+    type =  EGS_XYZGeometry
+    name = my_egsphant_geom
+    egsphant file = /path/to/some/egsphant/file
+    ct ramp = /path/to/ramp/file.ramp
+
+:stop geometry:
+\end{DoxyVerb}
+
+
+See the {\ttfamily egs\+\_\+ndgeometry} documentation for details about the format of the ct ramp file. Note, however, that the egs\+\_\+ndgeometry approach assumes that there is no overlap in voxel mass densities for different media in the egsphant, i.\+e., each medium has a distinct and non-\/overlapping range of mass densities. This is often {\itshape not} the case for brachytherapy phantoms, and so using the {\ttfamily egs\+\_\+glib} geometry with {\ttfamily .egsphant} files (gzip format) is recommended.\hypertarget{index_geomlib}{}\doxysubsubsection{\texorpdfstring{The geometry library}{The geometry library}}\label{index_geomlib}
+The geometry library (see \doxysectlink{index_libgeom}{The Geometry Library}{2} below) consists of useful phantom geometries ( \href{lib/geometry/phantoms}{\texttt{lib/geometry/phantoms}}), source geometries and radioactivity distributions \href{lib/geometry/sources}{\texttt{lib/geometry/sources}}, eye plaques \href{lib/geometry/eye_plaques}{\texttt{lib/geometry/eye\+\_\+plaques}} and sets of transformations \href{lib/geometry/transformations/}{\texttt{lib/geometry/transformations/}}.\hypertarget{index_clrprefs}{}\doxysubsubsection{\texorpdfstring{CLRP database references}{CLRP database references}}\label{index_clrprefs}
+When using geometries from the distributed library, please cite the relevant CLRP database publications.
+
+{\bfseries{Source models}} (\href{lib/geometry/sources}{\texttt{lib/geometry/sources}})\+: dose-\/rate constants and TG-\/43 parameters are tabulated in the CLRP TG-\/43 parameter database version 2 papers. Air-\/kerma strength per history factors are recorded on the {\ttfamily \# air kerma\+:} line at the top of each source {\ttfamily .geom} file (see the \href{https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf}{\texttt{user manual}}).
+
+
+\begin{DoxyItemize}
+\item Low-\/energy (\$\texorpdfstring{$^\wedge$}{\string^}\{103\}\$\+Pd, \$\texorpdfstring{$^\wedge$}{\string^}\{125\}\$I, \$\texorpdfstring{$^\wedge$}{\string^}\{131\}\$\+Cs) sources\+: Safigholi H, Chamberland MJP, Taylor REP, Allen CH, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP TG-\/43 parameter database for low-\/energy brachytherapy sources, Med. Phys. {\bfseries{47}}, 4656-\/4669 (2020). \href{https://doi.org/10.1002/mp.14249}{\texttt{https\+://doi.\+org/10.\+1002/mp.\+14249}} (\href{https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_le_2020.pdf}{\texttt{pdf}})
+\item High-\/energy (\$\texorpdfstring{$^\wedge$}{\string^}\{169\}\$\+Yb, \$\texorpdfstring{$^\wedge$}{\string^}\{192\}\$\+Ir, \$\texorpdfstring{$^\wedge$}{\string^}\{137\}\$\+Cs, \$\texorpdfstring{$^\wedge$}{\string^}\{60\}\$\+Co) sources\+: Safigholi H, Chamberland MJP, Taylor REP, Martinov MP, Rogers DWO, Thomson RM, Update of the CLRP Monte Carlo TG-\/43 parameter database for high-\/energy brachytherapy sources, Med. Phys. {\bfseries{50}}, 1928-\/1941 (2023). \href{https://doi.org/10.1002/mp.16176}{\texttt{https\+://doi.\+org/10.\+1002/mp.\+16176}} (\href{https://clrp-code.github.io/egs_brachy/pdf/clrp_tg43_he_2023.pdf}{\texttt{pdf}})
+\end{DoxyItemize}
+
+Database\+: \href{https://physics.carleton.ca/clrp/egs_brachy/seed_database_v2}{\texttt{https\+://physics.\+carleton.\+ca/clrp/egs\+\_\+brachy/seed\+\_\+database\+\_\+v2}}
+
+{\bfseries{Eye plaques}} (\href{lib/geometry/eye_plaques}{\texttt{lib/geometry/eye\+\_\+plaques}})\+:
+
+
+\begin{DoxyItemize}
+\item Safigholi H, Parsons Z, Deering SG, Thomson RM, Update of the CLRP eye plaque brachytherapy database for photon-\/emitting sources, Med. Phys. {\bfseries{48}}, 3373-\/3383 (2021). \href{https://doi.org/10.1002/mp.14844}{\texttt{https\+://doi.\+org/10.\+1002/mp.\+14844}} (\href{https://clrp-code.github.io/egs_brachy/pdf/clrp_eye_plaque_2021.pdf}{\texttt{pdf}})
+\end{DoxyItemize}
+
+Database\+: \href{https://physics.carleton.ca/clrp/eye_plaque_v2}{\texttt{https\+://physics.\+carleton.\+ca/clrp/eye\+\_\+plaque\+\_\+v2}} (DOI \href{http://doi.org/10.22215/clrp/EPv2}{\texttt{http\+://doi.\+org/10.\+22215/clrp/\+EPv2}})\hypertarget{index_scoringopts}{}\doxysubsection{\texorpdfstring{Scoring options}{Scoring options}}\label{index_scoringopts}
+The \textquotesingle{}scoring options\textquotesingle{} input block currently has the following keys\+:
+
+
+\begin{DoxyItemize}
+\item \textquotesingle{}muen file\textquotesingle{}\+: path to the file containing the muen data required for the simulation. See the Muen\+Data\+Parser class for more information about the format of this file.
+\item \textquotesingle{}muen for media\textquotesingle{}\+: (Optional) a list of the materials that muen data is required for. Dose will be set to 0 for any phantom media that don\textquotesingle{}t have muen data available. (Can be used instead of or in conjunction with {\ttfamily \doxylink{namespacemuen}{muen} for medium}).
+\item \textquotesingle{}muen for medium\textquotesingle{}\+: (Optional) one or more input blocks which specify the muen dataset to be used for a given transport medium. (Can be used instead of or in conjunction with {\ttfamily \doxylink{namespacemuen}{muen} for media}) This allows you to, for example, transport particles in tissue but score in water with notation Dw,m according to the conventions of TG-\/186.
+\end{DoxyItemize}
+
+\begin{DoxyVerb}    :start muen for medium:
+        transport medium = TISSUE
+        scoring medium = WATER
+    :stop muen for medium:
+\end{DoxyVerb}
+
+
+
+\begin{DoxyItemize}
+\item \textquotesingle{}score tracklength dose\textquotesingle{} \+: (Optional) Controls whether dose using a tracklength estimator is scored in the phantom geometries. The choices are \textquotesingle{}yes\textquotesingle{} (default) or \textquotesingle{}no\textquotesingle{}.
+\item \textquotesingle{}score energy deposition\textquotesingle{} \+: (Optional) Controls whether dose from particle interactions is scored in the phantom geometries. The choices are \textquotesingle{}yes\textquotesingle{} or \textquotesingle{}no\textquotesingle{} (default). See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/brem_cyl/brem_cyl.egsinp}{\texttt{eb\+\_\+tests/brem\+\_\+cyl/brem\+\_\+cyl.\+egsinp}} for an example
+\item \textquotesingle{}score scatter dose\textquotesingle{} \+: (Optional) Controls whether scatter dose (normalized to total radiant energy) is scored in the phantom geometries, as per the primary/scatter dose separation formalism (PSS) of \href{https://doi.org/10.1118/1.1949767}{\texttt{Russel et al.}}. The choices are \textquotesingle{}yes\textquotesingle{} or \textquotesingle{}no\textquotesingle{} (default). The formalism is intendend for single source characterization. This option should only be used for single source simulations without recycling and with particles initialized within the source (i.\+e., not from a phase-\/space source). See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/scatter/scatter.egsinp}{\texttt{eb\+\_\+tests/scatter/scatter.\+egsinp}} for an example.
+\item \textquotesingle{}spectrum scoring\textquotesingle{}\+: (Optional) zero or more input blocks specifying spectra to score (described below). See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_absolute/spec_absolute.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+absolute/spec\+\_\+absolute.\+egsinp}}, \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_eflu/spec_eflu.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+eflu/spec\+\_\+eflu.\+egsinp}}, and \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_vox/spec_vox.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+vox/spec\+\_\+vox.\+egsinp}} for examples.
+\item \textquotesingle{}phsp scoring\textquotesingle{}\+: (Optional) zero or one input block specifying whether to score a phase space on the external surface of the source (e.\+g., on the capsule of brachytherapy seeds). See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/phsp_scoring/phsp_score.egsinp}{\texttt{eb\+\_\+tests/phsp\+\_\+scoring/phsp\+\_\+score.\+egsinp}} for an example.
+\item \textquotesingle{}dose file format\textquotesingle{}\+: (Optional) Controls whether 3dddose files are written as text or gzipped text files. Options are \textquotesingle{}text\textquotesingle{} (default) and \textquotesingle{}gzip\textquotesingle{}.
+\item \textquotesingle{}output egsphant files\textquotesingle{}\+: (Optional) Controls whether egsphant files are created for scoring phantoms. Options are \textquotesingle{}no\textquotesingle{} (default) and \textquotesingle{}yes\textquotesingle{}.
+\item \textquotesingle{}egsphant file format\textquotesingle{}\+: (Optional) Controls whether egsphant files are written as text or gzipped text files. Options are \textquotesingle{}text\textquotesingle{} (default) and \textquotesingle{}gzip\textquotesingle{}.
+\item \textquotesingle{}output voxel info files\textquotesingle{}\+: (Optional) Controls whether voxel info files are created for scoring phantoms. Options are \textquotesingle{}no\textquotesingle{} (default) and \textquotesingle{}yes\textquotesingle{}. See below for a description of these files. See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp}{\texttt{eb\+\_\+tests/volume\+\_\+correction/vc.\+egsinp}} for an example.
+\item \textquotesingle{}voxel info file format\textquotesingle{}\+: (Optional) Controls whether voxel info files are written in text (default) or gzip format
+\item \textquotesingle{}output volume correction files for phantoms\textquotesingle{}\+: (Optional) Controls which phantoms will have volume correction files created.
+\item \textquotesingle{}volume correction file format\textquotesingle{}\+: (Optional) Controls whether volume correction files are written in text (default) or gzip format
+\item \textquotesingle{}record initial particle positions\textquotesingle{}\+: (Optional) If this is set to a number N, where N \texorpdfstring{$>$}{>} 0, then the first N initial particle positions will be written to a .pinit file. You can use this file to visualize the initial particle positions using gnuplot for example.
+\item \textquotesingle{}current result phantom region\textquotesingle{}\+: (Optional) Controls which phantom region is used for displaying results at the end of each batch and/or terminating the calculation if the required statistical uncertainty is reached. Defaults to region 0 of the first phantom object. Currently the result of the tracklength dose scoring is always used. See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/brem_cyl/brem_cyl.egsinp}{\texttt{eb\+\_\+tests/brem\+\_\+cyl/brem\+\_\+cyl.\+egsinp}} for an example.
+\item \textquotesingle{}dose scaling factor\textquotesingle{}\+: (Optional) Allows you to scale all dose files output by egs\+\_\+brachy by a constant factor.
+\end{DoxyItemize}
+
+A sample \textquotesingle{}scoring options\textquotesingle{} block looks like this\+: \begin{DoxyVerb}:start scoring options:
+
+    score tracklength dose = yes # 'yes' (default) or 'no'
+    score energy deposition = no # 'no' (default) or 'yes'
+    score scatter dose = yes # 'no' (default) or 'yes'
+    muen file = /home/randlet/egs/HEN_HOUSE/muen_data/brachy_xcom_1.5MeV.muendat
+    muen for media = WATER_0.998, AIR_TG43
+
+    dose file format = gzip # text or gzip
+
+    output egsphant files = yes
+    egsphant file format = gzip
+
+    output voxel info files = no
+    voxel info file format = text # text or gzip
+
+    output volume correction files for phantoms = phantom1, phantom2
+    volume correction file format = gzip # text or gzip
+
+    current result phantom region = phantom 123  # phant name and reg number
+
+    dose scaling factor = 1
+
+    :start spectrum scoring:
+        type = surface count
+        particle type = photon
+        minimum energy = 0.001
+        maximum energy = 0.040
+        number of bins = 100
+        output format = xmgr
+    :stop spectrum scoring:
+
+    :start phsp scoring:
+        phsp output directory = /home/randlet/egs/egsnrc/egs_brachy/
+        access mode = write
+        print header = no
+        kill after scoring = yes
+    :stop phsp scoring:
+
+:stop scoring options:
+\end{DoxyVerb}
+\hypertarget{index_vcfiles}{}\doxysubsubsection{\texorpdfstring{Volume correction files}{Volume correction files}}\label{index_vcfiles}
+If one or more phantoms are specfied in \textquotesingle{}output volume correction files for phantoms\textquotesingle{} then egs\+\_\+brachy will output a file containing region numbers and the corrected volumes for any regions which has had its volume corrected.
+
+File mode is specified with the \textquotesingle{}volume correction file format\textquotesingle{} input and can either be \textquotesingle{}text\textquotesingle{} or \textquotesingle{}gzip\textquotesingle{}.
+
+These volume correction files allow you to precompute volume corrections for a given geometry arrangement and can then be used in conjunction with the \textquotesingle{}volume correction from file\textquotesingle{} volume correction option. This can be particularly useful when running a simulation in parallel. A single job in "{}volume correction only"{} mode can be run to initially calculate the volume corrections and then the parallel jobs can use the precomputed volume corrections values eliminating the redundant calculation of volume corrections by every job in your parallel run.
+
+The input file \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp}{\texttt{eb\+\_\+tests/volume\+\_\+correction/vc.\+egsinp}} demonstrates this feature.
+
+Note that the initial seeds of the random number generator used for the purpose of volume correction or seed discovery are not automatically incremented between jobs when running in parallel. Thus, each parallel job will calculate the exact same volume corrections because they use the same initial seeeds. This is the expected and desired behavior.\hypertarget{index_specscoring}{}\doxysubsubsection{\texorpdfstring{Spectrum Scoring Options}{Spectrum Scoring Options}}\label{index_specscoring}
+egs\+\_\+brachy can currently score four different type of spectra\+:
+
+
+\begin{DoxyEnumerate}
+\item Absolute counts of particles escaping the external surface of the source. For brachytherapy seeds distributed with egs\+\_\+brachy, this corresponds to the encapsulation of the source. (See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_absolute/spec_absolute.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+absolute/spec\+\_\+absolute.\+egsinp}})
+\item Energy weighted spectra of particles on the surface of the source (See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_eflu/spec_eflu.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+eflu/spec\+\_\+eflu.\+egsinp}})
+\item Photon energy fluence in a single geometry region (See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/spec_vox/spec_vox.egsinp}{\texttt{eb\+\_\+tests/spec\+\_\+vox/spec\+\_\+vox.\+egsinp}})
+\item Photon fluence in a single geometry region.
+\end{DoxyEnumerate}
+
+To score a spectrum, add one or more \textquotesingle{}spectrum scoring\textquotesingle{} input blocks to the \textquotesingle{}scoring options\textquotesingle{} block (you may add an arbitrary number of \textquotesingle{}spectrum scoring\textquotesingle{} blocks.)
+
+{\bfseries{Note that for the \textquotesingle{}fluence in region\textquotesingle{} and \textquotesingle{}energy fluence in region\textquotesingle{} spectrum types, it is essential that the scoring region has no other overlapping geometries.}}
+
+Spectrum scoring input options are explained below.
+
+\begin{DoxyVerb}:start scoring options:
+
+    ...
+
+
+    :start spectrum scoring:
+        type = surface count # surface count, energy weighted surface, energy fluence in region, fluence in region
+        particle type = photon # photon, electron, positron
+        minimum energy = 0.001 # defaults to 0.001MeV
+        maximum energy = 1.00 # defaults to max energy of source
+        number of bins = 1000  # defaults to 100
+        output format = xmgr # xmgr (default), csv, egsnrc
+
+        file extension = my_spectrum # (optional)
+
+        # egsnrc 'output format' only
+        egsnrc format mode = 0 # 0, 1, 2
+
+        # 'energy fluence in region' mode only
+        geometry  = your_geom_name
+        scoring region = 10 # region of specified geometry to score fluence in (defaults to 0 )
+
+    :stop spectrum scoring:
+
+:stop scoring options:
+\end{DoxyVerb}
+\hypertarget{index_phspscoring}{}\doxysubsubsection{\texorpdfstring{Phase Space Scoring Options}{Phase Space Scoring Options}}\label{index_phspscoring}
+egs\+\_\+brachy has the ability to score an IAEA format phase space file of all particles escaping the source geometry. This phase space can then be used as a particle source in future simulations with the eb\+\_\+iaeaphsp\+\_\+source source type (see Phase Space Source section below).
+
+To enable this option you need to add a {\ttfamily phsp scoring} block to the {\ttfamily scoring options} input section. The {\ttfamily phsp scoring} block has the following inputs\+:
+
+
+\begin{DoxyEnumerate}
+\item \textquotesingle{}phsp output directory\textquotesingle{}\+: (Optional) Controls where the .IAEAheader \& .IAEAphsp files are written too. Defaults to the current working directory.
+\item \textquotesingle{}access mode\textquotesingle{}\+: (Optional) Controls whether egs\+\_\+brachy should write to a new file or append to an existing phsp file. Options are {\ttfamily write} and {\ttfamily append} (default).
+\item \textquotesingle{}kill after scoring\textquotesingle{}\+: (Optional) Controls whether the weight of scored particles should be set to 0 which will increase the speed of phase space file generation. Options are {\ttfamily yes} and {\ttfamily no} (default).
+\item \textquotesingle{}boundary step\textquotesingle{}\+: (Optional) Since egs\+\_\+brachy scores phsp particles on the surface of a source, you may find that when you use a phsp source, particles get stuck at the geometry boundary when they are initialized. To combat this, before scoring a phsp particle egs\+\_\+brachy propagates the particle a small distance forward along its current direction of travel before writing it to the phase space file. By default this value is 1E-\/4 cm but you can make it smaller or larger if necessary.
+\item \textquotesingle{}print header\textquotesingle{}\+: (Optional) Controls whether the iaea\+\_\+print\+\_\+header function is called during the output\+Results. Options are {\ttfamily yes} and {\ttfamily no} (default).
+\end{DoxyEnumerate}
+
+A complete phsp scoring block looks like\+:
+
+\begin{DoxyVerb}    :start phsp scoring:
+        phsp output directory = /home/randlet/egs/egsnrc/egs_brachy/
+        access mode = write
+        print header = no
+        kill after scoring = yes
+        boundary step = 1E-6
+    :stop phsp scoring:
+\end{DoxyVerb}
+
+
+See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/phsp_scoring/phsp_score.egsinp}{\texttt{eb\+\_\+tests/phsp\+\_\+scoring/phsp\+\_\+score.\+egsinp}} for an example of scoring a phase space and \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/phsp_run/phsp_run.egsinp}{\texttt{eb\+\_\+tests/phsp\+\_\+run/phsp\+\_\+run.\+egsinp}} for an example of running a phase space source.\hypertarget{index_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Limitations}{Limitations}}\label{index_autotoc_md0}
+Currently phase space generation using parallel runs is not supported.\hypertarget{index_sourcedef}{}\doxysubsection{\texorpdfstring{Source definition}{Source definition}}\label{index_sourcedef}
+The {\ttfamily source definition} block for egs\+\_\+brachy consists of 3 parts\+:
+
+
+\begin{DoxyEnumerate}
+\item a standard egs++ {\ttfamily source} block which defines what the base particle source and spectrum will be (typically for brachy calculations this will be an isotropic source).
+\item a {\ttfamily transformations} input block which contains one or more EGS\+\_\+\+Affine\+Transform input blocks to tell egs\+\_\+brachy the location of all particle sources (this will usually be identical to the {\ttfamily inscribed geometry -\/\texorpdfstring{$>$}{>} transformations} block for an egs\+\_\+autoenvelope geometry and hence an external file and an {\ttfamily include file} directive should probably be used.)
+\item a {\ttfamily simulation source} input item which is set to the name of the source defined in 1.
+\item an optional {\ttfamily source weights} input item which is a list of relative statistical weights for each source. This input is described below in the {\ttfamily Variable source weights} section.
+\end{DoxyEnumerate}
+
+An example {\ttfamily source definition} block is shown below for a 6702 seed\+: \begin{DoxyVerb}:start source definition:
+
+  :start source:
+
+      library = egs_isotropic_source
+      name = 6702_spheres
+      charge = 0
+
+      # three spherical shell sources for 6702 Source
+      :start shape:
+
+          library = egs_shape_collection
+
+          :start shape:
+              library = egs_spherical_shell
+              inner radius = 0.0299
+              outer radius = 0.03
+              midpoint = 0, 0, -0.11
+          :stop shape:
+
+          :start shape:
+              library = egs_spherical_shell
+              inner radius = 0.0299
+              outer radius = 0.03
+              midpoint = 0, 0, 0
+          :stop shape:
+
+          :start shape:
+              library = egs_spherical_shell
+              inner radius = 0.0299
+              outer radius = 0.03
+              midpoint = 0, 0, 0.11
+          :stop shape:
+
+          probabilities = 1 1 1
+
+      :stop shape:
+
+      :start spectrum:
+          type = tabulated spectrum
+          spectrum file = /home/randlet/egs/HEN_HOUSE/spectra/I125_TG43.spectrum
+      :stop spectrum:
+
+  :stop source:
+
+  :start transformations :
+      :start transformation:
+          translation = -2,-2,-2
+      :stop transformation:
+      :start transformation:
+          translation = -2,-2,-1
+      :stop transformation:
+
+      # more transformations...
+
+  :stop transformations:
+
+  simulation source = 6702_spheres
+
+:stop source definition:
+\end{DoxyVerb}
+\hypertarget{index_srccoord}{}\doxysubsubsection{\texorpdfstring{Source coordinate transform}{Source coordinate transform}}\label{index_srccoord}
+The optional {\ttfamily source coordinate transform} block maps all source locations from the coordinate system used by the {\ttfamily transformations} block into the simulation coordinate system. This is useful when source placements are defined in a local frame (for example, seed positions relative to an eye plaque) and a separate transform places the plaque in the simulation.
+
+The block contains exactly one standard egs++ {\ttfamily \+:start transformation\+:} input. At initialization, egs\+\_\+brachy composes this transform with each entry from {\ttfamily transformations} so that the world source location is $ T_{\mathrm{world},i} = T_{\mathrm{coord}} \cdot T_{\mathrm{seed},i} $. This matches the geometry workflow where {\ttfamily egs\+\_\+gtransformed} wraps an {\ttfamily egs\+\_\+autoenvelope} containing transformed seeds.
+
+An example for an eye plaque simulation is distributed with egs\+\_\+brachy as \href{lib/geometry/eye_plaques/sample\%20eye\%20plaque\%20input\%20template\%20\%20files/COMS16mm-I125-6711-hetero-splitTransforms.egsinp}{\texttt{COMS16mm-\/\+I125-\/6711-\/hetero-\/split\+Transforms.\+egsinp}}. Local seed placements come from \href{lib/geometry/transformations/eye_plaques/COMS16mm}{\texttt{COMS16mm}}; the shared applicator pose is in \href{lib/geometry/transformations/eye_plaques/COMS16mm_example_pose}{\texttt{COMS16mm\+\_\+example\+\_\+pose}} (referenced from both the outer {\ttfamily egs\+\_\+gtransformed} wrapper and {\ttfamily source coordinate transform}). For setups in which the autoenvelope base geometry is the untransformed plaque, the pose file can instead be \href{lib/geometry/transformations/eye_plaques/COMS16mm_phantom_pose}{\texttt{COMS16mm\+\_\+phantom\+\_\+pose}}.
+
+\begin{DoxyVerb}:start source definition:
+
+  :start source:
+      library = egs_isotropic_source
+      name = 6711
+      ...
+  :stop source:
+
+  :start transformations:
+      include file = lib/geometry/transformations/eye_plaques/COMS16mm
+  :stop transformations:
+
+  :start source coordinate transform:
+      :start transformation:
+          include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
+      :stop transformation:
+  :stop source coordinate transform:
+
+  simulation source = 6711
+
+:stop source definition:
+\end{DoxyVerb}
+
+
+The existing {\ttfamily transformations} block is unchanged and remains required for backward compatibility. Do not use {\ttfamily egs\+\_\+transformed\+\_\+source} for this workflow; egs\+\_\+brachy applies source placements from the {\ttfamily transformations} block after sampling the base source.
+
+The intended workflow uses the same two-\/level transform structure in both the geometry definition and the source definition. Seed positions relative to an applicator (for example, an eye plaque) are listed once, typically via the same {\ttfamily include file} in both places. In the geometry block, an {\ttfamily egs\+\_\+autoenvelope} inscribes each seed in the applicator using those local transforms. An outer {\ttfamily egs\+\_\+gtransformed} wrapper around the autoenvelope assembly then applies the applicator pose in the simulation frame (see \href{lib/geometry/eye_plaques/sample\%20eye\%20plaque\%20input\%20template\%20\%20files/COMS16mm-I125-6711-hetero-splitTransforms.egsinp}{\texttt{COMS16mm-\/\+I125-\/6711-\/hetero-\/split\+Transforms.\+egsinp}} for a worked example). In the source definition, the {\ttfamily transformations} block lists the same local seed placements, while {\ttfamily source coordinate transform} carries the same affine transform as the outer {\ttfamily egs\+\_\+gtransformed} wrapper. The per-\/seed geometry inscriptions and the source {\ttfamily transformations} entries must agree; the outer {\ttfamily egs\+\_\+gtransformed} and {\ttfamily source coordinate transform} blocks must agree with each other.
+
+A regression test in {\ttfamily eb\+\_\+tests/source\+\_\+coordinate\+\_\+transform/} verifies that composed transforms reproduce the {\ttfamily seeds\+\_\+in\+\_\+xyz} gold-\/standard dose. When a coordinate transform is applied, egs\+\_\+brachy reports it under {\ttfamily egs\+\_\+brachy Source Information} in the run log.\hypertarget{index_overlap}{}\doxysubsubsection{\texorpdfstring{Checking for overlapping sources}{Checking for overlapping sources}}\label{index_overlap}
+egs\+\_\+brachy can optionally run a Monte Carlo calculation (similar to volume correction routines) to try to determine if any sources are overlapping. To run this check at the beginning of your simulation add a {\ttfamily source overlap check} input block to the the {\ttfamily source definition} section. ~\newline
+
+
+A sample {\ttfamily source overlap check} block looks like\+:
+
+\textbackslash{}startverbatim \begin{DoxyVerb}:start source overlap check:
+
+    check source overlaps = yes  # yes or no (default)
+
+    warning mode = fatal  # fatal (default) or warning. 
+                          # fatal kills the simulation, warning allows it to continue but prints a warning
+
+    density of random points (cm^-3) = 1E6  # density of points to use for checking for overlap
+
+    # bounding shape to use for generating random points around source
+    :start shape:
+        type = cylinder
+        radius = 0.04
+        height = 0.46
+    :stop shape:
+
+:stop source overlap check:
+\end{DoxyVerb}
+\hypertarget{index_varweight}{}\doxysubsubsection{\texorpdfstring{Variable source weighting}{Variable source weighting}}\label{index_varweight}
+In order to simulate sources with different activity levels you can add a {\ttfamily source weights} input to the {\ttfamily source definition} section. For example, if you have a simualtion with two sources, the first of which has three times the activity of the second, you would set the following source input\+:
+
+\begin{DoxyVerb}:start source definition:
+
+  :start source:
+
+      library = egs_point_source
+      name = pt_source
+      charge = 0
+      position = 0 0 0
+
+      :start spectrum:
+          type = tabulated spectrum
+          spectrum file = /home/randlet/egs/HEN_HOUSE/spectra/I125_TG43.spectrum
+      :stop spectrum:
+
+  :stop source:
+
+  :start transformations :
+      :start transformation:
+          translation = 0 0 -1
+      :stop transformation:
+      :start transformation:
+          translation = 0 0 1
+      :stop transformation:
+  :stop transformations:
+
+  simulation source = pt_source
+
+  source weights = 3 1 # give source at (0, 0, -1) three times the weight of source 2
+
+:stop source definition:
+\end{DoxyVerb}
+
+
+egs\+\_\+brachy uses these weights to assign the initial statistical weight of the particles originating in a source. If the {\ttfamily source weights} input is missing all sources are given equal weighting. If the number of inputs for source weights is less than the number of sources, the missing inputs will be assumed to be 1. See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/variable_activity/variable.egsinp}{\texttt{eb\+\_\+tests/variable\+\_\+activity/variable.\+egsinp}} for an example.
+
+When the {\ttfamily superposition} run mode is used, the {\ttfamily source weights} input represents relative dwell times (e.\+g. for a stepped Ir192 HDR source) rather than different activity levels. See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/stepped_source/stepped.egsinp}{\texttt{eb\+\_\+tests/stepped\+\_\+source/stepped.\+egsinp}} for an example of this feature.\hypertarget{index_phspsources}{}\doxysubsubsection{\texorpdfstring{Phase Space Sources}{Phase Space Sources}}\label{index_phspsources}
+Using an IAEA phase space source in egs\+\_\+brachy is just a matter of setting the {\ttfamily source} input block to use the eb\+\_\+iaeaphsp\+\_\+source type like so\+:
+
+\begin{DoxyVerb}:start source definition:
+
+    :start source:
+        library = eb_iaeaphsp_source
+        name = 6702
+        header file = /home/randlet/egs/egsnrc/egs_brachy/iaea.phsp.IAEAheader
+    :stop source:
+
+    :start transformations :
+        include file = lib/geometry/transformations/125seeds_1cm_grid
+    :stop transformations:
+
+    simulation source = 6702
+
+:stop source definition:
+\end{DoxyVerb}
+
+
+See the eb\+\_\+iaeaphsp\+\_\+source documenation for more information on the inputs and \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/phsp_run/phsp_run.egsinp}{\texttt{eb\+\_\+tests/phsp\+\_\+run/phsp\+\_\+run.\+egsinp}} input file for an example of this feature.
+
+It should be noted that phase space sources are treated slightly differently than other source types when particle recycling is enabled. This is discussed below in the particle recycling section.\hypertarget{index_transport}{}\doxysubsection{\texorpdfstring{Transport Parameters}{Transport Parameters}}\label{index_transport}
+egs\+\_\+brachy has a couple of extra optional transport parameters.
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily Fluorescent Photon Cutoff} which will kill all fluorescent photons with energy less than or equal to the cutoff energy. \begin{DoxyVerb}:start MC transport parameter:
+
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    # ...
+    Fluorescent Photon Cutoff      = 0.005 # kill all flu. photons with E <= 5keV
+
+:stop MC transport parameter:
+\end{DoxyVerb}
+
+\item {\ttfamily Source ECUT} \& {\ttfamily Source PCUT} these two transport parameters allow you to set ECUT and PCUT to different values within the source compared to elsewhere. This is required for x-\/ray source simulations (see e.\+g. \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/brem_cyl/brem_cyl.egsinp}{\texttt{eb\+\_\+tests/brem\+\_\+cyl/brem\+\_\+cyl.\+egsinp}}).
+\end{DoxyEnumerate}
+
+\begin{DoxyVerb}:start MC transport parameter:
+
+    Global ECUT                    = 1.512
+    Global PCUT                    = 0.001
+    Source ECUT                    = 0.512
+    Source PCUT                    = 0.001
+
+:stop MC transport parameter:
+\end{DoxyVerb}
+\hypertarget{index_varreduction}{}\doxysubsection{\texorpdfstring{Variance Reduction}{Variance Reduction}}\label{index_varreduction}
+\hypertarget{index_recycling}{}\doxysubsubsection{\texorpdfstring{Particle Recycling}{Particle Recycling}}\label{index_recycling}
+egs\+\_\+brachy has the ability to reuse particles which escape from the source geometry an arbitrary number of times. With particle recycling enabled, egs\+\_\+brachy detects (in ausgab) when a particle is escaping the source, and then adds Nrecycle new particles to the top of the stack at the location of each source in the simulation.
+
+This can increase the efficiency of a simulation where only a fraction of particles are escaping the source geometry (since particles which don\textquotesingle{}t escape the source geometry are \textquotesingle{}wasted\textquotesingle{} because they don\textquotesingle{}t contribute to dose in the phantom).
+
+In order to enable source particle recycling you must include a {\ttfamily particle recycling} block in the {\ttfamily variance reduction} block.
+
+\begin{DoxyVerb}:start variance reduction:
+    :start particle recycling:
+        times to reuse recycled particles = 10
+        rotate recycled particles = yes
+    :stop particle recycling:
+:stop variance reduction:
+\end{DoxyVerb}
+
+
+If {\ttfamily rotate recycled particles} is set to yes, each particle will be rotated by an arbitrary angle about the z-\/axis prior to being reused. (If {\ttfamily times to reuse recycled particles} is greater than 1, particle rotation is enforced).
+
+Examples of particle recycling may be seen in the following test files\+: \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/phsp_run/phsp_run.egsinp}{\texttt{eb\+\_\+tests/phsp\+\_\+run/phsp\+\_\+run.\+egsinp}}, \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/recycling/recycling.egsinp}{\texttt{eb\+\_\+tests/recycling/recycling.\+egsinp}}, \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/tg43mode_recycle/tg43mode_recycling.egsinp}{\texttt{eb\+\_\+tests/tg43mode\+\_\+recycle/tg43mode\+\_\+recycling.\+egsinp}}, \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/variable_w_recycling/variable_w_recycling.egsinp}{\texttt{eb\+\_\+tests/variable\+\_\+w\+\_\+recycling/variable\+\_\+w\+\_\+recycling.\+egsinp}}.\hypertarget{index_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Particle Recycling with PHSP Sources}{Particle Recycling with PHSP Sources}}\label{index_autotoc_md1}
+Phase space particles are scored once they\textquotesingle{}ve already escaped the source and therefore particles from a phsp source will be initiated outside of sources. Because of this phsp particles never escape the source and trigger the recycling routines in ausgab. Instead, at the beginning of each history a single particle is retrieved from the phase space file and then NRecycle copies of the particle are made and placed at the location of all the sources (so the history starts with NRecyle\texorpdfstring{$\ast$}{*}\+NSource particles on the stack rather than just a single particle).\hypertarget{index_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Particle Recycling and Superposition Mode}{Particle Recycling and Superposition Mode}}\label{index_autotoc_md2}
+Currently when running in superposition mode recycled particles are only generated for the currently active source rather than all source locations ( i.\+e. when a particle escapes a source only {\ttfamily Nrecycle} particles are created rather than {\ttfamily Nrecycle\texorpdfstring{$\ast$}{*}\+Nsource}).\hypertarget{index_rangerejection}{}\doxysubsubsection{\texorpdfstring{Range Rejection}{Range Rejection}}\label{index_rangerejection}
+Range rejection is enabled outside of sources and disabled within sources by default in egs\+\_\+brachy. The default maximum range rejection energy is set to 2.\+511 MeV (including rest mass). In other words, by default range rejection is applied to electrons in the phantom with kinetic energy lower than 2 MeV. To enable or disable range rejection within sources, or outside of sources, use the {\ttfamily source range rejection} and {\ttfamily global range rejection} inputs, respectively.
+
+The {\ttfamily source range rejection max energy} and {\ttfamily global range rejection max energy} inputs are used to set the maximum energy of electrons (in MeV, including rest mass) to use range rejection with.
+
+\begin{DoxyVerb}:start variance reduction:
+    global range rejection = yes
+    global range rejection max energy = 0.611
+    source range rejection = yes
+    source range rejection max energy = 0.516
+:stop variance reduction:
+\end{DoxyVerb}
+\hypertarget{index_bremsplit}{}\doxysubsubsection{\texorpdfstring{Bremsstrahlung Splitting}{Bremsstrahlung Splitting}}\label{index_bremsplit}
+To enable brem splitting in egs\+\_\+brachy set the {\ttfamily split brems photons} input to something greater than 1 in the {\ttfamily variance reduction} block.
+
+\begin{DoxyVerb}:start variance reduction:
+    split brem photons = 100
+:stop variance reduction:
+\end{DoxyVerb}
+
+
+See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/brem_cyl/brem_cyl.egsinp}{\texttt{eb\+\_\+tests/brem\+\_\+cyl/brem\+\_\+cyl.\+egsinp}} for an input file that uses brem splitting.\hypertarget{index_bcse}{}\doxysubsubsection{\texorpdfstring{Bremsstrahlung Cross Section Enhancement}{Bremsstrahlung Cross Section Enhancement}}\label{index_bcse}
+To enable bremsstrahlung cross section enhancement in egs\+\_\+brachy add a {\ttfamily bcse medium} input item in the {\ttfamily variance reduction} block. The format of the input is {\ttfamily medium\+\_\+name enhancement\+\_\+factor}.
+
+\begin{DoxyVerb}:start variance reduction:
+    split brem photons = 100
+    bcse medium =  Ti10W90 100
+:stop variance reduction:
+\end{DoxyVerb}
+\hypertarget{index_voxvc}{}\doxysubsection{\texorpdfstring{Voxel volume correction details}{Voxel volume correction details}}\label{index_voxvc}
+egs\+\_\+brachy has three methods available for doing voxel volume correction calculations in rectilinear, cylindrical and spherical geometries. There is a \textquotesingle{}fast\textquotesingle{} method that uses the same technique described in the egs\+\_\+autoenvelope documentation and a more general purpose routine which can be used for larger volumes with multiple overlapping phantom geometries. In addition to those two methods, corrected voxel volumes can be precomputed (either manually or by egs\+\_\+brachy) and read from a file. Finally, there is a fourth method, {\ttfamily phantom region volumes} that can be used to specify manually calcualted voxel volumes in the input file for other geometry types (e.\+g. conical geometries).
+
+See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp}{\texttt{eb\+\_\+tests/volume\+\_\+correction/vc.\+egsinp}} for examples of the fast \& general volume correction methods.\hypertarget{index_coverthresh}{}\doxysubsubsection{\texorpdfstring{Total coverage threshold}{Total coverage threshold}}\label{index_coverthresh}
+Volume correction uses Monte Carlo sampling to estimate how much of each phantom voxel remains available for dose scoring after subtracting overlapping geometry (sources, applicators, etc.). For voxels that are almost entirely occupied, the tiny uncorrected volume that remains can produce dose values with very large statistical uncertainties.
+
+The optional input {\ttfamily total coverage threshold \%} controls when a voxel is treated as fully covered and its corrected volume set to zero (so no dose is scored there). If the estimated uncorrected fraction of the nominal voxel volume is at most {\ttfamily (100 -\/ threshold)} percent, the voxel is zeroed. With the default {\ttfamily 99.\+9}, voxels with 0.\+1\% or less of their nominal volume remaining are zeroed; with {\ttfamily 98}, voxels with 2\% or less remaining are zeroed. A lower threshold is sometimes used for complex applicators such as eye plaques, where slightly more aggressive zeroing avoids unreliable dose in thin voxels at geometry boundaries.
+
+This input may appear in either {\ttfamily \+:start source volume correction\+:} or {\ttfamily \+:start extra volume correction\+:} blocks. Values may be given as a percentage ({\ttfamily 99.\+9}, {\ttfamily 98}) or as a fraction between 0 and 1. If omitted, egs\+\_\+brachy uses 99.\+9\%.
+
+See \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/volume_correction/vc.egsinp}{\texttt{vc.\+egsinp}} for a test input with a non-\/default threshold on an {\ttfamily extra volume correction} block, and the eye-\/plaque template \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/lib/geometry/eye_plaques/sample\%20eye\%20plaque\%20input\%20template\%20\%20files/BEBIG16mm-hetero-I125-S06_3rdSeedActive-.egsinp}{\texttt{BEBIG16mm-\/hetero-\/\+I125-\/\+S06\+\_\+3rd\+Seed\+Active-\/.\+egsinp}} for a clinical geometry example using {\ttfamily 98}.
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct
+        density of random points (cm^-3) = 1E8
+        total coverage threshold % = 98   # zero voxels with <= 2% uncorrected volume
+
+        :start shape:
+            type = box
+            box size = 4
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+\end{DoxyVerb}
+\hypertarget{index_sourcevc}{}\doxysubsubsection{\texorpdfstring{Fast voxel volume corrections for sources}{Fast voxel volume corrections for sources}}\label{index_sourcevc}
+The input block for this type of volume correction looks like\+:
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start source volume correction:
+
+        correction type = correct # optional: none(default), correct, zero dose
+        density of random points (cm^-3) = 1E7 # optional random point sampling density defaults to 1E8
+
+        total coverage threshold % = 99.9 # optional level of voxel coverage before it is considered totally covered
+                                          # if a voxel is more than 99.9% (default) covered then it's volume is set to 0
+
+        # shape which encompasses source
+        :start shape:
+            type = cylinder
+            radius = 0.04
+            height = 0.45
+        :stop shape:
+
+        # optional rng definition
+        :start rng definition:
+            type = sobol
+            initial seed = 1234
+        :stop rng definition:
+
+        # -or- #
+        :start rng definition:
+            type = ranmar
+            initial seeds = two integers
+        :stop rng definition:
+
+    :stop source volume correction:
+
+:stop volume correction:
+\end{DoxyVerb}
+\hypertarget{index_genvc}{}\doxysubsubsection{\texorpdfstring{General purpose volume corrections}{General purpose volume corrections}}\label{index_genvc}
+The general purpose algorithm is similar, except any geometry region within the bounding shape will have its region volume corrected Currently the shape must be cylinder, sphere, or box type.
+
+The input block for the general purpose volume corrections is shown below\+:
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start extra volume correction:
+
+        correction type = correct # correct, none, zero dose
+        density of random points (cm^-3) = 1E5
+        total coverage threshold % = 98   # optional; see #coverthresh (default 99.9)
+
+        # correct volume of region for all geometries within
+        # x,y,z = +/- 2cm around origin
+        :start shape:
+
+            type = box
+            box size = 4
+
+            :start transformation:
+                translation = 0 0 0
+            :stop transformation:
+
+        :stop shape:
+
+    :stop extra volume correction:
+
+:stop volume correction:
+\end{DoxyVerb}
+\hypertarget{index_vcfile}{}\doxysubsubsection{\texorpdfstring{Volume calculations from file}{Volume calculations from file}}\label{index_vcfile}
+You can also use precomputed volume corrections by using a \textquotesingle{}volume correction from file\textquotesingle{} input.
+
+The input block specifies one or more \textquotesingle{}phantom file\textquotesingle{} inputs with two strings. The first string is the name of the phantom to set the volumes for and the second string is the file to read the volumes from. egs\+\_\+brachy will automatically determine whether the file is in text or gzip mode.
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start volume correction from file:
+
+        phantom file = phantom1 your_precomputed_phantom1_volumes.volcor
+        phantom file = phantom2 your_precomputed_phantom2_volumes.volcor
+
+    :stop volume correction from file:
+
+:stop volume correction:
+\end{DoxyVerb}
+
+
+To create your own volcor text files, create a text file in the format\+:
+
+\begin{DoxyVerb}NRECORDS
+REG_NUM_1 REG_1_VOLUME
+REG_NUM_2 REG_2_VOLUME
+...
+REG_NUM_3 REG_3_VOLUME
+\end{DoxyVerb}
+
+
+for example the following file\+:
+
+\begin{DoxyVerb}3
+5 0.5
+13 1.0
+1000 2.5
+\end{DoxyVerb}
+
+
+would set regions 5, 13 and 1000 to volumes 0.\+5 cm\texorpdfstring{$^\wedge$}{\string^}3, 1 cm\texorpdfstring{$^\wedge$}{\string^}3, 2.\+5 cm\texorpdfstring{$^\wedge$}{\string^}3 of whichever phantom it was assigned to.\hypertarget{index_rngvc}{}\doxysubsubsection{\texorpdfstring{Random Number Generator for volume corrections}{Random Number Generator for volume corrections}}\label{index_rngvc}
+If a {\ttfamily box} shape is used as the volume correction shape, volume corrections will use a Sobol Quasi Random Number Generator by default. For all other shapes the regular Ranmar RNG will be used (the Sobol generator only works for Cartesian coordinate systems). The RNG can be overridden as show in the example above.\hypertarget{index_vcuser}{}\doxysubsubsection{\texorpdfstring{Manually specifying voxel volumes}{Manually specifying voxel volumes}}\label{index_vcuser}
+For calculating dose in phantoms which are not rectilinear, cylindrical, or spherical you may use {\ttfamily phantom region volumes} blocks to specify the the volume of one or more regions in a phantom (note, it will also work in e.\+g. rectilinear phantoms, it\textquotesingle{}s just not generally needed). The format of these blocks is\+:
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = <phantom_name>
+        region numbers = r_1 r_2 ... r_i ... r_N
+        region volumes = V_1 V_2 ... V_i ... V_N
+    :stop phantom region volumes:
+
+:stop volume correction:
+\end{DoxyVerb}
+
+
+for example to specify volumes of 0.\+5cm\texorpdfstring{$^\wedge$}{\string^}3 and 1cm\texorpdfstring{$^\wedge$}{\string^}3 for regions 1 and 3 respectively in a phantom called {\ttfamily my\+\_\+phantom} you would do\+:
+
+\begin{DoxyVerb}:start volume correction:
+
+    :start phantom region volumes:
+        phantom name = my_phantom
+        region numbers = 1 3 
+        region volumes = 0.5 1
+    :stop phantom region volumes:
+
+:stop volume correction:
+\end{DoxyVerb}
+
+
+if you try to calculate dose in a geometry type that doesn\textquotesingle{}t support automatic volume calculations without including a {\ttfamily phantom region volumes} block, egs\+\_\+brachy will print a warning and terminate.\hypertarget{index_outputfiles}{}\doxysubsection{\texorpdfstring{Output files}{Output files}}\label{index_outputfiles}
+\hypertarget{index_dosefiles}{}\doxysubsubsection{\texorpdfstring{3ddose files}{3ddose files}}\label{index_dosefiles}
+A 3ddose file will be output for every phantom geometry named in the {\ttfamily geometry definition -\/\texorpdfstring{$>$}{>} phantom geometries} input item. The filename format of these 3ddose files is {\ttfamily \{input\+\_\+file\}\+\_\+\{phantom\+\_\+name\}.3ddose} where {\ttfamily \{input\+\_\+file\}} is replaced with the name of the simulations input file and {\ttfamily \{phantom\+\_\+name\}} is replaced with the name of the phantom.
+
+If {\ttfamily score energy deposition = yes} is set, a second 3ddose file with dose from interaction scoring will be output to {\ttfamily \{input\+\_\+file\}\+\_\+\{phantom\+\_\+name\}.edep.\+3ddose} as well.
+
+The 3ddose file format is described in section 6.\+2 of the \href{https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf}{\texttt{egs\+\_\+brachy manual}}. By default, the doses are reported in units of Gray per history (Gy/hist). If a dose scaling factor is provided within the egsinp file to convert the results to absolute dose as per section 7.\+4.\+2 of the egs\+\_\+brachy manual, then the units of the doses will simply be Gy.
+
+If {\ttfamily score scatter dose} is enabled, egs\+\_\+brachy will score primary, single scattered and multiple scattered dose (normalized to total radiant energy) and output them to 3ddose files with the format {\ttfamily \{input\+\_\+file\}\+\_\+\{phantom\+\_\+name\}.\{pr,ss,ms,to\}.3ddose} The units of the doses are Gray per radiant energy (Gy/R) or simply inverse grams (g\texorpdfstring{$^\wedge$}{\string^}-\/1).
+
+Note that for voxels with volume corrections, the uncertainty in the 3ddose file represents the total uncertainty of the calculation which is the error on the dose calculation added in quadrature to the error on the volume correction calculation.\hypertarget{index_egsphant}{}\doxysubsubsection{\texorpdfstring{egsphant file}{egsphant file}}\label{index_egsphant}
+If the user sets {\ttfamily output egsphant files} to yes in the {\ttfamily scoring options} input block, an egsphant file will be output for each scoring phantom in the simulation.
+
+\begin{DoxyVerb}:start scoring options:
+
+
+    #...
+    output egsphant files = yes
+
+:stop scoring options:
+\end{DoxyVerb}
+\hypertarget{index_voxinfo}{}\doxysubsubsection{\texorpdfstring{Voxel info files}{Voxel info files}}\label{index_voxinfo}
+If the user sets {\ttfamily output voxel info files} to yes in the {\ttfamily scoring options} input block, a file with a .voxels extension ({\ttfamily \{input\+\_\+file\}\+\_\+\{phantom\+\_\+name\}.voxels}) will be output that contains region by region information about every voxel in a phantom. The information currently includes, region \#, corrected volume, uncorrected volume, mass, density, medium, dose and uncertainy.
+
+\begin{DoxyVerb}:start scoring options:
+
+
+    #...
+    output voxel info files = yes
+
+:stop scoring options:
+\end{DoxyVerb}
+\hypertarget{index_runsim}{}\doxysubsection{\texorpdfstring{Running a simulation}{Running a simulation}}\label{index_runsim}
+egs\+\_\+brachy uses the standard egs++ {\ttfamily run control} input block to control the number of histories, batches, geometry erorr limits etc.. Likewise the standard methods of running EGSnrc user codes from the command line all apply to egs\+\_\+brachy (i.\+e. use {\ttfamily ex}, {\ttfamily exb} or {\ttfamily egs\+\_\+brachy -\/i input\+\_\+file \mbox{[}-\/p pegs\+\_\+file\mbox{]} \mbox{[}-\/o output\+\_\+file\mbox{]} \mbox{[}-\/s\mbox{]} \mbox{[}-\/P n -\/j i\mbox{]}})\hypertarget{index_viewandtracks}{}\doxysubsection{\texorpdfstring{egs\+\_\+view and particle tracks}{egs\+\_\+view and particle tracks}}\label{index_viewandtracks}
+Simulation geometries and particles tracks can be viewed using the egs\+\_\+view application distributed with EGSnrc. A brief overview of egs\+\_\+view is available in \href{https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/group__Geometry.html\#geometry_view}{\texttt{PIRS-\/898}}. Instructions to generate and visualize particle tracks are available in the \href{https://nrc-cnrc.github.io/EGSnrc/}{\texttt{Getting Started with EGSnrc guide}}.\hypertarget{index_runtests}{}\doxysection{\texorpdfstring{Test Suite}{Test Suite}}\label{index_runtests}
+egs\+\_\+brachy comes with a test suite that will allow you to confirm the code is still performing as expected after making modifications or updating the egsnrc version.
+
+Geometries required for the tests are either defined within the .egsinp files or within \href{https://github.com/clrp-code/egs_brachy/blob/main/egs_brachy/eb_tests/test_geoms}{\texttt{eb\+\_\+tests/test\+\_\+geoms}}.\hypertarget{index_setup}{}\doxysubsection{\texorpdfstring{Setup}{Setup}}\label{index_setup}
+In order to make accurate CPU time comparisons the test suite needs to know how fast your CPU is. If you are on a linux system that makes processor speed available in {\ttfamily /proc/cpuinfo/} then the test suite can likely determine this information on its own. Otherwise you will need to set a {\ttfamily CPU\+\_\+\+MHZ} environment variable with the value of your CPU speed in MHz (e.\+g. {\ttfamily CPU\+\_\+\+MHZ=2400}).\hypertarget{index_testsuite}{}\doxysubsection{\texorpdfstring{Running the test suite}{Running the test suite}}\label{index_testsuite}
+To run the test suite you need to be in the root egs\+\_\+brachy directory. To run the whole test suite type (tested with Python 2.\+7 \& 3.\+4)\+:
+
+\begin{DoxyVerb}python run_tests.py
+\end{DoxyVerb}
+
+
+after which you should see output like\+:
+
+\begin{DoxyVerb}~/egs/egsnrc/egs_brachy$ python run_tests.py
+CPU speed read from /proc/cpuinfo as 3498.557000 MHz
+Running test 'tests.volume_correction'...
+PASS - tests.volume_correction - ran in 5.72E-05 s/MHz (0.2 s)
+Running test 'tests.scatter'...
+PASS - tests.scatter - ran in 0.0056 s/MHz (19.6 s)
+Running test 'tests.seeds_in_xyz'...
+...
+Running test 'tests.spec_vox'...
+PASS - tests.spec_vox - ran in 0.000829 s/MHz (2.9 s)
+================================================================================
+Tests finished 17/17 passed
+~/egs/egsnrc/egs_brachy$
+\end{DoxyVerb}
+
+
+You can also run a subset of the tests in the following way\+:
+
+\begin{DoxyVerb}~/egs/egsnrc/egs_brachy$ python run_tests.py eb_tests/seeds_in_xyz/
+CPU speed read from /proc/cpuinfo as 3498.557000 MHz
+Running test 'tests.seeds_in_xyz'...
+PASS - tests.seeds_in_xyz - ran in 0.00269 s/MHz (9.4 s)
+================================================================================
+Tests finished 1/1 passed
+~/egs/egsnrc/egs_brachy$
+\end{DoxyVerb}
+
+
+or
+
+\begin{DoxyVerb}~/egs/egsnrc/egs_brachy$ python run_tests.py "eb_tests/spec*"
+CPU speed read from /proc/cpuinfo as 3498.557000 MHz
+Running test 'tests.spec_eflu'...
+PASS - tests.spec_eflu - ran in 0.000629 s/MHz (2.2 s)
+Running test 'tests.spec_absolute'...
+PASS - tests.spec_absolute - ran in 0.000629 s/MHz (2.2 s)
+Running test 'tests.spec_vox'...
+PASS - tests.spec_vox - ran in 0.000743 s/MHz (2.6 s)
+================================================================================
+Tests finished 3/3 passed
+~/egs/egsnrc/egs_brachy$
+\end{DoxyVerb}
+\hypertarget{index_curtests}{}\doxysubsection{\texorpdfstring{A list of the current tests}{A list of the current tests}}\label{index_curtests}
+A list of all the tests currently implemented can be found in the \doxysectlink{md_tests}{egs\+\_\+brachy tests page}{0}.\hypertarget{index_library}{}\doxysection{\texorpdfstring{The egs\+\_\+brachy Library}{The egs\+\_\+brachy Library}}\label{index_library}
+\hypertarget{index_libgeom}{}\doxysubsection{\texorpdfstring{The Geometry Library}{The Geometry Library}}\label{index_libgeom}
+For a list of the current geometry objects available in the egs\+\_\+brachy library, please see \doxysectlink{md_geom}{the geometry library page}{0}.\hypertarget{index_libtransport}{}\doxysubsection{\texorpdfstring{Transport Parameters}{Transport Parameters}}\label{index_libtransport}
+For a list of the current default transport parameter files available in the egs\+\_\+brachy library, please see \doxysectlink{md_transport}{the transport parameters page}{0}.\hypertarget{index_libspectra}{}\doxysubsection{\texorpdfstring{Spectra}{Spectra}}\label{index_libspectra}
+For a list of the current spectra available in the egs\+\_\+brachy library, please see \doxysectlink{md_spectra}{the spectra page}{0}.\hypertarget{index_libmedia}{}\doxysubsection{\texorpdfstring{Media \& Muen Data}{Media \& Muen Data}}\label{index_libmedia}
+egs\+\_\+brachy includes material files for pegsless runs and muen data for scoring dose in different media using the tracklength estimator. For a list of the current media available see \doxysectlink{md_media}{here}{0}.\hypertarget{index_libexamples}{}\doxysubsection{\texorpdfstring{Example egsinp files}{Example egsinp files}}\label{index_libexamples}
+A suite of input files is distributed with egs\+\_\+brachy (found in lib/examples). These provide a good starting point for users new to egs\+\_\+brachy.\hypertarget{index_makedocs}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_makedocs}
+This egs\+\_\+brachy Technical Reference Manual uses doxygen and Python to build its documentation. Documentation for the egs\+\_\+brachy library and test suite are generated by a number of Python scripts located in the \+\_\+docs directory. The Python scripts generate markdown documents based on the contents of the {\ttfamily lib} and {\ttfamily \doxylink{namespaceeb__tests}{eb\+\_\+tests}} directory. These markdown documents are then compiled to html by doxygen.
+
+This document (\doxylink{egs__brachy_8md}{egs\+\_\+brachy.\+md}) and the scripts for generating the library and test documents are located in {\ttfamily \+\_\+docs/} and the generated html is placed in {\ttfamily docs/} ( the documents in the {\ttfamily docs/} directory should not be modified manually).
+
+To update the documentation simply run {\ttfamily make docs} and then commit the changes\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ docs}
+\DoxyCodeLine{git\ add\ \_docs/\ docs/}
+\DoxyCodeLine{git\ commit\ -\/am\ 'your\ commit\ message'}
+
+\end{DoxyCode}
+ 

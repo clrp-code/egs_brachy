@@ -9,7 +9,8 @@ digraph "igzstream"
   Node2 [id="Node000002",label="gzstreambase",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgzstreambase.html",tooltip=" "];
   Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="std::ios",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
-  Node4 -> Node2 [id="edge3_Node000002_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" buf",fontcolor="grey" ];
+  Node4 -> Node2 [id="edge3_Node000002_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">buf</TD></TR>
+</TABLE>> ,fontcolor="grey" ];
   Node4 [id="Node000004",label="gzstreambuf",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$classgzstreambuf.html",tooltip=" "];
   Node5 -> Node4 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="std::streambuf",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];

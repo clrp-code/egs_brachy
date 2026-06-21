@@ -1,0 +1,40 @@
+\doxysection{test.\+py}
+\label{source__coordinate__transform_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/source\_coordinate\_transform/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/source\_coordinate\_transform/test.py}}
+\mbox{\hyperlink{source__coordinate__transform_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{Compare\ dose\ from\ a\ source\ definition\ that\ uses\ local\ transforms\ plus\ a}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{source\ coordinate\ transform\ against\ the\ seeds\_in\_xyz\ gold\ standard,\ which}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{uses\ pre-\/composed\ world\ transforms\ directly.}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{Local\ transforms\ subtract\ (0.1,\ 0.2,\ 0.3)\ cm\ from\ each\ world\ placement;}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{the\ source\ coordinate\ transform\ adds\ that\ offset\ back\ during\ initialization.}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ compare\_3ddose\_files,\ read3ddose}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ EGSINP\ =\ \textcolor{stringliteral}{"{}source\_coordinate\_transform.egsinp"{}}}
+\DoxyCodeLine{00017\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 25/2993.\ \ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ gold\_standard\ =\ os.path.join(}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ os.path.dirname(os.path.abspath(\_\_file\_\_)),}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}.."{}},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}seeds\_in\_xyz"{}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}gold\_standard.3ddose"{}},}
+\DoxyCodeLine{00027\ \ \ \ \ )}
+\DoxyCodeLine{00028\ \ \ \ \ run\_doses\ =\ inp\_name\ +\ \textcolor{stringliteral}{"{}.phantom.3ddose"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ doses\_close\ =\ compare\_3ddose\_files(}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ gold\_standard,\ run\_doses,\ max\_percent\_diff=0.01}
+\DoxyCodeLine{00032\ \ \ \ \ )}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close,\ read3ddose(run\_doses),\ read3ddose(gold\_standard)}
+
+\end{DoxyCode}

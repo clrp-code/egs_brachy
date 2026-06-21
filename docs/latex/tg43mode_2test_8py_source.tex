@@ -1,0 +1,40 @@
+\doxysection{test.\+py}
+\label{tg43mode_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/tg43mode/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/tg43mode/test.py}}
+\mbox{\hyperlink{tg43mode_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{A\ test\ to\ ensure\ egs\_brachy\ superposition\ mode\ calculations\ match\ previous}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{calculations\ when\ egs\_brachy\ was\ in\ a\ known\ good\ state.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ (compare\_3ddose\_files,\ doses\_approx\_equal,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extract\_all\_doses,\ read3ddose)}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ EGSINP\ =\ \textcolor{stringliteral}{"{}tg43mode.egsinp"{}}}
+\DoxyCodeLine{00015\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 2000/2993.\ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00016\ NCOMPARE\ =\ 100}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{def\ }get\_n\_highest\_dose\_pairs(dose1,\ dose2,\ n=NCOMPARE):}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{return}\ sorted(zip(dose1,\ dose2))[-\/NCOMPARE:]}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ gold\_standard\ =\ read3ddose(os.path.join(os.path.dirname(os.path.abspath(\_\_file\_\_)),\ \textcolor{stringliteral}{"{}gold\_standard.3ddose"{}}))}
+\DoxyCodeLine{00024\ \ \ \ \ run\_doses\ =\ read3ddose(inp\_name+\textcolor{stringliteral}{"{}.phantom.3ddose"{}})}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ dose\_pairs\ =\ get\_n\_highest\_dose\_pairs(gold\_standard[\textcolor{stringliteral}{'doses'}],\ run\_doses[\textcolor{stringliteral}{'doses'}])}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ dose\_diff\ =\ [abs(a-\/b)/a\ \textcolor{keywordflow}{for}\ a,\ b\ \textcolor{keywordflow}{in}\ dose\_pairs]}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ doses\_close\ =\ max(dose\_diff)\ <\ 0.01}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ rd,\ gs\ =\ \ list(zip(*dose\_pairs))}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close,\ rd,\ gs}
+\DoxyCodeLine{00034\ }
+
+\end{DoxyCode}

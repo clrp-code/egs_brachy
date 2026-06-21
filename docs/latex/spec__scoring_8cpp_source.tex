@@ -1,0 +1,593 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/spec\+\_\+scoring.cpp}
+\label{spec__scoring_8cpp_source}\mbox{\hyperlink{spec__scoring_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ spec\_scoring.cpp}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}spec\_scoring.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <stdarg.h>}\ \ \textcolor{comment}{//\ For\ va\_start,\ etc.}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ std::string\ string\_format(\textcolor{keyword}{const}\ std::string\ fmt,\ ...)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ ((int)fmt.size())\ *\ 2\ +\ 50;\ \ \ \textcolor{comment}{//\ Use\ a\ rubric\ appropriate\ for\ your\ code}}
+\DoxyCodeLine{00049\ \ \ \ \ std::string\ str;}
+\DoxyCodeLine{00050\ \ \ \ \ va\_list\ ap;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{\ \ \ \ \ \textcolor{comment}{//\ Maximum\ two\ passes\ on\ a\ POSIX\ system...}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ str.resize(size);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ va\_start(ap,\ fmt);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ vsnprintf((\textcolor{keywordtype}{char}\ *)str.data(),\ size,\ fmt.c\_str(),\ ap);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ va\_end(ap);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ -\/1\ \&\&\ n\ <\ size)\ \{\ \ \textcolor{comment}{//\ Everything\ worked}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ str.resize(n);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ -\/1)\ \{\ \textcolor{comment}{//\ Needed\ size\ returned}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ n\ +\ 1;\ \ \ \ \textcolor{comment}{//\ For\ null\ char}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ size\ *=\ 2;\ \ \ \ \textcolor{comment}{//\ Guess\ at\ a\ larger\ size\ (OS\ specific)}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{string}\ getFileNameFromPath(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&s)\ \{}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{char}\ sep\ =\ \textcolor{charliteral}{'/'};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00074\ \ \ \ \ sep\ =\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'};}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ i\ =\ s.rfind(sep,\ s.length());}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ string::npos)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (s.substr(i+1,\ s.length()\ -\/\ i));}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ BaseSpectrumScorer\ *BaseSpectrumScorer::getSpectrumScorer(EGS\_Input\ *inp,\ EGS\_BaseSource\ *source,\ GeomInfo\ *ginfo,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ Publisher\ *publisher)\ \{}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ vector<string>\ types;}
+\DoxyCodeLine{00089\ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}surface\ count"{}});}
+\DoxyCodeLine{00090\ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}energy\ weighted\ surface"{}});}
+\DoxyCodeLine{00091\ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}fluence\ in\ region"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ types.push\_back(\textcolor{stringliteral}{"{}energy\ fluence\ in\ region"{}});}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{string}\ type\ =\ types[inp-\/>getInput(\textcolor{stringliteral}{"{}type"{}},\ types,\ 0)];}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ BaseSpectrumScorer\ *scorer\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}surface\ count"{}})\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ scorer\ =\ \textcolor{keyword}{new}\ SurfaceCountSpectrum(inp,\ source,\ ginfo,\ publisher);}
+\DoxyCodeLine{00099\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}energy\ weighted\ surface"{}})\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ scorer\ =\ \textcolor{keyword}{new}\ EnergyWeightedSurfaceSpectrum(inp,\ source,\ ginfo,\ publisher);}
+\DoxyCodeLine{00101\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}fluence\ in\ region"{}})\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ scorer\ =\ \textcolor{keyword}{new}\ FluenceSpectrumInVoxel(inp,\ source,\ ginfo,\ publisher);}
+\DoxyCodeLine{00103\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}energy\ fluence\ in\ region"{}})\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ scorer\ =\ \textcolor{keyword}{new}\ EnergyFluenceSpectrumInVoxel(inp,\ source,\ ginfo,\ publisher);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{if}\ (!scorer\ ||\ !scorer-\/>isValid())\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ scorer;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ BaseSpectrumScorer::BaseSpectrumScorer(EGS\_Input\ *input,\ EGS\_BaseSource\ *src,\ GeomInfo\ *ginfo,\ Publisher\ *publisher)\ \{}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ valid\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00118\ \ \ \ \ source\ =\ src;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ cur\_history\ =\ 0;}
+\DoxyCodeLine{00122\ \ \ \ \ eff\_history\ =\ 0;}
+\DoxyCodeLine{00123\ \ \ \ \ total\_scored\ =\ 0;}
+\DoxyCodeLine{00124\ \ \ \ \ egsnrc\_mode\ =\ 0;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}minimum\ energy"{}},\ e\_min);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ e\_min\ =\ 0.001;}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}maximum\ energy"{}},\ e\_max);}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ e\_max\ =\ source-\/>getEmax();}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}number\ of\ bins"{}},\ nbins);}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ ||\ nbins\ <\ 1)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ nbins\ =\ DEFAULT\_NBINS;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ vector<string>\ particle\_choices;}
+\DoxyCodeLine{00142\ \ \ \ \ particle\_choices.push\_back(\textcolor{stringliteral}{"{}photon"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ particle\_choices.push\_back(\textcolor{stringliteral}{"{}electron"{}});}
+\DoxyCodeLine{00144\ \ \ \ \ particle\_choices.push\_back(\textcolor{stringliteral}{"{}positron"{}});}
+\DoxyCodeLine{00145\ \ \ \ \ particle\_type\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}particle\ type"{}},\ particle\_choices,\ 0);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//convert\ particle\ type\ to\ particle\ charge}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{if}\ (particle\_type\ ==\ 1)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ particle\_type\ =\ -\/1;}
+\DoxyCodeLine{00150\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (particle\_type\ ==\ 2)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ particle\_type\ =\ 1;}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}file\ extension"{}},\ fextension);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ fextension\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ vector<string>\ choices;}
+\DoxyCodeLine{00161\ \ \ \ \ choices.push\_back(\textcolor{stringliteral}{"{}xmgr"{}});}
+\DoxyCodeLine{00162\ \ \ \ \ choices.push\_back(\textcolor{stringliteral}{"{}csv"{}});}
+\DoxyCodeLine{00163\ \ \ \ \ choices.push\_back(\textcolor{stringliteral}{"{}egsnrc"{}});}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}output\ format"{}},\ choices,\ 0);}
+\DoxyCodeLine{00165\ \ \ \ \ format\ =\ choices[choice];}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}egsnrc"{}})\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}egsnrc\ format\ mode"{}},\ egsnrc\_mode);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ egsnrc\_mode\ =\ 0;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (egsnrc\_mode\ <\ 0\ ||\ egsnrc\_mode\ >\ 2)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}Unsupported\ egsnrc\ spectrum\ output\ format\ mode.\ Defaulting\ to\ mode\ 0\(\backslash\)n"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ bins\ =\ \textcolor{keyword}{new}\ EGS\_ScoringArray(nbins);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ bin\_width\ =\ (e\_max\ -\/\ e\_min)/nbins;}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ publisher-\/>subscribe(\textcolor{keyword}{this},\ NEW\_HISTORY);}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ BaseSpectrumScorer::\string~BaseSpectrumScorer()\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{if}\ (bins)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ bins;}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ BaseSpectrumScorer::setEffectiveHistories(EGS\_Float\ effh)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ eff\_history\ =\ (EGS\_I64)effh;}
+\DoxyCodeLine{00196\ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{keywordtype}{int}\ BaseSpectrumScorer::getBin(EGS\_Float\ E)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ min(nbins-\/1,\ (\textcolor{keywordtype}{int})((E\ -\/\ e\_min)/bin\_width));}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ EGS\_Float\ BaseSpectrumScorer::getBinWidth()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{return}\ bin\_width;}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{double}\ BaseSpectrumScorer::getParticleEnergy(\textcolor{keyword}{const}\ EGS\_Particle\ *p)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{double}\ rest\_mass\ =\ p-\/>q\ ==\ 0\ ?\ 0\ :\ the\_useful-\/>prm;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{return}\ (p-\/>E\ -\/\ rest\_mass);}
+\DoxyCodeLine{00210\ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{keywordtype}{int}\ BaseSpectrumScorer::outputResults(\textcolor{keywordtype}{string}\ rootname)\ \{}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{string}\ fname;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}csv"{}})\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ fname\ =\ outputCSV(rootname);}
+\DoxyCodeLine{00217\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}egsnrc"{}})\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ fname\ =\ outputEGSnrc(rootname);}
+\DoxyCodeLine{00219\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (format\ ==\ \textcolor{stringliteral}{"{}xmgr"{}})\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ fname\ =\ outputXMGR(rootname);}
+\DoxyCodeLine{00221\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{string}\ sep(80,\textcolor{charliteral}{'-\/'});}
+\DoxyCodeLine{00226\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\%s\(\backslash\)n"{}},sep.c\_str());}
+\DoxyCodeLine{00227\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ getTitle().c\_str());}
+\DoxyCodeLine{00228\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Output\ written\ to\ :\ \%s\(\backslash\)n"{}},\ getFileNameFromPath(fname).c\_str());}
+\DoxyCodeLine{00229\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Particle\ type\ \ \ \ \ :\ \%s\(\backslash\)n"{}},\ getParticleName().c\_str());}
+\DoxyCodeLine{00230\ \ \ \ \ egsInformation(}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Energy\ range\ \ \ \ \ \ :\ \%.3FMeV\ <=\ E\ <=\ \%.3FMeV\ (\%d\ bins\ of\ width\ \%.3GMeV)\(\backslash\)n"{}},}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ e\_min,\ e\_max,\ nbins,\ bin\_width}
+\DoxyCodeLine{00233\ \ \ \ \ );}
+\DoxyCodeLine{00234\ \ \ \ \ outputTotal();}
+\DoxyCodeLine{00235\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},sep.c\_str());}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00238\ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{keywordtype}{string}\ BaseSpectrumScorer::outputCSV(\textcolor{keywordtype}{string}\ rootname)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ getFileName(rootname)+\textcolor{stringliteral}{"{}.csv"{}};}
+\DoxyCodeLine{00243\ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00244\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}E,F,dF\(\backslash\)n"{}};}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{double}\ mid,\ r,\ dr;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nbins;\ i++)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ mid\ =\ e\_min\ +\ (i+0.5)*bin\_width;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ getResult(i,\ r,\ dr);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E,\%.5E,\%.5E\(\backslash\)n"{}},\ mid,\ r,\ dr);}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ out.close();}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{return}\ fname;}
+\DoxyCodeLine{00254\ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{keywordtype}{string}\ BaseSpectrumScorer::outputEGSnrc(\textcolor{keywordtype}{string}\ rootname)\ \{}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ getFileName(rootname)+\textcolor{stringliteral}{"{}.spectrum"{}};}
+\DoxyCodeLine{00260\ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00261\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}egs\_brachy\ scored\ spectrum"{}}<<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (egsnrc\_mode\ ==\ 0\ ||\ egsnrc\_mode\ ==\ 1)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ egsnrc\ modes}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ out\ <<\ nbins\ <<\textcolor{stringliteral}{"{},"{}}<<e\_min<<\textcolor{stringliteral}{"{},"{}}<<\ egsnrc\_mode\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ top,\ prob,\ r,\ dr;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nbins;\ i++)\ \{}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(i,\ r,\ dr);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ top\ =\ e\_min\ +\ (i\ +\ 1)*bin\_width;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ prob\ =\ \ egsnrc\_mode\ ==\ 0\ ?\ r\ :\ r/bin\_width;}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E,\%.5E\(\backslash\)n"{}},\ top,\ prob);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (egsnrc\_mode\ ==\ 2)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ egs++\ line\ spectrum}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r,\ dr,\ norm=0;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ vector<double>\ mids;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ vector<double>\ probabilities;}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ non\ zero\ bins}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nbins;\ i++)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ getResult(i,\ r,\ dr);}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ >\ 0)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mids.push\_back(e\_min\ +\ (i+0.5)*bin\_width);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ probabilities.push\_back(r);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ norm\ +=\ r;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ mids.size();\ i++)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%d,\%.5E,\%d\(\backslash\)n"{}},\ mids.size(),\ mids[i],\ egsnrc\_mode);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E,\%.5E\(\backslash\)n"{}},\ mids[i],\ probabilities[i]/norm);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ out.close();}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordflow}{return}\ fname;}
+\DoxyCodeLine{00307\ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{keywordtype}{string}\ BaseSpectrumScorer::outputXMGR(\textcolor{keywordtype}{string}\ rootname)\ \{}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ ofstream\ out;}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{string}\ fname\ =\ getFileName(rootname)+\textcolor{stringliteral}{"{}.agr"{}};}
+\DoxyCodeLine{00313\ \ \ \ \ out.open(fname.c\_str());}
+\DoxyCodeLine{00314\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\#\ EGS\_Brachy\ spectrum\(\backslash\)n"{}};}
+\DoxyCodeLine{00315\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\#\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00316\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ legend\ 0.2,\ 0.8\(\backslash\)n"{}};}
+\DoxyCodeLine{00317\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ legend\ box\ linestyle\ 0\(\backslash\)n"{}};}
+\DoxyCodeLine{00318\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ legend\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00319\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ xaxis\ \ label\ \(\backslash\)"{}"{}}+getXAxisLabel()+\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00320\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ xaxis\ \ label\ char\ size\ 1.3\(\backslash\)n"{}};}
+\DoxyCodeLine{00321\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ xaxis\ \ label\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00322\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ xaxis\ \ ticklabel\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00323\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ yaxis\ \ label\ \(\backslash\)"{}"{}}+getYAxisLabel()+\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00324\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ yaxis\ \ label\ char\ size\ 1.3\(\backslash\)n"{}};}
+\DoxyCodeLine{00325\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ yaxis\ \ label\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00326\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ yaxis\ \ ticklabel\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00327\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ title\ \(\backslash\)"{}"{}}\ <<\ getTitle()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00328\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ title\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00329\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ title\ size\ 1.500000\(\backslash\)n"{}};}
+\DoxyCodeLine{00330\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ subtitle\ \(\backslash\)"{}"{}}\ <<\ getSubTitle()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00331\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ subtitle\ font\ 4\(\backslash\)n"{}};}
+\DoxyCodeLine{00332\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}@\ \ \ \ subtitle\ size\ 1.000000\(\backslash\)n"{}};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ out<<\textcolor{stringliteral}{"{}@\ \ \ \ s0\ errorbar\ linestyle\ 0\(\backslash\)n"{}};}
+\DoxyCodeLine{00335\ \ \ \ \ out<<\textcolor{stringliteral}{"{}@\ \ \ \ s0\ legend\ \(\backslash\)"{}Spectrum\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00336\ \ \ \ \ out<<\textcolor{stringliteral}{"{}@target\ G0.S0\(\backslash\)n"{}};}
+\DoxyCodeLine{00337\ \ \ \ \ out<<\textcolor{stringliteral}{"{}@type\ xydy\(\backslash\)n"{}};}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{double}\ mid,\ bot,\ top,\ r,\ dr;}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ nbins;\ i++)\ \{}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ bot\ =\ e\_min\ +\ i*bin\_width;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ mid\ =\ e\_min\ +\ (i+0.5)*bin\_width;}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ top\ =\ e\_min\ +\ (i+\ 1)*bin\_width;}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ getResult(i,\ r,\ dr);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E\ \%.5E\ \%.5E\(\backslash\)n"{}},\ bot,\ 0.,\ 0.);}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E\ \%.5E\ \%.5E\(\backslash\)n"{}},\ bot,\ r,\ 0.);}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E\ \%.5E\ \%.5E\(\backslash\)n"{}},\ mid,\ r,\ dr);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E\ \%.5E\ \%.5E\(\backslash\)n"{}},\ top,\ r,\ 0.);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ nbins-\/1)\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ out\ <<\ string\_format(\textcolor{stringliteral}{"{}\%.5E\ \%.5E\ \%.5E\(\backslash\)n"{}},\ top,\ 0.,\ 0.);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ \ \ \ \ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ out.close();}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{return}\ fname;}
+\DoxyCodeLine{00364\ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keywordtype}{void}\ BaseSpectrumScorer::update(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ NEW\_HISTORY)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ cur\_history\ =\ *(EGS\_I64\ *)(data);}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ bins-\/>setHistory(cur\_history);}
+\DoxyCodeLine{00371\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ score(message,\ data);}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \textcolor{keywordtype}{void}\ BaseSpectrumScorer::getResult(\textcolor{keywordtype}{int}\ i,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ bins-\/>currentResult(i,\ r,\ dr);}
+\DoxyCodeLine{00379\ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keywordtype}{int}\ BaseSpectrumScorer::outputData(ostream\ *ofile)\ \{}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ (*ofile)\ <<\ cur\_history\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ eff\_history\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00384\ \ \ \ \ (*ofile)\ <<\ total\_scored\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ bins-\/>storeState(*ofile);}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{keywordtype}{int}\ BaseSpectrumScorer::readData(istream\ *ifile)\ \{}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ (*ifile)\ >>\ cur\_history\ >>\ eff\_history;}
+\DoxyCodeLine{00397\ \ \ \ \ (*ifile)\ >>\ total\_scored;}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ bins-\/>setState(*ifile);}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{keywordtype}{void}\ BaseSpectrumScorer::resetCounter()\ \{}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \ \ cur\_history\ =\ 0;}
+\DoxyCodeLine{00410\ \ \ \ \ setEffectiveHistories(0);}
+\DoxyCodeLine{00411\ \ \ \ \ total\_scored\ =\ 0;}
+\DoxyCodeLine{00412\ \ \ \ \ bins-\/>reset();}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{keywordtype}{int}\ BaseSpectrumScorer::addState(istream\ \&data)\ \{}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ EGS\_I64\ cur\_history\_tmp,\ eff\_history\_tmp;}
+\DoxyCodeLine{00419\ \ \ \ \ EGS\_Float\ total\_scored\_tmp;}
+\DoxyCodeLine{00420\ \ \ \ \ EGS\_ScoringArray\ tmp\_bins(bins-\/>regions());}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ data\ >>\ cur\_history\_tmp\ >>\ eff\_history\_tmp;}
+\DoxyCodeLine{00423\ \ \ \ \ data\ >>\ total\_scored\_tmp;}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok\ =\ tmp\_bins.setState(data);}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ok)\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00427\ \ \ \ \ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ cur\_history\ +=\ cur\_history\_tmp;}
+\DoxyCodeLine{00430\ \ \ \ \ eff\_history\ +=\ eff\_history\_tmp;}
+\DoxyCodeLine{00431\ \ \ \ \ total\_scored\ +=\ total\_scored\_tmp;}
+\DoxyCodeLine{00432\ \ \ \ \ (*bins)\ +=\ tmp\_bins;}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00435\ \}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{00439\ \textcolor{comment}{\ *\ Surface\ Count\ Spectrum\ */}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{keywordtype}{void}\ SurfaceCountSpectrum::score(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_ESCAPING\_SOURCE)\ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p=\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(data);}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ energy\ =\ getParticleEnergy(p);}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e\_min\ <=\ energy\ \&\&\ energy\ <=\ e\_max\ \&\&\ p-\/>q\ ==\ particle\_type)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ bins-\/>score(getBin(energy),\ 1.);}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ total\_scored\ +=\ 1.;}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \textcolor{keywordtype}{void}\ SurfaceCountSpectrum::getResult(\textcolor{keywordtype}{int}\ i,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ bins-\/>currentResult(i,\ r,\ dr);}
+\DoxyCodeLine{00459\ \ \ \ \ EGS\_Float\ norm\ =\ bin\_width\ *\ total\_scored\ /\ cur\_history;}
+\DoxyCodeLine{00460\ \ \ \ \ r\ /=\ norm;}
+\DoxyCodeLine{00461\ \ \ \ \ dr\ /=\ norm;}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \textcolor{keywordtype}{void}\ SurfaceCountSpectrum::outputTotal()\ \{}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ metric\ \ \ \ :\ absolute\ photon\ counts\ on\ surface\ of\ source\(\backslash\)n"{}})\ ;}
+\DoxyCodeLine{00469\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ counts\ \ \ \ \ \ :\ \%.5G\ \(\backslash\)n"{}},\ total\_scored);}
+\DoxyCodeLine{00470\ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{00474\ \textcolor{comment}{\ *\ Energy\ weighted\ surface\ spectrum\ */}}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{keywordtype}{void}\ EnergyWeightedSurfaceSpectrum::score(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_ESCAPING\_SOURCE)\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p=\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(data);}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ energy\ =\ getParticleEnergy(p);}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((e\_min\ <=\ energy)\ \&\&\ (energy\ <=\ e\_max)\ \&\&\ (p-\/>q\ ==\ particle\_type))\ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ bins-\/>score(getBin(energy),\ energy*p-\/>wt);}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ total\_scored\ +=\ energy*p-\/>wt;}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00487\ \ \ \ \ \}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{keywordtype}{void}\ EnergyWeightedSurfaceSpectrum::getResult(\textcolor{keywordtype}{int}\ i,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ bins-\/>currentResult(i,\ r,\ dr);}
+\DoxyCodeLine{00494\ \ \ \ \ EGS\_Float\ norm\ =\ bin\_width\ *\ total\_scored\ /\ cur\_history;}
+\DoxyCodeLine{00495\ \ \ \ \ r\ /=\ norm;}
+\DoxyCodeLine{00496\ \ \ \ \ dr\ /=\ norm;}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{keywordtype}{void}\ EnergyWeightedSurfaceSpectrum::outputTotal()\ \{}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ metric\ \ \ \ :\ Energy\ weighted\ spectrum\ on\ surface\ of\ source\(\backslash\)n"{}})\ ;}
+\DoxyCodeLine{00503\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ Radiant\ E\ \ \ :\ \%.5G\ MeV\(\backslash\)n"{}},\ total\_scored);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{00508\ \textcolor{comment}{\ *\ Fluence\ spectrum\ in\ Voxel\ */}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{comment}{/*\ Note:\ this\ only\ works\ if\ there\ are\ no\ other\ geometries\ overlapping}}
+\DoxyCodeLine{00511\ \textcolor{comment}{\ *\ the\ scoring\ region!\ */}}
+\DoxyCodeLine{00512\ \textcolor{keywordtype}{void}\ FluenceSpectrumInVoxel::score(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_TAKING\_STEP)\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p=\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(data);}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_scoring\_region\ =\ p-\/>ir\ ==\ scoring\_region;}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_energy\_scoring\_range\ =\ (e\_min\ <=\ p-\/>E)\ \&\&\ (p-\/>E\ <=\ e\_max);}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ correct\_particle\ =\ \ p-\/>q\ ==\ particle\_type;}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\_scoring\_region\ \&\&\ in\_energy\_scoring\_range\ \&\&\ correct\_particle)\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ EGS\_Float\ score\ =\ the\_epcont-\/>tvstep*p-\/>wt;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ bins-\/>score(getBin(p-\/>E),\ score);}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ total\_scored\ +=\ score;}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \}}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \textcolor{keywordtype}{void}\ FluenceSpectrumInVoxel::getResult(\textcolor{keywordtype}{int}\ i,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordtype}{double}\ eff\_history\_norm\ =\ eff\_history\ /\ cur\_history;}
+\DoxyCodeLine{00533\ \ \ \ \ bins-\/>currentResult(i,\ r,\ dr);}
+\DoxyCodeLine{00534\ \ \ \ \ EGS\_Float\ norm\ =\ bin\_width\ *\ region\_volume\ *\ eff\_history\_norm;}
+\DoxyCodeLine{00535\ \ \ \ \ r\ /=\ norm;}
+\DoxyCodeLine{00536\ \ \ \ \ dr\ /=\ norm;}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \textcolor{keywordtype}{void}\ FluenceSpectrumInVoxel::outputTotal()\ \{}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ metric\ \ \ \ \ \ \ \ \ \ \ \ :\ Fluence\ in\ region\(\backslash\)n"{}})\ ;}
+\DoxyCodeLine{00543\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ region\ (global)\ \ \ :\ \%d\ \(\backslash\)n"{}},\ scoring\_region)\ ;}
+\DoxyCodeLine{00544\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ region\ (local)\ \ \ \ :\ \%d\ of\ \%s\(\backslash\)n"{}},\ local\_scoring\_region,\ geometry-\/>getName().c\_str());}
+\DoxyCodeLine{00545\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Region\ Volume\ \ \ \ \ :\ \%.3G\ cm\string^3\(\backslash\)n"{}},\ region\_volume)\ ;}
+\DoxyCodeLine{00546\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ E\ fluence\ \ \ :\ \%.5G\ MeV/cm\string^2\(\backslash\)n"{}},\ total\_scored);}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{00551\ \textcolor{comment}{\ *\ Energy\ fluence\ spectrum\ in\ Voxel\ */}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \textcolor{comment}{/*\ Note:\ this\ only\ works\ if\ there\ are\ no\ other\ geometries\ overlapping}}
+\DoxyCodeLine{00554\ \textcolor{comment}{\ *\ the\ scoring\ region!\ */}}
+\DoxyCodeLine{00555\ \textcolor{keywordtype}{void}\ EnergyFluenceSpectrumInVoxel::score(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *data)\ \{}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_TAKING\_STEP)\ \{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p=\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(data);}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_scoring\_region\ =\ p-\/>ir\ ==\ scoring\_region;}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_energy\_scoring\_range\ =\ (e\_min\ <=\ p-\/>E)\ \&\&\ (p-\/>E\ <=\ e\_max);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ correct\_particle\ =\ \ p-\/>q\ ==\ particle\_type;}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\_scoring\_region\ \&\&\ in\_energy\_scoring\_range\ \&\&\ correct\_particle)\ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ EGS\_Float\ score\ =\ p-\/>E*the\_epcont-\/>tvstep*p-\/>wt;}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ bins-\/>score(getBin(p-\/>E),\ score);}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ total\_scored\ +=\ score;}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00569\ \ \ \ \ \}}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \textcolor{keywordtype}{void}\ EnergyFluenceSpectrumInVoxel::getResult(\textcolor{keywordtype}{int}\ i,\ EGS\_Float\ \&r,\ EGS\_Float\ \&dr)\ \{}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \ \ \ \ \textcolor{keywordtype}{double}\ eff\_history\_norm\ =\ eff\_history\ /\ cur\_history;}
+\DoxyCodeLine{00576\ \ \ \ \ bins-\/>currentResult(i,\ r,\ dr);}
+\DoxyCodeLine{00577\ \ \ \ \ EGS\_Float\ norm\ =\ bin\_width\ *\ region\_volume\ *\ eff\_history\_norm;}
+\DoxyCodeLine{00578\ \ \ \ \ r\ /=\ norm;}
+\DoxyCodeLine{00579\ \ \ \ \ dr\ /=\ norm;}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \}}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \textcolor{keywordtype}{void}\ EnergyFluenceSpectrumInVoxel::outputTotal()\ \{}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ metric\ \ \ \ \ \ \ \ \ \ \ \ :\ Energy\ fluence\ in\ region\(\backslash\)n"{}})\ ;}
+\DoxyCodeLine{00586\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ region\ (global)\ \ \ :\ \%d\ \(\backslash\)n"{}},\ scoring\_region)\ ;}
+\DoxyCodeLine{00587\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Scoring\ region\ (local)\ \ \ \ :\ \%d\ of\ \%s\(\backslash\)n"{}},\ local\_scoring\_region,\ geometry-\/>getName().c\_str());}
+\DoxyCodeLine{00588\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Region\ Volume\ \ \ \ \ :\ \%.3G\ cm\string^3\(\backslash\)n"{}},\ region\_volume)\ ;}
+\DoxyCodeLine{00589\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ E\ fluence\ \ \ :\ \%.5G\ MeV/cm\string^2\(\backslash\)n"{}},\ total\_scored);}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \}}
+
+\end{DoxyCode}

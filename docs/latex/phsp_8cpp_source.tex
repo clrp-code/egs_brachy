@@ -1,0 +1,225 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/phsp.cpp}
+\label{phsp_8cpp_source}\mbox{\hyperlink{phsp_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ phsp.cpp}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}phsp.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}egs\_interface2.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}iaea\_header.h"{}}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{bool}\ dirExists(\textcolor{keywordtype}{string}\ path)\ \{}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{struct\ }stat\ info;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ stat(path.c\_str(),\ \&info);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ res\ ==\ 0\ \&\&\ (info.st\_mode\ \&\ S\_IFDIR);}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ PHSPControl::PHSPControl(EGS\_Input\ *inp,\ EGS\_AffineTransform\ *trans,\ EGS\_AdvancedApplication\ *app,\ Publisher\ *pub):}
+\DoxyCodeLine{00060\ \ \ \ \ num\_written(0),\ transform(trans),\ boundary\_step(1E-\/4)\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{id}\ =\ 1;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{string}\ dir;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ inp-\/>getInput(\textcolor{stringliteral}{"{}phsp\ output\ directory"{}},\ dir);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ dir\ =\ egsJoinPath(app-\/>getAppDir(),\ app-\/>getWorkDir());}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (!dirExists(dir))\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}PHSPControl::\ unable\ to\ access\ directory\ \%s\(\backslash\)n"{}},\ dir.c\_str());}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ fname\ =\ egsJoinPath(dir,\ app-\/>getOutputFile())+\textcolor{stringliteral}{"{}.phsp"{}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ vector<string>\ yn\_choices;}
+\DoxyCodeLine{00077\ \ \ \ \ yn\_choices.push\_back(\textcolor{stringliteral}{"{}no"{}});}
+\DoxyCodeLine{00078\ \ \ \ \ yn\_choices.push\_back(\textcolor{stringliteral}{"{}yes"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ kill\_after\_scoring\ =\ (bool)inp-\/>getInput(\textcolor{stringliteral}{"{}kill\ after\ scoring"{}},\ yn\_choices,\ 0);}
+\DoxyCodeLine{00080\ \ \ \ \ print\_header\ =\ (bool)inp-\/>getInput(\textcolor{stringliteral}{"{}print\ header"{}},\ yn\_choices,\ 0);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ err\ =\ inp-\/>getInput(\textcolor{stringliteral}{"{}boundary\ step"{}},\ boundary\_step);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ vector<string>\ access\_choices;}
+\DoxyCodeLine{00086\ \ \ \ \ access\_choices.push\_back(\textcolor{stringliteral}{"{}append"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ access\_choices.push\_back(\textcolor{stringliteral}{"{}write"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ imode\ =\ inp-\/>getInput(\textcolor{stringliteral}{"{}access\ mode"{}},\ access\_choices,\ 0);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (imode\ ==\ 0)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ mode\ =\ APPEND;}
+\DoxyCodeLine{00091\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (imode\ ==\ 1)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ mode\ =\ WRITE;}
+\DoxyCodeLine{00093\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}PHSPControl::\ unknown\ access\ mode\(\backslash\)n"{}});}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ initSource();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ pub-\/>subscribe(\textcolor{keyword}{this},\ PARTICLE\_ESCAPED\_SOURCE);}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{short}\ PHSPControl::getIAEAParticleType(\textcolor{keyword}{const}\ EGS\_Particle\ *p)\ \{}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (p-\/>q\ ==\ 0)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PHOTON;}
+\DoxyCodeLine{00107\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p-\/>q\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ELECTRON;}
+\DoxyCodeLine{00109\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p-\/>q\ ==\ 1)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ POSITRON;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}PHSPControl::Tried\ to\ write\ unknown\ particle\ type\(\backslash\)n"{}});}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ PHSPControl::writeParticle(EGS\_Particle\ *p)\ \{}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ first\ move\ back\ to\ non\ transformed\ location}}
+\DoxyCodeLine{00121\ \ \ \ \ EGS\_Vector\ new\_loc(p-\/>x);}
+\DoxyCodeLine{00122\ \ \ \ \ EGS\_Vector\ new\_dir(p-\/>u);}
+\DoxyCodeLine{00123\ \ \ \ \ EGS\_Vector\ new\_dir\_norm(p-\/>u);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ new\_dir\_norm.normalize();}
+\DoxyCodeLine{00126\ \ \ \ \ transform-\/>transform(new\_loc);}
+\DoxyCodeLine{00127\ \ \ \ \ transform-\/>rotate(new\_dir);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ take\ very\ small\ step\ so\ we\ are\ ensured\ to\ be\ outside\ source\ geom}}
+\DoxyCodeLine{00130\ \ \ \ \ new\_loc\ +=\ boundary\_step*new\_dir\_norm;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ if\ particles\ haven't\ been\ split\ by\ brem\ splitting\ they}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ should\ be\ statistically\ independent\ when\ leaving\ source}}
+\DoxyCodeLine{00135\ \ \ \ \ IAEA\_I32\ n\_stat\ =\ p-\/>wt\ <\ 1.\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{const}\ IAEA\_I32\ type\ =\ getIAEAParticleType(p);}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{const}\ IAEA\_Float\ E\ =\ (IAEA\_Float)p-\/>E,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wt\ =\ (IAEA\_Float)p-\/>wt,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ (IAEA\_Float)new\_loc.x,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ (IAEA\_Float)new\_loc.y,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ (IAEA\_Float)new\_loc.z,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ (IAEA\_Float)new\_dir.x,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ (IAEA\_Float)new\_dir.y,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ w\ =\ (IAEA\_Float)new\_dir.z;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{const}\ IAEA\_Float\ extra\_float\ =\ 0.;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{const}\ IAEA\_I32\ extra\_int\ =\ 0;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ iaea\_write\_particle(\&\textcolor{keywordtype}{id},\ \&n\_stat,\ \&type,\ \&E,\ \&wt,\ \&x,\ \&y,\ \&z,\ \&u,\ \&v,\ \&w,\ \&extra\_float,\ \&extra\_int);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ num\_written++;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{if}\ (kill\_after\_scoring)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ p-\/>wt\ =\ 0.;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ np\ =\ the\_stack-\/>np\ -\/\ 1;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ the\_stack-\/>wt[np]\ =\ 0;}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ PHSPControl::initSource()\ \{}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{char}\ *hname\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[fname.size()+1];}
+\DoxyCodeLine{00166\ \ \ \ \ copy(fname.begin(),\ fname.end(),\ hname);}
+\DoxyCodeLine{00167\ \ \ \ \ hname[fname.size()]\ =\ \ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ IAEA\_I32\ iaea\_idx;}
+\DoxyCodeLine{00170\ \ \ \ \ iaea\_new\_source(\&\textcolor{keywordtype}{id},\ hname,\ \&mode,\ \&iaea\_idx,\ fname.size());}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ we're\ not\ currently\ writing\ any\ extra\ parameters}}
+\DoxyCodeLine{00173\ \ \ \ \ IAEA\_I32\ n\_extra\_float=0,\ n\_extra\_int=0;}
+\DoxyCodeLine{00174\ \ \ \ \ iaea\_set\_extra\_numbers(\&\textcolor{keywordtype}{id},\ \&n\_extra\_float,\ \&n\_extra\_int);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{if}\ (iaea\_idx\ <\ 0)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ egsFatal(\textcolor{stringliteral}{"{}PHSPControl::\ failed\ to\ initialize\ source\ with\ IAEA\ error\ \%d\(\backslash\)n"{}},\ iaea\_idx);}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{delete}[]\ hname;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{void}\ PHSPControl::update(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *particle)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordflow}{if}\ (message\ ==\ PARTICLE\_ESCAPED\_SOURCE)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ EGS\_Particle\ *p\ =\ \textcolor{keyword}{static\_cast<}EGS\_Particle\ *\textcolor{keyword}{>}(particle);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ writeParticle(p);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ PHSPControl::finish(EGS\_I64\ n\_orig\_particles)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ IAEA\_I64\ n\_orig\ =\ n\_orig\_particles;}
+\DoxyCodeLine{00195\ \ \ \ \ iaea\_set\_total\_original\_particles(\&\textcolor{keywordtype}{id},\ \&n\_orig);}
+\DoxyCodeLine{00196\ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ PHSPControl::outputResults()\ \{}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordtype}{string}\ sep(80,\ \textcolor{charliteral}{'='});}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ IAEA\_I64\ n\_particles;}
+\DoxyCodeLine{00204\ \ \ \ \ IAEA\_I32\ particle\_type\ =\ ALL\_TYPES;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ IAEA\_I32\ result;}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ iaea\_get\_max\_particles(\&\textcolor{keywordtype}{id},\ \&particle\_type,\ \&n\_particles);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)nPHSP\ File\ Scoring\(\backslash\)n\%s\(\backslash\)n"{}},\ sep.c\_str());}
+\DoxyCodeLine{00211\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nOutput\ file\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \%s"{}},\ (fname+\textcolor{stringliteral}{"{}.*"{}}).c\_str());}
+\DoxyCodeLine{00212\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nNew\ Particles\ written\ \ \ :\ \%d"{}},\ num\_written);}
+\DoxyCodeLine{00213\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nTotal\ Particles\ \ \ \ \ \ \ \ \ :\ \%d"{}},\ n\_particles);}
+\DoxyCodeLine{00214\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nBoundary\ Step\ (cm)\ \ \ \ \ \ :\ \%.2G"{}},\ boundary\_step);}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (print\_header)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ iaea\_print\_header(\&\textcolor{keywordtype}{id},\ \&result);}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ PHSPControl::destroySource()\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ IAEA\_I32\ result;}
+\DoxyCodeLine{00223\ \ \ \ \ iaea\_destroy\_source(\&\textcolor{keywordtype}{id},\ \&result);}
+\DoxyCodeLine{00224\ \}}
+\DoxyCodeLine{00225\ }
+
+\end{DoxyCode}

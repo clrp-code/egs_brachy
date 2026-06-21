@@ -1,0 +1,98 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/pubsub.h}
+\label{pubsub_8h_source}\mbox{\hyperlink{pubsub_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ pubsub.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ PUBSUB\_H}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ PUBSUB\_H}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }Publisher;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ EB\_Message\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ NEW\_HISTORY,}
+\DoxyCodeLine{00057\ \ \ \ \ PARTICLE\_INITIALIZED,}
+\DoxyCodeLine{00058\ \ \ \ \ PARTICLE\_TAKING\_STEP,}
+\DoxyCodeLine{00059\ \ \ \ \ PARTICLE\_TOOK\_STEP,}
+\DoxyCodeLine{00060\ \ \ \ \ PARTICLE\_ESCAPING\_SOURCE,}
+\DoxyCodeLine{00061\ \ \ \ \ PARTICLE\_ESCAPED\_SOURCE,}
+\DoxyCodeLine{00062\ \ \ \ \ PARTICLE\_ESCAPING\_GEOM,}
+\DoxyCodeLine{00063\ \ \ \ \ PARTICLE\_ESCAPED\_GEOM,}
+\DoxyCodeLine{00064\ \ \ \ \ PHOTON\_SCATTER\_EVENT,\ \textcolor{comment}{//\ scatter\ occuring\ anywhere}}
+\DoxyCodeLine{00065\ \ \ \ \ NON\_SOURCE\_PHOTON\_SCATTER\_EVENT\ \textcolor{comment}{//\ scatter\ occuring\ outside\ source}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ pair<bool,\ EB\_Message>\ EBSendMessage;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }Subscriber\ \{}
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Subscriber()\ \{\}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ update(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *what\ =\ 0)\ =\ 0;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }Publisher\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ Publisher()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ notifyEnabled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Publisher()\ \{\ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ subscribe(Subscriber\ *s,\ EB\_Message\ message)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ subscribers[message].push\_back(s);}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ unsubscribe(Subscriber\ *s,\ EB\_Message\ message)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ subscribers[message].remove(s);}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ notify(EB\_Message\ message,\ \textcolor{keywordtype}{void}\ *what\ =\ 0,\ Subscriber\ *s\ =\ 0);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ setNotifyEnabled(\textcolor{keywordtype}{bool}\ flag)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ notifyEnabled\ =\ flag;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ getNotifyEnabled()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ notifyEnabled;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ \ \ \ \ map<EB\_Message,\ list<Subscriber\ *>\ >\ subscribers;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ notifyEnabled;}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

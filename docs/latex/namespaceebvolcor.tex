@@ -1,0 +1,158 @@
+\doxysection{ebvolcor Namespace Reference}
+\label{namespaceebvolcor}\index{ebvolcor@{ebvolcor}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}}
+\begin{DoxyCompactList}\small\item\em Reg\+VolumeT sruct with members (ir=Region\+Number, vol=Volume, unc=Unc). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classebvolcor_1_1Options}{Options}}
+\begin{DoxyCompactList}\small\item\em Volume correction initialization helper class. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structebvolcor_1_1Results}{Results}}
+\begin{DoxyCompactList}\small\item\em Struct used to collect and output results about a volume correction run. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structebvolcor_1_1FileResults}{File\+Results}}
+\item 
+class \mbox{\hyperlink{classebvolcor_1_1VolumeCorrector}{Volume\+Corrector}}
+\begin{DoxyCompactList}\small\item\em An object for controlling the volume correction routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pair$<$ int, int $>$ \mbox{\hyperlink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{Phant\+RegT}}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{Phant\+RegT} is a pair of the form (Phantom\+Number, Phantom\+Region) e.\+g. a pair of (2, 12) would represent region 12 (i.\+e. the 13th region) of phantom 2 (i.\+e. the 3rd phantom). \end{DoxyCompactList}\item 
+typedef std\+::map$<$ \mbox{\hyperlink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{Phant\+RegT}}, EGS\+\_\+\+I64 $>$ \mbox{\hyperlink{namespaceebvolcor_a4954096d6fcfb64ecef66b07cb5c53d6}{Hit\+CounterT}}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespaceebvolcor_a4954096d6fcfb64ecef66b07cb5c53d6}{Hit\+CounterT} is used for counting how many random points land in a given phantoms region. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409}{Vol\+Cor\+Mode}} \{ \mbox{\hyperlink{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409a32583567b2e06c6681fb3194a6b07a5b}{NO\+\_\+\+CORRECTION}}
+, \mbox{\hyperlink{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409ac3b977f386e07c9c36ff18d5a6d3d439}{ZERO\+\_\+\+DOSE}}
+, \mbox{\hyperlink{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409a75d920d420e7eb4f9e3f24baffbcca8a}{CORRECT\+\_\+\+VOLUME}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceebvolcor_aa3880e5f3b1d8f850bcfebf001e0f0e7}{is\+GZip}} (istream \&vfile)
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{namespaceebvolcor_a852b9f1b32fb03536a9c042cd90c5667}{get\+Shape\+Volume}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}shape\+\_\+inp)
+\begin{DoxyCompactList}\small\item\em get shape volume from a shape input item \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceebvolcor_a722a72cbbbaeb21088989f87b4509951}{read\+Volumes}} (istream \&vfile, vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&reg\+\_\+volumes)
+\item 
+int \mbox{\hyperlink{namespaceebvolcor_a696467264593582cdcf7333ce2eaa7d3}{load\+Volumes}} (string fname, vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&reg\+\_\+volumes)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\index{ebvolcor@{ebvolcor}!HitCounterT@{HitCounterT}}
+\index{HitCounterT@{HitCounterT}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{HitCounterT}{HitCounterT}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a4954096d6fcfb64ecef66b07cb5c53d6} 
+typedef std\+::map$<$\mbox{\hyperlink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{Phant\+RegT}}, EGS\+\_\+\+I64$>$ \mbox{\hyperlink{namespaceebvolcor_a4954096d6fcfb64ecef66b07cb5c53d6}{ebvolcor\+::\+Hit\+CounterT}}}
+
+
+
+\doxylink{namespaceebvolcor_a4954096d6fcfb64ecef66b07cb5c53d6}{Hit\+CounterT} is used for counting how many random points land in a given phantoms region. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__volcor_8h_source_l00097}{97}} of file \mbox{\hyperlink{eb__volcor_8h_source}{eb\+\_\+volcor.\+h}}.
+
+\index{ebvolcor@{ebvolcor}!PhantRegT@{PhantRegT}}
+\index{PhantRegT@{PhantRegT}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{PhantRegT}{PhantRegT}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38} 
+typedef pair$<$int, int$>$ \mbox{\hyperlink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{ebvolcor\+::\+Phant\+RegT}}}
+
+
+
+\doxylink{namespaceebvolcor_a46ba1c71d805831ec767fce5ceb85a38}{Phant\+RegT} is a pair of the form (Phantom\+Number, Phantom\+Region) e.\+g. a pair of (2, 12) would represent region 12 (i.\+e. the 13th region) of phantom 2 (i.\+e. the 3rd phantom). 
+
+
+
+Definition at line \mbox{\hyperlink{eb__volcor_8h_source_l00086}{86}} of file \mbox{\hyperlink{eb__volcor_8h_source}{eb\+\_\+volcor.\+h}}.
+
+
+
+\label{doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\index{ebvolcor@{ebvolcor}!VolCorMode@{VolCorMode}}
+\index{VolCorMode@{VolCorMode}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{VolCorMode}{VolCorMode}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409} 
+enum \mbox{\hyperlink{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409}{ebvolcor\+::\+Vol\+Cor\+Mode}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NO\_CORRECTION@{NO\_CORRECTION}!ebvolcor@{ebvolcor}}\index{ebvolcor@{ebvolcor}!NO\_CORRECTION@{NO\_CORRECTION}}}\label{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409a32583567b2e06c6681fb3194a6b07a5b} 
+NO\+\_\+\+CORRECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZERO\_DOSE@{ZERO\_DOSE}!ebvolcor@{ebvolcor}}\index{ebvolcor@{ebvolcor}!ZERO\_DOSE@{ZERO\_DOSE}}}\label{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409ac3b977f386e07c9c36ff18d5a6d3d439} 
+ZERO\+\_\+\+DOSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORRECT\_VOLUME@{CORRECT\_VOLUME}!ebvolcor@{ebvolcor}}\index{ebvolcor@{ebvolcor}!CORRECT\_VOLUME@{CORRECT\_VOLUME}}}\label{namespaceebvolcor_a5a1af7fecfe750c4b5173630f8dba409a75d920d420e7eb4f9e3f24baffbcca8a} 
+CORRECT\+\_\+\+VOLUME&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{eb__volcor_8h_source_l00078}{78}} of file \mbox{\hyperlink{eb__volcor_8h_source}{eb\+\_\+volcor.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{ebvolcor@{ebvolcor}!getShapeVolume@{getShapeVolume}}
+\index{getShapeVolume@{getShapeVolume}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{getShapeVolume()}{getShapeVolume()}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a852b9f1b32fb03536a9c042cd90c5667} 
+EGS\+\_\+\+Float ebvolcor\+::get\+Shape\+Volume (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{shape\+\_\+inp}{}\end{DoxyParamCaption})}
+
+
+
+get shape volume from a shape input item 
+
+get\+Shape\+Volume takes an EGS\+\_\+\+Input for a shape and returns the volume of the shape. Currently the volume will be calculated automatically for cylinders, spheres and box shapes. Other shapes must specify a volume using the {\itshape shape volume} input key. For example\+: \begin{DoxyVerb}:start shape:
+    type = my_new_shape
+    input key 1 = 1234
+    input key 2= 5678
+    shape volume = 123456
+:stop shape:
+\end{DoxyVerb}
+
+
+If {\itshape shape volume} is present for a cylinder, sphere or box shape that value will be used and the automatic calculation will be ignored 
+
+Definition at line \mbox{\hyperlink{eb__volcor_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{eb__volcor_8cpp_source}{eb\+\_\+volcor.\+cpp}}.
+
+\index{ebvolcor@{ebvolcor}!isGZip@{isGZip}}
+\index{isGZip@{isGZip}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{isGZip()}{isGZip()}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_aa3880e5f3b1d8f850bcfebf001e0f0e7} 
+bool ebvolcor\+::is\+GZip (\begin{DoxyParamCaption}\item[{istream \&}]{vfile}{}\end{DoxyParamCaption})}
+
+looks at first two bytes of a stream and checks if they match the file type specifiers for gzip files 
+
+Definition at line \mbox{\hyperlink{eb__volcor_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{eb__volcor_8cpp_source}{eb\+\_\+volcor.\+cpp}}.
+
+\index{ebvolcor@{ebvolcor}!loadVolumes@{loadVolumes}}
+\index{loadVolumes@{loadVolumes}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{loadVolumes()}{loadVolumes()}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a696467264593582cdcf7333ce2eaa7d3} 
+int ebvolcor\+::load\+Volumes (\begin{DoxyParamCaption}\item[{string}]{fname}{, }\item[{vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&}]{reg\+\_\+volumes}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__volcor_8cpp_source_l00421}{421}} of file \mbox{\hyperlink{eb__volcor_8cpp_source}{eb\+\_\+volcor.\+cpp}}.
+
+\index{ebvolcor@{ebvolcor}!readVolumes@{readVolumes}}
+\index{readVolumes@{readVolumes}!ebvolcor@{ebvolcor}}
+\doxysubsubsection{\texorpdfstring{readVolumes()}{readVolumes()}}
+{\footnotesize\ttfamily \label{namespaceebvolcor_a722a72cbbbaeb21088989f87b4509951} 
+void ebvolcor\+::read\+Volumes (\begin{DoxyParamCaption}\item[{istream \&}]{vfile}{, }\item[{vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&}]{reg\+\_\+volumes}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__volcor_8cpp_source_l00409}{409}} of file \mbox{\hyperlink{eb__volcor_8cpp_source}{eb\+\_\+volcor.\+cpp}}.
+

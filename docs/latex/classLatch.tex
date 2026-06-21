@@ -1,0 +1,347 @@
+\doxysection{Latch Class Reference}
+\label{classLatch}\index{Latch@{Latch}}
+
+
+A class for handling latch bits relevant to egs\+\_\+brachy. The \doxylink{classLatch}{Latch} class listens for particle events and sets/unsets latch bits on the particle based on the event type.  
+
+
+
+
+{\ttfamily \#include $<$latch.\+h$>$}
+
+
+
+Inheritance diagram for Latch\+:
+% FIG 0
+
+
+Collaboration diagram for Latch\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLatch_ae6fb0ac7c8d1f4d3a4c078bc0d695921}{update}} (\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} message, void \texorpdfstring{$\ast$}{*}particle)
+\begin{DoxyCompactList}\small\item\em listen to events and delegate to appropriate handler \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSubscriber}{Subscriber}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classSubscriber_a1dc3a1ecfecf7dd1a596d1a7217ec97f}{\texorpdfstring{$\sim$}{\string~}\+Subscriber}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classLatch_a111288f67fccf25a35f0c456528849ca}{has\+Escaped}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em True if particle is currently in a source. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLatch_aff8943d52f59122ea5cea99760c198eb}{set\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Set flag on input particle p. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLatch_a26d4672ba2b98998e622ac9733e427cc}{set\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, int \&latch)
+\begin{DoxyCompactList}\small\item\em Set flag on input latch. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLatch_ae45227eb44d21be1a46f16cdc3ddc129}{unset\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Unset flag on input particle p. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLatch_ab4fa3f271b54f427eb416ba02f709bff}{unset\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, int \&latch)
+\begin{DoxyCompactList}\small\item\em Unset flag on input latch p. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLatch_a5afd55a4f37cd803f6ba0616fde4fad8}{check\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Check whether flag is set on particle p. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLatch_a2d632c9c1c13ba1f6d6ca180ac658d13}{check\+Flag}} (\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} flag, int latch)
+\begin{DoxyCompactList}\small\item\em Check whether flag is set on latch. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLatch_a5d6d5575ce942c1fd2d122d87653f886}{add\+Scatter}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\item 
+static void \mbox{\hyperlink{classLatch_aceafec9ec9b08b19b18428d8f781b6c6}{add\+Scatter}} (int \&latch)
+\item 
+static void \mbox{\hyperlink{classLatch_a216158c0fe285496e459193f4fc95add}{set\+Primary}} (int \&latch)
+\item 
+static void \mbox{\hyperlink{classLatch_a0734b4678d78cc5ae62d0ffecba7e053}{set\+Primary}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\item 
+static bool \mbox{\hyperlink{classLatch_a70bb42a44ee8ee3a07aaee79af50d2d1}{is\+Primary}} (int latch)
+\item 
+static bool \mbox{\hyperlink{classLatch_af820cec756dca43475652bd33034d771}{is\+Primary}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\item 
+static bool \mbox{\hyperlink{classLatch_adce30d30a828f881bfb878222b5cbda0}{is\+Single\+Scat}} (int latch)
+\item 
+static bool \mbox{\hyperlink{classLatch_afdb63404a4c82bd33e93da0e2a889455}{is\+Single\+Scat}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\item 
+static bool \mbox{\hyperlink{classLatch_a3eb4089fae51e58e4ab1b4de5924f619}{is\+Mult\+Scat}} (int latch)
+\item 
+static bool \mbox{\hyperlink{classLatch_aa1ce5ad2bd00b9e6d5254abca5501f9d}{is\+Mult\+Scat}} (EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}p)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}} \{ \newline
+\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896a495c617a93da082ce4cec4556f3d0e64}{IN\+\_\+\+SOURCE}}
+, \mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896ae85eaad79ff338b382e281ac358ed30c}{ESCAPED\+\_\+\+SOURCE}}
+, \mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896a627eeff8ab2e247cb7abc414db93df03}{PRIM\+\_\+\+PARTICLE}}
+, \mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896ad94246e6aa77b86d041c9400707a7a15}{SSCAT\+\_\+\+PARTICLE}}
+, \newline
+\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896aa84dff0f2e1adeb48a08a50be72e28c7}{MSCAT\+\_\+\+PARTICLE}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for handling latch bits relevant to egs\+\_\+brachy. The \doxylink{classLatch}{Latch} class listens for particle events and sets/unsets latch bits on the particle based on the event type. 
+
+Definition at line \mbox{\hyperlink{latch_8h_source_l00051}{51}} of file \mbox{\hyperlink{latch_8h_source}{latch.\+h}}.
+
+
+
+\label{doc-enum-members}
+\doxysubsection{Member Enumeration Documentation}
+\index{Latch@{Latch}!Flag@{Flag}}
+\index{Flag@{Flag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{Flag}{Flag}}
+{\footnotesize\ttfamily \label{classLatch_a63ed51f85e85ed012f40a251f2b4b896} 
+enum \mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Latch\+::\+Flag}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IN\_SOURCE@{IN\_SOURCE}!Latch@{Latch}}\index{Latch@{Latch}!IN\_SOURCE@{IN\_SOURCE}}}\label{classLatch_a63ed51f85e85ed012f40a251f2b4b896a495c617a93da082ce4cec4556f3d0e64} 
+IN\+\_\+\+SOURCE&a particle is in the source (either hasn\textquotesingle{}t escaped yet, or has re-\/entered) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ESCAPED\_SOURCE@{ESCAPED\_SOURCE}!Latch@{Latch}}\index{Latch@{Latch}!ESCAPED\_SOURCE@{ESCAPED\_SOURCE}}}\label{classLatch_a63ed51f85e85ed012f40a251f2b4b896ae85eaad79ff338b382e281ac358ed30c} 
+ESCAPED\+\_\+\+SOURCE&an initial particle has escaped the source (this bit will still be set on particles which ave re-\/entered a source geometry) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRIM\_PARTICLE@{PRIM\_PARTICLE}!Latch@{Latch}}\index{Latch@{Latch}!PRIM\_PARTICLE@{PRIM\_PARTICLE}}}\label{classLatch_a63ed51f85e85ed012f40a251f2b4b896a627eeff8ab2e247cb7abc414db93df03} 
+PRIM\+\_\+\+PARTICLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSCAT\_PARTICLE@{SSCAT\_PARTICLE}!Latch@{Latch}}\index{Latch@{Latch}!SSCAT\_PARTICLE@{SSCAT\_PARTICLE}}}\label{classLatch_a63ed51f85e85ed012f40a251f2b4b896ad94246e6aa77b86d041c9400707a7a15} 
+SSCAT\+\_\+\+PARTICLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MSCAT\_PARTICLE@{MSCAT\_PARTICLE}!Latch@{Latch}}\index{Latch@{Latch}!MSCAT\_PARTICLE@{MSCAT\_PARTICLE}}}\label{classLatch_a63ed51f85e85ed012f40a251f2b4b896aa84dff0f2e1adeb48a08a50be72e28c7} 
+MSCAT\+\_\+\+PARTICLE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{latch_8h_source_l00053}{53}} of file \mbox{\hyperlink{latch_8h_source}{latch.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{Latch@{Latch}!addScatter@{addScatter}}
+\index{addScatter@{addScatter}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{addScatter()}{addScatter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_a5d6d5575ce942c1fd2d122d87653f886} 
+void Latch\+::add\+Scatter (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!addScatter@{addScatter}}
+\index{addScatter@{addScatter}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{addScatter()}{addScatter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_aceafec9ec9b08b19b18428d8f781b6c6} 
+void Latch\+::add\+Scatter (\begin{DoxyParamCaption}\item[{int \&}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!checkFlag@{checkFlag}}
+\index{checkFlag@{checkFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{checkFlag()}{checkFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_a5afd55a4f37cd803f6ba0616fde4fad8} 
+bool Latch\+::check\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check whether flag is set on particle p. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!checkFlag@{checkFlag}}
+\index{checkFlag@{checkFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{checkFlag()}{checkFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_a2d632c9c1c13ba1f6d6ca180ac658d13} 
+bool Latch\+::check\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{int}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check whether flag is set on latch. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!hasEscaped@{hasEscaped}}
+\index{hasEscaped@{hasEscaped}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{hasEscaped()}{hasEscaped()}}
+{\footnotesize\ttfamily \label{classLatch_a111288f67fccf25a35f0c456528849ca} 
+bool Latch\+::has\+Escaped (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+True if particle is currently in a source. 
+
+True if particle has escaped a source 
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isMultScat@{isMultScat}}
+\index{isMultScat@{isMultScat}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isMultScat()}{isMultScat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_aa1ce5ad2bd00b9e6d5254abca5501f9d} 
+bool Latch\+::is\+Mult\+Scat (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00125}{125}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isMultScat@{isMultScat}}
+\index{isMultScat@{isMultScat}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isMultScat()}{isMultScat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_a3eb4089fae51e58e4ab1b4de5924f619} 
+bool Latch\+::is\+Mult\+Scat (\begin{DoxyParamCaption}\item[{int}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isPrimary@{isPrimary}}
+\index{isPrimary@{isPrimary}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isPrimary()}{isPrimary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_af820cec756dca43475652bd33034d771} 
+bool Latch\+::is\+Primary (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isPrimary@{isPrimary}}
+\index{isPrimary@{isPrimary}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isPrimary()}{isPrimary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_a70bb42a44ee8ee3a07aaee79af50d2d1} 
+bool Latch\+::is\+Primary (\begin{DoxyParamCaption}\item[{int}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00105}{105}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isSingleScat@{isSingleScat}}
+\index{isSingleScat@{isSingleScat}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isSingleScat()}{isSingleScat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_afdb63404a4c82bd33e93da0e2a889455} 
+bool Latch\+::is\+Single\+Scat (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!isSingleScat@{isSingleScat}}
+\index{isSingleScat@{isSingleScat}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{isSingleScat()}{isSingleScat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_adce30d30a828f881bfb878222b5cbda0} 
+bool Latch\+::is\+Single\+Scat (\begin{DoxyParamCaption}\item[{int}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00113}{113}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!setFlag@{setFlag}}
+\index{setFlag@{setFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{setFlag()}{setFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_aff8943d52f59122ea5cea99760c198eb} 
+void Latch\+::set\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set flag on input particle p. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!setFlag@{setFlag}}
+\index{setFlag@{setFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{setFlag()}{setFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_a26d4672ba2b98998e622ac9733e427cc} 
+void Latch\+::set\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{int \&}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Set flag on input latch. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!setPrimary@{setPrimary}}
+\index{setPrimary@{setPrimary}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{setPrimary()}{setPrimary()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_a0734b4678d78cc5ae62d0ffecba7e053} 
+void Latch\+::set\+Primary (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!setPrimary@{setPrimary}}
+\index{setPrimary@{setPrimary}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{setPrimary()}{setPrimary()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_a216158c0fe285496e459193f4fc95add} 
+void Latch\+::set\+Primary (\begin{DoxyParamCaption}\item[{int \&}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!unsetFlag@{unsetFlag}}
+\index{unsetFlag@{unsetFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{unsetFlag()}{unsetFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLatch_ae45227eb44d21be1a46f16cdc3ddc129} 
+void Latch\+::unset\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{EGS\+\_\+\+Particle \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Unset flag on input particle p. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!unsetFlag@{unsetFlag}}
+\index{unsetFlag@{unsetFlag}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{unsetFlag()}{unsetFlag()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLatch_ab4fa3f271b54f427eb416ba02f709bff} 
+void Latch\+::unset\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLatch_a63ed51f85e85ed012f40a251f2b4b896}{Flag}}}]{flag}{, }\item[{int \&}]{latch}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Unset flag on input latch p. 
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+\index{Latch@{Latch}!update@{update}}
+\index{update@{update}!Latch@{Latch}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classLatch_ae6fb0ac7c8d1f4d3a4c078bc0d695921} 
+void Latch\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}]{message}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{particle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+listen to events and delegate to appropriate handler 
+
+
+
+Implements \mbox{\hyperlink{classSubscriber_a46254c65cd8ec1076031809958496092}{Subscriber}}.
+
+
+
+Definition at line \mbox{\hyperlink{latch_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{latch_8cpp_source}{latch.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{latch_8h}{latch.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{latch_8cpp}{latch.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,34 @@
+\doxysection{test.\+py}
+\label{single__generator_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/single\_generator/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/single\_generator/test.py}}
+\mbox{\hyperlink{single__generator_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{\ This\ test\ ensures\ the\ 'single\ generator=no'\ and\ 'single\_generator=yes'\ options\ give}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ the\ same\ results.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ Gold\ standard\ dose\ distribution\ was\ generated\ with\ egs\_brachy\ and\ multiple\_generator.egsinp}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ (compare\_3ddose\_files,\ doses\_approx\_equal,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extract\_all\_doses,\ read3ddose)}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ EGSINP\ =\ \textcolor{stringliteral}{"{}single\_generator.egsinp"{}}}
+\DoxyCodeLine{00018\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 25/2993.\ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ gold\_standard\ =\ os.path.join(os.path.dirname(os.path.abspath(\_\_file\_\_)),\ \textcolor{stringliteral}{"{}gold\_standard.3ddose"{}})}
+\DoxyCodeLine{00024\ \ \ \ \ run\_doses\ =\ inp\_name+\textcolor{stringliteral}{"{}.phantom.3ddose"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ doses\_close\ =\ compare\_3ddose\_files(gold\_standard,\ run\_doses,\ max\_percent\_diff=0.01)}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close,\ read3ddose(run\_doses),\ read3ddose(gold\_standard)}
+
+\end{DoxyCode}

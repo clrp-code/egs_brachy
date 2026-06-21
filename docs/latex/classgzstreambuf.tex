@@ -1,0 +1,194 @@
+\doxysection{gzstreambuf Class Reference}
+\label{classgzstreambuf}\index{gzstreambuf@{gzstreambuf}}
+
+
+{\ttfamily \#include $<$gzstream.\+h$>$}
+
+
+
+Inheritance diagram for gzstreambuf\+:
+% FIG 0
+
+
+Collaboration diagram for gzstreambuf\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgzstreambuf_afa212e5c8f1ec6a63caec17e77d6b432}{gzstreambuf}} ()
+\item 
+int \mbox{\hyperlink{classgzstreambuf_a89e97aaae92b72d41c20223ed7e71308}{is\+\_\+open}} ()
+\item 
+\mbox{\hyperlink{classgzstreambuf}{gzstreambuf}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgzstreambuf_af720bcd3058c97c90d11a3bcc57fda98}{open}} (const char \texorpdfstring{$\ast$}{*}name, int open\+\_\+mode)
+\item 
+\mbox{\hyperlink{classgzstreambuf}{gzstreambuf}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgzstreambuf_ac47e68029383ac04ded54dedae5c930d}{close}} ()
+\item 
+\mbox{\hyperlink{classgzstreambuf_a4237e08ca77c39ec52912658ef8d7be0}{\texorpdfstring{$\sim$}{\string~}gzstreambuf}} ()
+\item 
+virtual int \mbox{\hyperlink{classgzstreambuf_aab8507fd9e67a5a3113bd72e6bf7772f}{overflow}} (int c=EOF)
+\item 
+virtual int \mbox{\hyperlink{classgzstreambuf_a6712eaf03ca344a02cb1feda86cb9c5c}{underflow}} ()
+\item 
+virtual int \mbox{\hyperlink{classgzstreambuf_aac6f54ceb4858b31e0d3dbba0be9f22e}{sync}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgzstreambuf_a1f5ae8e8283961711376c1dbbaa1ee75}{flush\+\_\+buffer}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+gz\+File \mbox{\hyperlink{classgzstreambuf_a9518df5885cfa63af6ba3496f7946d5f}{file}}
+\item 
+char \mbox{\hyperlink{classgzstreambuf_afea1535417524acb188dc4390d918269}{buffer}} \mbox{[}\mbox{\hyperlink{classgzstreambuf_a46652e438b6c4e9174ca79c171b1a140}{buffer\+Size}}\mbox{]}
+\item 
+char \mbox{\hyperlink{classgzstreambuf_a233a824915fa1a54df05ecf33b8b78d2}{opened}}
+\item 
+int \mbox{\hyperlink{classgzstreambuf_adddc98d7ed861e936f47fdd9d4a137f7}{mode}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classgzstreambuf_a46652e438b6c4e9174ca79c171b1a140}{buffer\+Size}} = 47+256
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00045}{45}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{gzstreambuf@{gzstreambuf}!gzstreambuf@{gzstreambuf}}
+\index{gzstreambuf@{gzstreambuf}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{gzstreambuf()}{gzstreambuf()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_afa212e5c8f1ec6a63caec17e77d6b432} 
+gzstreambuf\+::gzstreambuf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00057}{57}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!````~gzstreambuf@{\texorpdfstring{$\sim$}{\string~}gzstreambuf}}
+\index{````~gzstreambuf@{\texorpdfstring{$\sim$}{\string~}gzstreambuf}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}gzstreambuf()}{\string~gzstreambuf()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a4237e08ca77c39ec52912658ef8d7be0} 
+gzstreambuf\+::\texorpdfstring{$\sim$}{\string~}gzstreambuf (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00069}{69}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{gzstreambuf@{gzstreambuf}!close@{close}}
+\index{close@{close}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_ac47e68029383ac04ded54dedae5c930d} 
+\mbox{\hyperlink{classgzstreambuf}{gzstreambuf}} \texorpdfstring{$\ast$}{*} gzstreambuf\+::close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{gzstreambuf@{gzstreambuf}!flush\_buffer@{flush\_buffer}}
+\index{flush\_buffer@{flush\_buffer}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{flush\_buffer()}{flush\_buffer()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a1f5ae8e8283961711376c1dbbaa1ee75} 
+int gzstreambuf\+::flush\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\index{gzstreambuf@{gzstreambuf}!is\_open@{is\_open}}
+\index{is\_open@{is\_open}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{is\_open()}{is\_open()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a89e97aaae92b72d41c20223ed7e71308} 
+int gzstreambuf\+::is\+\_\+open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00064}{64}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!open@{open}}
+\index{open@{open}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_af720bcd3058c97c90d11a3bcc57fda98} 
+\mbox{\hyperlink{classgzstreambuf}{gzstreambuf}} \texorpdfstring{$\ast$}{*} gzstreambuf\+::open (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{int}]{open\+\_\+mode}{}\end{DoxyParamCaption})}
+
+\index{gzstreambuf@{gzstreambuf}!overflow@{overflow}}
+\index{overflow@{overflow}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_aab8507fd9e67a5a3113bd72e6bf7772f} 
+virtual int gzstreambuf\+::overflow (\begin{DoxyParamCaption}\item[{int}]{c}{ = {\ttfamily EOF}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\index{gzstreambuf@{gzstreambuf}!sync@{sync}}
+\index{sync@{sync}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{sync()}{sync()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_aac6f54ceb4858b31e0d3dbba0be9f22e} 
+virtual int gzstreambuf\+::sync (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\index{gzstreambuf@{gzstreambuf}!underflow@{underflow}}
+\index{underflow@{underflow}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{underflow()}{underflow()}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a6712eaf03ca344a02cb1feda86cb9c5c} 
+virtual int gzstreambuf\+::underflow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{gzstreambuf@{gzstreambuf}!buffer@{buffer}}
+\index{buffer@{buffer}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \label{classgzstreambuf_afea1535417524acb188dc4390d918269} 
+char gzstreambuf\+::buffer\mbox{[}\mbox{\hyperlink{classgzstreambuf_a46652e438b6c4e9174ca79c171b1a140}{buffer\+Size}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00051}{51}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!bufferSize@{bufferSize}}
+\index{bufferSize@{bufferSize}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{bufferSize}{bufferSize}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a46652e438b6c4e9174ca79c171b1a140} 
+const int gzstreambuf\+::buffer\+Size = 47+256\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00047}{47}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!file@{file}}
+\index{file@{file}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a9518df5885cfa63af6ba3496f7946d5f} 
+gz\+File gzstreambuf\+::file\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00050}{50}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!mode@{mode}}
+\index{mode@{mode}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \label{classgzstreambuf_adddc98d7ed861e936f47fdd9d4a137f7} 
+int gzstreambuf\+::mode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00053}{53}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+\index{gzstreambuf@{gzstreambuf}!opened@{opened}}
+\index{opened@{opened}!gzstreambuf@{gzstreambuf}}
+\doxysubsubsection{\texorpdfstring{opened}{opened}}
+{\footnotesize\ttfamily \label{classgzstreambuf_a233a824915fa1a54df05ecf33b8b78d2} 
+char gzstreambuf\+::opened\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{gzstream_8h_source_l00052}{52}} of file \mbox{\hyperlink{gzstream_8h_source}{gzstream.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/gzstream/\mbox{\hyperlink{gzstream_8h}{gzstream.\+h}}\end{DoxyCompactItemize}

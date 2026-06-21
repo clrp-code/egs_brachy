@@ -1,0 +1,206 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/muen.h}
+\label{muen_8h_source}\mbox{\hyperlink{muen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ muen.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <istream>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}egs\_functions.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}egs\_input.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}egs\_interpolator.h"{}}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifndef\ MUENDATA\_}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ MUENDATA\_}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{namespace\ }muen\ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ std::vector<std::string>\ \&split(\textcolor{keyword}{const}\ std::string\ \&s,\ \textcolor{keywordtype}{char}\ delim,\ std::vector<std::string>\ \&elems)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ std::stringstream\ ss(s);}
+\DoxyCodeLine{00070\ \ \ \ \ std::string\ item;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(ss,\ item,\ delim))\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ elems.push\_back(item);}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ elems;}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ std::vector<std::string>\ split(\textcolor{keyword}{const}\ std::string\ \&s,\ \textcolor{keywordtype}{char}\ delim)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ std::vector<std::string>\ elems;}
+\DoxyCodeLine{00081\ \ \ \ \ split(s,\ delim,\ elems);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ elems;}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ \&ltrim(std::string\ \&s)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ s.erase(s.begin(),\ std::find\_if(s.begin(),\ s.end(),\ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ch)\ \{return\ !std::isspace(ch);\}));}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ \&rtrim(std::string\ \&s)\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ s.erase(std::find\_if(s.rbegin(),\ s.rend(),\ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ch)\ \{return\ !std::isspace(ch);\}).base(),\ s.end());}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::string\ \&trim(std::string\ \&s)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ ltrim(rtrim(s));}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{typedef}\ pair<double,\ double>\ MuenAtET;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{typedef}\ map<string,\ vector<MuenAtET>\ >\ MuenMapT;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{class\ }MuenDataParser\ \{}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ MuenMapT\ med\_data;\ }
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ NSKIP\ =\ 3;\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00141\ \ \ \ \ MuenMapT\ splitFileByMed(ifstream\ \&in)\ \{}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ MuenMapT\ med\_lines;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ cur\_med\_name,\ dummy;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (in)\ \{}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ getline(in,\ line);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trim(line).size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ new\_med\ =\ line.find(MUEN\_START)\ !=\ string::npos;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_med)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ new\ medium\ found.\ Update\ the\ current\ medium\ name}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ and\ move\ file\ pointer\ to\ start\ of\ data\ */}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\_med\_name\ =\ trim(split(line,\ \textcolor{charliteral}{'='})[1]);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ NSKIP;\ i++)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ getline(in,\ dummy);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (trim(dummy).size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ istringstream\ iss(line);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ energy,\ muen;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iss\ >>\ energy;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iss\ >>\ dummy;\ \textcolor{comment}{//\ skip\ the\ MeV\ unit}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iss\ >>\ muen;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (iss.fail()\ \&\&\ in)\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}MuenDataParser::\ Invalid\ muen\ data\ file\ format.\ Last\ line\ was:\(\backslash\)n\%s\(\backslash\)n\ "{}},\ line.c\_str());}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ med\_lines.clear();}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ med\_lines;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ med\_lines[cur\_med\_name].push\_back(MuenAtET(energy,\ muen));}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ med\_lines;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ MUEN\_START;\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00205\ \ \ \ \ MuenDataParser()\ \{\};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ setMuenFile(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ ifstream\ muen\_data(filename.c\_str());}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!muen\_data)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ med\_data\ =\ splitFileByMed(muen\_data);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ muen\_data.close();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00228\ \ \ \ \ EGS\_Interpolator\ *getMuenInterpolator(\textcolor{keywordtype}{string}\ med\_name)\ \{}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ ndat\ =\ med\_data[med\_name].size();}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ndat\ <\ 2)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ EGS\_Float\ emin\ =\ med\_data[med\_name][0].first;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ EGS\_Float\ emax=\ med\_data[med\_name][ndat-\/1].first;}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ EGS\_Float\ *fmuen\ =\ \textcolor{keyword}{new}\ EGS\_Float[ndat];}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ ndat;\ i++)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ fmuen[i]\ =\ med\_data[med\_name][i].second;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ EGS\_Interpolator\ *muen\ =\ \textcolor{keyword}{new}\ EGS\_Interpolator(ndat,\ log(emin),\ log(emax),\ fmuen);}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ []\ fmuen;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ muen;}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ MuenDataParser::MUEN\_START\ =\ \textcolor{stringliteral}{"{}Muen\ values\ for\ medium\ MEDIUM\ ="{}};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

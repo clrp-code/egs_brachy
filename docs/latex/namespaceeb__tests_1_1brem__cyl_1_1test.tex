@@ -1,0 +1,112 @@
+\doxysection{eb\+\_\+tests.\+brem\+\_\+cyl.\+test Namespace Reference}
+\label{namespaceeb__tests_1_1brem__cyl_1_1test}\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceeb__tests_1_1brem__cyl_1_1test_a7d1b604889974227e32e4fb36a8d5c1d}{compare\+\_\+results}} (egslst, inp\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceeb__tests_1_1brem__cyl_1_1test_ae6ce2246c71f23724669ab9ab2710564}{EGSINP}} = "{}brem\+\_\+cyl.\+egsinp"{}
+\item 
+int \mbox{\hyperlink{namespaceeb__tests_1_1brem__cyl_1_1test_a20b8098fb9de51a59e1fd2d866a9c8ce}{TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ}} = 20/2993.
+\item 
+list \mbox{\hyperlink{namespaceeb__tests_1_1brem__cyl_1_1test_a56e0d27378b20c5a5f8908ff852be14d}{DOSRZ\+\_\+\+NRC\+\_\+\+DOSES}}
+\item 
+dict \mbox{\hyperlink{namespaceeb__tests_1_1brem__cyl_1_1test_a20bfe75f5f5114648fd62d876c73edd6}{expected\+\_\+doses}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A test for ensuring x-ray sources mode is working.  The test consists of a
+1cm^2 beam of electrons incident on a thin cylindrical disc with dose
+being calculated in cylindrical slabs behind the target.  The egs_brachy
+energy deposition doses are compared with values calculated by dosrznrc.
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}!compare\_results@{compare\_results}}
+\index{compare\_results@{compare\_results}!eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection{\texorpdfstring{compare\_results()}{compare\_results()}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1brem__cyl_1_1test_a7d1b604889974227e32e4fb36a8d5c1d} 
+eb\+\_\+tests.\+brem\+\_\+cyl.\+test.\+compare\+\_\+results (\begin{DoxyParamCaption}\item[{}]{egslst}{, }\item[{}]{inp\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{brem__cyl_2test_8py_source_l00043}{43}} of file \mbox{\hyperlink{brem__cyl_2test_8py_source}{test.\+py}}.
+
+
+
+\label{doc-var-members}
+\doxysubsection{Variable Documentation}
+\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}!DOSRZ\_NRC\_DOSES@{DOSRZ\_NRC\_DOSES}}
+\index{DOSRZ\_NRC\_DOSES@{DOSRZ\_NRC\_DOSES}!eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection{\texorpdfstring{DOSRZ\_NRC\_DOSES}{DOSRZ\_NRC\_DOSES}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1brem__cyl_1_1test_a56e0d27378b20c5a5f8908ff852be14d} 
+list eb\+\_\+tests.\+brem\+\_\+cyl.\+test.\+DOSRZ\+\_\+\+NRC\+\_\+\+DOSES}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [}
+\DoxyCodeLine{00002\ \ \ \ \ (3.0107E-\/013,\ 0.0002),}
+\DoxyCodeLine{00003\ \ \ \ \ (1.0088E-\/016,\ 0.0040),}
+\DoxyCodeLine{00004\ \ \ \ \ (5.6843E-\/017,\ 0.0042),}
+\DoxyCodeLine{00005\ \ \ \ \ (3.8797E-\/017,\ 0.0041),}
+\DoxyCodeLine{00006\ ]}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{brem__cyl_2test_8py_source_l00018}{18}} of file \mbox{\hyperlink{brem__cyl_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}!EGSINP@{EGSINP}}
+\index{EGSINP@{EGSINP}!eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection{\texorpdfstring{EGSINP}{EGSINP}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1brem__cyl_1_1test_ae6ce2246c71f23724669ab9ab2710564} 
+str eb\+\_\+tests.\+brem\+\_\+cyl.\+test.\+EGSINP = "{}brem\+\_\+cyl.\+egsinp"{}}
+
+
+
+Definition at line \mbox{\hyperlink{brem__cyl_2test_8py_source_l00014}{14}} of file \mbox{\hyperlink{brem__cyl_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}!expected\_doses@{expected\_doses}}
+\index{expected\_doses@{expected\_doses}!eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection{\texorpdfstring{expected\_doses}{expected\_doses}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1brem__cyl_1_1test_a20bfe75f5f5114648fd62d876c73edd6} 
+dict eb\+\_\+tests.\+brem\+\_\+cyl.\+test.\+expected\+\_\+doses}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \{}
+\DoxyCodeLine{00002\ \ \ \ \ \textcolor{stringliteral}{"{}tlen"{}}:\ [}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ (3.702E-\/16,\ 2.84),}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ (1.042E-\/16,\ \ 2.90),}
+\DoxyCodeLine{00005\ \ \ \ \ \ \ \ \ (5.933E-\/17,\ 3.04),}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ (4.064E-\/17,\ 3.14),}
+\DoxyCodeLine{00007\ \ \ \ \ ],}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{stringliteral}{"{}edep"{}}:\ [}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ (3.002E-\/13,\ 0.41),}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ (1.073E-\/16,\ 3.15),}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ (5.943E-\/17,\ 3.66),}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ (3.912E-\/17,\ 4.20),}
+\DoxyCodeLine{00013\ \ \ \ \ ]}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{brem__cyl_2test_8py_source_l00026}{26}} of file \mbox{\hyperlink{brem__cyl_2test_8py_source}{test.\+py}}.
+
+\index{eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}!TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}}
+\index{TIME\_LIMIT\_S\_PER\_MHZ@{TIME\_LIMIT\_S\_PER\_MHZ}!eb\_tests.brem\_cyl.test@{eb\_tests.brem\_cyl.test}}
+\doxysubsubsection{\texorpdfstring{TIME\_LIMIT\_S\_PER\_MHZ}{TIME\_LIMIT\_S\_PER\_MHZ}}
+{\footnotesize\ttfamily \label{namespaceeb__tests_1_1brem__cyl_1_1test_a20b8098fb9de51a59e1fd2d866a9c8ce} 
+int eb\+\_\+tests.\+brem\+\_\+cyl.\+test.\+TIME\+\_\+\+LIMIT\+\_\+\+S\+\_\+\+PER\+\_\+\+MHZ = 20/2993.}
+
+
+
+Definition at line \mbox{\hyperlink{brem__cyl_2test_8py_source_l00015}{15}} of file \mbox{\hyperlink{brem__cyl_2test_8py_source}{test.\+py}}.
+

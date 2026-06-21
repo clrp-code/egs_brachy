@@ -17,6 +17,5 @@ var searchData=
   ['30cmx30cmx30cm_5fbox_5fxyz_5fprostate_20geom_14',['30cmx30cmx30cm_box_xyz_prostate.geom',['../md_geom.html#autotoc_md25',1,'']]],
   ['30cmx30cmx30cm_5fbox_5fxyz_5fwater_20geom_15',['30cmx30cmx30cm_box_xyz_water.geom',['../md_geom.html#autotoc_md26',1,'']]],
   ['3ddose_20files_16',['3ddose files',['../index.html#dosefiles',1,'']]],
-  ['3mm_5fdiameter_5f3cm_5flong_17',['Amersham_0.3mm_diameter_3cm_long',['../md_geom.html#Ir192_LDRAmersham_03mm_diameter_3cm_long',1,'']]],
-  ['3mm_5fdiameter_5f5cm_5flong_18',['Amersham_0.3mm_diameter_5cm_long',['../md_geom.html#Ir192_LDRAmersham_03mm_diameter_5cm_long',1,'']]]
+  ['3mm_5fdiameter_5f3cm_5flong_17',['Amersham_0.3mm_diameter_3cm_long',['../md_geom.html#Ir192_LDRAmersham_03mm_diameter_3cm_long',1,'']]]
 ];

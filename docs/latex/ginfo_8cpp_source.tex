@@ -1,0 +1,530 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/ginfo.cpp}
+\label{ginfo_8cpp_source}\mbox{\hyperlink{ginfo_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ \ egs\_brachy\ ginfo.cpp}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ \ Copyright\ (C)\ 2016\ Rowan\ Thomson,\ Dave\ Rogers,\ Randle\ Taylor,\ and\ Marc}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#\ \ Chamberland}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ \ This\ file\ is\ part\ of\ egs\_brachy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ \ under\ the\ terms\ of\ the\ GNU\ Affero\ General\ Public\ License\ as\ published}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\#\ \ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ \ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ \ egs\_brachy\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\#\ \ Affero\ General\ Public\ License\ for\ more\ details:}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ \ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ \ When\ egs\_brachy\ is\ used\ for\ publications,\ please\ cite\ our\ paper:}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\#\ \ M.\ J.\ P.\ Chamberland,\ R.\ E.\ P.\ Taylor,\ D.\ W.\ O.\ Rogers,\ and\ R.\ M.\ Thomson,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ \ egs\ brachy:\ a\ versatile\ and\ fast\ Monte\ Carlo\ code\ for\ brachytherapy,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ \ Phys.\ Med.\ Biol.\ 61,\ 8214-\/8231\ (2016).}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ Author:\ \ \ \ \ \ \ \ Randle\ Taylor,\ 2016}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ Contributors:\ \ Marc\ Chamberland}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dave\ Rogers}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rowan\ Thomson}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\#}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}ginfo.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ pair\ <string,\ vector<int>\ >\ CDGeomRegType;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ comarison\ function\ for\ sorting\ CD\ 'set\ geometry'\ region\ definitions}}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{bool}\ pairCompare(\textcolor{keyword}{const}\ CDGeomRegType\ \&firstElem,\ \textcolor{keyword}{const}\ CDGeomRegType\ \&secondElem)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ firstElem.second[0]\ <\ secondElem.second[0];}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ simple\ string\ join\ routine}}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{string}\ join(\textcolor{keyword}{const}\ vector<string>\ \&v,\ \textcolor{keywordtype}{string}\ delim)\ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{string}\ s=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<string>::const\_iterator\ p\ =\ v.begin();\ p\ !=\ v.end();\ ++p)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ s\ +=\ *p;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\ !=\ v.end()\ -\/\ 1)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ s\ +=\ delim;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ build\ up\ our\ geometry\ tree\ based\ from\ composite\ geometries}}
+\DoxyCodeLine{00071\ Node\ GeomInfo::build\_tree(\textcolor{keywordtype}{string}\ root,\ vector<Node>\ \&children)\ \{}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =0;\ i\ <\ gmap[root].children.size();\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ child\ =\ gmap[root].children[i];}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ vector<Node>\ empty;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ children.push\_back(build\_tree(child,\ empty));}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ Node(root,\ children);}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ parse\ the\ input\ geometry\ definition\ and\ figures\ out\ which\ geometries\ are\ inscribed\ in\ others}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ and\ then\ builds\ up\ a\ tree\ of\ nodes\ that\ can\ be\ used\ for\ figuring\ out\ the\ egs++\ region}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ numbers\ assigned\ to\ each\ geometry}}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{int}\ GeomInfo::initializeFromInput(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}simulation\ geometry"{}},\ sim\_geom\_name);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}GeomInfo::initializeFromInput:\ missing\ keyword\ 'simulation\ geometry'\(\backslash\)n"{}});}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}source\ envelope\ geometry"{}},\ source\_envelope\_name);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}phantom\ geometries"{}},\ phantom\_names);}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}GeomInfo::initializeFromInput:\ missing\ keyword\ 'phantom\ geometries'\(\backslash\)n"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ sort(phantom\_names.begin(),\ phantom\_names.end());}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}source\ geometries"{}},\ source\_names);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}GeomInfo::initializeFromInput:\ missing\ keyword\ 'source\ geometries'\(\backslash\)n"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ keep\ track\ of\ the\ the\ items\ we're\ taking\ so\ we\ can\ add\ them\ back\ to\ the\ input}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ for\ the\ actual\ geometry\ creation\ routinte\ to\ use}}
+\DoxyCodeLine{00110\ \ \ \ \ vector<EGS\_Input\ *>\ items;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ EGS\_Input\ *ij;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{while}\ ((ij\ =\ input-\/>takeInputItem(\textcolor{stringliteral}{"{}geometry"{}}))\ !=\ 0)\ \{}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ items.push\_back(ij);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ name(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ ij-\/>getInput(\textcolor{stringliteral}{"{}name"{}},\ name);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ egsWarning(\textcolor{stringliteral}{"{}GeomInfo::initializeFromInput:\ Found\ geometry\ with\ no\ name.\ \ All\ geometries\ must\ be\ named.\(\backslash\)n"{}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ gmap[name].children\ =\ getChildren(name,\ ij);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ now\ add\ them\ back\ to\ the\ geometry\ input}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<EGS\_Input\ *>::iterator\ item\ =\ items.begin();\ item\ !=\ items.end();\ item++)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ input-\/>addInputItem(**item);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ *item;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ we've\ got\ all\ geometries\ in\ the\ input.\ Now\ we\ need\ build\ up\ a\ tree\ of\ geometries\ with}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ the\ simulation\ geometry\ as\ the\ root\ node.\ This\ allows\ the\ setGeometryIndexes\ method}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ to\ figure\ out\ the\ order\ of\ geometries\ and\ starting/ending\ regions\ in\ egs++}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ by\ traversing\ the\ tree}}
+\DoxyCodeLine{00139\ \ \ \ \ vector<Node>\ empty;\ \textcolor{comment}{//\ need\ a\ default\ empty\ vector}}
+\DoxyCodeLine{00140\ \ \ \ \ geom\_tree\ =\ \textcolor{keyword}{new}\ Node(build\_tree(sim\_geom\_name,\ empty));}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{/*\ counts\ the\ number\ of\ transformation\ blocks\ for\ an\ auto\ envelope\ geometry}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *\ and\ hence\ counts\ the\ number\ of\ inscribed\ geometries\ in\ an\ envelope}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{size\_t}\ countAutoEnvelopeInscribed(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ EGS\_Input\ *inscribedInp\ =\ input-\/>getInputItem(\textcolor{stringliteral}{"{}inscribed\ geometry"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (!inscribedInp)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ EGS\_Input\ *transformInp\ =\ inscribedInp-\/>getInputItem(\textcolor{stringliteral}{"{}transformations"{}});}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (!transformInp)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ vector<EGS\_Input\ *>\ items;}
+\DoxyCodeLine{00163\ \ \ \ \ EGS\_Input\ *ij;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ count\ =\ 0;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{while}\ ((ij\ =\ transformInp-\/>takeInputItem(\textcolor{stringliteral}{"{}transformation"{}}))\ !=\ 0)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ items.push\_back(ij);}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{comment}{//\ now\ add\ them\ back\ to\ the\ geometry\ input}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<EGS\_Input\ *>::iterator\ item\ =\ items.begin();\ item\ !=\ items.end();\ item++)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ transformInp-\/>addInputItem(**item);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ *item;}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ return\ base\ geometrty\ name\ for\ egs\_genvelope\ or\ egs\_autoenvelope\ geometry}}
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{string}\ getGeomBaseName(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{string}\ base;}
+\DoxyCodeLine{00184\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}base\ geometry"{}},\ base);}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{return}\ base;}
+\DoxyCodeLine{00186\ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribed\ geometries\ in\ an\ EGS\_AutoEnvelope\ input}}
+\DoxyCodeLine{00190\ vector<string>\ getAutoEnvelopeChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00193\ \ \ \ \ children.push\_back(getGeomBaseName(input));}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ EGS\_Input\ *inscribed\_inp\ =\ input-\/>getInputItem(\textcolor{stringliteral}{"{}inscribed\ geometry"{}});}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (!inscribed\_inp)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{string}\ inscribed\_name;}
+\DoxyCodeLine{00201\ \ \ \ \ inscribed\_inp-\/>getInput(\textcolor{stringliteral}{"{}inscribed\ geometry\ name"{}},\ inscribed\_name);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ ninscribed\ =\ countAutoEnvelopeInscribed(input);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ ninscribed;\ i++)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ children.push\_back(inscribed\_name);}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00209\ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribedd\ geometries\ in\ an\ egs\_genvelope\ input}}
+\DoxyCodeLine{00213\ vector<string>\ getGEnvelopeChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00215\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}inscribed\ geometries"{}},\ children);}
+\DoxyCodeLine{00216\ \ \ \ \ children.insert(children.begin(),\ getGeomBaseName(input));}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00218\ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribed\ geometries\ in\ an\ egs\_cdgeometry\ input}}
+\DoxyCodeLine{00222\ vector<string>\ getCDChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{string}\ name;}
+\DoxyCodeLine{00225\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}name"{}},\ name);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//children.push\_back(getGeomBaseName(input));}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ vector<EGS\_Input\ *>\ items;}
+\DoxyCodeLine{00230\ \ \ \ \ EGS\_Input\ *ij;}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ vector<int>\ start\_regs,\ stop\_regs;}
+\DoxyCodeLine{00233\ \ \ \ \ vector<string>\ names;}
+\DoxyCodeLine{00234\ \ \ \ \ vector<CDGeomRegType>\ regs;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{while}\ ((ij\ =\ input-\/>takeInputItem(\textcolor{stringliteral}{"{}set\ geometry"{}}))\ !=\ 0)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ items.push\_back(ij);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ vector<string>\ aux;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ ij-\/>getInput(\textcolor{stringliteral}{"{}set\ geometry"{}},\ aux);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ start\_reg,\ stop\_reg;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ name;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux.size()\ ==\ 2)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ start\_reg\ =\ atoi(aux[0].c\_str());}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ stop\_reg\ =\ start\_reg;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ aux[1];}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (aux.size()\ ==\ 3)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ start\_reg\ =\ atoi(aux[0].c\_str());}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ stop\_reg\ =\ atoi(aux[1].c\_str());}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ name\ =\ aux[2];}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ vector<int>\ start\_stop\_regs;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ start\_stop\_regs.push\_back(start\_reg);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ start\_stop\_regs.push\_back(stop\_reg);}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ regs.push\_back(CDGeomRegType(name,\ start\_stop\_regs));}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ now\ add\ them\ back\ to\ the\ geometry\ input}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<EGS\_Input\ *>::iterator\ item\ =\ items.begin();\ item\ !=\ items.end();\ item++)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ input-\/>addInputItem(**item);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ *item;}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ sort(regs.begin(),\ regs.end(),\ pairCompare);}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i=0;\ i<\ regs.size();\ i++)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ g\ =\ regs[i].second[0];\ g\ <=\ regs[i].second[1];\ g++)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ children.push\_back(regs[i].first);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00277\ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribedd\ geometries\ in\ an\ egs\_genvelope\ input}}
+\DoxyCodeLine{00281\ vector<string>\ getNDChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordtype}{string}\ type;}
+\DoxyCodeLine{00286\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}type"{}},\ type);}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}EGS\_XYZGeometry"{}})\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}dimensions"{}},\ children);}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribedd\ geometries\ in\ an\ egs\_genvelope\ input}}
+\DoxyCodeLine{00298\ vector<string>\ getUnionChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00300\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}geometries"{}},\ children);}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00302\ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribedd\ geometries\ in\ an\ egs\_genvelope\ input}}
+\DoxyCodeLine{00306\ vector<string>\ getGStackChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00308\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}geometries"{}},\ children);}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00310\ \}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \textcolor{comment}{//\ return\ a\ vector\ of\ all\ the\ names\ of\ the\ inscribedd\ geometries\ in\ an\ egs\_gtransformed\ input}}
+\DoxyCodeLine{00313\ vector<string>\ getGTransformedChildren(EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00315\ \ \ \ \ input-\/>getInput(\textcolor{stringliteral}{"{}my\ geometry"{}},\ children);}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00317\ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{comment}{/*\ return\ a\ vector\ of\ the\ names\ of\ all\ the\ direct\ children\ for\ a\ given\ geometry\ input}}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ *\ currently\ works\ for:}}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_autoenvelope}}
+\DoxyCodeLine{00324\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_genvelope}}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_cdgeometry}}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_ndgeometry}}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_gunion}}
+\DoxyCodeLine{00328\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_gstack}}
+\DoxyCodeLine{00329\ \textcolor{comment}{\ *\ \ \ \ \ \ egs\_gtransformed}}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ *\ */}}
+\DoxyCodeLine{00332\ vector<string>\ GeomInfo::getChildren(\textcolor{keywordtype}{string}\ name,\ EGS\_Input\ *input)\ \{}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{string}\ library;}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{int}\ err\ =\ input-\/>getInput(\textcolor{stringliteral}{"{}library"{}},\ library);}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ vector<string>\ children;}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}\ (err)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_autoenvelope"{}})\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ children\ =\ getAutoEnvelopeChildren(input);}
+\DoxyCodeLine{00344\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_genvelope"{}})\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ children\ =\ getGEnvelopeChildren(input);}
+\DoxyCodeLine{00346\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_cdgeometry"{}})\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ children\ =\ getCDChildren(input);}
+\DoxyCodeLine{00348\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_ndgeometry"{}})\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ children\ =\ getNDChildren(input);}
+\DoxyCodeLine{00350\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_gunion"{}})\ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ children\ =\ getUnionChildren(input);}
+\DoxyCodeLine{00352\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_gstack"{}})\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ children\ =\ getGStackChildren(input);}
+\DoxyCodeLine{00354\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (library\ ==\ \textcolor{stringliteral}{"{}egs\_gtransformed"{}})\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ children\ =\ getGTransformedChildren(input);}
+\DoxyCodeLine{00356\ \ \ \ \ \}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordflow}{return}\ children;}
+\DoxyCodeLine{00359\ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \textcolor{comment}{//\ return\ the\ index\ of\ the\ geometry\ name\ in\ the\ the\ given\ input\ vector\ or\ -\/1\ if\ not\ found}}
+\DoxyCodeLine{00363\ \textcolor{keywordtype}{int}\ findGeomInVec(EGS\_BaseGeometry\ *geom,\ vector<string>\ geoms)\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ p=0;\ p\ <\ geoms.size();\ p++)\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (geoms[p]\ ==\ geom-\/>getName())\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00371\ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \textcolor{comment}{//\ return\ the\ maximum\ number\ of\ regions\ for\ the\ input\ geometry\ names}}
+\DoxyCodeLine{00375\ \textcolor{keywordtype}{int}\ maxNRegOfGeoms(vector<string>\ gnames,\ \textcolor{keywordtype}{int}\ start)\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ 0;}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ start;\ i\ <\ gnames.size();\ i++)\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nreg\ =\ EGS\_BaseGeometry::getGeometry(gnames[i])-\/>regions();}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ max\ =\ \ nreg\ >\ max\ ?\ nreg\ :\ max;}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordflow}{return}\ max;}
+\DoxyCodeLine{00382\ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \textcolor{comment}{//\ return\ the\ number\ of\ regions\ in\ the\ subdivision\ at\ index\ idx\ of\ a\ composite\ geometry}}
+\DoxyCodeLine{00386\ \textcolor{keywordtype}{int}\ nregForSubDiv(GeomRegionInfo\ gri,\ \textcolor{keywordtype}{int}\ idx)\ \{}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ EGS\_BaseGeometry\ *geom\ =\ EGS\_BaseGeometry::getGeometry(gri.name);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keywordflow}{if}\ (gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_AEnvelope"{}}\ ||}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_ASwitchedEnvelope"{}}\ ||}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_EnvelopeGeometry"{}}\ ||}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_FastEnvelope"{}})\ \{}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx\ ==\ 0)\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ EGS\_BaseGeometry\ *base\ =\ EGS\_BaseGeometry::getGeometry(gri.children[idx]);}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ base-\/>regions();}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxNRegOfGeoms(gri.children,\ 1);}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_CDGeometry"{}})\ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxNRegOfGeoms(gri.children,\ 0);}
+\DoxyCodeLine{00404\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_NDGeometry"{}})\ \{}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EGS\_BaseGeometry::getGeometry(gri.children[idx])-\/>regions();}
+\DoxyCodeLine{00406\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_UnionGeometry"{}})\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxNRegOfGeoms(gri.children,\ 0);}
+\DoxyCodeLine{00408\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (gri.type\ ==\ \textcolor{stringliteral}{"{}EGS\_StackGeometry"{}})\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxNRegOfGeoms(gri.children,\ 0);}
+\DoxyCodeLine{00410\ \ \ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{return}\ geom-\/>regions();}
+\DoxyCodeLine{00413\ \}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{comment}{//\ traverse\ tree\ and\ set\ geometry\ start/end\ regions\ \ for\ a\ given\ geometry}}
+\DoxyCodeLine{00417\ \textcolor{keywordtype}{void}\ GeomInfo::getGeomRegs(Node\ root,\ vector<GeomRegionInfo>\ \&ordered,\ \textcolor{keywordtype}{int}\ start)\ \{}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ EGS\_BaseGeometry\ *g\ =\ EGS\_BaseGeometry::getGeometry(root.name);}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{int}\ nreg\ =\ g-\/>regions();}
+\DoxyCodeLine{00421\ \ \ \ \ gmap[root.name].name\ =\ root.name;}
+\DoxyCodeLine{00422\ \ \ \ \ gmap[root.name].type\ =\ g-\/>getType();}
+\DoxyCodeLine{00423\ \ \ \ \ gmap[root.name].start\ =\ start;}
+\DoxyCodeLine{00424\ \ \ \ \ gmap[root.name].end\ =\ start\ +\ nreg\ -\/\ 1;}
+\DoxyCodeLine{00425\ \ \ \ \ gmap[root.name].nreg\ =\ nreg;}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ ordered.push\_back(gmap[root.name]);}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i=0;\ i\ <\ gmap[root.name].children.size();\ i++)\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ getGeomRegs(root.children[i],\ ordered,\ start);}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ start\ +=\ nregForSubDiv(gmap[root.name],\ i);}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{comment}{//\ set\ up\ all\ arrays\ required\ to\ decide\ which\ geometry/phantom\ a\ region}}
+\DoxyCodeLine{00437\ \textcolor{comment}{//\ is\ in\ and\ whether\ or\ not\ we\ are\ scoring\ dose\ in\ it.}}
+\DoxyCodeLine{00438\ \textcolor{comment}{//\ To\ do\ this\ we\ loop\ through\ all\ geometries,\ decide\ whether\ it\ is\ a\ phantom}}
+\DoxyCodeLine{00439\ \textcolor{comment}{//\ or\ not,\ then\ loop\ through\ each\ region\ in\ the\ geometry\ and\ set\ the\ local}}
+\DoxyCodeLine{00440\ \textcolor{comment}{//\ region\ number\ phantom\ index\ etc}}
+\DoxyCodeLine{00441\ \textcolor{keywordtype}{void}\ GeomInfo::setGeometryIndexes(EGS\_BaseGeometry\ *geom)\ \{}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ getGeomRegs(*geom\_tree,\ ordered\_geom\_data,\ 0);}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ nreg\_total\ =\ EGS\_BaseGeometry::getGeometry(sim\_geom\_name)-\/>regions();}
+\DoxyCodeLine{00446\ \ \ \ \ ngeom\ =\ ordered\_geom\_data.size();}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ rr\ =\ 0;\ rr\ <\ nreg\_total;\ rr++)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ global\_ir\_to\_geom.push\_back(NULL);\ \textcolor{comment}{//\ region\ number\ to\ parent\ geometry}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ global\_ir\_to\_phant.push\_back(-\/1);\ \textcolor{comment}{//\ IF\ is\ phantom\ THEN\ phantom\ index\ else\ -\/1}}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ global\_ir\_to\_source.push\_back(-\/1);\ \textcolor{comment}{//\ IF\ is\ phantom\ THEN\ phantom\ index\ else\ -\/1}}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ global\_ir\_to\_local\_ir.push\_back(-\/1);\ \textcolor{comment}{//\ global\ region\ to\ local\ region\ number}}
+\DoxyCodeLine{00453\ \ \ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ gg=0;\ gg\ <\ ngeom;\ gg++)\ \{}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ GeomRegionInfo\ ginfo\ =\ ordered\_geom\_data[gg];}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ EGS\_BaseGeometry\ *geom\ =\ EGS\_BaseGeometry::getGeometry(ginfo.name);}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ geom\_to\_regioninfo[geom]\ =\ ginfo;}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ phant\_idx\ =\ \ findGeomInVec(geom,\ phantom\_names);}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ source\_idx\ =\ \ findGeomInVec(geom,\ source\_names);}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ rr\ =\ ginfo.start;\ rr\ <=\ ginfo.end;\ rr++)\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ global\_ir\_to\_geom[rr]\ =\ geom;\ \textcolor{comment}{//\ region\ number\ to\ parent\ geometry}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (global\_ir\_to\_phant[rr]\ ==\ -\/1\ ||\ phant\_idx\ >\ -\/1)\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ global\_ir\_to\_phant[rr]\ =\ phant\_idx;\ \textcolor{comment}{//\ IF\ is\ phantom\ THEN\ phantom\ index\ else\ -\/1}}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (global\_ir\_to\_source[rr]\ ==\ -\/1\ ||\ source\_idx\ >\ -\/1)\ \{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ global\_ir\_to\_source[rr]\ =\ source\_idx;\ \textcolor{comment}{//\ IF\ is\ source\ THEN\ source\ index\ else\ -\/1}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ global\_ir\_to\_local\_ir[rr]\ =\ rr\ -\/\ ginfo.start;\ \textcolor{comment}{//\ global\ region\ to\ local\ region\ number}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00475\ \ \ \ \ \}}
+\DoxyCodeLine{00476\ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ GeomRegT\ GeomInfo::globalToLocal(\textcolor{keywordtype}{int}\ ir)\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordflow}{if}\ (ir\ <\ 0)\ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GeomRegT(0,0);}
+\DoxyCodeLine{00482\ \ \ \ \ \}}
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordflow}{return}\ GeomRegT(global\_ir\_to\_geom[ir],\ global\_ir\_to\_local\_ir[ir]);}
+\DoxyCodeLine{00484\ \}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \textcolor{keywordtype}{int}\ GeomInfo::globalToLocalReg(\textcolor{keywordtype}{int}\ ir)\ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordflow}{return}\ ir\ >=\ 0\ \&\&\ ir\ <\ nreg\_total\ ?\ global\_ir\_to\_local\_ir[ir]\ :\ -\/1;}
+\DoxyCodeLine{00489\ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \textcolor{keywordtype}{int}\ GeomInfo::localToGlobal(GeomRegT\ local)\ \{}
+\DoxyCodeLine{00493\ \ \ \ \ GeomRegionInfo\ gri\ =\ geom\_to\_regioninfo[local.first];}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordflow}{return}\ gri.start\ +\ local.second;}
+\DoxyCodeLine{00495\ \}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \textcolor{keywordtype}{bool}\ GeomInfo::isPhantom(\textcolor{keywordtype}{int}\ ir)\ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \textcolor{keywordflow}{return}\ ir\ >=\ 0\ \&\&\ ir\ <\ nreg\_total\ \&\&\ global\_ir\_to\_phant[ir]\ >=\ 0;}
+\DoxyCodeLine{00500\ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \textcolor{keywordtype}{bool}\ GeomInfo::isSource(\textcolor{keywordtype}{int}\ ir)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keywordflow}{return}\ ir\ >=\ 0\ \&\&\ ir\ <\ nreg\_total\ \&\&\ global\_ir\_to\_source[ir]\ >=\ 0;}
+\DoxyCodeLine{00505\ \}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \textcolor{keywordtype}{int}\ GeomInfo::phantomFromRegion(\textcolor{keywordtype}{int}\ ir)\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keywordflow}{return}\ ir\ >=\ 0\ \&\&\ ir\ <\ nreg\_total\ ?\ global\_ir\_to\_phant[ir]\ :\ -\/1;}
+\DoxyCodeLine{00510\ \}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \textcolor{keywordtype}{void}\ GeomInfo::printInfo()\ \{}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ number\ of\ geometries\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \%d\(\backslash\)n"{}},\ ngeom);}
+\DoxyCodeLine{00516\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Total\ number\ of\ regions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \%d\(\backslash\)n"{}},\ nreg\_total);}
+\DoxyCodeLine{00517\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Simulation\ geometry\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \%s\(\backslash\)n"{}},\ sim\_geom\_name.c\_str());}
+\DoxyCodeLine{00518\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Envelope\ containing\ sources\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \%s\(\backslash\)n"{}},\ source\_envelope\_name.c\_str());}
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordtype}{string}\ sgnames\ =\ join(source\_names,\ \textcolor{stringliteral}{"{},\ "{}});}
+\DoxyCodeLine{00520\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}Source\ geometries\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \%s\(\backslash\)n"{}},\ sgnames.c\_str());}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\(\backslash\)nName\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ First\ Reg\ Idx\ |\ \ Last\ Reg\ Idx\ |\ Nreg\ \(\backslash\)n\%s\(\backslash\)n"{}},\textcolor{keywordtype}{string}(80,}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'-\/'}).c\_str());}
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ gg=0;\ gg\ <\ ngeom;\ gg++)\ \{}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ GeomRegionInfo\ gr\ =\ ordered\_geom\_data[gg];}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\%-\/30s\ |\ \%13d\ |\ \%13d\ |\ \%12d\ \(\backslash\)n"{}},\ gr.name.c\_str(),\ gr.start,\ gr.end,\ gr.nreg);}
+\DoxyCodeLine{00527\ \ \ \ \ \}}
+\DoxyCodeLine{00528\ \ \ \ \ egsInformation(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\textcolor{keywordtype}{string}(80,\ \textcolor{charliteral}{'-\/'}).c\_str());}
+\DoxyCodeLine{00529\ \}}
+
+\end{DoxyCode}

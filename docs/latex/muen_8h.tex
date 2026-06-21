@@ -1,0 +1,59 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/muen.h File Reference}
+\label{muen_8h}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/muen.h@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/muen.h}}
+
+
+Functions for loading muen data from a file.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}egs\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}egs\+\_\+input.\+h"{}}\newline
+{\ttfamily \#include "{}egs\+\_\+interpolator.\+h"{}}\newline
+Include dependency graph for muen.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmuen_1_1MuenDataParser}{muen\+::\+Muen\+Data\+Parser}}
+\begin{DoxyCompactList}\small\item\em class for parsing muen data from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemuen}{muen}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pair$<$ double, double $>$ \mbox{\hyperlink{namespacemuen_ae04280cce926ee2d2e56e5b2ae7d54ab}{muen\+::\+Muen\+At\+ET}}
+\begin{DoxyCompactList}\small\item\em pair of form (energy, \doxylink{namespacemuen}{muen(energy)}) \end{DoxyCompactList}\item 
+typedef map$<$ string, vector$<$ \mbox{\hyperlink{namespacemuen_ae04280cce926ee2d2e56e5b2ae7d54ab}{Muen\+At\+ET}} $>$ $>$ \mbox{\hyperlink{namespacemuen_a65b93696cee29c6813b9d5ccda9b52b7}{muen\+::\+Muen\+MapT}}
+\begin{DoxyCompactList}\small\item\em Map from medium name to vector of (e, \doxylink{namespacemuen}{muen(e)}) data for that medium. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{namespacemuen_a3f480ee4d88b19fa4c33142a1c94fa72}{muen\+::split}} (const std\+::string \&s, char delim, std\+::vector$<$ std\+::string $>$ \&elems)
+\begin{DoxyCompactList}\small\item\em Split a string on input delimeter. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespacemuen_a2fbd81571a5a6b4dc0f324b13071f2bd}{muen\+::split}} (const std\+::string \&s, char delim)
+\begin{DoxyCompactList}\small\item\em Split a string on input delimeter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for loading muen data from a file. 
+
+\begin{DoxyAuthor}{Author}
+Randle Taylor (\href{mailto:randle.taylor@gmail.com}{\texttt{randle.\+taylor@gmail.\+com}})  
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{muen_8h_source}{muen.\+h}}.
+

@@ -7,7 +7,7 @@ var searchData=
   ['eb_5ftimingtree_4',['EB_TimingTree',['../classEB__TimingTree.html#a7430495ec0a0424c257c398bfe4cad16',1,'EB_TimingTree']]],
   ['eb_5funiformruncontrol_5',['EB_UniformRunControl',['../classEB__UniformRunControl.html#a656d6b1901cfa451de1c2d962aec18ff',1,'EB_UniformRunControl']]],
   ['edepregtopresultcompare_6',['edepRegTopResultCompare',['../phantom_8cpp.html#aef2960730e22b4576cf75ad2c54aaa35',1,'phantom.cpp']]],
-  ['egs_5fsobol_7',['egs_sobol',['../classEGS__Sobol.html#a248382fd7896d4334cfee4b0e6e6f186',1,'EGS_Sobol::EGS_Sobol(EGS_Input *inp)'],['../classEGS__Sobol.html#a4b913bb84cf5c499f69cb6dcc6285f56',1,'EGS_Sobol::EGS_Sobol(const EGS_Sobol &amp;r)'],['../classEGS__Sobol.html#aee8c3cce44ad287258da4c1c4cdb8497',1,'EGS_Sobol::EGS_Sobol(int dimension=3, EGS_I64 iseed=-1)']]],
+  ['egs_5fsobol_7',['EGS_Sobol',['../classEGS__Sobol.html#a248382fd7896d4334cfee4b0e6e6f186',1,'EGS_Sobol::EGS_Sobol(EGS_Input *inp)'],['../classEGS__Sobol.html#aee8c3cce44ad287258da4c1c4cdb8497',1,'EGS_Sobol::EGS_Sobol(int dimension=3, EGS_I64 iseed=-1)'],['../classEGS__Sobol.html#a4b913bb84cf5c499f69cb6dcc6285f56',1,'EGS_Sobol::EGS_Sobol(const EGS_Sobol &amp;r)']]],
   ['egsadvapplicationoutputdata_8',['egsAdvApplicationOutputData',['../classEB__Application.html#a516aa6b331006086c67f28572bca57eb',1,'EB_Application']]],
   ['egsadvapplicationreaddata_9',['egsAdvApplicationReadData',['../classEB__Application.html#ad464ad7dd011af94e4005b2596be7056',1,'EB_Application']]],
   ['egsapplicationoutputdata_10',['egsApplicationOutputData',['../classEB__Application.html#ad94dcc9bab7cd106a089f12045c5bce7',1,'EB_Application']]],

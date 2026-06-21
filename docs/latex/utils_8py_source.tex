@@ -1,0 +1,114 @@
+\doxysection{utils.\+py}
+\label{utils_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/utils.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/utils.py}}
+\mbox{\hyperlink{utils_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ REG\_DOSE\_UNC\_RE\ =\ \textcolor{stringliteral}{"{}\(\backslash\)s+(\(\backslash\)d)+\(\backslash\)s+\(\backslash\)d+\(\backslash\)s+\(\backslash\)d+\(\backslash\)..*?\(\backslash\)s+(.*?)\(\backslash\)s+\(\backslash\)+/-\/\(\backslash\)s+(.*?)\%\(\backslash\)s+(.*?)\(\backslash\)s+\(\backslash\)+/-\/\(\backslash\)s+(.*?)\%"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{def\ }extract\_all\_doses(egslst):}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}return\ all\ regions\ and\ doses\ from\ egslst\ file.\ This\ may}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ include\ doses\ from\ more\ than\ one\ phantom"{}"{}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{\#\ regex\ to\ match\ scientific\ notation\ +[+-\/]?(?:0|[1-\/9]\(\backslash\)d*)(?:\(\backslash\).\(\backslash\)d*)?(?:[eE][+\(\backslash\)-\/]?\(\backslash\)d+)}}
+\DoxyCodeLine{00012\ \ \ \ \ sci\_not\ =\ \textcolor{stringliteral}{r"{}[+-\/]?(?:0|[1-\/9]\(\backslash\)d*)(?:\(\backslash\).\(\backslash\)d*)?(?:[eE][+\(\backslash\)-\/]?\(\backslash\)d+)"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ r\ =\ re.compile(\textcolor{stringliteral}{r"{}"{}"{}\(\backslash\)s+(\(\backslash\)d+)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ region\ number}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s+\(\backslash\)d+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ medium\ number}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s+\{sci\_not\}\(\backslash\)(\{sci\_not\}\(\backslash\))\(\backslash\)s+\(\backslash\)+\(\backslash\)/\(\backslash\)-\/\(\backslash\)s+\(\backslash\)d+\(\backslash\).\(\backslash\)d+\%\ \ \ \ \#\ volume,\ correction\ and\ error}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s+(\{sci\_not\})\(\backslash\)s+\(\backslash\)+\(\backslash\)/\(\backslash\)-\/\(\backslash\)s+(\(\backslash\)d+\(\backslash\).\(\backslash\)d+)\%\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ tlen\ dose\ and\ unc}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s+\(\backslash\)(.*\(\backslash\))}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)s+(\{sci\_not\})\(\backslash\)s+\(\backslash\)+\(\backslash\)/\(\backslash\)-\/\(\backslash\)s+(\(\backslash\)d+\(\backslash\).\(\backslash\)d+)\%\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ edep\ dose\ and\ unc}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}.format(sci\_not=sci\_not),\ re.X)}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ sorted(r.findall(egslst))}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{def\ }values\_close(a,\ b,\ max\_percent\_diff=0.001):}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{if}\ a\ ==\ 0:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ values\_close\_abs(a,\ b,\ max\_percent\_diff)}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ abs((a-\/b)/a)\ <\ max\_percent\_diff}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{def\ }values\_close\_abs(a,\ b,\ max\_diff=0.001):}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ abs(a-\/b)\ <\ max\_diff}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{def\ }read\_csv\_spectrum(fname):}
+\DoxyCodeLine{00034\ \ \ \ \ f\ =\ open(fname,\ \textcolor{stringliteral}{"{}r"{}})}
+\DoxyCodeLine{00035\ \ \ \ \ header\ =\ f.readline()}
+\DoxyCodeLine{00036\ \ \ \ \ energies\ =\ []}
+\DoxyCodeLine{00037\ \ \ \ \ counts\ =\ []}
+\DoxyCodeLine{00038\ \ \ \ \ unc\ =\ []}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{for}\ line\ \textcolor{keywordflow}{in}\ f.readlines():}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ e,\ c,\ u\ =\ list(map(float,\ line.strip().split(\textcolor{stringliteral}{"{},"{}})))}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ energies.append(e)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ counts.append(c)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ unc.append(u)}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ energies,\ counts,\ unc}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{def\ }doses\_approx\_equal(d1,\ d1\_unc,\ d2,\ d2\_unc,\ max\_percent\_diff=None,\ compare\_unc=True,\ max\_unc\_percent\_diff=None):}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ max\_percent\_diff\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ max\_percent\_diff\ =\ max(d1\_unc,\ d2\_unc)}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ max\_unc\_percent\_diff\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ max\_unc\_percent\_diff\ =\ 0.005}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ vc\ =\ values\_close(d1,\ d2,\ max\_percent\_diff)}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ compare\_unc:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uc\ =\ values\_close\_abs(d1\_unc,\ d2\_unc,\ max\_unc\_percent\_diff)}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ uc\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ vc\ \textcolor{keywordflow}{and}\ uc}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{def\ }read3ddose(fname):}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{with}\ open(fname,\ \textcolor{stringliteral}{'r'})\ \textcolor{keyword}{as}\ f:}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ dat\ =\ f.readlines()}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ nx,\ ny,\ nz\ =\ list(map(int,\ dat[0].strip().split()))}
+\DoxyCodeLine{00071\ \ \ \ \ xbounds\ =\ list(map(float,\ dat[1].strip().split()))}
+\DoxyCodeLine{00072\ \ \ \ \ ybounds\ =\ list(map(float,\ dat[2].strip().split()))}
+\DoxyCodeLine{00073\ \ \ \ \ zbounds\ =\ list(map(float,\ dat[3].strip().split()))}
+\DoxyCodeLine{00074\ \ \ \ \ doses\ =\ list(map(float,\ dat[4].strip().split()))}
+\DoxyCodeLine{00075\ \ \ \ \ uncs\ =\ list(map(float,\ dat[5].strip().split()))}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'nx'}:\ nx,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'ny'}:\ ny,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'nz'}:\ nz,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'xbounds'}:\ xbounds,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'ybounds'}:\ ybounds,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'zbounds'}:\ zbounds,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'doses'}:\ doses,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'uncs'}:\ uncs,}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{def\ }compare\_3ddose\_files(f1,\ f2,\ max\_percent\_diff=None):}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ d1\ =\ \ read3ddose(f1)}
+\DoxyCodeLine{00092\ \ \ \ \ d2\ =\ \ read3ddose(f2)}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ bounds\_keys\ =\ (\textcolor{stringliteral}{'xbounds'},\ \textcolor{stringliteral}{'ybounds'},\ \textcolor{stringliteral}{'zbounds'},)}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ k\ \textcolor{keywordflow}{in}\ bounds\_keys:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ bounds\_close\ =\ all([values\_close(b1,b2)\ \textcolor{keywordflow}{for}\ b1,b2\ \textcolor{keywordflow}{in}\ zip(d1[k],\ d2[k])])}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ bounds\_close:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ print((k,\ \textcolor{stringliteral}{"{}\ are\ different"{}}))}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ doses\_and\_uncs\ =\ list(zip(d1[\textcolor{stringliteral}{'doses'}],\ d1[\textcolor{stringliteral}{'uncs'}],\ d2[\textcolor{stringliteral}{'doses'}],\ d2[\textcolor{stringliteral}{'uncs'}]))}
+\DoxyCodeLine{00102\ \ \ \ \ dose\_diffs\ =\ [abs((a-\/b)/a)\ \textcolor{keywordflow}{for}\ a,\_,b,\_\ \textcolor{keywordflow}{in}\ doses\_and\_uncs]}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ doses\_close\ =\ all([doses\_approx\_equal(d1,\ d1u,\ d2,\ d2u,\ max\_percent\_diff=max\_percent\_diff,\ compare\_unc=\textcolor{keyword}{False})}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ d1,\ d1u,\ d2,\ d2u\ \textcolor{keywordflow}{in}\ doses\_and\_uncs])}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close}
+\DoxyCodeLine{00108\ }
+
+\end{DoxyCode}

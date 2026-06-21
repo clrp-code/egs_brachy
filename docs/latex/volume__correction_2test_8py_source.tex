@@ -1,0 +1,82 @@
+\doxysection{test.\+py}
+\label{volume__correction_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/volume\_correction/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/volume\_correction/test.py}}
+\mbox{\hyperlink{volume__correction_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{A\ test\ of\ the\ egs\_brachy\ Monte\ Carlo\ volume\ correction\ routines.\ \ The\ volume\ of}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{phantom\ voxels\ overlapped\ by\ sources\ and\ other\ phantoms\ are\ calculated\ by}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{egs\_brachy\ and\ compared\ with\ analytical\ values.}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{import}\ csv}
+\DoxyCodeLine{00010\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ EGSINP\ =\ \textcolor{stringliteral}{"{}vc.egsinp"{}}}
+\DoxyCodeLine{00014\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 1\ /\ 2993.\textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ expected\_volumes\ =\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{stringliteral}{"{}source\_volume"{}}:\ 4/3.*math.pi*0.1**3,}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{stringliteral}{"{}bounding\_shape\_volume"{}}:\ 4/3.*math.pi*0.11**3,}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{stringliteral}{"{}extra\_bounding\_shape\_vol"{}}:\ 8**3,}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{stringliteral}{"{}box\_reg\_0"{}}:\ 10**3\ -\/\ 6**3,}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{stringliteral}{"{}phantom\_reg\_0"{}}:\ 6*6*3\ -\/\ 0.5*(4./3*math.pi*1**3),}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{stringliteral}{"{}phantom\_reg\_1"{}}:\ 6*6*3\ -\/\ 0.5*(4./3*math.pi*1**3),}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{stringliteral}{"{}sph\_phantom\_reg\_0"{}}:\ 4/3.*math.pi*(0.3**3\ -\/\ 0.1**3),}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{stringliteral}{"{}sph\_phantom\_reg\_1"{}}:\ 4./3*math.pi*(1**3\ -\/\ 0.3**3)}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{def\ }approx\_equal(\ a,\ b,\ eps=0.001\ ):}
+\DoxyCodeLine{00029\ \ \ \ \ same\_sign\ =\ a*b\ >=\ 0}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ same\_sign\ \textcolor{keywordflow}{and}\ abs(math.log(\ a\ )\ -\/\ math.log(b))\ <=\ \ eps}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{def\ }read\_vols(phant,\ inp\_name):}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Read\ voxel\ values\ for\ the\ phanton\ named\ 'phant'\ and}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ return\ the\ region\ volumes\ for\ that\ phantom"{}"{}"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ path\ =\ \textcolor{stringliteral}{"{}\%s.\%s.voxels"{}}\ \%\ (inp\_name,\ phant)}
+\DoxyCodeLine{00038\ \ \ \ \ f\ =\ open(path,\ \textcolor{stringliteral}{"{}r"{}})}
+\DoxyCodeLine{00039\ \ \ \ \ dialect\ =\ csv.Sniffer().sniff(f.read(1024))}
+\DoxyCodeLine{00040\ \ \ \ \ f.seek(0)}
+\DoxyCodeLine{00041\ \ \ \ \ reader\ =\ csv.reader(f,\ dialect)}
+\DoxyCodeLine{00042\ \ \ \ \ header\ =\ next(reader)}
+\DoxyCodeLine{00043\ \ \ \ \ reg\_vols\ =\ []}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ row\ \textcolor{keywordflow}{in}\ reader:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ reg\_vols.append((float(row[1]),\ float(row[2])))}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ reg\_vols}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ box\_vols\ =\ read\_vols(\textcolor{stringliteral}{"{}box"{}},\ inp\_name)}
+\DoxyCodeLine{00053\ \ \ \ \ phant\_vols\ =\ read\_vols(\textcolor{stringliteral}{"{}phantom"{}},\ inp\_name)}
+\DoxyCodeLine{00054\ \ \ \ \ sph\_phant\_vols\ =\ read\_vols(\textcolor{stringliteral}{"{}sph\_phantom"{}},\ inp\_name)}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ vsource\ =\ float(re.findall(\textcolor{stringliteral}{"{}Volume\ of\ Source\(\backslash\)s*=\(\backslash\)s*(.*)\(\backslash\)s*cm"{}},\ egslst,\ re.IGNORECASE)[0])}
+\DoxyCodeLine{00057\ \ \ \ \ bounding\_vols\ =\ list(map(float,\ re.findall(\textcolor{stringliteral}{"{}Bounding\ shape\ volume\(\backslash\)s*=\(\backslash\)s*(.*)\(\backslash\)s*cm"{}},\ egslst,\ re.IGNORECASE)))}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ actual\ =\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}source\_volume"{}}:\ vsource,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}bounding\_shape\_volume"{}}:\ bounding\_vols[0],}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}extra\_bounding\_shape\_vol"{}}:\ bounding\_vols[1],}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}box\_reg\_0"{}}:\ box\_vols[0][0],}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}phantom\_reg\_0"{}}:\ phant\_vols[0][0],}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}phantom\_reg\_1"{}}:\ phant\_vols[1][0],}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sph\_phantom\_reg\_0"{}}:\ sph\_phant\_vols[0][0],}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sph\_phantom\_reg\_1"{}}:\ sph\_phant\_vols[1][0],}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ all\_close\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{for}\ k,v\ \textcolor{keywordflow}{in}\ list(expected\_volumes.items()):}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ approx\_equal(v,\ actual[k]):}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ print((\textcolor{stringliteral}{"{}Vol\ comparison\ failed\ for\ \%s:\ Actual=\%E\ Expected=\%E"{}}\ \%\ (k,\ actual[k],\ v)))}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ all\_close\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ all\_close,\ actual,\ expected\_volumes}
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\doxysection{test.\+py}
+\label{variable__w__recycling_2test_8py_source}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/variable\_w\_recycling/test.py@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_tests/variable\_w\_recycling/test.py}}
+\mbox{\hyperlink{variable__w__recycling_2test_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{A\ test\ for\ comparing\ the\ dose\ from\ sources\ with\ different\ source\ weighting\ and}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{recyling\ on\ with\ calculations\ from\ when\ egs\_brachy\ was\ in\ a\ known\ good\ state.}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{Gold\ standard\ dose\ distribution\ was\ generated\ with\ egs\_brachy\ and}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{gold\_standard.egsinp}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00012\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00013\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{from}\ eb\_tests.utils\ \textcolor{keyword}{import}\ (compare\_3ddose\_files,\ doses\_approx\_equal,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extract\_all\_doses,\ read3ddose)}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ EGSINP\ =\ \textcolor{stringliteral}{"{}variable\_w\_recycling.egsinp"{}}}
+\DoxyCodeLine{00019\ TIME\_LIMIT\_S\_PER\_MHZ\ =\ 15/2993.\ \textcolor{comment}{\#\ s\ /\ MHz}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{\#\ benchmark\ doses\ calcualted\ using\ egs\_brachy\ and\ gold\_standard.egsinp}}
+\DoxyCodeLine{00022\ BENCHMARK\_DOSES\ =\ [(1.061E-\/13,\ 0.0001),\ (1.644E-\/13,\ 0.0001)]}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{def\ }compare\_results(egslst,\ inp\_name):}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ gold\_standard\ =\ os.path.join(os.path.dirname(os.path.abspath(\_\_file\_\_)),\ \textcolor{stringliteral}{"{}gold\_standard.3ddose"{}})}
+\DoxyCodeLine{00028\ \ \ \ \ run\_doses\ =\ inp\_name+\textcolor{stringliteral}{"{}.phantom.3ddose"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ doses\_close\ =\ compare\_3ddose\_files(}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ gold\_standard,\ run\_doses,\ max\_percent\_diff=0.0015)}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ doses\_close,\ read3ddose(run\_doses),\ read3ddose(gold\_standard)}
+
+\end{DoxyCode}

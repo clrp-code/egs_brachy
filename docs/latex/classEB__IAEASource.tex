@@ -1,0 +1,519 @@
+\doxysection{EB\+\_\+\+IAEASource Class Reference}
+\label{classEB__IAEASource}\index{EB\_IAEASource@{EB\_IAEASource}}
+
+
+A phase space file source for egs\+\_\+brachy.  
+
+
+
+
+{\ttfamily \#include $<$eb\+\_\+iaeaphsp\+\_\+source.\+h$>$}
+
+
+
+Inheritance diagram for EB\+\_\+\+IAEASource\+:
+% FIG 0
+
+
+Collaboration diagram for EB\+\_\+\+IAEASource\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEB__IAEASource_a5bf2bf03f93fc7087cd4f8d70f5510f2}{EB\+\_\+\+IAEASource}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}, EGS\+\_\+\+Object\+Factory \texorpdfstring{$\ast$}{*}f=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEB__IAEASource_a8d481c4489b97259a4cf89435dfa3df6}{\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+IAEASource}} ()
+\item 
+EGS\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a9d3a6f118a203f7cb708c151a792b48a}{get\+Next\+Particle}} (EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*}rndm, int \&q, int \&latch, EGS\+\_\+\+Float \&E, EGS\+\_\+\+Float \&wt, EGS\+\_\+\+Vector \&x, EGS\+\_\+\+Vector \&u)
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__IAEASource_a992b7c990ccd0481ffb79e557e372451}{get\+Emax}} () const
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__IAEASource_a47ea6f47a188b1bcef812777f9b598ee}{get\+Fluence}} () const
+\item 
+void \mbox{\hyperlink{classEB__IAEASource_acb28173030f6ca40efe97006d7ef90a2}{set\+Simulation\+Chunk}} (EGS\+\_\+\+I64 nstart, EGS\+\_\+\+I64 nrun)
+\item 
+bool \mbox{\hyperlink{classEB__IAEASource_a87e58932e9a15cd973c6c2fa3dcc5110}{store\+State}} (ostream \&data) const
+\item 
+bool \mbox{\hyperlink{classEB__IAEASource_ae70e5a3df201bd4861dfec363b489ad7}{set\+State}} (istream \&data)
+\item 
+bool \mbox{\hyperlink{classEB__IAEASource_a3f2d181a562916e5ff66745964066849}{add\+State}} (istream \&data)
+\item 
+void \mbox{\hyperlink{classEB__IAEASource_a21a6d7b5ac68e8ae0291a228ff2715f9}{reset\+Counter}} ()
+\item 
+bool \mbox{\hyperlink{classEB__IAEASource_ad021505a7c8818693181ffd9d78bc6ab}{is\+Valid}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEB__IAEASource_a2898945d21b58e84fb298a7d5239e50c}{open\+PHSPFile}} ()
+\item 
+void \mbox{\hyperlink{classEB__IAEASource_ae2d5c697bc38bfed4e58fa1528374da7}{init\+Source\+Params}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classEB__IAEASource_afd4fd2e404fdb8f43736a27162b3f4b6}{is\+\_\+valid}}
+\item 
+string \mbox{\hyperlink{classEB__IAEASource_a14c4912c7ce7ce4bc716f713b541acab}{phsp\+\_\+file\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em The phase space file name. \end{DoxyCompactList}\item 
+ifstream \mbox{\hyperlink{classEB__IAEASource_af46258bcd9e3d0cf7a9962212f04c84f}{phsp\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em Phase space data stream. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I32 \mbox{\hyperlink{classEB__IAEASource_a003f5c140ee1e8c40d62d47073df9112}{source\+\_\+id}}
+\item 
+IAEA\+\_\+\+I32 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classEB__IAEASource_a00e72f8f2a2eaa831734fcf157aabfcc}{p\+\_\+source\+\_\+id}}
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__IAEASource_a085ddd3e29afb1705532e4d7f98f5e6d}{Emax}}
+\begin{DoxyCompactList}\small\item\em Maximum energy (obtained from the phsp file). \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__IAEASource_acc52ee4da87b7a324436a5b400d6d635}{Emin}}
+\begin{DoxyCompactList}\small\item\em Minimum energy (obtained from the phsp file). \end{DoxyCompactList}\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{classEB__IAEASource_a481aba1172d6618b31c7bbb7079f27f0}{Nincident}}
+\begin{DoxyCompactList}\small\item\em Number of incident particles that created the file. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a5d88acc7dde735592b5fd4838f924485}{Nparticle}}
+\begin{DoxyCompactList}\small\item\em Number of particles in the file. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a23605d1c842fa0b0c74214e78913f512}{Nphoton}}
+\begin{DoxyCompactList}\small\item\em Number of photons in the file. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_abd7f7c192839e8af9b4cd69617f528e8}{Nused}}
+\begin{DoxyCompactList}\small\item\em Number of particles used so far. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a5f4212bfae2ec3a680cf45733077f7d9}{Npos}}
+\begin{DoxyCompactList}\small\item\em Next record to be read. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a1e8b0e2d9508a824b64cf5760c5bbee9}{Nfirst}}
+\begin{DoxyCompactList}\small\item\em first record this source can use \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a5622aaa2e72c01a870c3368233db7d22}{Nlast}}
+\begin{DoxyCompactList}\small\item\em Last record this source can use. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_aa8775c096863828b09f3c3f177597786}{Nread}}
+\begin{DoxyCompactList}\small\item\em Number of particles read from file so far. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I64 \mbox{\hyperlink{classEB__IAEASource_a59b8aff93bc2a44c9332251a39e03b2d}{count}}
+\begin{DoxyCompactList}\small\item\em Particles delivered so far. \end{DoxyCompactList}\item 
+IAEA\+\_\+\+I32 \mbox{\hyperlink{classEB__IAEASource_ad93f635fd812d4497545e3cf868493a9}{n\+\_\+parallel}}
+\item 
+IAEA\+\_\+\+I32 \mbox{\hyperlink{classEB__IAEASource_a1b39cb615ef2d8f21fc0e66431fff89b}{i\+\_\+parallel}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static IAEA\+\_\+\+I32 \mbox{\hyperlink{classEB__IAEASource_a001a15dc8b94cbccb7baff6240e287c9}{next\+\_\+source\+\_\+id}} = 0
+\item 
+static const string \mbox{\hyperlink{classEB__IAEASource_a08390483e60409de0302b7cd4a167555}{iaea\+\_\+header\+\_\+ext}} = "{}.IAEAheader"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A phase space file source for egs\+\_\+brachy. 
+
+A phase space file source reads and delivers particles from a an IAEA phase space file. Note this source is an incomplete implementation and may only be suitable for use with egs\+\_\+brachy.
+
+A phase space file source is defined as follows\+: \begin{DoxyVerb}:start source:
+    library = eb_iaeaphsp_source
+    name = some_name
+    header file = path to the phase space header file
+    particle type = one of photons, electrons, positrons, all, or charged
+:stop source:
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00101}{101}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{EB\_IAEASource@{EB\_IAEASource}!EB\_IAEASource@{EB\_IAEASource}}
+\index{EB\_IAEASource@{EB\_IAEASource}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{EB\_IAEASource()}{EB\_IAEASource()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a5bf2bf03f93fc7087cd4f8d70f5510f2} 
+EB\+\_\+\+IAEASource\+::\+EB\+\_\+\+IAEASource (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{, }\item[{EGS\+\_\+\+Object\+Factory \texorpdfstring{$\ast$}{*}}]{f}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Construct a phase space file source from the information pointed to by {\itshape inp}. 
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!````~EB\_IAEASource@{\texorpdfstring{$\sim$}{\string~}EB\_IAEASource}}
+\index{````~EB\_IAEASource@{\texorpdfstring{$\sim$}{\string~}EB\_IAEASource}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EB\_IAEASource()}{\string~EB\_IAEASource()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a8d481c4489b97259a4cf89435dfa3df6} 
+EB\+\_\+\+IAEASource\+::\texorpdfstring{$\sim$}{\string~}\+EB\+\_\+\+IAEASource (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{EB\_IAEASource@{EB\_IAEASource}!addState@{addState}}
+\index{addState@{addState}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{addState()}{addState()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a3f2d181a562916e5ff66745964066849} 
+bool EB\+\_\+\+IAEASource\+::add\+State (\begin{DoxyParamCaption}\item[{istream \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00319}{319}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!getEmax@{getEmax}}
+\index{getEmax@{getEmax}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{getEmax()}{getEmax()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a992b7c990ccd0481ffb79e557e372451} 
+EGS\+\_\+\+Float EB\+\_\+\+IAEASource\+::get\+Emax (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00232}{232}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!getFluence@{getFluence}}
+\index{getFluence@{getFluence}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{getFluence()}{getFluence()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a47ea6f47a188b1bcef812777f9b598ee} 
+EGS\+\_\+\+Float EB\+\_\+\+IAEASource\+::get\+Fluence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00240}{240}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!getNextParticle@{getNextParticle}}
+\index{getNextParticle@{getNextParticle}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{getNextParticle()}{getNextParticle()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a9d3a6f118a203f7cb708c151a792b48a} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::get\+Next\+Particle (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Random\+Generator \texorpdfstring{$\ast$}{*}}]{rndm}{, }\item[{int \&}]{q}{, }\item[{int \&}]{latch}{, }\item[{EGS\+\_\+\+Float \&}]{E}{, }\item[{EGS\+\_\+\+Float \&}]{wt}{, }\item[{EGS\+\_\+\+Vector \&}]{x}{, }\item[{EGS\+\_\+\+Vector \&}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00157}{157}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!initSourceParams@{initSourceParams}}
+\index{initSourceParams@{initSourceParams}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{initSourceParams()}{initSourceParams()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_ae2d5c697bc38bfed4e58fa1528374da7} 
+void EB\+\_\+\+IAEASource\+::init\+Source\+Params (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!isValid@{isValid}}
+\index{isValid@{isValid}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_ad021505a7c8818693181ffd9d78bc6ab} 
+bool EB\+\_\+\+IAEASource\+::is\+Valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!openPHSPFile@{openPHSPFile}}
+\index{openPHSPFile@{openPHSPFile}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{openPHSPFile()}{openPHSPFile()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a2898945d21b58e84fb298a7d5239e50c} 
+void EB\+\_\+\+IAEASource\+::open\+PHSPFile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{resetCounter()}{resetCounter()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a21a6d7b5ac68e8ae0291a228ff2715f9} 
+void EB\+\_\+\+IAEASource\+::reset\+Counter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00330}{330}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!setSimulationChunk@{setSimulationChunk}}
+\index{setSimulationChunk@{setSimulationChunk}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{setSimulationChunk()}{setSimulationChunk()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_acb28173030f6ca40efe97006d7ef90a2} 
+void EB\+\_\+\+IAEASource\+::set\+Simulation\+Chunk (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+I64}]{nstart}{, }\item[{EGS\+\_\+\+I64}]{nrun}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!setState@{setState}}
+\index{setState@{setState}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_ae70e5a3df201bd4861dfec363b489ad7} 
+bool EB\+\_\+\+IAEASource\+::set\+State (\begin{DoxyParamCaption}\item[{istream \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!storeState@{storeState}}
+\index{storeState@{storeState}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{storeState()}{storeState()}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a87e58932e9a15cd973c6c2fa3dcc5110} 
+bool EB\+\_\+\+IAEASource\+::store\+State (\begin{DoxyParamCaption}\item[{ostream \&}]{data}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source_l00245}{245}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8cpp_source}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{EB\_IAEASource@{EB\_IAEASource}!count@{count}}
+\index{count@{count}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a59b8aff93bc2a44c9332251a39e03b2d} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::count\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Particles delivered so far. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00149}{149}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Emax@{Emax}}
+\index{Emax@{Emax}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Emax}{Emax}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a085ddd3e29afb1705532e4d7f98f5e6d} 
+EGS\+\_\+\+Float EB\+\_\+\+IAEASource\+::\+Emax\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maximum energy (obtained from the phsp file). 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00138}{138}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Emin@{Emin}}
+\index{Emin@{Emin}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Emin}{Emin}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_acc52ee4da87b7a324436a5b400d6d635} 
+EGS\+\_\+\+Float EB\+\_\+\+IAEASource\+::\+Emin\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Minimum energy (obtained from the phsp file). 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00139}{139}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!i\_parallel@{i\_parallel}}
+\index{i\_parallel@{i\_parallel}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{i\_parallel}{i\_parallel}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a1b39cb615ef2d8f21fc0e66431fff89b} 
+IAEA\+\_\+\+I32 EB\+\_\+\+IAEASource\+::i\+\_\+parallel\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00152}{152}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!iaea\_header\_ext@{iaea\_header\_ext}}
+\index{iaea\_header\_ext@{iaea\_header\_ext}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{iaea\_header\_ext}{iaea\_header\_ext}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a08390483e60409de0302b7cd4a167555} 
+const string EB\+\_\+\+IAEASource\+::iaea\+\_\+header\+\_\+ext = "{}.IAEAheader"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00159}{159}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!is\_valid@{is\_valid}}
+\index{is\_valid@{is\_valid}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{is\_valid}{is\_valid}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_afd4fd2e404fdb8f43736a27162b3f4b6} 
+bool EB\+\_\+\+IAEASource\+::is\+\_\+valid\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00131}{131}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!n\_parallel@{n\_parallel}}
+\index{n\_parallel@{n\_parallel}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{n\_parallel}{n\_parallel}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_ad93f635fd812d4497545e3cf868493a9} 
+IAEA\+\_\+\+I32 EB\+\_\+\+IAEASource\+::n\+\_\+parallel\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00151}{151}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!next\_source\_id@{next\_source\_id}}
+\index{next\_source\_id@{next\_source\_id}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{next\_source\_id}{next\_source\_id}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a001a15dc8b94cbccb7baff6240e287c9} 
+IAEA\+\_\+\+I32 EB\+\_\+\+IAEASource\+::next\+\_\+source\+\_\+id = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00157}{157}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nfirst@{Nfirst}}
+\index{Nfirst@{Nfirst}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nfirst}{Nfirst}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a1e8b0e2d9508a824b64cf5760c5bbee9} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nfirst\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+first record this source can use 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00146}{146}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nincident@{Nincident}}
+\index{Nincident@{Nincident}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nincident}{Nincident}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a481aba1172d6618b31c7bbb7079f27f0} 
+EGS\+\_\+\+Float EB\+\_\+\+IAEASource\+::\+Nincident\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of incident particles that created the file. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00140}{140}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nlast@{Nlast}}
+\index{Nlast@{Nlast}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nlast}{Nlast}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a5622aaa2e72c01a870c3368233db7d22} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nlast\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Last record this source can use. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00147}{147}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nparticle@{Nparticle}}
+\index{Nparticle@{Nparticle}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nparticle}{Nparticle}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a5d88acc7dde735592b5fd4838f924485} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nparticle\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of particles in the file. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00142}{142}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nphoton@{Nphoton}}
+\index{Nphoton@{Nphoton}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nphoton}{Nphoton}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a23605d1c842fa0b0c74214e78913f512} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nphoton\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of photons in the file. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00143}{143}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Npos@{Npos}}
+\index{Npos@{Npos}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Npos}{Npos}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a5f4212bfae2ec3a680cf45733077f7d9} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Npos\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Next record to be read. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00145}{145}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nread@{Nread}}
+\index{Nread@{Nread}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nread}{Nread}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_aa8775c096863828b09f3c3f177597786} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nread\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of particles read from file so far. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00148}{148}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!Nused@{Nused}}
+\index{Nused@{Nused}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{Nused}{Nused}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_abd7f7c192839e8af9b4cd69617f528e8} 
+IAEA\+\_\+\+I64 EB\+\_\+\+IAEASource\+::\+Nused\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of particles used so far. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00144}{144}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!p\_source\_id@{p\_source\_id}}
+\index{p\_source\_id@{p\_source\_id}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{p\_source\_id}{p\_source\_id}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a00e72f8f2a2eaa831734fcf157aabfcc} 
+IAEA\+\_\+\+I32\texorpdfstring{$\ast$}{*} EB\+\_\+\+IAEASource\+::p\+\_\+source\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00136}{136}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!phsp\_file@{phsp\_file}}
+\index{phsp\_file@{phsp\_file}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{phsp\_file}{phsp\_file}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_af46258bcd9e3d0cf7a9962212f04c84f} 
+ifstream EB\+\_\+\+IAEASource\+::phsp\+\_\+file\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Phase space data stream. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00133}{133}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!phsp\_file\_name@{phsp\_file\_name}}
+\index{phsp\_file\_name@{phsp\_file\_name}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{phsp\_file\_name}{phsp\_file\_name}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a14c4912c7ce7ce4bc716f713b541acab} 
+string EB\+\_\+\+IAEASource\+::phsp\+\_\+file\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The phase space file name. 
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00132}{132}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+\index{EB\_IAEASource@{EB\_IAEASource}!source\_id@{source\_id}}
+\index{source\_id@{source\_id}!EB\_IAEASource@{EB\_IAEASource}}
+\doxysubsubsection{\texorpdfstring{source\_id}{source\_id}}
+{\footnotesize\ttfamily \label{classEB__IAEASource_a003f5c140ee1e8c40d62d47073df9112} 
+IAEA\+\_\+\+I32 EB\+\_\+\+IAEASource\+::source\+\_\+id\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{eb__iaeaphsp__source_8h_source_l00135}{135}} of file \mbox{\hyperlink{eb__iaeaphsp__source_8h_source}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/eb\+\_\+iaeaphsp\+\_\+source/\mbox{\hyperlink{eb__iaeaphsp__source_8h}{eb\+\_\+iaeaphsp\+\_\+source.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/eb\+\_\+iaeaphsp\+\_\+source/\mbox{\hyperlink{eb__iaeaphsp__source_8cpp}{eb\+\_\+iaeaphsp\+\_\+source.\+cpp}}\end{DoxyCompactItemize}

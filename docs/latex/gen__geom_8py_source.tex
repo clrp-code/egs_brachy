@@ -1,0 +1,153 @@
+\doxysection{gen\+\_\+geom.\+py}
+\label{gen__geom_8py_source}\mbox{\hyperlink{gen__geom_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{from}\ doc\_utils\ \textcolor{keyword}{import}\ find\_file\_descriptions}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ root\ =\ os.path.join(\textcolor{stringliteral}{"{}.."{}},\ \textcolor{stringliteral}{"{}lib"{}})}
+\DoxyCodeLine{00007\ abs\_root\ =\ os.path.abspath(root)}
+\DoxyCodeLine{00008\ geom\ =\ os.path.join(abs\_root,\ \textcolor{stringliteral}{"{}geometry"{}})}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{def\ }docs\_lib\_path(path):}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Path\ from\ the\ published\ docs/\ root\ to\ a\ file\ under\ lib/."{}"{}"{}}}
+\DoxyCodeLine{00013\ \ \ \ \ rel\ =\ os.path.relpath(os.path.abspath(path),\ abs\_root)}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}lib/"{}}\ +\ rel.replace(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}},\ \textcolor{stringliteral}{"{}/"{}})}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{def\ }get\_readme(dir\_path):}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Look\ in\ directory\ dir\_path\ for\ a\ file\ called\ README.md\ and\ return}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ it's\ contents\ if\ available"{}"{}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ readme\ =\ open(os.path.join(dir\_path,\ \textcolor{stringliteral}{"{}README.md"{}})).read()}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)n\%s\(\backslash\)n"{}}\ \%\ readme}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{except}\ IOError:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{def\ }get\_filetype\_links(dir\_path,\ extension):}
+\DoxyCodeLine{00030\ \ \ \ \ files\ =\ [g\ \textcolor{keywordflow}{for}\ g\ \textcolor{keywordflow}{in}\ os.listdir(dir\_path)\ \textcolor{keywordflow}{if}\ g.endswith(extension)]}
+\DoxyCodeLine{00031\ \ \ \ \ links\ =\ [}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[\%s](\%s)"{}}\ \%\ (g,\ docs\_lib\_path(os.path.join(dir\_path,\ g)))}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ g\ \textcolor{keywordflow}{in}\ files}
+\DoxyCodeLine{00034\ \ \ \ \ ]}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ links}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{def\ }get\_images(dir\_path):}
+\DoxyCodeLine{00039\ \ \ \ \ files\ =\ [g\ \textcolor{keywordflow}{for}\ g\ \textcolor{keywordflow}{in}\ os.listdir(dir\_path)\ \textcolor{keywordflow}{if}\ g.lower().endswith(\textcolor{stringliteral}{"{}.png"{}})]}
+\DoxyCodeLine{00040\ \ \ \ \ images\ =\ [}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'<img\ style="{}width:\ 200px;"{}\ src="{}\%s"{}\ \ />'}\ \%\ docs\_lib\_path(os.path.join(dir\_path,\ g))}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ g\ \textcolor{keywordflow}{in}\ files}
+\DoxyCodeLine{00043\ \ \ \ \ ]}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{return}\ images}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{def\ }gen\_geom\_docs(droot,\ title,\ is\_sources=False):}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ types\ =\ [os.path.join(droot,\ t)\ \textcolor{keywordflow}{for}\ t\ \textcolor{keywordflow}{in}\ os.listdir(droot)\ \textcolor{keywordflow}{if}\ os.path.isdir(os.path.join(droot,\ t))]}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ docs\ =\ []}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ t\ \textcolor{keywordflow}{in}\ sorted(types):}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \_,\ type\_\ =\ os.path.split(t)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ section\ =\ type\_.replace(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ name\ =\ type\_.replace(\textcolor{stringliteral}{"{}\_"{}},\ \textcolor{stringliteral}{"{}\ "{}})}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}\(\backslash\)subsection\ \%s\ \%s\ \%s"{}}\ \%\ (section,\ name,\ title))}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ dirs\ =\ [os.path.join(t,\ f)\ \textcolor{keywordflow}{for}\ f\ \textcolor{keywordflow}{in}\ sorted(os.listdir(t))\ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ f.startswith(\textcolor{stringliteral}{'.'})]}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ d\ \textcolor{keywordflow}{in}\ dirs:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ relpath\ =\ os.path.relpath(d)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \_,\ subname\ =\ os.path.split(d)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ subsection\ =\ (type\_+subname).replace(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}}).replace(\textcolor{stringliteral}{"{}."{}},\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}\(\backslash\)subsubsection\ \%s\ \%s"{}}\ \%\ (subsection,\ subname))}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ geom\_links\ =\ get\_filetype\_links(d,\ \textcolor{stringliteral}{"{}.geom"{}})}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ shape\_links\ =\ get\_filetype\_links(d,\ \textcolor{stringliteral}{"{}.shape"{}})}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}<dl>"{}})}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}<dt>Description</dt><dd>\%s</dd>"{}}\ \%\ (get\_readme(d)\ \textcolor{keywordflow}{or}\ \textcolor{stringliteral}{"{}<em>No\ description\ available</em>"{}}))}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ geom\_links:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}<dt>Geometry\ Files</dt><dd>\%s</dt>"{}}\ \%\ \textcolor{stringliteral}{','}.join(geom\_links))}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ shape\_links:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}<dt>Shape\ Files</dt><dd>\%s</dt>"{}}\ \%\ \textcolor{stringliteral}{',\ '}.join(shape\_links))}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ images\ =\ get\_images(d)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}<dt>Images</dt><dd>\%s</dd>"{}}\ \%\ (\textcolor{stringliteral}{'\(\backslash\)n'}.join(images)\ \textcolor{keywordflow}{or}\ \textcolor{stringliteral}{"{}<em>No\ images\ available</em>"{}}))}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ docs.append(\textcolor{stringliteral}{"{}</dl>"{}})}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}.join(docs)}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{def\ }gen\_docs(fname):}
+\DoxyCodeLine{00088\ \ \ \ \ params\ =\ \{\}}
+\DoxyCodeLine{00089\ \ \ \ \ params[\textcolor{stringliteral}{"{}sources"{}}]\ =\ gen\_geom\_docs(os.path.join(geom,\ \textcolor{stringliteral}{"{}sources"{}}),\ \textcolor{stringliteral}{"{}Sources"{}})}
+\DoxyCodeLine{00090\ \ \ \ \ params[\textcolor{stringliteral}{"{}eye\_plaques"{}}]\ =\ find\_file\_descriptions(os.path.join(geom,\ \textcolor{stringliteral}{"{}eye\_plaques"{}}),\ \textcolor{stringliteral}{"{}start\ geometry"{}})}
+\DoxyCodeLine{00091\ \ \ \ \ params[\textcolor{stringliteral}{"{}transforms"{}}]\ =\ find\_file\_descriptions(os.path.join(geom,\ \textcolor{stringliteral}{"{}transformations"{}}),\ \textcolor{stringliteral}{"{}start\ transformation"{}})}
+\DoxyCodeLine{00092\ \ \ \ \ params[\textcolor{stringliteral}{"{}phantoms"{}}]\ =\ find\_file\_descriptions(os.path.join(geom,\ \textcolor{stringliteral}{"{}phantoms"{}}),\ \textcolor{stringliteral}{"{}start\ geometry"{}})}
+\DoxyCodeLine{00093\ \ \ \ \ params[\textcolor{stringliteral}{"{}applicators"{}}]\ =\ find\_file\_descriptions(os.path.join(geom,\ \textcolor{stringliteral}{"{}applicators"{}}),\ \textcolor{stringliteral}{"{}start\ geometry"{}})}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ docs\ =\ \textcolor{stringliteral}{"{}"{}"{}@anchor\ egs\_brachy\_geom\_lib}}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00097\ \textcolor{stringliteral}{[TOC]}}
+\DoxyCodeLine{00098\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00099\ \textcolor{stringliteral}{The\ egs\_brachy\ Geometry\ Library}}
+\DoxyCodeLine{00100\ \textcolor{stringliteral}{===============================}}
+\DoxyCodeLine{00101\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\(\backslash\)section\ egs\_brachysources\ Source\ Library}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00104\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{The\ current\ list\ of\ sources\ available\ in\ the\ egs\_brachy\ geometry}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{library.}}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\{sources\}}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00110\ \textcolor{stringliteral}{\(\backslash\)section\ egs\_brachyphantoms\ Phantom\ Library}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{The\ current\ list\ of\ phantoms\ available\ in\ the\ egs\_brachy\ geometry}}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{library.}}
+\DoxyCodeLine{00114\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\{phantoms\}}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\(\backslash\)section\ egs\_brachyapplicators\ Applicator\ Library}}
+\DoxyCodeLine{00119\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{The\ current\ list\ of\ applicators\ available\ in\ the\ egs\_brachy\ geometry}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{library.}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00123\ \textcolor{stringliteral}{\{applicators\}}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\(\backslash\)section\ egs\_brachyplaques\ Eye\ Plaques\ Library}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{The\ current\ list\ of\ eye\ plaques\ available\ in\ the\ egs\_brachy\ geometry}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{library.}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00131\ \textcolor{stringliteral}{\{eye\_plaques\}}}
+\DoxyCodeLine{00132\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00133\ \textcolor{stringliteral}{\(\backslash\)section\ egs\_brachytransforms\ Transformation\ Sets}}
+\DoxyCodeLine{00134\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00135\ \textcolor{stringliteral}{The\ current\ list\ of\ predefined\ transformation\ sets\ available\ in\ the}}
+\DoxyCodeLine{00136\ \textcolor{stringliteral}{egs\_brachy\ geometry\ library.}}
+\DoxyCodeLine{00137\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00138\ \textcolor{stringliteral}{\{transforms\}}}
+\DoxyCodeLine{00139\ \textcolor{stringliteral}{"{}"{}"{}}.format(**params)}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ open(fname,\ \textcolor{stringliteral}{"{}w"{}}).write(docs)}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{00145\ \ \ \ \ outfile\ =\ \textcolor{stringliteral}{"{}geom.md"{}}}
+\DoxyCodeLine{00146\ \ \ \ \ gen\_docs(outfile)}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+
+\end{DoxyCode}

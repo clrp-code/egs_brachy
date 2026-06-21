@@ -1,0 +1,145 @@
+\doxysection{Publisher Class Reference}
+\label{classPublisher}\index{Publisher@{Publisher}}
+
+
+{\ttfamily \#include $<$pubsub.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPublisher_a5538d94fb8d594575be67e6edd7166df}{Publisher}} ()
+\item 
+virtual \mbox{\hyperlink{classPublisher_acb5045d04c9518990dc645bf86890b09}{\texorpdfstring{$\sim$}{\string~}\+Publisher}} ()
+\item 
+void \mbox{\hyperlink{classPublisher_a2b6bb7b237febbad4c24d5637798a2ba}{subscribe}} (\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} message)
+\item 
+void \mbox{\hyperlink{classPublisher_aa0876b116dce8b19a1a1086c6fcc5133}{unsubscribe}} (\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} message)
+\item 
+void \mbox{\hyperlink{classPublisher_adb29207ee5b7d987e5b4b2c626f3a0e0}{notify}} (\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}} message, void \texorpdfstring{$\ast$}{*}what=0, \mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}s=0)
+\item 
+void \mbox{\hyperlink{classPublisher_a1c3290492ab41bde952005a6d1595ab4}{set\+Notify\+Enabled}} (bool flag)
+\item 
+bool \mbox{\hyperlink{classPublisher_aa1e1780b5370ca7c8bf04bd5f020fd74}{get\+Notify\+Enabled}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ \mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}, list$<$ \mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*} $>$ $>$ \mbox{\hyperlink{classPublisher_a51ea482ceb1cd0c514a863a432323f12}{subscribers}}
+\item 
+bool \mbox{\hyperlink{classPublisher_ad4379e1d01625295a6b96582d93008c9}{notify\+Enabled}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00077}{77}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+\label{doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{Publisher@{Publisher}!Publisher@{Publisher}}
+\index{Publisher@{Publisher}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{Publisher()}{Publisher()}}
+{\footnotesize\ttfamily \label{classPublisher_a5538d94fb8d594575be67e6edd7166df} 
+Publisher\+::\+Publisher (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00079}{79}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+\index{Publisher@{Publisher}!````~Publisher@{\texorpdfstring{$\sim$}{\string~}Publisher}}
+\index{````~Publisher@{\texorpdfstring{$\sim$}{\string~}Publisher}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Publisher()}{\string~Publisher()}}
+{\footnotesize\ttfamily \label{classPublisher_acb5045d04c9518990dc645bf86890b09} 
+virtual Publisher\+::\texorpdfstring{$\sim$}{\string~}\+Publisher (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00082}{82}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{Publisher@{Publisher}!getNotifyEnabled@{getNotifyEnabled}}
+\index{getNotifyEnabled@{getNotifyEnabled}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{getNotifyEnabled()}{getNotifyEnabled()}}
+{\footnotesize\ttfamily \label{classPublisher_aa1e1780b5370ca7c8bf04bd5f020fd74} 
+bool Publisher\+::get\+Notify\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00093}{93}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+\index{Publisher@{Publisher}!notify@{notify}}
+\index{notify@{notify}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily \label{classPublisher_adb29207ee5b7d987e5b4b2c626f3a0e0} 
+void Publisher\+::notify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}]{message}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{what}{ = {\ttfamily 0}, }\item[{\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}}]{s}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{pubsub_8cpp_source}{pubsub.\+cpp}}.
+
+\index{Publisher@{Publisher}!setNotifyEnabled@{setNotifyEnabled}}
+\index{setNotifyEnabled@{setNotifyEnabled}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{setNotifyEnabled()}{setNotifyEnabled()}}
+{\footnotesize\ttfamily \label{classPublisher_a1c3290492ab41bde952005a6d1595ab4} 
+void Publisher\+::set\+Notify\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{flag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00090}{90}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+\index{Publisher@{Publisher}!subscribe@{subscribe}}
+\index{subscribe@{subscribe}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{subscribe()}{subscribe()}}
+{\footnotesize\ttfamily \label{classPublisher_a2b6bb7b237febbad4c24d5637798a2ba} 
+void Publisher\+::subscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00083}{83}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+\index{Publisher@{Publisher}!unsubscribe@{unsubscribe}}
+\index{unsubscribe@{unsubscribe}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{unsubscribe()}{unsubscribe()}}
+{\footnotesize\ttfamily \label{classPublisher_aa0876b116dce8b19a1a1086c6fcc5133} 
+void Publisher\+::unsubscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00086}{86}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+\label{doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{Publisher@{Publisher}!notifyEnabled@{notifyEnabled}}
+\index{notifyEnabled@{notifyEnabled}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{notifyEnabled}{notifyEnabled}}
+{\footnotesize\ttfamily \label{classPublisher_ad4379e1d01625295a6b96582d93008c9} 
+bool Publisher\+::notify\+Enabled\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00098}{98}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+\index{Publisher@{Publisher}!subscribers@{subscribers}}
+\index{subscribers@{subscribers}!Publisher@{Publisher}}
+\doxysubsubsection{\texorpdfstring{subscribers}{subscribers}}
+{\footnotesize\ttfamily \label{classPublisher_a51ea482ceb1cd0c514a863a432323f12} 
+map$<$\mbox{\hyperlink{pubsub_8h_af1f086fdac6d8f062533820ad583abe2}{EB\+\_\+\+Message}}, list$<$\mbox{\hyperlink{classSubscriber}{Subscriber}} \texorpdfstring{$\ast$}{*}$>$ $>$ Publisher\+::subscribers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{pubsub_8h_source_l00097}{97}} of file \mbox{\hyperlink{pubsub_8h_source}{pubsub.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{pubsub_8h}{pubsub.\+h}}\item 
+/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/\mbox{\hyperlink{pubsub_8cpp}{pubsub.\+cpp}}\end{DoxyCompactItemize}

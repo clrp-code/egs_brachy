@@ -1,0 +1,216 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/ginfo.cpp File Reference}
+\label{ginfo_8cpp}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/ginfo.cpp@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/ginfo.cpp}}
+
+
+implementation of Geometry Info class.  
+
+
+{\ttfamily \#include "{}ginfo.\+h"{}}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for ginfo.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef pair$<$ string, vector$<$ int $>$ $>$ \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ginfo_8cpp_a856d148fda07b8a9535c80bf494626e7}{pair\+Compare}} (const \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}} \&first\+Elem, const \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}} \&second\+Elem)
+\item 
+string \mbox{\hyperlink{ginfo_8cpp_a3c9765b999986dd2d2735bb7c3054512}{join}} (const vector$<$ string $>$ \&v, string delim)
+\item 
+size\+\_\+t \mbox{\hyperlink{ginfo_8cpp_affd17368a079339092591415e734c21f}{count\+Auto\+Envelope\+Inscribed}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+string \mbox{\hyperlink{ginfo_8cpp_aca9b478a7e06f76245d3e5a1f3d83d64}{get\+Geom\+Base\+Name}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_a24b148a79aedca926e52968d48463867}{get\+Auto\+Envelope\+Children}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_a2c36a9c3fc667bad8911e55e59ea6cd9}{get\+GEnvelope\+Children}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_aab24daca23381516aad95593db405300}{get\+CDChildren}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_ac82b737041eb6cbd50029e8a0df538d0}{get\+NDChildren}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_a1a53378d75b1560a69f0ff4d71b2041e}{get\+Union\+Children}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_afb3d8dfb5d96f5f9352f041a97cd086b}{get\+GStack\+Children}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{ginfo_8cpp_a3904b063cbd62ac3db816236ee4f4c99}{get\+GTransformed\+Children}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}input)
+\item 
+int \mbox{\hyperlink{ginfo_8cpp_accd5f81efea1ff738e0dc1b5d772bcf2}{find\+Geom\+In\+Vec}} (EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}geom, vector$<$ string $>$ geoms)
+\item 
+int \mbox{\hyperlink{ginfo_8cpp_a7fb6f5990b1ef8d23f5a457c5da74dea}{max\+NReg\+Of\+Geoms}} (vector$<$ string $>$ gnames, int start)
+\item 
+int \mbox{\hyperlink{ginfo_8cpp_a77ffba9383bb85a2dc0af5aa5babe758}{nreg\+For\+Sub\+Div}} (\mbox{\hyperlink{structGeomRegionInfo}{Geom\+Region\+Info}} gri, int idx)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+implementation of Geometry Info class. 
+
+
+
+Definition in file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+
+
+\label{doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\index{ginfo.cpp@{ginfo.cpp}!CDGeomRegType@{CDGeomRegType}}
+\index{CDGeomRegType@{CDGeomRegType}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{CDGeomRegType}{CDGeomRegType}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22} 
+typedef pair$<$string, vector$<$int$>$ $>$ \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}}}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\doxysubsection{Function Documentation}
+\index{ginfo.cpp@{ginfo.cpp}!countAutoEnvelopeInscribed@{countAutoEnvelopeInscribed}}
+\index{countAutoEnvelopeInscribed@{countAutoEnvelopeInscribed}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{countAutoEnvelopeInscribed()}{countAutoEnvelopeInscribed()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_affd17368a079339092591415e734c21f} 
+size\+\_\+t count\+Auto\+Envelope\+Inscribed (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00150}{150}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!findGeomInVec@{findGeomInVec}}
+\index{findGeomInVec@{findGeomInVec}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{findGeomInVec()}{findGeomInVec()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_accd5f81efea1ff738e0dc1b5d772bcf2} 
+int find\+Geom\+In\+Vec (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Base\+Geometry \texorpdfstring{$\ast$}{*}}]{geom}{, }\item[{vector$<$ string $>$}]{geoms}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getAutoEnvelopeChildren@{getAutoEnvelopeChildren}}
+\index{getAutoEnvelopeChildren@{getAutoEnvelopeChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getAutoEnvelopeChildren()}{getAutoEnvelopeChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a24b148a79aedca926e52968d48463867} 
+vector$<$ string $>$ get\+Auto\+Envelope\+Children (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getCDChildren@{getCDChildren}}
+\index{getCDChildren@{getCDChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getCDChildren()}{getCDChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_aab24daca23381516aad95593db405300} 
+vector$<$ string $>$ get\+CDChildren (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getGEnvelopeChildren@{getGEnvelopeChildren}}
+\index{getGEnvelopeChildren@{getGEnvelopeChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getGEnvelopeChildren()}{getGEnvelopeChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a2c36a9c3fc667bad8911e55e59ea6cd9} 
+vector$<$ string $>$ get\+GEnvelope\+Children (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00213}{213}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getGeomBaseName@{getGeomBaseName}}
+\index{getGeomBaseName@{getGeomBaseName}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getGeomBaseName()}{getGeomBaseName()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_aca9b478a7e06f76245d3e5a1f3d83d64} 
+string get\+Geom\+Base\+Name (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00182}{182}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getGStackChildren@{getGStackChildren}}
+\index{getGStackChildren@{getGStackChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getGStackChildren()}{getGStackChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_afb3d8dfb5d96f5f9352f041a97cd086b} 
+vector$<$ string $>$ get\+GStack\+Children (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00306}{306}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getGTransformedChildren@{getGTransformedChildren}}
+\index{getGTransformedChildren@{getGTransformedChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getGTransformedChildren()}{getGTransformedChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a3904b063cbd62ac3db816236ee4f4c99} 
+vector$<$ string $>$ get\+GTransformed\+Children (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00313}{313}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getNDChildren@{getNDChildren}}
+\index{getNDChildren@{getNDChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getNDChildren()}{getNDChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_ac82b737041eb6cbd50029e8a0df538d0} 
+vector$<$ string $>$ get\+NDChildren (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!getUnionChildren@{getUnionChildren}}
+\index{getUnionChildren@{getUnionChildren}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{getUnionChildren()}{getUnionChildren()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a1a53378d75b1560a69f0ff4d71b2041e} 
+vector$<$ string $>$ get\+Union\+Children (\begin{DoxyParamCaption}\item[{EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00298}{298}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!join@{join}}
+\index{join@{join}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a3c9765b999986dd2d2735bb7c3054512} 
+string join (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{v}{, }\item[{string}]{delim}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!maxNRegOfGeoms@{maxNRegOfGeoms}}
+\index{maxNRegOfGeoms@{maxNRegOfGeoms}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{maxNRegOfGeoms()}{maxNRegOfGeoms()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a7fb6f5990b1ef8d23f5a457c5da74dea} 
+int max\+NReg\+Of\+Geoms (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{gnames}{, }\item[{int}]{start}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00375}{375}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!nregForSubDiv@{nregForSubDiv}}
+\index{nregForSubDiv@{nregForSubDiv}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{nregForSubDiv()}{nregForSubDiv()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a77ffba9383bb85a2dc0af5aa5babe758} 
+int nreg\+For\+Sub\+Div (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGeomRegionInfo}{Geom\+Region\+Info}}}]{gri}{, }\item[{int}]{idx}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00386}{386}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+
+\index{ginfo.cpp@{ginfo.cpp}!pairCompare@{pairCompare}}
+\index{pairCompare@{pairCompare}!ginfo.cpp@{ginfo.cpp}}
+\doxysubsubsection{\texorpdfstring{pairCompare()}{pairCompare()}}
+{\footnotesize\ttfamily \label{ginfo_8cpp_a856d148fda07b8a9535c80bf494626e7} 
+bool pair\+Compare (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}} \&}]{first\+Elem}{, }\item[{const \mbox{\hyperlink{ginfo_8cpp_a61eb2636fd3f0c1d5cf6a960b82a1f22}{CDGeom\+Reg\+Type}} \&}]{second\+Elem}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ginfo_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{ginfo_8cpp_source}{ginfo.\+cpp}}.
+

@@ -1,0 +1,41 @@
+\doxysection{/\+Users/marc/\+Developer/clrp/\+EGSnrc-\/eb/\+HEN\+\_\+\+HOUSE/user\+\_\+codes/egs\+\_\+brachy/egs\+\_\+brachy/eb\+\_\+volcor.cpp File Reference}
+\label{eb__volcor_8cpp}\index{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_volcor.cpp@{/Users/marc/Developer/clrp/EGSnrc-\/eb/HEN\_HOUSE/user\_codes/egs\_brachy/egs\_brachy/eb\_volcor.cpp}}
+
+
+Main implementation of volume correction routines.  
+
+
+{\ttfamily \#include $<$eb\+\_\+volcor.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}gzstream.\+h"{}}\newline
+Include dependency graph for eb\+\_\+volcor.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceebvolcor}{ebvolcor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceebvolcor_aa3880e5f3b1d8f850bcfebf001e0f0e7}{ebvolcor\+::is\+GZip}} (istream \&vfile)
+\item 
+EGS\+\_\+\+Float \mbox{\hyperlink{namespaceebvolcor_a852b9f1b32fb03536a9c042cd90c5667}{ebvolcor\+::get\+Shape\+Volume}} (EGS\+\_\+\+Input \texorpdfstring{$\ast$}{*}shape\+\_\+inp)
+\begin{DoxyCompactList}\small\item\em get shape volume from a shape input item \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceebvolcor_a722a72cbbbaeb21088989f87b4509951}{ebvolcor\+::read\+Volumes}} (istream \&vfile, vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&reg\+\_\+volumes)
+\item 
+int \mbox{\hyperlink{namespaceebvolcor_a696467264593582cdcf7333ce2eaa7d3}{ebvolcor\+::load\+Volumes}} (string fname, vector$<$ \mbox{\hyperlink{structebvolcor_1_1RegVolume}{Reg\+Volume}} $>$ \&reg\+\_\+volumes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main implementation of volume correction routines. 
+
+\begin{DoxyAuthor}{Author}
+Randle Taylor (\href{mailto:randle.taylor@gmail.com}{\texttt{randle.\+taylor@gmail.\+com}})  
+\end{DoxyAuthor}
+
+
+Definition in file \mbox{\hyperlink{eb__volcor_8cpp_source}{eb\+\_\+volcor.\+cpp}}.
+

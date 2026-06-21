@@ -9,6 +9,5 @@ var searchData=
   ['geom_2emd_6',['geom.md',['../geom_8md.html',1,'']]],
   ['ginfo_2ecpp_7',['ginfo.cpp',['../ginfo_8cpp.html',1,'']]],
   ['ginfo_2eh_8',['ginfo.h',['../ginfo_8h.html',1,'']]],
-  ['gzstream_2ec_9',['gzstream.C',['../gzstream_8C.html',1,'']]],
-  ['gzstream_2eh_10',['gzstream.h',['../gzstream_8h.html',1,'']]]
+  ['gzstream_2eh_9',['gzstream.h',['../gzstream_8h.html',1,'']]]
 ];
