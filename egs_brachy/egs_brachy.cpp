@@ -2736,7 +2736,7 @@ int EB_UniformRunControl::startSimulation() {
     if (check_egsdat) {
         char buf[512];
         sprintf(buf,name.c_str(),app->getFinalOutputFile().c_str(), ipar);
-        string datFile = egsJoinPath(app->getAppDir(),buf);
+        string datFile = egsJoinPath(app->getOutputDir(),buf);
         if (remove(datFile.c_str()) == 0) {
             egsWarning("EB_UniformRunControl: %s deleted\n",
                        datFile.c_str());
