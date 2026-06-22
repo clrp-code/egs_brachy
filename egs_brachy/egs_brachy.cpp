@@ -1359,6 +1359,7 @@ void EB_Application::initMuenData(EGS_Input *scoring_options) {
     if (missing_muen) {
         egsFatal("\n\nMissing input scoring options: muen file\n\n    This is a fatal error\n\n");
     }
+    muen_file = egsExpandPath(muen_file);
 
     // transport med name -> scoring med name
     media_muen_names = getMuenForMedia(scoring_options);
