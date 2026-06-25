@@ -36,12 +36,36 @@ of the GNU Affero General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option), any later
 version (http://www.gnu.org/licenses/).
 
-## Documentation and Installation
+## Installation
 
-Technical documentation for egs\_brachy (including brief installation instructions) is
-available in html at https://clrp-code.github.io/egs_brachy/ .
+egs\_brachy requires the [CLRP fork of EGSnrc](https://github.com/clrp-code/EGSnrc_CLRP)
+(`egs_brachy` branch), not the standard NRC distribution.
 
-A pdf of the user's guide to egs\_brachy (with more detailed installation instructions) is available
+**Recommended (release tarball):** download `EGSnrc_CLRP-eb-setup-VERSION.tar.gz` from the
+[EGSnrc\_CLRP releases](https://github.com/clrp-code/EGSnrc_CLRP/releases) page, then:
+
+```bash
+tar -xzf EGSnrc_CLRP-eb-setup-VERSION.tar.gz
+cd EGSnrc_CLRP-eb-setup-VERSION
+./eb-setup.sh install --egs-home "$HOME/egs_home/"
+cd ~/EGSnrc_CLRP && source ./eb-env.sh
+```
+
+`eb-setup.sh` downloads the full release, runs EGSnrc `configure`, syncs egs\_brachy to
+`$EGS_HOME`, and writes `eb-env.sh`. Use `./eb-setup.sh update` for later upgrades
+(`update --from-tarball PATH` when offline). See `./eb-setup.sh help` for options.
+
+**Git checkout (developers):** clone `EGSnrc_CLRP`, `git checkout egs_brachy`,
+`git submodule update --init --recursive` (egs\_brachy is the submodule at
+`HEN_HOUSE/user_codes/egs_brachy`), then `./HEN_HOUSE/scripts/configure` — or
+`./eb-setup.sh install --git`.
+
+## Documentation
+
+Technical documentation for egs\_brachy is available in html at
+https://clrp-code.github.io/egs_brachy/ .
+
+The user's guide (detailed installation and usage) is available
 [here](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
 
 A graphical user interface for egs\_brachy, [eb\_gui](https://github.com/clrp-code/eb_gui), is
