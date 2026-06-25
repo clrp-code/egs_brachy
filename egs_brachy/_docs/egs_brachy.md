@@ -27,28 +27,64 @@ The egs_brachy code (all pieces of code associated with the egs_brachy code syst
 
 \section installationinstruct Installation instructions (including EGSnrc installation)
 
+egs_brachy requires the CLRP fork of EGSnrc, not the standard NRC distribution.
 
-    git clone https://github.com/clrp-code/EGSnrc_CLRP
-    cd EGSnrc_CLRP
+\subsection installrelease Recommended install (release tarball)
 
-Checkout the most-up-to-date 'egs\_brachy' branch and download the egs\_brachy user code:
+The recommended path uses **eb-setup** release tarballs from the
+[EGSnrc_CLRP releases](https://github.com/clrp-code/EGSnrc_CLRP/releases) page.
 
-    git checkout egs_brachy
-    git submodule update --init --recursive
+1. Download `EGSnrc_CLRP-eb-setup-VERSION.tar.gz` (bootstrap installer).
+2. Extract and install:
 
-Finally, configure EGSnrc by following the instructions for your OS (skip Step
-2, which is already completed if you’ve been following these instructions):
+\verbatim
+tar -xzf EGSnrc_CLRP-eb-setup-VERSION.tar.gz
+cd EGSnrc_CLRP-eb-setup-VERSION
+./eb-setup.sh install --egs-home $HOME/egs_home/
+\endverbatim
 
-- Linux: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Linux
-- Mac: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-macOS
-- Windows: https://github.com/nrc-cnrc/EGSnrc/wiki/Install-EGSnrc-on-Windows
+This downloads the full release, installs to `~/EGSnrc_CLRP` (overridable with
+`--install-dir`), runs EGSnrc `configure` interactively, syncs egs_brachy to
+`$EGS_HOME`, and writes `eb-env.sh`.
 
+3. Day-to-day use:
 
-At this point you should have everything required to run egs\_brachy. If you
-did not choose to compile it when configuring EGSnrc, you should do so now:
+\verbatim
+cd ~/EGSnrc_CLRP
+source ./eb-env.sh
+./eb-setup.sh check
+\endverbatim
 
-    cd $EGS_HOME/egs_brachy
-    make
+To upgrade later, run `./eb-setup.sh update` from the install tree (or
+`update --from-tarball PATH` when offline). Run `./eb-setup.sh help` for all
+options.
+
+More detail is in the
+[egs_brachy user manual](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).
+
+\subsection installgit Git checkout (developers)
+
+For a git working tree: clone [EGSnrc_CLRP](https://github.com/clrp-code/EGSnrc_CLRP),
+check out the `egs_brachy` branch, and initialize submodules (egs_brachy lives at
+`HEN_HOUSE/user_codes/egs_brachy`):
+
+\verbatim
+git clone https://github.com/clrp-code/EGSnrc_CLRP.git
+cd EGSnrc_CLRP
+git checkout egs_brachy
+git submodule update --init --recursive
+./HEN_HOUSE/scripts/configure
+\endverbatim
+
+Alternatively, from a bootstrap tarball: `./eb-setup.sh install --git`.
+
+After configure, compile and test if needed:
+
+\verbatim
+cd $EGS_HOME/egs_brachy
+make
+make test
+\endverbatim
 
 \section usage Usage
 
