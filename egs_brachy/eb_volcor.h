@@ -218,6 +218,7 @@ struct Results {
     double npoints; /*!< what was the total number of points used for the VC */
     EGS_Float bounds_volume; /*!< what was the volume of the bounding shape */
     EGS_Float other_volume; /*!< what was the estimated volume of the inscribed geometry */
+    EGS_Float covered_threshold_pct; /*!< total coverage threshold in percent */
 
     map<int, vector<int> > regions_corrected;
 
@@ -228,7 +229,8 @@ struct Results {
         density(0),
         npoints(0),
         bounds_volume(0),
-        other_volume(0) {};
+        other_volume(0),
+        covered_threshold_pct(0) {};
 
     Results(Options *opts):
         success(0),
@@ -238,6 +240,8 @@ struct Results {
         density = opts->density;
         npoints =  opts->npoints;
         bounds_volume = opts->bounds_volume;
+        covered_threshold_pct = opts->covered_threshold <= 1. ?
+            opts->covered_threshold * 100. : opts->covered_threshold;
     }
 
     void outputResults(string extra="") {
@@ -251,6 +255,7 @@ struct Results {
         }
 
         egsInformation("Time taken                   = %.2G s\n", time);
+        egsInformation("Total coverage threshold %%   = %.4G\n", covered_threshold_pct);
         egsInformation("Density of points used       = %.0E points/cm^-3\n", density);
         egsInformation("Number of source points used = %G\n", npoints);
         egsInformation("Bounding shape volume        = %.4E cm^3\n", bounds_volume);
