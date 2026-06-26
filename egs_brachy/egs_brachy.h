@@ -199,9 +199,6 @@ class APP_EXPORT EB_Application : public EGS_AdvancedApplication {
     ogzstream *gz_data_out;  ///< GZip file for outputing egsdat
     igzstream *gz_data_in;  ///< GZip file for outputing egsdat
 
-    static string revision;    ///< the usercode revision number
-
-
     /*! \brief set up Phantom objects for any geometries that user has
      * requested scoring for */
     int createPhantoms();

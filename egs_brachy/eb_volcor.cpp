@@ -237,7 +237,6 @@ void Options::setCoveredThreshold() {
 
     int err = input->getInput("total coverage threshold %", covered_threshold);
     if (err) {
-        egsWarning("The input 'total coverage threshold %%' input was not found. Using 99.9%\n");
         covered_threshold = 99.9;
     }
 

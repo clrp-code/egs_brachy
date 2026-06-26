@@ -106,8 +106,6 @@ void printParticleWithSpherical(EGS_Particle p) {
 }
 
 
-string EB_Application::revision = "$Revision: 0.9.1 $";
-
 const EGS_Float EB_Application::DEFAULT_BCSE_FACTOR = 100;
 
 
@@ -119,10 +117,6 @@ void EB_Application::describeUserCode() const {
         "\n               *                                                 *"
         "\n               ***************************************************"
         "\n\n");
-    egsInformation("This is EB_Application %s based on\n"
-                   "      EGS_AdvancedApplication %s\n\n",
-                   egsSimplifyCVSKey(revision).c_str(),
-                   egsSimplifyCVSKey(base_revision).c_str());
 }
 
 void EB_Application::describeSimulation() {
