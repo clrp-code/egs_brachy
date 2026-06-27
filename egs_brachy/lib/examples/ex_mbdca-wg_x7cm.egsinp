@@ -28,7 +28,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 :stop media definition:
 
 #-------------------------------------------------------------------------------
@@ -37,19 +37,19 @@
     :start geometry:
         name = air_box
         library = egs_glib
-        include file = lib/geometry/phantoms/50cmx50cmx50cm_box_xyz_air.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/50cmx50cmx50cm_box_xyz_air.geom
     :stop geometry:
 
     :start geometry:
         name = phantom
         library = egs_glib
-        include file = lib/geometry/phantoms/20.1cmx20.1cmx20.1cm_1mm_xyz_water.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/20.1cmx20.1cmx20.1cm_1mm_xyz_water.geom
     :stop geometry:
 
     :start geometry:
         name = seed
         library = egs_glib
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
     :stop geometry:
 
     :start geometry:
@@ -60,13 +60,13 @@
         :start inscribed geometry:
             inscribed geometry name = seed
             :start transformations:
-                include file = lib/geometry/transformations/single_seed_at_x7cm
+                include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/single_seed_at_x7cm
             :stop transformations:
 
             :start region discovery:
                 action = discover
                 density of random points (cm^-3) = 1E8
-                include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+                include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
             :stop region discovery:
         :stop inscribed geometry:
     :stop geometry:
@@ -93,7 +93,7 @@
         correction type = correct
         density of random points (cm^-3) = 1E8
 
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
     :stop source volume correction:
 
 :stop volume correction:
@@ -106,17 +106,17 @@
         library = egs_isotropic_source
         charge = 0
 
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/Ir192_NNDC_2.6_line.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/Ir192_NNDC_2.6_line.spectrum
         :stop spectrum:
 
     :stop source:
 
     :start transformations:
-        include file = lib/geometry/transformations/single_seed_at_x7cm
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/single_seed_at_x7cm
     :stop transformations:
 
     simulation source = MBDCA-WG
@@ -127,11 +127,11 @@
 :start scoring options:
 
     score energy deposition = no
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
 
 :stop scoring options:
 
 #-------------------------------------------------------------------------------
-include file = lib/transport/high_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/high_energy_default
 

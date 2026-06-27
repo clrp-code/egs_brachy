@@ -26,7 +26,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -140,7 +140,7 @@
     score scatter dose = no		 # default is no. Does not score scatter
 					 # dose separately, but it is included.
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
 
     current result phantom region = phantom 1
