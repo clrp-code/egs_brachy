@@ -26,8 +26,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
-    #to run in batch, insert local value of $EGS_HOME/egs_brachy/ before lib/
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -116,7 +115,7 @@
     :stop source:
 
     :start transformations:
-        include file = lib/geometry/transformations/single_seed_at_origin
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/single_seed_at_origin
         # although not technically necessary for sources at the origin, if this
         # input is missing, a warning will be generated when the simulation is
         # launched
@@ -129,7 +128,7 @@
 #-------------------------------------------------------------------------------
 :start scoring options:
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
 
     current result phantom region = phantom 1 
@@ -148,5 +147,5 @@
 
 #--------------------------------------------------------------------------
 # Transport parameters
-include file = lib/transport/xray_source
+include file = $EGS_HOME/egs_brachy/lib/transport/xray_source
 

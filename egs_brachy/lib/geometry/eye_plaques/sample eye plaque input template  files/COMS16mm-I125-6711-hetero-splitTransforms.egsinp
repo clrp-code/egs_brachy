@@ -36,7 +36,7 @@
 
 
 :start media definition:
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 :stop media definition:
 
 :start run mode:
@@ -52,21 +52,21 @@
 	:start geometry:
         library = egs_glib
         name = water_box
-        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
 	:stop geometry:
 	
 #The scoring phantom
 	:start geometry:
         library = egs_glib
         name = water_phantom
-		include file = lib/geometry/phantoms/COMSphant.geom
+		include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/COMSphant.geom
 	:stop geometry:
 
 #The plaque to be used
     :start geometry:
         library = egs_glib
         name = empty_plaque
-        include file = lib/geometry/eye_plaques/COMS/COMS16mm/COMS16mm.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/eye_plaques/COMS/COMS16mm/COMS16mm.geom
     :stop geometry
 	
     :start geometry:
@@ -82,7 +82,7 @@
 	:start geometry:
         library = egs_glib
         name = seed
-        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
     :stop geometry
 	
 # Local seed placements (same file as source definition below)
@@ -97,13 +97,13 @@
             inscribed geometry name = seed
 
             :start transformations:
-                include file = lib/geometry/transformations/eye_plaques/COMS16mm
+                include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
             :stop transformations:
 
 			:start region discovery:
 				correction type = discover
                 density of random points (cm^-3) = 1E7
-                include file =  lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+                include file =  $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
             :stop region discovery:
 
         :stop inscribed geometry:
@@ -115,7 +115,7 @@
         library = egs_gtransformed
         my geometry = plaque_w_seeds
         :start transformation:
-            include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
+            include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
         :stop transformation:
         name = plaque_in_phantom
     :stop geometry:
@@ -177,24 +177,24 @@
         name = 6711
         charge = 0
 
-        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/I125_NCRP_line.spectrum 
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/I125_NCRP_line.spectrum 
         :stop spectrum:
 
     :stop source:
 
 # Local seed placements (same file as geometry inscriptions above)
     :start transformations :
-        include file = lib/geometry/transformations/eye_plaques/COMS16mm
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
     :stop transformations:
 
 # Shared applicator pose (must match egs_gtransformed above)
     :start source coordinate transform:
         :start transformation:
-            include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
+            include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
         :stop transformation:
     :stop source coordinate transform:
 
@@ -210,7 +210,7 @@
      #score energy deposition = yes
      output voxel info files  = yes
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
     dose scaling factor = 1.00 # For absolute dose # 
 	# scaling factor for  dose/sk for I-6711= 2.699551E+11 , Pd103-200= from CLRP_Epv2 paper  ,  Cs131-Isoray=  From CLRP_EPv2 paper Medphys 2021     . Sk is from the CLRPv2 TG43 database 
@@ -219,7 +219,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   	Transport parameters	#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-include file =  lib/transport/low_energy_default
+include file =  $EGS_HOME/egs_brachy/lib/transport/low_energy_default
 
 :start rng definition:
     type = ranmar

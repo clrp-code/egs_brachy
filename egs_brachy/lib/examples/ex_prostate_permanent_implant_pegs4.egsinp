@@ -32,19 +32,19 @@
     :start geometry:
        name = box
        library = egs_glib
-       include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_prostate.geom
+       include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_prostate.geom
     :stop geometry:
 
     :start geometry:
         name = phantom
         library = egs_glib
-        include file = lib/geometry/phantoms/ptv_3.4cmx2.8cmx3.8cm_2mm_xyz_prostate.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/ptv_3.4cmx2.8cmx3.8cm_2mm_xyz_prostate.geom
     :stop geometry:
 
     :start geometry:
         name = seed
         library = egs_glib
-        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
     :stop geometry:
 
     # The egs_autoenvelope library allows for more efficient simulations with
@@ -62,7 +62,7 @@
             # the 'source' input block below
             
             :start transformations:
-                include file = lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
+                include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
                 #the above file lists 100 transformations and thus
                 #inserts 100 seeds
             :stop transformations:
@@ -79,7 +79,7 @@
 
                 # define shape which defines boundaries of volume of interest 
                 # where egs_autoenvelope will search for inscribed geometries
-                include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+                include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
             :stop region discovery:
 
         :stop inscribed geometry:
@@ -115,7 +115,7 @@
 
         # shape which defines the boundaries of the volume of interest 
         # where egs_brachy will search for inscribed source geometries
-        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
     :stop source volume correction:
 
 :stop volume correction:
@@ -129,11 +129,11 @@
         name = 6711
         charge = 0
 
-        include file = lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/I125_NCRP_line.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/I125_NCRP_line.spectrum
         :stop spectrum:
 
     :stop source:
@@ -141,7 +141,7 @@
     # the source transformations should usually be identical to the
     # transformations used in autoenvelope
     :start transformations:
-        include file = lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/100seeds_grid_5x7mmx4x7mmx5x8mm_0.5mm_perturb_in_z
     :stop transformations:
 
     simulation source = 6711
@@ -151,7 +151,7 @@
 #-------------------------------------------------------------------------------
 :start scoring options:
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = PROSTATE_WW86 # we score in prostate tissue, 
                                    #instead of water
 
@@ -171,5 +171,5 @@
 
 #-------------------------------------------------------------------------------
 # Transport parameters
-include file = lib/transport/low_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/low_energy_default
 

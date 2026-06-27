@@ -24,8 +24,7 @@
     AP = 0.001
     UP = 1.500
     
-    material data file = lib/media/material.dat    
-    #to run in batch, insert value of $EGS_HOME/egs_brachy/ before all lib/
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat    
 :stop media definition:
 
 #-------------------------------------------------------------------------------
@@ -34,19 +33,19 @@
     :start geometry:
         name = box
         library = egs_glib
-        include file = lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
     :stop geometry:
 
     :start geometry:
         name = phantom
         library = egs_glib
-        include file = lib/geometry/phantoms/2.0cmx2.0cmx2.0cm_1mm_xyz_water.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/2.0cmx2.0cmx2.0cm_1mm_xyz_water.geom
     :stop geometry:
 
     :start geometry:
         name = seed
         library = egs_glib
-        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.geom
     :stop geometry:
 
     :start geometry:
@@ -78,7 +77,7 @@
         correction type = correct
         density of random points (cm^-3) = 1E9
 
-        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/boundary.shape
     :stop source volume correction:
 
 :stop volume correction:
@@ -91,17 +90,17 @@
         name = TheraSeed_200
         charge = 0
 
-        include file = lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Pd103_LDR/TheraSeed_200/TheraSeed_200.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/Pd103_NNDC_2.6_line.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/Pd103_NNDC_2.6_line.spectrum
         :stop spectrum:
 
     :stop source:
 
     :start transformations:
-        include file = lib/geometry/transformations/single_seed_at_origin
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/single_seed_at_origin
         # this is a null transformation
     :stop transformations:
 
@@ -112,12 +111,12 @@
 #-------------------------------------------------------------------------------
 :start scoring options:
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
     muen for media = WATER_0.998
 
     # IAEA phase space scoring block
     :start phsp scoring:
-        phsp output directory = ./lib/phsp # where to output phase space file
+        phsp output directory = $EGS_HOME/egs_brachy/lib/phsp # where to output phase space file
         access mode = write              # use 'write' for a new file or 'append' 
                                          #  to add to an existing one
         print header = yes
@@ -147,5 +146,5 @@
 :stop scoring options:
 
 #-------------------------------------------------------------------------------
-include file = lib/transport/low_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/low_energy_default
 

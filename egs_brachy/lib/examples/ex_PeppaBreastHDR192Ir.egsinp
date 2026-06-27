@@ -24,7 +24,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 :stop media definition:
 
 #-------------------------------------------------------------------------------
@@ -49,8 +49,8 @@
         name = phantom
         library = egs_glib
         type = egsphant
-        egsphant file = lib/geometry/phantoms/egsphant/PeppaBreastHDR192Ir_MBDCA-WG.egsphant.gz
-	density file = lib/media/material.dat    
+        egsphant file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/egsphant/PeppaBreastHDR192Ir_MBDCA-WG.egsphant.gz
+	density file = $EGS_HOME/egs_brachy/lib/media/material.dat    
              # the .medialist file lists all media in the egsphant, 
              # along with their nominal densities (note that voxel-by-voxel 
              # densities may vary).
@@ -59,7 +59,7 @@
     :start geometry:         #source is MBDCA-WG Ir-192 source
         name = MBDCA-WG
         library = egs_glib
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.geom
     :stop geometry:
 
     :start geometry:        #define wrapper - wrapping the source reduces 
@@ -92,13 +92,13 @@
 
             :start transformations:        #file defines dwell positions and 
                                            #source orientations
-                include file = lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
+                include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
             :stop transformations:
 
             :start region discovery:
                 action = region discovery #default
                 density of random points (cm^-3) = 1E8
-                include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+                include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
             :stop region discovery:
         :stop inscribed geometry:
     :stop geometry:
@@ -113,7 +113,7 @@
                                       # agreement with Peppa et al MCNP 
                                       # results with no volume correction 
         density of random points (cm^-3) = 1E8
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/boundary.shape
     :stop source volume correction:
 
 :stop volume correction:
@@ -125,18 +125,18 @@
         library = egs_isotropic_source
         name = MBDCA-WG
         charge = 0
-        include file = lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/Ir192_HDR/MBDCA-WG/MBDCA-WG.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/Ir192_NNDC_2.6_line.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/Ir192_NNDC_2.6_line.spectrum
         :stop spectrum:
     :stop source:
 
     :start transformations:       #specify source locations - use same file 
                                   #as for source geometry position and 
                                   #orientation (above)
-		include file = lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
+		include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/PeppaBreastHDR192Ir_MBDCA-WG_srcPosnRotn
     :stop transformations:
 
     source weights = 0.0138,0.0156,0.0184,0.0144,0.0179,0.0173,0.0248,0.0138,0.0086,0.0063,0.0058,0.0086,0.0092,0.0063,0.0069,0.0058,0.0161,0.0265,0.0138,0.0046,0.0046,0.0086,0.0092,0.0127,0.0121,0.0144,0.0248,0.0363,0.0449,0.0138,0.0144,0.0190,0.0179,0.0213,0.0219,0.0161,0.0167,0.01325,0.0184,0.0230,0.0173,0.0104,0.0104,0.0098,0.0052,0.0086,0.01325,0.0156,0.0075,0.0058,0.0012,0.0023,0.0006,0.0012,0.0075,0.0161,0.0173,0.0092,0.0058,0.0058,0.0081,0.0104,0.0138,0.0109,0.0035,0.0323,0.0058,0.0127,0.0115,0.0040,0.0035,0.0069,0.0075,0.0115,0.0248,0.0127,0.0075,0.0092,0.0150
@@ -148,7 +148,7 @@
 :start scoring options:
 
     score energy deposition = yes
-    muen file = lib/muen/PeppaBreastHDR192Ir_MBDCA-WG_muen.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/PeppaBreastHDR192Ir_MBDCA-WG_muen.muendat
     muen for media = SKIN_1.09,AIR_0.0012,EXTERNAL_1.00,HEART_1.05,LUNGS_0.26,PTV_1.02,RIBS_1.92
     dose scaling factor = 7.60e+12 #=SK,ref*t_tot*w_max/(air kerma per hist)/100 --> will give dose in Gy
 	#note air kerma per hist  = (1.1592+/-0.0007)E-13 
@@ -163,5 +163,5 @@
 
 
 #-------------------------------------------------------------------------------
-include file = lib/transport/high_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/high_energy_default
 
