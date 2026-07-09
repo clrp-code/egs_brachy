@@ -1,0 +1,183 @@
+##############################################################################
+#
+# Sample input file for an Iris270 plaque loaded with I125-6711 source seeds. 
+# Dose is scored in a (3x3x3) cm^3 volume made up of (0.5 mm)^3 voxels.
+#
+##############################################################################
+
+#-------------------------------------------------------------------------------
+:start run control:
+    ncase = 1e6
+    geometry error limit = 1000
+:stop run control:
+
+#-------------------------------------------------------------------------------
+:start run mode:
+    run mode = normal
+:stop run mode:
+
+#-------------------------------------------------------------------------------
+# This input block allows 'pegsless' runs
+:start media definition:
+    AE = 0.512
+    UE = 2.012
+    AP = 0.001
+    UP = 1.500
+    
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat    
+:stop media definition:
+
+#-------------------------------------------------------------------------------
+:start geometry definition:
+
+    # A water box that will hold the entire geometry
+    :start geometry:
+        name = box
+        library = egs_glib	# this is a brachy_dose addition to egs++
+				# that allows files to be included into the
+				# input file. Very useful for defining
+				# commonly used geometries.
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/30cmx30cmx30cm_box_xyz_water.geom
+    :stop geometry:
+
+    # The volume in which we want to score dose
+    :start geometry:
+        name = phantom 
+        library = egs_glib
+        include file = $EGS_HOME/egs_brachy/lib/geometry/phantoms/3.0cmx3.0cmx3.0cm_0.5mm_xyz_water.geom
+    :stop geometry:
+
+    # embed the scoring phantom in the water box
+    :start geometry:
+        name = box_with_phantom
+        library = egs_genvelope
+        base geometry = box
+        inscribed geometries = phantom
+    :stop geometry:
+
+   # plaque geometry
+   :start geometry:
+        library = egs_glib
+        name = empty_plaque
+        include file = $EGS_HOME/egs_brachy/lib/geometry/eye_plaques/Iris/Iris270/Iris270.geom
+    :stop geometry:
+
+    :start geometry:
+        library = egs_gtransformed
+        my geometry = empty_plaque
+        :start transformation:
+            translation = 0 0 1.13
+        :stop transformation:
+        name = plaque_transform
+    :stop geometry:
+
+    # The source geometry
+    :start geometry:
+        name = seed
+        library = egs_glib
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.geom
+    :stop geometry:
+
+    # inscribe the seeds into the plaque
+    :start geometry:
+        name = plaque_with_seeds
+        library = egs_autoenvelope
+        base geometry = plaque_transform
+
+        :start inscribed geometry:
+            inscribed geometry name = seed
+            :start transformations:
+                include file = $EGS_HOME/egs_brachy/lib/geometry/eye_plaques/Iris/Iris270/source_transformation_iris_270.geom
+            :stop transformations:
+
+            :start region discovery:
+                action = discover
+                density of random points (cm^-3) = 1E7
+                include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+            :stop region discovery:
+        :stop inscribed geometry:
+
+    :stop geometry:
+
+    # Inscribe the plaque in the scoring phantom
+    :start geometry:
+        name = phantom_with_plaque
+        library = egs_genvelope
+        base geometry = box_with_phantom
+        inscribed geometries = plaque_with_seeds
+    :stop geometry:
+
+    # Source, phantom, and simulation geometries all need to be explicitly specified
+    source geometries = seed
+    phantom geometries = phantom
+    simulation geometry = phantom_with_plaque
+
+:stop geometry definition:
+
+
+#-------------------------------------------------------------------------------
+:start volume correction:
+
+    :start extra volume correction:
+        correction type = correct 
+        density of random points (cm^-3) = 1E7
+        :start shape:
+            type = cylinder
+            radius = 1.3
+            midpoint = 0, 0, 0
+            height = 3.0
+        :stop shape:
+    :stop extra volume correction:
+
+:stop volume correction:
+
+#-------------------------------------------------------------------------------
+:start source definition:
+
+    # Typical egs++ source input block
+    :start source:
+        library = egs_isotropic_source
+        name = OncoSeed6711
+        charge = 0
+
+        include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/OncoSeed_6711.shape
+
+        :start spectrum:
+            type = tabulated spectrum 
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/I125_NCRP_line.spectrum
+        :stop spectrum:
+    :stop source:
+
+    # The position of the sources
+    :start transformations:
+        include file = $EGS_HOME/egs_brachy/lib/geometry/eye_plaques/Iris/Iris270/source_transformation_iris_270.geom
+    :stop transformations:
+
+    # The source needs to be explicitly specified to egs_brachy. 
+    # This should be the same as the 'name' defined in source input block above.
+    simulation source = OncoSeed6711
+
+:stop source definition:
+
+
+#-------------------------------------------------------------------------------
+:start scoring options:
+
+    # Many scoring options are available in egs_brachy. 
+    # Please see the documentation for a full list.
+   
+    # The path to a file containing mass-energy absorption data for the 
+    # relevant media in the simulation    
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
+
+    # Specify which media dose is scored in
+    muen for media = WATER_0.998
+	
+    dose scaling factor = 2.65491424630e11
+
+:stop scoring options:
+
+#-------------------------------------------------------------------------------
+# Transport parameters
+include file = $EGS_HOME/egs_brachy/lib/transport/low_energy_default
+
