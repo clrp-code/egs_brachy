@@ -57,24 +57,32 @@ def gen_geom_docs(droot, title, is_sources=False):
         name = type_.replace("_", " ")
         docs.append("\subsection %s %s %s" % (section, name, title))
 
-        dirs = [os.path.join(t, f) for f in sorted(os.listdir(t)) if not f.startswith('.')]
+        dirs = [
+            os.path.join(t, f)
+            for f in sorted(os.listdir(t))
+            if not f.startswith('.') and os.path.isdir(os.path.join(t, f))
+        ]
+        # Flat folders (e.g. sample eye plaque inputs) have files but no model subdirs
+        if not dirs:
+            dirs = [t]
 
         for d in dirs:
-            relpath = os.path.relpath(d)
             _, subname = os.path.split(d)
             subsection = (type_+subname).replace(" ", "").replace(".", "")
 
             docs.append("\subsubsection %s %s" % (subsection, subname))
 
-
             geom_links = get_filetype_links(d, ".geom")
             shape_links = get_filetype_links(d, ".shape")
+            egsinp_links = get_filetype_links(d, ".egsinp")
             docs.append("<dl>")
             docs.append("<dt>Description</dt><dd>%s</dd>" % (get_readme(d) or "<em>No description available</em>"))
             if geom_links:
                 docs.append("<dt>Geometry Files</dt><dd>%s</dt>" % ','.join(geom_links))
             if shape_links:
                 docs.append("<dt>Shape Files</dt><dd>%s</dt>" % ', '.join(shape_links))
+            if egsinp_links:
+                docs.append("<dt>Example Inputs</dt><dd>%s</dd>" % ', '.join(egsinp_links))
 
             images = get_images(d)
             docs.append("<dt>Images</dt><dd>%s</dd>" % ('\n'.join(images) or "<em>No images available</em>"))
@@ -87,7 +95,7 @@ def gen_geom_docs(droot, title, is_sources=False):
 def gen_docs(fname):
     params = {}
     params["sources"] = gen_geom_docs(os.path.join(geom, "sources"), "Sources")
-    params["eye_plaques"] = find_file_descriptions(os.path.join(geom, "eye_plaques"), "start geometry")
+    params["eye_plaques"] = gen_geom_docs(os.path.join(geom, "eye_plaques"), "Eye Plaques")
     params["transforms"] = find_file_descriptions(os.path.join(geom, "transformations"), "start transformation")
     params["phantoms"] = find_file_descriptions(os.path.join(geom, "phantoms"), "start geometry")
     params["applicators"] = find_file_descriptions(os.path.join(geom, "applicators"), "start geometry")
