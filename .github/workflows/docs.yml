@@ -1,20 +1,19 @@
-# Build Doxygen HTML and deploy to GitHub Pages.
+# Build Doxygen HTML in CI. Deploy to GitHub Pages only from main.
 # Generated HTML is not committed; only docs/pdf/ stays in git.
 
-name: Deploy docs
+name: Docs
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: docs-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 env:
@@ -76,13 +75,18 @@ jobs:
           test -f publish/pdf/egs_brachy_user_manual.pdf
 
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: publish
 
   deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
