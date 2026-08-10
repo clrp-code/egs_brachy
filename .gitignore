@@ -7,3 +7,12 @@
 *.egsdat
 *.mederr
 egsrun_*/
+
+# Local docs preview (make docs); CI publishes HTML to GitHub Pages
+_site/
+
+# Generated HTML site tree — keep only tracked PDFs under docs/pdf/
+docs/*
+!docs/pdf/
+!docs/pdf/**
+

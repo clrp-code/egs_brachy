@@ -1,4 +1,0 @@
-:start shape:
-    type = box
-    box size = 0.05001 0.05001 0.30001
-:stop shape:

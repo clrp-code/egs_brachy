@@ -1,8 +1,0 @@
-# Shape to define the bounding volume for volume correction and region discovery
-:start shape:
-
-    type = sphere
-    radius = 0.00011
-    midpoint = 0 0 0
-
-:stop shape:

@@ -71,21 +71,28 @@ sweep:
 	$(make_prog)
 	rm -f *_$(my_machine).o *_$(my_machine).mortlst mortjob.mortran egsnrc_$(my_machine).F
 
+# Local HTML preview only (gitignored _site/). GitHub Pages is built by CI —
+# do not commit generated HTML under docs/.
 docs: _docs/egs_brachy.md
-	cd _docs; python gen_docs.py
+	cd _docs; python3 gen_docs.py
+	cd _docs; doxygen ./egs_brachy.dox
+	rm -rf ../_site
+	mkdir -p ../_site
+	cp -a docs/. ../_site/
+	mkdir -p ../_site/lib
+	cp -a lib/geometry ../_site/lib/
+	mkdir -p ../_site/pdf
+	cp -a ../docs/pdf/. ../_site/pdf/
+	rm -rf docs/*
+	@echo "Local docs preview written to ../_site/ (open ../_site/index.html)"
+
+# Optional: build the Doxygen LaTeX technical manual PDF into _site/pdf/
+docs-pdf: docs
 	cd _docs; doxygen ./egs_brachy.dox
 	cd docs/latex; $(make_prog) pdf
-	mkdir -p docs/pdf; mv docs/latex/refman.pdf docs/pdf/egs_brachy_technical_manual.pdf
-	rm -rf docs/latex
-	cp -rf docs ../
-	mkdir -p ../docs/lib
-	cp -r lib/geometry ../docs/lib/
-	cp _docs/egs_brachy_user_manual.pdf ../docs/pdf
-	cp _docs/egs_brachy_paper2016.pdf ../docs/pdf
-	cp _docs/clrp_tg43_le_2020.pdf ../docs/pdf
-	cp _docs/clrp_tg43_he_2023.pdf ../docs/pdf
-	cp _docs/clrp_eye_plaque_2021.pdf ../docs/pdf
-	rm -rf docs/*
+	mkdir -p ../_site/pdf
+	mv docs/latex/refman.pdf ../_site/pdf/egs_brachy_technical_manual.pdf
+	rm -rf docs/latex docs/*
 
 ifeq ($(OS), Windows_NT)
 eb_iaeaphsp:
