@@ -66,8 +66,8 @@ Technical documentation for egs\_brachy is available in HTML at
 https://clrp-code.github.io/egs_brachy/ .
 
 That site is built automatically by GitHub Actions from `_docs/` (and geometry
-library content under `egs_brachy/lib/`) on every push to `main`. Generated HTML
-is not stored in git. Tracked PDFs under `docs/pdf/` are copied into the
+library content under `egs_brachy/lib/`). Pull requests run the docs build as a
+CI check; pushes to `main` deploy to Pages. Generated HTML is not stored in git. Tracked PDFs under `docs/pdf/` are copied into the
 published site. For a local preview, from `egs_brachy/egs_brachy/` run
 `make docs` and open `_site/index.html` at the repository root.
 
