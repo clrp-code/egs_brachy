@@ -1,0 +1,90 @@
+# Build Doxygen HTML and deploy to GitHub Pages.
+# Generated HTML is not committed; only docs/pdf/ stays in git.
+
+name: Deploy docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+env:
+  # Pin so every deploy uses the same Doxygen (avoids HTML churn in reviews).
+  DOXYGEN_VERSION: "1.14.0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Graphviz
+        run: sudo apt-get update && sudo apt-get install -y graphviz
+
+      - name: Install Doxygen ${{ env.DOXYGEN_VERSION }}
+        run: |
+          set -euo pipefail
+          archive="doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
+          tag="Release_${DOXYGEN_VERSION//./_}"
+          curl -fsSL -o "/tmp/${archive}" \
+            "https://github.com/doxygen/doxygen/releases/download/${tag}/${archive}"
+          mkdir -p "$HOME/.local"
+          tar -xzf "/tmp/${archive}" -C "$HOME/.local"
+          # tarball extracts to doxygen-VERSION/
+          echo "$HOME/.local/doxygen-${DOXYGEN_VERSION}/bin" >> "$GITHUB_PATH"
+          doxygen -v
+
+      - name: Generate markdown + HTML
+        run: |
+          set -euo pipefail
+          cd egs_brachy/_docs
+          python3 gen_docs.py
+          # Skip LaTeX technical-manual build in CI
+          cp egs_brachy.dox egs_brachy.ci.dox
+          sed -i 's/^GENERATE_LATEX.*/GENERATE_LATEX           = NO/' egs_brachy.ci.dox
+          doxygen egs_brachy.ci.dox
+
+      - name: Stage publish directory
+        run: |
+          set -euo pipefail
+          rm -rf publish
+          mkdir -p publish
+          # Doxygen OUTPUT_DIRECTORY is egs_brachy/docs (relative to _docs)
+          cp -a egs_brachy/docs/. publish/
+          mkdir -p publish/lib
+          cp -a egs_brachy/lib/geometry publish/lib/
+          mkdir -p publish/pdf
+          cp -a docs/pdf/. publish/pdf/
+          test -f publish/index.html
+          test -f publish/pdf/egs_brachy_user_manual.pdf
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: publish
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

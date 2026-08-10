@@ -1,25 +1,38 @@
 import ctypes
 import glob
 import os
-import sys
-
-HEN_HOUSE = os.getenv("HEN_HOUSE")
-try:
-    if os.name == "nt":
-        IAEA_DLL = glob.glob(os.path.join(HEN_HOUSE,"egs++/dso/*/", "iaea_phsp.dll"))[0]
-    else:
-        IAEA_DLL = glob.glob(os.path.join(HEN_HOUSE,"egs++/dso/*/", "libiaea_phsp.so"))[0]
-except IndexError:
-    raise ValueError("iaea_phsp shared library not found")
 from ctypes import byref
-
-import os
 
 from . import iaea_errors
 from . import iaea_types
 
 
-iaeadll = ctypes.CDLL(IAEA_DLL)
+_iaeadll = None
+
+
+def _get_iaea_dll():
+    """Load the IAEA phsp shared library on first use (requires HEN_HOUSE)."""
+    global _iaeadll
+    if _iaeadll is not None:
+        return _iaeadll
+
+    hen_house = os.getenv("HEN_HOUSE")
+    if not hen_house:
+        raise ValueError(
+            "HEN_HOUSE is not set; cannot locate the iaea_phsp shared library"
+        )
+
+    if os.name == "nt":
+        pattern = os.path.join(hen_house, "egs++/dso/*/", "iaea_phsp.dll")
+    else:
+        pattern = os.path.join(hen_house, "egs++/dso/*/", "libiaea_phsp.so")
+
+    matches = glob.glob(pattern)
+    if not matches:
+        raise ValueError("iaea_phsp shared library not found")
+
+    _iaeadll = ctypes.CDLL(matches[0])
+    return _iaeadll
 
 
 class IAEAPhaseSpace(object):
@@ -51,7 +64,7 @@ class IAEAPhaseSpace(object):
     #--------------------------------------------------------------------------
     def _create_source(self):
         result = iaea_types.IAEA_I32(0)
-        iaeadll.iaea_new_source(byref(self._source_id), self.path.encode(), byref(self.access),
+        _get_iaea_dll().iaea_new_source(byref(self._source_id), self.path.encode(), byref(self.access),
                                 byref(result), ctypes.c_int(len(self.path.encode())))
 
         print( result)
@@ -76,7 +89,7 @@ class IAEAPhaseSpace(object):
 
         for ptype in ptypes:
             ptype = iaea_types.IAEA_I32(ptype)
-            iaeadll.iaea_get_max_particles(byref(self._source_id),byref(ptype),byref(np))
+            _get_iaea_dll().iaea_get_max_particles(byref(self._source_id),byref(ptype),byref(np))
             num_particles += np.value
 
         if num_particles < 0:
@@ -96,7 +109,7 @@ class IAEAPhaseSpace(object):
         num_particles = 0
         np = iaea_types.IAEA_I64(0)
 
-        iaeadll.iaea_get_total_original_particles(byref(self._source_id), byref(np))
+        _get_iaea_dll().iaea_get_total_original_particles(byref(self._source_id), byref(np))
         num_particles = np.value
 
         if num_particles < 0:
@@ -109,7 +122,7 @@ class IAEAPhaseSpace(object):
         """Return maximum energy in this source in (MeV)"""
 
         emax = iaea_types.IAEA_Float()
-        iaeadll.iaea_get_maximum_energy(byref(self._source_id),byref(emax))
+        _get_iaea_dll().iaea_get_maximum_energy(byref(self._source_id),byref(emax))
         if emax.value <0.:
             raise iaea_errors.IAEAPhaseSpaceError(message="Source not initialized")
 

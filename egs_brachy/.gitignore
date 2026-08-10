@@ -25,7 +25,6 @@
 /*.png
 /*.ramp
 /*csv
-docs/egs_brachy.doxwarn
 fort.*
 mortjob.mortran
 tmp*
@@ -37,5 +36,9 @@ _docs/spectra.md
 _docs/transport.md
 _docs/tests.md
 _docs/*doxwarn
-docs/latex/
+_docs/egs_brachy.ci.dox
+
+# Doxygen working output (make docs copies a preview to ../_site/)
+docs/
+
 

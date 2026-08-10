@@ -23,8 +23,8 @@ library, please also cite the relevant CLRP database papers listed under
 [CLRP database references](#clrp-database-references).
 
 The initial release of egs\_brachy is version 2017.09.15 beta. We will continue
-to update and maintain egs\_brachy, as well as this manual and the html
-documentation.
+to update and maintain egs\_brachy, as well as this manual and the HTML
+documentation (published via CI to GitHub Pages).
 
 
 ## License
@@ -62,8 +62,14 @@ cd ~/EGSnrc_CLRP && source ./eb-env.sh
 
 ## Documentation
 
-Technical documentation for egs\_brachy is available in html at
+Technical documentation for egs\_brachy is available in HTML at
 https://clrp-code.github.io/egs_brachy/ .
+
+That site is built automatically by GitHub Actions from `_docs/` (and geometry
+library content under `egs_brachy/lib/`) on every push to `main`. Generated HTML
+is not stored in git. Tracked PDFs under `docs/pdf/` are copied into the
+published site. For a local preview, from `egs_brachy/egs_brachy/` run
+`make docs` and open `_site/index.html` at the repository root.
 
 The user's guide (detailed installation and usage) is available
 [here](https://clrp-code.github.io/egs_brachy/pdf/egs_brachy_user_manual.pdf).

@@ -1,9 +1,0 @@
-# cylindrical source for microSelectron-v1
-#
-:start shape:
-
-    type = cylinder
-    radius = 0.03
-    height = 0.35
-
-:stop shape:
