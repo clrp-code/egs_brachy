@@ -6,6 +6,6 @@ var searchData=
   ['license_3',['License',['../index.html#license',1,'']]],
   ['limitations_4',['Limitations',['../index.html#autotoc_md0',1,'']]],
   ['list_20of_20the_20current_20tests_5',['A list of the current tests',['../index.html#curtests',1,'']]],
-  ['low_5fenergy_5fdefault_6',['low_energy_default',['../md_transport.html#autotoc_md150',1,'']]],
-  ['low_5fenergy_5fsk_5fcalc_7',['low_energy_sk_calc',['../md_transport.html#autotoc_md151',1,'']]]
+  ['low_5fenergy_5fdefault_6',['low_energy_default',['../md_transport.html#autotoc_md162',1,'']]],
+  ['low_5fenergy_5fsk_5fcalc_7',['low_energy_sk_calc',['../md_transport.html#autotoc_md163',1,'']]]
 ];

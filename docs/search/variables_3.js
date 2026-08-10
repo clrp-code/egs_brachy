@@ -8,9 +8,10 @@ var searchData=
   ['corrected_5fvolumes_5',['corrected_volumes',['../classEB__Phantom.html#acec480fd064f1a582e92580a46bbe253',1,'EB_Phantom']]],
   ['count_6',['count',['../classEB__IAEASource.html#a59b8aff93bc2a44c9332251a39e03b2d',1,'EB_IAEASource']]],
   ['covered_5fthreshold_7',['covered_threshold',['../classebvolcor_1_1Options.html#a40e0af910ca02fcd38f64c78d1a16d4b',1,'ebvolcor::Options']]],
-  ['cpu_5fmhz_8',['CPU_MHZ',['../namespacerun__tests.html#a225b1be3342abdb3298f29d464db2ada',1,'run_tests']]],
-  ['cpu_5fspeed_5fcmd_9',['cpu_speed_cmd',['../namespacerun__tests.html#ae9ed18af1e95508a9b909d9287f8d65b',1,'run_tests']]],
-  ['cur_5fhistory_10',['cur_history',['../classEB__Phantom.html#abbc896e10dce8fdc1d86e7ab12bb871d',1,'EB_Phantom::cur_history'],['../classBaseSpectrumScorer.html#a43560b3c9b001acf78a932646ee3b527',1,'BaseSpectrumScorer::cur_history']]],
-  ['cur_5fr_11',['cur_R',['../classEB__Application.html#ad057efadf212d22198c7d01690cc9b91',1,'EB_Application']]],
-  ['cur_5fseed_12',['cur_seed',['../classEGS__Sobol.html#aac5bd96a4de389bd29ca34ccd9d33ca1',1,'EGS_Sobol']]]
+  ['covered_5fthreshold_5fpct_8',['covered_threshold_pct',['../structebvolcor_1_1Results.html#ac7e667d47da216f5c79f9d007f79247a',1,'ebvolcor::Results']]],
+  ['cpu_5fmhz_9',['CPU_MHZ',['../namespacerun__tests.html#a225b1be3342abdb3298f29d464db2ada',1,'run_tests']]],
+  ['cpu_5fspeed_5fcmd_10',['cpu_speed_cmd',['../namespacerun__tests.html#ae9ed18af1e95508a9b909d9287f8d65b',1,'run_tests']]],
+  ['cur_5fhistory_11',['cur_history',['../classEB__Phantom.html#abbc896e10dce8fdc1d86e7ab12bb871d',1,'EB_Phantom::cur_history'],['../classBaseSpectrumScorer.html#a43560b3c9b001acf78a932646ee3b527',1,'BaseSpectrumScorer::cur_history']]],
+  ['cur_5fr_12',['cur_R',['../classEB__Application.html#ad057efadf212d22198c7d01690cc9b91',1,'EB_Application']]],
+  ['cur_5fseed_13',['cur_seed',['../classEGS__Sobol.html#aac5bd96a4de389bd29ca34ccd9d33ca1',1,'EGS_Sobol']]]
 ];
