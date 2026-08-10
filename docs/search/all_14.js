@@ -18,6 +18,6 @@ var searchData=
   ['local_5fscoring_5fregion_15',['local_scoring_region',['../classFluenceSpectrumInVoxel.html#ab78a68b5b957b32cbb0b07ce07d66728',1,'FluenceSpectrumInVoxel::local_scoring_region'],['../classEnergyFluenceSpectrumInVoxel.html#a219b53ef77c5e66be7457f562fc35332',1,'EnergyFluenceSpectrumInVoxel::local_scoring_region']]],
   ['localtoglobal_16',['localToGlobal',['../classGeomInfo.html#a4acf5ac3b0cb2a4f06e11ab24b3b0e3a',1,'GeomInfo']]],
   ['log_5fmax_17',['LOG_MAX',['../sobol_8cpp.html#ac964c67ea194ec22067081ea9fd4870f',1,'LOG_MAX:&#160;sobol.cpp'],['../sobol_8cpp.html#abaf6605f69f2b85e608fafe2570325fc',1,'LOG_MAX:&#160;sobol.cpp']]],
-  ['low_5fenergy_5fdefault_18',['low_energy_default',['../md_transport.html#autotoc_md150',1,'']]],
-  ['low_5fenergy_5fsk_5fcalc_19',['low_energy_sk_calc',['../md_transport.html#autotoc_md151',1,'']]]
+  ['low_5fenergy_5fdefault_18',['low_energy_default',['../md_transport.html#autotoc_md162',1,'']]],
+  ['low_5fenergy_5fsk_5fcalc_19',['low_energy_sk_calc',['../md_transport.html#autotoc_md163',1,'']]]
 ];

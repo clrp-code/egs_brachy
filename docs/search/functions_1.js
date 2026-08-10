@@ -7,7 +7,7 @@ var searchData=
   ['addtimer_4',['addTimer',['../classEB__TimingTree.html#a5dd97383ede4d815acdfee21cd45ae8f',1,'EB_TimingTree']]],
   ['app_5fmain_5',['APP_MAIN',['../egs__brachy_8cpp.html#ac24522f577c139cc20a9c62995cd849c',1,'egs_brachy.cpp']]],
   ['applyvolumecorrections_6',['applyVolumeCorrections',['../classebvolcor_1_1VolumeCorrector.html#a573b0c6b0aa0d59cb198055b504208be',1,'ebvolcor::VolumeCorrector']]],
-  ['approx_5fequal_7',['approx_equal',['../namespaceeb__tests_1_1volume__correction_1_1test.html#a157a85b2cd1223f77b845ae0620c8dbb',1,'eb_tests::volume_correction::test']]],
+  ['approx_5fequal_7',['approx_equal',['../namespaceeb__tests_1_1volume__correction_1_1test.html#aa54e87248f63706eebf8d23a046e3670',1,'eb_tests::volume_correction::test']]],
   ['ausgab_8',['ausgab',['../classEB__Application.html#ac2bf59e8ca5017cdd5f89669f800f30f',1,'EB_Application']]],
   ['avgvoxelvol_9',['avgVoxelVol',['../classEB__Phantom.html#af6ebb861d6a8da169920aca7d788702c',1,'EB_Phantom']]]
 ];

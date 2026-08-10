@@ -34,6 +34,6 @@ var searchData=
   ['enternewregion_31',['enterNewRegion',['../classEB__Application.html#a93f892f60ebd0523b94a43ee9680bed5',1,'EB_Application']]],
   ['escapinggeomratio_32',['escapingGeomRatio',['../classEnergyScoringStats.html#a3f5896c76d7c2d42d1bab7d18c7a60ed',1,'EnergyScoringStats']]],
   ['escapingsourcesratio_33',['escapingSourcesRatio',['../classEnergyScoringStats.html#afac51d1735ae41612fa621e51dbf79a0',1,'EnergyScoringStats']]],
-  ['expected_34',['expected',['../namespaceeb__tests_1_1spec__absolute_1_1test.html#a5691986204f8e5c02033a36a153fc8cd',1,'eb_tests.spec_absolute.test.expected()'],['../namespaceeb__tests_1_1spec__eflu_1_1test.html#a85a3aa33b6d09862377b3ad8176e6a12',1,'eb_tests.spec_eflu.test.expected()'],['../namespaceeb__tests_1_1spec__vox_1_1test.html#a7027985ebc07773fc67736c68ca51b55',1,'eb_tests.spec_vox.test.expected()']]],
-  ['extract_5fall_5fdoses_35',['extract_all_doses',['../namespaceeb__tests_1_1utils.html#a67cad7e78b4943b69676ee7ad7322dc3',1,'eb_tests::utils']]]
+  ['expected_34',['expected',['../namespaceeb__tests_1_1spec__absolute_1_1test.html#a13cbb3304d1b6e2c43045c9d6ad9f37d',1,'eb_tests.spec_absolute.test.expected()'],['../namespaceeb__tests_1_1spec__eflu_1_1test.html#a13cbb3304d1b6e2c43045c9d6ad9f37d',1,'eb_tests.spec_eflu.test.expected()'],['../namespaceeb__tests_1_1spec__vox_1_1test.html#a13cbb3304d1b6e2c43045c9d6ad9f37d',1,'eb_tests.spec_vox.test.expected()']]],
+  ['extract_5fall_5fdoses_35',['extract_all_doses',['../namespaceeb__tests_1_1utils.html#abba6af2c10d5a546ea1e3d7e157de3e9',1,'eb_tests::utils']]]
 ];
