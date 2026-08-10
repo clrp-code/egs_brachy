@@ -45,8 +45,10 @@ jobs:
             "https://github.com/doxygen/doxygen/releases/download/${tag}/${archive}"
           mkdir -p "$HOME/.local"
           tar -xzf "/tmp/${archive}" -C "$HOME/.local"
-          # tarball extracts to doxygen-VERSION/
-          echo "$HOME/.local/doxygen-${DOXYGEN_VERSION}/bin" >> "$GITHUB_PATH"
+          DOXYBIN="$HOME/.local/doxygen-${DOXYGEN_VERSION}/bin"
+          echo "$DOXYBIN" >> "$GITHUB_PATH"
+          # GITHUB_PATH applies to later steps only; use an explicit PATH here.
+          export PATH="$DOXYBIN:$PATH"
           doxygen -v
 
       - name: Generate markdown + HTML
