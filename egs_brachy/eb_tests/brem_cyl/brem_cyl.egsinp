@@ -131,7 +131,7 @@
     score energy deposition = yes
     score scatter dose = no
 
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy2026_1500keV.muendat
     muen for media = WATER_0.998
 
     current result phantom region = phantom 1

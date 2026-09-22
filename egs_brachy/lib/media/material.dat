@@ -1,29 +1,35 @@
-#################################################
+#    
+#    material.dat -- Last updated September 2026
+#
+#    This file includes all materials that
+#    are used in the CLRP-TG43v2 or EPv2 databases
+#
+
+#####################################################
 ##
 ##    COMMON MEDIA
 ##
-## This file include all the materials which are used to update the CLRP-TG43v2 or EPv2 databases
-#################################################
-medium = AIR_TG43
-rho = 0.0012
-elements = H, C, N, O, AR
-mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
-gas pressure = 1.0
-bremsstrahlung correction = NRC
-
-
-medium = AIR_PHANT
-rho = 0.0012
-elements = H, C, N, O, AR
-mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
-gas pressure = 1.0
-bremsstrahlung correction = NRC
-
+#####################################################
 
 medium = WATER_0.998
 rho = 0.998
 elements = H, O
 number of atoms = 2, 1
+bremsstrahlung correction = NRC
+
+
+medium = WATER_1.000
+rho = 1.000
+elements = H, O
+number of atoms = 2, 1
+bremsstrahlung correction = NRC
+
+
+medium = AIR_TG43
+rho = 0.0012
+elements = H, C, N, O, AR
+mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
+gas pressure = 1.0
 bremsstrahlung correction = NRC
 
 
@@ -42,12 +48,17 @@ mass fractions = 0.0, 0.0124, 75.5268, 23.1781, 1.2827
 gas pressure = 1.0
 bremsstrahlung correction = NRC
 
+#################################################
+##
+##    SOURCE GEOMETRY ELEMENTS
+##
+#################################################
 
-#################################################
-##
-##    SOURCE GEOMETRY MEDIA
-##
-#################################################
+medium = Ru
+bremsstrahlung correction = NRC
+density correction file = ruthenium
+
+
 medium = Ti
 bremsstrahlung correction = NRC
 density correction file = titanium
@@ -58,10 +69,75 @@ bremsstrahlung correction = NRC
 density correction file = silver
 
 
+medium = W
+bremsstrahlung correction = NRC
+density correction file = tungsten
+
+
+medium = I
+bremsstrahlung correction = NRC
+density correction file = iodine
+
+
+medium = Pd
+bremsstrahlung correction = NRC
+density correction file = palladium
+
+
+medium = Al
+bremsstrahlung correction = NRC
+density correction file = aluminum
+
+
+medium = Cu
+bremsstrahlung correction = NRC
+density correction file = copper
+
+
+medium = Pb
+bremsstrahlung correction = NRC
+density correction file = lead
+
+
+medium = Co
+bremsstrahlung correction = NRC
+density correction file = cobalt
+
+
 medium = Ar
 bremsstrahlung correction = NRC
 density correction file = argon
 
+
+medium = Pt
+bremsstrahlung correction = NRC
+density correction file = platinum
+
+
+medium = Ir
+bremsstrahlung correction = NRC
+density correction file = iridium
+
+
+medium = Au
+bremsstrahlung correction = NRC
+density correction file = gold
+
+
+medium = Ni
+bremsstrahlung correction = NRC
+density correction file = nickel
+
+
+medium = Mo
+bremsstrahlung correction = NRC
+density correction file = molybdenum
+
+#################################################
+##
+##    SOURCE GEOMETRY COMPOUNDS
+##
+#################################################
 
 medium = SS_AISI316L_p8.02
 rho = 8.02
@@ -114,6 +190,7 @@ elements = H, C, N, CL, PD
 mass fractions = 0.08, 0.9, 0.03, 0.07, 0.01
 bremsstrahlung correction = NRC
 
+
 #needed for selectSeed but no info on ratio nor density
 #assume 50/50 and density close to halides
 medium = AgClAgI
@@ -121,6 +198,7 @@ rho = 6.1
 elements = AG, CL, I
 number of atoms = 2, 1, 1
 bremsstrahlung correction = NRC
+
 
 medium = AgI_6.003
 rho = 6.003
@@ -144,11 +222,6 @@ mass fractions = 0.007, 0.17, 0.01, 0.668, 0.12, 0.025
 bremsstrahlung correction = NRC
 
 
-medium = W
-bremsstrahlung correction = NRC
-density correction file = tungsten
-
-
 medium = PolySty
 rho = 1.06
 elements = H, C
@@ -170,11 +243,6 @@ mass fractions = 7.85, 89.73, 1.68, 0.74
 bremsstrahlung correction = NRC
 
 
-medium = Pt
-bremsstrahlung correction = NRC
-density correction file = platinum
-
-
 medium = Pt90Ir10
 rho = 21.45
 elements = PT, IR
@@ -189,28 +257,11 @@ mass fractions = 0.407, 0.214, 0.166, 0.113, 0.1
 bremsstrahlung correction = NRC
 
 
-medium = SS_AISI321
-rho = 8.027
-elements = C, SI, CR, TI, FE, NI, W
-mass fractions = 0.11, 0.2, 18.2, 0.6, 72.04, 8.2, 0.6
-bremsstrahlung correction = NRC
-
-
-medium = Ir
-bremsstrahlung correction = NRC
-density correction file = iridium
-
-
 medium = SS_AISI301
 rho = 8.0
 elements = C, SI, CR, P, MN, FE, S, NI
 mass fractions = 0.15, 1, 17, 0.045, 2, 71.77, 0.03, 7
 bremsstrahlung correction = NRC
-
-
-medium = Au
-bremsstrahlung correction = NRC
-density correction file = gold
 
 
 medium = Pyrex_2.4_Cs
@@ -247,11 +298,6 @@ rho = 8.06
 elements = SI, CR, MN, FE, NI, MO
 mass fractions = 0.007, 0.17, 0.01, 0.668, 0.12, 0.025
 bremsstrahlung correction = NRC
-
-
-medium = W
-bremsstrahlung correction = NRC
-density correction file = tungsten
 
 
 medium = PolySty
@@ -308,11 +354,6 @@ rho = 8.027
 elements = C, SI, CR, TI, FE, NI, W
 mass fractions = 0.11, 0.2, 18.2, 0.6, 72.04, 8.2, 0.6
 bremsstrahlung correction = NRC
-
-
-medium = Ir
-bremsstrahlung correction = NRC
-density correction file = iridium
 
 
 medium = SS_AISI301
@@ -392,16 +433,6 @@ number of atoms = 3, 2
 bremsstrahlung correction = NRC
 
 
-medium = Ni
-bremsstrahlung correction = NRC
-density correction file = nickel
-
-
-medium = Mo
-bremsstrahlung correction = NRC
-density correction file = molybdenum
-
-
 medium = SS_AISI316L_rho4.81
 rho = 4.81
 elements = SI, CR, MN, FE, NI, MO
@@ -421,41 +452,6 @@ rho = 15.5
 elements = AU, CU
 mass fractions = 80, 20
 bremsstrahlung correction = NRC
-
-
-medium = I
-bremsstrahlung correction = NRC
-density correction file = iodine
-
-
-medium = Pd
-bremsstrahlung correction = NRC
-density correction file = palladium
-
-
-medium = Al
-bremsstrahlung correction = NRC
-density correction file = aluminum
-
-
-medium = Cu
-bremsstrahlung correction = NRC
-density correction file = copper
-
-
-medium = Pb
-bremsstrahlung correction = NRC
-density correction file = lead
-
-
-medium = Co
-bremsstrahlung correction = NRC
-density correction file = cobalt
-
-
-medium = Ar
-bremsstrahlung correction = NRC
-density correction file = argon
 
 
 medium = Graphite2.26
@@ -504,11 +500,13 @@ elements = H, C, N, O
 mass fractions = 0.085, 0.648, 0.05, 0.217
 bremsstrahlung correction = NRC
 
+
 medium = CS10_Organpoly_Pd  
 rho = 1.15
 elements = H, C, N, O, PD
 mass fractions = 0.08415, 0.64152, 0.0495, 0.21483, 0.01
 bremsstrahlung correction = NRC
+
 
 medium = CS10_Organpoly_Pd5%    
 rho = 1.15
@@ -516,11 +514,13 @@ elements = H, C, N, O, PD
 mass fractions = 0.08075, 0.6156, 0.0475, 0.20615, 0.05
 bremsstrahlung correction = NRC
 
+
 medium = CS2O_1.47
 rho = 1.47
 elements = CS, O
 number of atoms = 2, 1
 bremsstrahlung correction = NRC
+
 
 medium = SS_AISI_p7.8
 rho = 7.8
@@ -528,11 +528,13 @@ elements = NI, SI, CR, MN, FE
 mass fractions = 0.1, 0.01, 0.19, 0.02, 0.68
 bremsstrahlung correction = NRC
 
+
 medium = SS_AISI304_p7.9
 rho = 7.9
 elements = C, MN, SI, P, S, CR, MO, NI, FE 
 mass fractions = 0.00026, 0.014, 0.0042, 0.00019, 0.00003, 0.168, 0.0211, 0.1101, 0.6821
 bremsstrahlung correction = NRC
+
 
 medium = SS_SUS316_p8.02   
 rho = 8.02
@@ -540,11 +542,13 @@ elements = CR, NI, MO, MN, SI, C, FE
 mass fractions = 0.16, 0.10, 0.02, 0.02, 0.01, 0.0008, 0.6892
 bremsstrahlung correction = NRC
 
+
 medium = SS_AISI316L_p7.8
 rho = 7.8
 elements = C, MN, SI, P, S, CR, MO, NI, FE 
 mass fractions = 0.00026, 0.014, 0.0042, 0.00019, 0.00003, 0.168, 0.0211, 0.1101, 0.6821
 bremsstrahlung correction = NRC
+
 
 medium = Borosilicate_glass__p7.8
 rho = 2.9
@@ -552,13 +556,12 @@ elements = SI, TI, AL, B, MG, CA, NA, CS, O
 mass fractions = 0.2618, 0.03, 0.0159, 0.0373, 0.0121, 0.0286, 0.1261, 0.0094, 0.4789
 bremsstrahlung correction = NRC
 
-
-
 #################################################
 ##
-##    APPLICATOR GEOMETRY MEDIA
+##    APPLICATOR COMPOUNDS
 ##
 #################################################
+
 medium = PMMA
 bremsstrahlung correction = NRC
 density correction file = polymethylmethacrylate__lucite___perspex___plexiglas_
@@ -577,18 +580,18 @@ elements = NI, FE, MN, CR, SI, C,  P
 mass fractions = 0.095, 0.68375, 0.02, 0.19, 0.01, 0.0008, 0.00045
 bremsstrahlung correction = NRC
 
-
-
 #################################################
 ##
-##    EYE PLAQUE GEOMETRY MEDIA
+##    EYE PLAQUE COMPOUNDS
 ##
 #################################################
+
 medium = SILASTIC
 rho = 1.12
 elements = H, C, O, SI, PT 
 mass fractions = 0.063, 0.249, 0.289, 0.399, 5e-05
 bremsstrahlung correction = NRC
+
 
 medium = SILASTIC_BEBIG
 rho = 1.09
@@ -598,11 +601,13 @@ mass fractions = 0.063, 0.249, 0.289, 0.399, 5e-05
 # mass fractions = 0.081, 0.324, 0.216, 0.379
 bremsstrahlung correction = NRC
 
+
 medium = MODULAY
 rho = 15.8
 elements = AU, AG, CU, PD
 mass fractions = 0.77, 0.14, 0.08, 0.01
 bremsstrahlung correction = NRC
+
 
 medium = MODULAY_BEBIG
 rho = 18.8
@@ -610,11 +615,13 @@ elements = AU, PT, RH, ZN, IN, TA, MN
 mass fractions = 0.87, 0.106, 0.002, 0.015, 0.003, 0.002, 0.002 
 bremsstrahlung correction = NRC
 
+
 medium = ACRYLIC
 rho = 1.19
 elements = C, O, H
 mass fractions = 0.6, 0.32, 0.08
 bremsstrahlung correction = NRC
+
 
 medium = SS_MARIELLE
 rho = 7.9
@@ -622,43 +629,108 @@ elements = FE, C, MN, S
 mass fractions = 0.9905, 0.015, 0.05, 0.03 
 bremsstrahlung correction = NRC
 
-
-
-#################################################
+###########################################################
 ##
 ##    BREAST EGSPHANT TISSUES
+##    (10/90, 20/80, 80/20, 90/10 are linear interpolated)
 ##
-#################################################
+###########################################################
+
+medium = 10GLAND-90ADIPOSE
+rho = 0.9570
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.1132, 0.5714, 0.00930, 0.30290, 0.001, 0.00010, 0.00110, 0.001
+bremsstrahlung correction = NRC
+
+
+medium = 80ADIPOSE-20GLAND
+rho = 0.9640
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.1124, 0.5448, 0.01160, 0.32780, 0.001, 0.00020, 0.00120, 0.001
+bremsstrahlung correction = NRC
+
+
+# this had a typo before Sep 2026: the fractions didn't sum to 1
+# had to correct 0.5215 -> 0.5315 based off 50-75 lerp
 medium = 25GLAND-75ADIPOSE
 rho = 0.9675
 elements = H, C, N, O, NA, P, S, CL
-mass fractions = 0.112, 0.5215, 0.01275, 0.34025, 0.001, 0.00025, 0.00125, 0.001
+mass fractions = 0.1120, 0.5315, 0.01275, 0.34025, 0.001, 0.00025, 0.00125, 0.001
 bremsstrahlung correction = NRC
 
 
 medium = 50GLAND-50ADIPOSE
-rho = 0.985
+rho = 0.9850
 elements = H, C, N, O, NA, P, S, CL
-mass fractions = 0.11, 0.465, 0.0185, 0.4025, 0.001, 0.0005, 0.0015, 0.001
+mass fractions = 0.1100, 0.4650, 0.01850, 0.40250, 0.001, 0.00050, 0.00150, 0.001
 bremsstrahlung correction = NRC
 
 
 medium = 75GLAND-25ADIPOSE
 rho = 1.0025
 elements = H, C, N, O, NA, P, S, CL
-mass fractions = 0.108, 0.3985, 0.02425, 0.46475, 0.001, 0.00075, 0.00175, 0.001
+mass fractions = 0.1080, 0.3985, 0.02425, 0.46475, 0.001, 0.00075, 0.00175, 0.001
 bremsstrahlung correction = NRC
 
 
+# this fixes the interpolation error in the phosphorous component
+medium = 90GLAND-10ADIPOSE
+rho = 1.0130
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.1068, 0.3586, 0.02770, 0.50210, 0.001, 0.00090, 0.00190, 0.001
+bremsstrahlung correction = NRC
+
+#################################################
+##
+##    TISSUES FROM HAMMERSTEIN 1979
+##    10.1259/0007-1285-59-708-1209
+##
+#################################################
+
+medium = ADIPOSE_H79
+rho = 0.93
+elements = H, C, N, O, P, S, K, CA
+mass fractions = 0.112, 0.619, 0.017, 0.251, 0.00025, 0.00025, 0.00025, 0.00025
+bremsstrahlung correction = NRC
+
+
+medium = GLAND_H79
+rho = 1.04
+elements = H, C, N, O, P, S, K, CA
+mass fractions = 0.102, 0.184, 0.032, 0.677, 0.00125, 0.00125, 0.00125, 0.00125
+bremsstrahlung correction = NRC
+
+
+medium = SKIN_H79
+rho = 1.09
+elements = H, C, N, O, P, S, K, CA
+mass fractions = 0.098, 0.178, 0.050, 0.667, 0.00175, 0.00175, 0.00175, 0.00175
+bremsstrahlung correction = NRC
 
 #################################################
 ##
 ##    TISSUES FROM WOODARD & WHITE 1986
+##    10.1259/0007-1285-59-708-1209
 ##
 #################################################
+
+medium = ADIPOSE1_WW86
+rho = 0.97
+elements = H, C, N, O, NA, S, CL
+mass fractions = 0.112, 0.517, 0.013, 0.355, 0.001, 0.001, 0.001
+bremsstrahlung correction = NRC
+
+
 medium = ADIPOSE2_WW86
 bremsstrahlung correction = NRC
 density correction file = adiposetissue_icru_1986
+
+
+medium = ADIPOSE3_WW86
+rho = 0.93
+elements = H, C, N, O, NA, S, CL
+mass fractions = 0.116, 0.681, 0.002, 0.198, 0.001, 0.001, 0.001
+bremsstrahlung correction = NRC
 
 
 medium = BRAIN_WMATTER_WW1986
@@ -673,9 +745,27 @@ bremsstrahlung correction = NRC
 density correction file = bone_cortical_icru_1986
 
 
+medium = GLAND1_WW86
+rho = 0.99
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.109, 0.506, 0.023, 0.358, 0.001, 0.001, 0.001, 0.001
+bremsstrahlung correction = NRC
+
+
 medium = GLAND2_WW86
 bremsstrahlung correction = NRC
 density correction file = breasttissue_icru_1986
+# WW98 is a typo of WW86
+medium = GLAND2_WW98
+bremsstrahlung correction = NRC
+density correction file = breasttissue_icru_1986
+
+
+medium = GLAND3_WW86
+rho = 1.06
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.102, 0.158, 0.037, 0.698, 0.001, 0.001, 0.002, 0.001
+bremsstrahlung correction = NRC
 
 
 medium = LUNG_BLOODFILLED_WW86
@@ -683,43 +773,184 @@ bremsstrahlung correction = NRC
 density correction file = lung_inflated_icru_1986
 
 
+medium = MUSCLE1_WW86
+rho = 1.05
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.101, 0.171, 0.036, 0.681, 0.001, 0.002, 0.003, 0.001, 0.004
+bremsstrahlung correction = NRC
+
+
 medium = MUSCLE2_WW86
 bremsstrahlung correction = NRC
 density correction file = muscle_skeletal_icru_1986
 
 
+medium = MUSCLE3_WW86
+rho = 1.05
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.102, 0.112, 0.030, 0.745, 0.001, 0.002, 0.003, 0.001, 0.004
+bremsstrahlung correction = NRC
+
+
 medium = PROSTATE_WW86
 rho = 1.04
-elements = H, C, N, O, NA, P, S, CL
+elements = H, C, N, O, NA, P, S, K
 mass fractions = 0.105, 0.089, 0.025, 0.774, 0.002, 0.001, 0.002, 0.002
 bremsstrahlung correction = NRC
 
-# Urethra is the same as PROSTATE_WW86, but with a different name to ease
-# egsphant handling
+
+# Urethra is the same as PROSTATE_WW86, but with a 
+# different name to ease egsphant handling
 medium = URETHRA_WW86
 rho = 1.04
-elements = H, C, N, O, NA, P, S, CL
+elements = H, C, N, O, NA, P, S, K
 mass fractions = 0.105, 0.089, 0.025, 0.774, 0.002, 0.001, 0.002, 0.002
 bremsstrahlung correction = NRC
+
 
 medium = SKIN2_WW86
 bremsstrahlung correction = NRC
 density correction file = skin_icru_1986
+
+
+medium = HEART1_WW86
+rho = 1.05
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.103, 0.175, 0.031, 0.681, 0.001, 0.002, 0.002, 0.002, 0.003
+bremsstrahlung correction = NRC
+
+
+medium = HEART2_WW86
+rho = 1.05
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.104, 0.139, 0.029, 0.718, 0.001, 0.002, 0.002, 0.002, 0.003
+bremsstrahlung correction = NRC
+
+
+medium = HEART3_WW86
+rho = 1.05
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.104, 0.103, 0.027, 0.756, 0.001, 0.002, 0.002, 0.002, 0.003
+bremsstrahlung correction = NRC
+
 
 medium = HEART_BLOODFILLED_WW86
 bremsstrahlung correction = NRC
 density correction file = heart_blood-filled_icru_1986
 
 
+medium = SPONGIOSA_WW86
+rho = 1.18
+elements = H, C, N, O, NA, MG, P, S, CL, K, CA, FE
+mass fractions = 0.085, 0.404, 0.028, 0.367, 0.001, 0.001, 0.034, 0.002, 0.002, 0.001, 0.074, 0.001
+bremsstrahlung correction = NRC
+
+
+medium = SKIN1_WW86
+rho = 1.09
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.100, 0.250, 0.046, 0.594, 0.002, 0.001, 0.003, 0.003, 0.001
+bremsstrahlung correction = NRC
+
+
+medium = SKIN2_WW86
+rho = 1.09
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.100, 0.204, 0.042, 0.645, 0.002, 0.001, 0.002, 0.003, 0.001
+bremsstrahlung correction = NRC
+
+
+medium = SKIN3_WW86
+rho = 1.09
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.101, 0.158, 0.037, 0.695, 0.002, 0.001, 0.002, 0.003, 0.001
+bremsstrahlung correction = NRC
+
+
+medium = CARTILAGE_WW86
+rho = 1.100
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 9.60000E-02, 9.90000E-02, 2.20000E-02, 7.440000E-01, 5.00000E-03, 2.20000E-02, 9.00000E-03, 3.00000E-03
+bremsstrahlung correction = NRC
+
+
+medium = YELLOW_MARROW_WW86
+rho = 0.980
+elements = H, C, N, O, NA, S, CL
+mass fractions = 1.150000E-01, 6.440000E-01, 7.00000E-03, 2.310000E-01, 1.00000E-03, 1.00000E-03, 1.00000E-03
+bremsstrahlung correction = NRC
+
+
+medium = RED_MARROW_WW86
+rho = 1.030
+elements = H, C, N, O, P, S, CL, K, FE
+mass fractions = 1.050000E-01, 4.140000E-01, 3.400000E-02, 4.390000E-01, 1.00000E-03, 2.00000E-03, 2.00000E-03, 2.00000E-03, 1.00000E-03
+bremsstrahlung correction = NRC
+
 #################################################
 ##
-##    OTHER TISSUES
+##    TISSUES FROM WHITE 1987
+##    10.1259/0007-1285-60-717-907
 ##
 #################################################
+
+medium = RIBS_2_6_WH87
+rho = 1.41
+elements = H, C, N, O, NA, MG, P, S, CL, K, CA
+mass fractions = 0.064, 0.263, 0.039, 0.436, 0.001, 0.001, 0.06, 0.003, 0.001, 0.001, 0.131
+bremsstrahlung correction = NRC
+
+
+medium = RIBS_10_WH87
+rho = 1.52
+elements = H, C, N, O, NA, MG, P, S, CL, K, CA
+mass fractions = 0.056, 0.235, 0.040, 0.434, 0.001, 0.001, 0.072, 0.003, 0.001, 0.001, 0.156
+bremsstrahlung correction = NRC
+
+#################################################
+##
+##    TISSUES FROM ICRU33
+##    10.1259/0007-1285-60-717-907
+##
+#################################################
+
+medium = TISSUE_ICRU33
+rho = 1.00
+elements = H, C, N, O
+mass fractions = 0.101, 0.111, 0.026, 0.762
+bremsstrahlung correction = NRC
+
+
+# spongiosa
+medium = SOFT_BONE_ICRU44
+rho = 1.18
+elements = H, C, N, O, NA, MG, P, S, CL, K, CA, FE
+mass fractions = 0.085, 0.404, 0.028, 0.367, 0.001, 0.001, 0.034, 0.002, 0.002, 0.001, 0.074, 0.001
+bremsstrahlung correction = NRC
+
+#################################################
+##
+##    TISSUES FROM ICRU46
+##    10.1093/jicru/os24.1.Report46
+##
+#################################################
+
 medium = CALCIFICATION_ICRU46
 rho = 3.06
 elements = H, C, N, O, P, CA
 mass fractions = 0.003, 0.016, 0.005, 0.407, 0.187, 0.382
+bremsstrahlung correction = NRC
+# the one below is a convenient alias of the one above
+medium = CALCIFICATION
+rho = 3.06
+elements = H, C, N, O, P, CA
+mass fractions = 0.003, 0.016, 0.005, 0.407, 0.187, 0.382
+bremsstrahlung correction = NRC
+
+medium = GITRACT_ICRU46
+rho = 1.03
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.106, 0.115, 0.022, 0.751, 0.001, 0.001, 0.001, 0.002, 0.001
 bremsstrahlung correction = NRC
 
 
@@ -737,17 +968,10 @@ mass fractions = 0.105, 0.256, 0.027, 0.602, 0.001, 0.002, 0.003, 0.002, 0.002
 bremsstrahlung correction = NRC
 
 
-medium = P50C50
-rho = 1.5524
-elements = H, C, N, O, NA, P, S, K, CA
-mass fractions = 0.054, 0.0525, 0.015, 0.5905, 0.001, 0.094, 0.001, 0.001, 0.191
-bremsstrahlung correction = NRC
-
-
-medium = RECTUM_ICRP23
-rho = 0.75
-elements = H, C, N, O, NA, P, CL, K
-mass fractions = 0.063, 0.121, 0.022, 0.788, 0.0001, 0.001, 0.001, 0.001
+medium = EYELENS_ICRU46
+rho = 1.07
+elements = H, C, N, O, NA, P, S, CL
+mass fractions = 0.096, 0.195, 0.057, 0.646, 0.001, 0.001, 0.003, 0.001
 bremsstrahlung correction = NRC
 
 
@@ -765,12 +989,39 @@ mass fractions = 0.108, 0.035, 0.015, 0.83, 0.003, 0.001, 0.001, 0.005, 0.002
 bremsstrahlung correction = NRC
 
 
+# Mixture of the above two. ~50% full?
+medium = URINARY_BLADDER
+rho = 1.0332
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 0.10648, 0.06572, 0.02056, 0.7912, 0.00268, 0.00144, 0.00132, 0.0038, 0.00288
+bremsstrahlung correction = NRC
+
+#################################################
+##
+##    TISSUES FROM ICRP23 (1975)
+##    `icrp.org/publication.asp?id=ICRP Publication 23`
+##
+#################################################
+
+medium = PROSTATE_ICRP23
+rho = 1.045
+elements = H, C, N, O, NA, P, K, CA, MG
+mass fractions = 0.098, 0.091, 0.025, 0.781, 0.021, 0.001, 0.002, 0.0001, 0.0001
+bremsstrahlung correction = NRC
+
+
+medium = RECTUM_ICRP23
+rho = 0.75
+elements = H, C, N, O, NA, P, CL, K
+mass fractions = 0.063, 0.121, 0.022, 0.788, 0.0001, 0.001, 0.001, 0.001
+bremsstrahlung correction = NRC
 
 #################################################
 ##
 ##    EYE EGSPHANT TISSUES
 ##
 #################################################
+
 medium = SKIN_PHANT
 rho = 1.09
 elements = H, C, N, O, NA, MG, P, S, CL, K
@@ -806,10 +1057,12 @@ mass fractions = 8.1, 31.7, 2.8, 45.1, 0.2, 0.1, 3.7, 0.3, 0.1, 0.1
 bremsstrahlung correction = NRC
 
 
+# duplicate of AIR_TG43 for use in egsphant file formats
 medium = AIR_PHANT
 rho = 0.0012
-elements = H, C, N, O, AR,
+elements = H, C, N, O, AR
 mass fractions = 0.0732, 0.0123, 75.0325, 23.6077, 1.2743
+gas pressure = 1.0
 bremsstrahlung correction = NRC
 
 
@@ -896,11 +1149,11 @@ elements = H, C, N, O, NA, P, S, CL, K
 mass fractions = 0.094, 0.212, 0.056, 0.615, 0.00253, 0.00506, 0.00644, 0.00391, 0.00506
 bremsstrahlung correction = NRC
 
-#################################################
+#####################################################
 ##
 ##    PeppaBreastHDR192Ir_MBDCA-WG EGSPHANT TISSUES
 ##
-#################################################
+#####################################################
 
 medium = AIR_0.0012
 rho = 1.2000E-03
@@ -927,6 +1180,13 @@ elements = H, C, N, O, NA, P, S, CL, K
 mass fractions = 1.03000E-01, 1.05000E-01, 3.10000E-02, 7.49000E-01, 2.00000E-03, 2.00000E-03, 3.00000E-03, 3.00000E-03, 2.00000E-03
 bremsstrahlung correction = NRC
 
+# guess based on name that this copies the above composition-wise
+medium = LUNG_UNITRHO
+rho = 1.00
+elements = H, C, N, O, NA, P, S, CL, K
+mass fractions = 1.03000E-01, 1.05000E-01, 3.10000E-02, 7.49000E-01, 2.00000E-03, 2.00000E-03, 3.00000E-03, 3.00000E-03, 2.00000E-03
+bremsstrahlung correction = NRC
+
 medium = PTV_1.02
 rho = 1.02
 elements = H, C, N, O, P, S, CL
@@ -945,11 +1205,11 @@ elements = H, C, N, O, NA, P, S, CL, K, CA
 mass fractions = 9.50000E-02, 4.55000E-01, 2.50000E-02, 3.55000E-01, 1.00000E-03, 2.10000E-02, 1.00000E-03, 1.00000E-03, 1.00000E-03, 4.50000E-02
 bremsstrahlung correction = NRC
   
-#################################################
+#######################################################
 ##
 ##    Materials for Brachytherapy sources CLRP_TG43v2
 ##
-#################################################
+#######################################################
 
 medium = PEEK
 rho = 1.32
@@ -958,7 +1218,7 @@ number of atoms = 12, 19, 3
 bremsstrahlung correction = NRC
 
 
-# This is for core of I125 smart seed which suppose have (32% Pbo, 56% Sio2, and 12% Nao2)
+# Used in the core of I125 smart seeds that have (32% Pbo, 56% Sio2, and 12% Nao2)
 medium = LEAD_GLASS_4.8   
 rho = 4.8
 elements = SI, O, PB, NA
@@ -966,63 +1226,443 @@ mass fractions = 0.261, 0.359, 0.292, 0.088
 # number of atoms = 1, 3, 1, 2 
 bremsstrahlung correction = NRC
 
-# This is for core of I125 smart seed which suppose have (18% Pbo, 65% Sio2, and 17% Nao2)
+
+# Used in the core of I125 smart seeds that have (18% Pbo, 65% Sio2, and 17% Nao2)
 medium = LEAD_GLASS 
 rho = 4.8
 elements = SI, O, PB, NA
 mass fractions = 0.31, 0.41, 0.16, 0.12
 bremsstrahlung correction = NRC
 
-# This is organic polymer for CivaString Pd103 brachytherapy seed
+
+# Organic polymer for CivaString Pd103 brachytherapy seed
 medium = CS10_Organic_polymer
 rho = 1.15
 elements = H, C, N, O
 mass fractions = 0.085, 0.648, 0.05, 0.217
 bremsstrahlung correction = NRC
 
-# This is polymer material for encapsulation of directional Pd103 CivaDots source 
+
+# Polymer for encapsulation of directional Pd103 CivaDots source 
 medium = H7C5O3
 rho = 1.2
 elements = H, C, O
-mass fractions = 7 , 5 , 3
+mass fractions = 7, 5, 3
 bremsstrahlung correction = NRC
 
-# This is polymer material for membrane material around the Pd region of directional Pd103 CivaDots source 
+
+# Polymer for the membrane material around the Pd region of directional Pd103 CivaDots source 
 medium = C12H10O3
 rho = 1.3
 elements = C, H, O
-mass fractions = 12 , 10 , 3
+mass fractions = 12, 10, 3
 bremsstrahlung correction = NRC
 
-# This is materil for Pd well in Pd region of directional Pd103 CivaDots source (50%pd+50% epoxy polymer (C64H95H95N3O18))
+
+# Used in the Pd well of directional Pd103 CivaDots source (50%pd+50% epoxy polymer (C64H95H95N3O18))
 medium = PD(50)_C64H95N3O18(50)
 rho = 1.9987
 elements = PD, C, H, N, O
-mass fractions = 0.5 , 0.178 , 0.264 , 0.008 , 0.05
+mass fractions = 0.5, 0.178, 0.264, 0.008, 0.05
 bremsstrahlung correction = NRC
 
-# This is materil epoxy for directional Pd103 CivaDots source 
+
+# Epoxy for directional Pd103 CivaDots source 
 medium = C64H95N3O18
 rho = 1.06
 elements = C, H, N, O
-mass fractions = 64 , 95 , 3 , 18
+mass fractions = 64, 95, 3, 18
 bremsstrahlung correction = NRC
 
-medium = CARTILAGE_WW86
-rho = 1.100
+#########################################################################
+##
+##    Materials previously defined in brachy_xcom_1.5MeV_nelson.pegs4dat
+##
+#########################################################################
+
+medium = AGAR
+rho = 1.04
+elements = H, C, O
+mass fractions =  0.109772, 0.0190050, 0.871223
+bremsstrahlung correction = NRC
+
+
+# Doesn't sum to 1 but that's what was there before
+medium = URINE
+rho = 1.02
+elements = H, C, N, O, NA, P, CL, K
+mass fractions = 0.110, 0.005, 0.010, 0.860, 0.004, 0.001, 0.006, 0.002
+bremsstrahlung correction = NRC
+
+
+# Doesn't sum to 1
+medium = 80ADIPOSE-20GLAND_M
+rho = 0.9623
 elements = H, C, N, O, NA, P, S, CL
-mass fractions = 9.60000E-02, 9.90000E-02, 2.20000E-02, 7.440000E-01, 5.00000E-03, 2.20000E-02, 9.00000E-03, 3.00000E-03
+mass fractions = 0.112488, 0.544726, 0.011347, 0.325061, 0.001, 0.000189, 0.001189, 0.001
 bremsstrahlung correction = NRC
 
-medium = YELLOW_MARROW_WW86
-rho = 0.980
-elements = H, C, N, O, NA, S, CL
-mass fractions = 1.150000E-01, 6.440000E-01, 7.00000E-03, 2.310000E-01, 1.00000E-03, 1.00000E-03, 1.00000E-03
+#
+# Mixtures of ??? with CALCIFICATION_ICRU46
+# online-python.com/G5nFBo2J7g
+#
+
+medium = A0C100
+rho = 3.06
+elements = H, C, N, O, P, CA
+mass fractions = 0.0030000, 0.0160000, 0.0050000, 0.4070000, 0.1870000, 0.3820000
 bremsstrahlung correction = NRC
 
-medium = RED_MARROW_WW86
-rho = 1.030
-elements = H, C, N, O, P, S, CL, K, FE
-mass fractions = 1.050000E-01, 4.140000E-01, 3.400000E-02, 4.390000E-01, 1.00000E-03, 2.00000E-03, 2.00000E-03, 2.00000E-03, 1.00000E-03
+medium = A5C95
+rho = 2.7891
+elements = H, C, N, O, P, CA
+mass fractions = 0.0083386, 0.0161503, 0.0047500, 0.4302112, 0.1776500, 0.3629000
 bremsstrahlung correction = NRC
 
+medium = A10C90
+rho = 2.5623
+elements = H, C, N, O, P, CA
+mass fractions = 0.0136772, 0.0163005, 0.0045000, 0.4534223, 0.1683000, 0.3438000
+bremsstrahlung correction = NRC
+
+medium = A15C85
+rho = 2.3696
+elements = H, C, N, O, P, CA
+mass fractions = 0.0190157, 0.0164508, 0.0042500, 0.4766335, 0.1589500, 0.3247000
+bremsstrahlung correction = NRC
+
+medium = A20C80
+rho = 2.2039
+elements = H, C, N, O, P, CA
+mass fractions = 0.0243543, 0.0166010, 0.0040000, 0.4998446, 0.1496000, 0.3056000
+bremsstrahlung correction = NRC
+
+medium = A25C75
+rho = 2.0598
+elements = H, C, N, O, P, CA
+mass fractions = 0.0296929, 0.0167513, 0.0037500, 0.5230558, 0.1402500, 0.2865000
+bremsstrahlung correction = NRC
+
+medium = A30C70
+rho = 1.9334
+elements = H, C, N, O, P, CA
+mass fractions = 0.0350315, 0.0169015, 0.0035000, 0.5462670, 0.1309000, 0.2674000
+bremsstrahlung correction = NRC
+
+medium = A35C65
+rho = 1.8216
+elements = H, C, N, O, P, CA
+mass fractions = 0.0403701, 0.0170518, 0.0032500, 0.5694781, 0.1215500, 0.2483000
+bremsstrahlung correction = NRC
+
+medium = A40C60
+rho = 1.7221
+elements = H, C, N, O, P, CA
+mass fractions = 0.0457086, 0.0172020, 0.0030000, 0.5926893, 0.1122000, 0.2292000
+bremsstrahlung correction = NRC
+
+medium = A45C55
+rho = 1.6328
+elements = H, C, N, O, P, CA
+mass fractions = 0.0510472, 0.0173522, 0.0027500, 0.6159004, 0.1028500, 0.2101000
+bremsstrahlung correction = NRC
+
+medium = A50C50
+rho = 1.5524
+elements = H, C, N, O, P, CA
+mass fractions = 0.0563858, 0.0175025, 0.0025000, 0.6391116, 0.0935000, 0.1910000
+bremsstrahlung correction = NRC
+
+medium = A55C45
+rho = 1.4795
+elements = H, C, N, O, P, CA
+mass fractions = 0.0617244, 0.0176528, 0.0022500, 0.6623228, 0.0841500, 0.1719000
+bremsstrahlung correction = NRC
+
+medium = A60C40
+rho = 1.4131
+elements = H, C, N, O, P, CA
+mass fractions = 0.0670630, 0.0178030, 0.0020000, 0.6855339, 0.0748000, 0.1528000
+bremsstrahlung correction = NRC
+
+medium = A65C35
+rho = 1.3525
+elements = H, C, N, O, P, CA
+mass fractions = 0.0724015, 0.0179533, 0.0017500, 0.7087451, 0.0654500, 0.1337000
+bremsstrahlung correction = NRC
+
+medium = A70C30
+rho = 1.2968
+elements = H, C, N, O, P, CA
+mass fractions = 0.0777401, 0.0181035, 0.0015000, 0.7319562, 0.0561000, 0.1146000
+bremsstrahlung correction = NRC
+
+medium = A75C25
+rho = 1.2456
+elements = H, C, N, O, P, CA
+mass fractions = 0.0830787, 0.0182537, 0.0012500, 0.7551674, 0.0467500, 0.0955000
+bremsstrahlung correction = NRC
+
+medium = A80C20
+rho = 1.1982
+elements = H, C, N, O, P, CA
+mass fractions = 0.0884173, 0.0184040, 0.0010000, 0.7783786, 0.0374000, 0.0764000
+bremsstrahlung correction = NRC
+
+medium = A85C15
+rho = 1.1543
+elements = H, C, N, O, P, CA
+mass fractions = 0.0937559, 0.0185543, 0.0007500, 0.8015897, 0.0280500, 0.0573000
+bremsstrahlung correction = NRC
+
+medium = A90C10
+rho = 1.1135
+elements = H, C, N, O, P, CA
+mass fractions = 0.0990944, 0.0187045, 0.0005000, 0.8248009, 0.0187000, 0.0382000
+bremsstrahlung correction = NRC
+
+medium = A95C5
+rho = 1.0755
+elements = H, C, N, O, P, CA
+mass fractions = 0.1044330, 0.0188547, 0.0002500, 0.8480120, 0.0093500, 0.0191000
+bremsstrahlung correction = NRC
+
+medium = A100C0
+rho = 1.0493
+elements = H, C, N, O, P, CA
+mass fractions = 0.1097716, 0.0190050, 0.0000000, 0.8712232, 0.0000000, 0.0000000
+bremsstrahlung correction = NRC
+
+#
+# Various calcifications. Their mass fractions don't sum to 1
+#
+
+medium = CALCIFICATION_AUS1_HCO
+rho = 3.06
+elements = H, C, N, O, P, S, CL, K, CA, FE, ZN, SR
+mass fractions = 0.0020116, 0.0107285, 0.0033527, 0.272907, 0.231, 0.0019, 0.0044, 0.00062, 0.395, 0.00007, 0.077, 0.00035
+bremsstrahlung correction = NRC
+
+medium = CALCIFICATION_AUS2_HCO
+rho = 3.06
+elements = H, C, N, O, P, S, CL, K, CA, ZN, SR
+mass fractions =  0.00244320, 0.0130302, 0.0040719, 0.331455, 0.249, 0.0034, 0.0024, 0.0083, 0.356, 0.03, 0.00026
+bremsstrahlung correction = NRC
+
+medium = CALCIFICATION_AUS3_HCO
+rho = 3.06
+elements = H, C, N, O, P, S, CL, K, CA, FE, ZN
+mass fractions =  0.0047123, 0.0251323, 0.0078538, 0.639302, 0.011, 0.027, 0.007, 0.0026, 0.271, 0.00012, 0.0046
+bremsstrahlung correction = NRC
+
+medium = CALCIFICATION_AUS4_HCO
+rho = 3.06
+elements = H, C, N, O, P, S, CL, K, CA, FE, ZN, SR
+mass fractions = 0.00319490, 0.0170394, 0.0053248, 0.433441, 0.15, 0.032, 0.0011, 0.006, 0.301, 0.00056, 0.05, 0.00032
+bremsstrahlung correction = NRC
+
+
+medium = CALCIFICATION_AUS1_O
+rho = 3.06
+elements = O, P, S, CL, K, CA, FE, ZN, SR
+mass fractions = 0.289, 0.231, 0.0019, 0.0044, 0.00062, 0.395, 0.00007, 0.077, 0.00035
+bremsstrahlung correction = NRC
+
+# Doesn't sum to 1
+medium = CALCIFICATION_AUS2_O
+rho = 3.06
+elements = O, P, S, CL, K, CA, ZN, SR
+mass fractions =  0.351, 0.249, 0.0034, 0.0024, 0.0083, 0.356, 0.03, 0.00026
+bremsstrahlung correction = NRC
+
+# Doesn't sum to 1
+medium = CALCIFICATION_AUS3_O
+rho = 3.06
+elements = O, P, S, CL, K, CA, FE, ZN
+mass fractions = 0.677, 0.011, 0.027, 0.007, 0.0026, 0.271, 0.00012, 0.0046
+bremsstrahlung correction = NRC
+
+# Doesn't sum to 1
+medium = CALCIFICATION_AUS4_O
+rho = 3.06
+elements = O, P, S, CL, K, CA, FE, ZN, SR
+mass fractions =  0.459, 0.15, 0.032, 0.0011, 0.006, 0.301, 0.00056, 0.05, 0.00032
+bremsstrahlung correction = NRC
+
+
+#
+# Mixture of PROSTATE_WW86 with CALCIFICATION_ICRU46
+# online-python.com/wzKfbQWCcS
+#
+
+medium = P0C100
+rho = 3.06
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0030000, 0.0160000, 0.0050000, 0.4070000, 0.0000000, 0.1870000, 0.0000000, 0.0000000, 0.3820000
+bremsstrahlung correction = NRC
+
+medium = P5C95
+rho = 2.7891
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions =  0.0081000, 0.0196500, 0.0060000, 0.4253500, 0.0001000, 0.1777000, 0.0001000, 0.0001000, 0.3629000
+bremsstrahlung correction = NRC
+
+medium = P10C90
+rho = 2.5623
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0132000, 0.0233000, 0.0070000, 0.4437000, 0.0002000, 0.1684000, 0.0002000, 0.0002000, 0.3438000
+bremsstrahlung correction = NRC
+
+medium = P15C85
+rho = 2.3696
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0183000, 0.0269500, 0.0080000, 0.4620500, 0.0003000, 0.1591000, 0.0003000, 0.0003000, 0.3247000
+bremsstrahlung correction = NRC
+
+medium = P20C80
+rho = 2.2039
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0234000, 0.0306000, 0.0090000, 0.4804000, 0.0004000, 0.1498000, 0.0004000, 0.0004000, 0.3056000
+bremsstrahlung correction = NRC
+
+medium = P25C75
+rho = 2.0598
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0285000, 0.0342500, 0.0100000, 0.4987500, 0.0005000, 0.1405000, 0.0005000, 0.0005000, 0.2865000
+bremsstrahlung correction = NRC
+
+medium = P30C70
+rho = 1.9334
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0336000, 0.0379000, 0.0110000, 0.5171000, 0.0006000, 0.1312000, 0.0006000, 0.0006000, 0.2674000
+bremsstrahlung correction = NRC
+
+medium = P35C65
+rho = 1.8216
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0387000, 0.0415500, 0.0120000, 0.5354500, 0.0007000, 0.1219000, 0.0007000, 0.0007000, 0.2483000
+bremsstrahlung correction = NRC
+
+medium = P40C60
+rho = 1.7221
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0438000, 0.0452000, 0.0130000, 0.5538000, 0.0008000, 0.1126000, 0.0008000, 0.0008000, 0.2292000
+bremsstrahlung correction = NRC
+
+medium = P45C55
+rho = 1.6328
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0489000, 0.0488500, 0.0140000, 0.5721500, 0.0009000, 0.1033000, 0.0009000, 0.0009000, 0.2101000
+bremsstrahlung correction = NRC
+
+medium = P50C50
+rho = 1.5524
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0540000, 0.0525000, 0.0150000, 0.5905000, 0.0010000, 0.0940000, 0.0010000, 0.0010000, 0.1910000
+bremsstrahlung correction = NRC
+
+medium = P55C45
+rho = 1.4795
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0591000, 0.0561500, 0.0160000, 0.6088500, 0.0011000, 0.0847000, 0.0011000, 0.0011000, 0.1719000
+bremsstrahlung correction = NRC
+
+medium = P60C40
+rho = 1.4131
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0642000, 0.0598000, 0.0170000, 0.6272000, 0.0012000, 0.0754000, 0.0012000, 0.0012000, 0.1528000
+bremsstrahlung correction = NRC
+
+medium = P65C35
+rho = 1.3525
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0693000, 0.0634500, 0.0180000, 0.6455500, 0.0013000, 0.0661000, 0.0013000, 0.0013000, 0.1337000
+bremsstrahlung correction = NRC
+
+medium = P70C30
+rho = 1.2968
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0744000, 0.0671000, 0.0190000, 0.6639000, 0.0014000, 0.0568000, 0.0014000, 0.0014000, 0.1146000
+bremsstrahlung correction = NRC
+
+medium = P75C25
+rho = 1.2456
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0795000, 0.0707500, 0.0200000, 0.6822500, 0.0015000, 0.0475000, 0.0015000, 0.0015000, 0.0955000
+bremsstrahlung correction = NRC
+
+medium = P80C20
+rho = 1.1982
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0846000, 0.0744000, 0.0210000, 0.7006000, 0.0016000, 0.0382000, 0.0016000, 0.0016000, 0.0764000
+bremsstrahlung correction = NRC
+
+medium = P85C15
+rho = 1.1543
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0897000, 0.0780500, 0.0220000, 0.7189500, 0.0017000, 0.0289000, 0.0017000, 0.0017000, 0.0573000
+bremsstrahlung correction = NRC
+
+medium = P90C10
+rho = 1.1135
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0948000, 0.0817000, 0.0230000, 0.7373000, 0.0018000, 0.0196000, 0.0018000, 0.0018000, 0.0382000
+bremsstrahlung correction = NRC
+
+medium = P95C5
+rho = 1.0755
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions =  0.0999000, 0.0853500, 0.0240000, 0.7556500, 0.0019000, 0.0103000, 0.0019000, 0.0019000, 0.0191000
+bremsstrahlung correction = NRC
+
+medium = P100C0
+rho = 1.04
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.1050000, 0.0890000, 0.0250000, 0.7740000, 0.0020000, 0.0010000, 0.0020000, 0.0020000, 0.0000000
+bremsstrahlung correction = NRC
+
+#
+# 
+#
+
+medium = PROSTATE_01PCALC
+rho = 1.052
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.104898, 0.0889270, 0.0249800, 0.773633, 0.001998, 0.001186, 0.001998, 0.001998, 0.000382
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_05PCALC
+rho = 1.0605
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions =  0.10449, 0.088635, 0.0249, 0.772165, 0.00199, 0.00193, 0.00199, 0.00199, 0.00191
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_1PCALC
+rho = 1.0701
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions =  0.10398, 0.08827, 0.0248, 0.77033, 0.00198, 0.00286, 0.00198, 0.00198, 0.00382
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_1p5PCALC
+rho = 1.0703
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.10347, 0.087905, 0.0247, 0.768495, 0.00197, 0.00379, 0.00197, 0.00197, 0.00573
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_3PCALC
+rho = 1.1006
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.10194, 0.08681, 0.0244, 0.76299, 0.00194, 0.00658, 0.00194, 0.00194, 0.01146
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_4PCALC
+rho = 1.1208
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.10092, 0.08608, 0.0242, 0.75932, 0.00192, 0.00844, 0.00192, 0.00192, 0.01528
+bremsstrahlung correction = NRC
+
+medium = PROSTATE_5PCALC
+rho = 1.1505
+elements = H, C, N, O, NA, P, S, K, CA
+mass fractions = 0.0999, 0.08535, 0.024, 0.75565, 0.0019, 0.0103, 0.0019, 0.0019, 0.0191
+bremsstrahlung correction = NRC

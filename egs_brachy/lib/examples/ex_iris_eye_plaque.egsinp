@@ -168,7 +168,7 @@
    
     # The path to a file containing mass-energy absorption data for the 
     # relevant media in the simulation    
-    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy2026_1500keV.muendat
 
     # Specify which media dose is scored in
     muen for media = WATER_0.998

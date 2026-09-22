@@ -1,7 +1,5 @@
-Mass energy absorption coefficients (muen) for egs_brachy.
+The single file here, `brachy2026_1500keV.muendat`, contains a list of mass energy absorption coefficients ($\mu_{en}/\rho$, `muen` for short) at a wide range of energies. These are used by egs_brachy in its tracklength dose estimator, which provides a large speedup compared to the EGSnrc default dose estimation algorithm.
 
-Data were calculated with a custom version of the EGSnrc application 'g'.
+This dataset was generated automatically using the `muendat_generation.py` tool, available on GitHub at [clrp-code/muendat-generation](https://github.com/clrp-code/muendat-generation). This tool automatically runs and parses the output of the EGSnrc application `g`.
 
-Muen data are available for energies between 1 keV and 1.5 MeV, for a large number of media.
-
-'brachy_xcom_1.5MeV.muendat' is recommended for most users.
+Muen data are available for energies between 1 keV and 1.5 MeV for a large number of media. To see a list of available media, please visit our [GitHub Pages](https://clrp-code.github.io/egs_brachy/md_media.html).

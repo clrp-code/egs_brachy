@@ -148,7 +148,7 @@
 :start scoring options:
 
     score energy deposition = yes
-    muen file = $EGS_HOME/egs_brachy/lib/muen/PeppaBreastHDR192Ir_MBDCA-WG_muen.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy2026_1500keV.muendat
     muen for media = SKIN_1.09,AIR_0.0012,EXTERNAL_1.00,HEART_1.05,LUNGS_0.26,PTV_1.02,RIBS_1.92
     dose scaling factor = 7.60e+12 #=SK,ref*t_tot*w_max/(air kerma per hist)/100 --> will give dose in Gy
 	#note air kerma per hist  = (1.1592+/-0.0007)E-13 

@@ -265,7 +265,7 @@
      #score energy deposition = yes
      output voxel info files  = yes
 
-    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy2026_1500keV.muendat
     muen for media = WATER_0.998
     dose scaling factor = 1.00 # For absolute dose   
 	# For  dose/sk for I-6711= 2.699551E+11 
