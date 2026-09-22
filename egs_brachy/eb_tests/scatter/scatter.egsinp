@@ -9,7 +9,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -85,7 +85,7 @@
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/Ir192_bare_1993.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/Ir192_bare_1993.spectrum
         :stop spectrum:
 
     :stop source:

@@ -9,7 +9,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -41,7 +41,7 @@
     :start geometry:
         library = egs_glib
         name = seed
-        include file = eb_tests/test_geoms/6702/6702.geom
+        include file = $EGS_HOME/egs_brachy/eb_tests/test_geoms/6702/6702.geom
     :stop geometry
 
     :start geometry:
@@ -71,7 +71,7 @@
 
                 density of random points (cm^-3) = 1E6
 
-                include file = eb_tests/test_geoms/6702/boundary.shape
+                include file = $EGS_HOME/egs_brachy/eb_tests/test_geoms/6702/boundary.shape
 
             :stop region discovery:
 
@@ -96,7 +96,7 @@
     :start source volume correction:
         correction type = correct # correct, none, zero dose
         density of random points (cm^-3) = 1E8
-        include file = eb_tests/test_geoms/6702/boundary.shape
+        include file = $EGS_HOME/egs_brachy/eb_tests/test_geoms/6702/boundary.shape
     :stop source volume correction:
 
 :stop volume correction:
@@ -109,11 +109,11 @@
         name = 6702_spheres
         charge = 0
 
-        include file = eb_tests/test_geoms/6702/6702.shape
+        include file = $EGS_HOME/egs_brachy/eb_tests/test_geoms/6702/6702.shape
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/I125_TG43.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/I125_TG43.spectrum
         :stop spectrum:
 
     :stop source:
@@ -152,4 +152,4 @@
 
 #------------------------------------------------------------------------------------
 # Transport parameters
-include file = lib/transport/low_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/low_energy_default

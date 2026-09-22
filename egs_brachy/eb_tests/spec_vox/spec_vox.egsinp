@@ -9,7 +9,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -120,4 +120,4 @@
 
 #------------------------------------------------------------------------------------
 # Transport parameters
-include file = lib/transport/low_energy_default
+include file = $EGS_HOME/egs_brachy/lib/transport/low_energy_default

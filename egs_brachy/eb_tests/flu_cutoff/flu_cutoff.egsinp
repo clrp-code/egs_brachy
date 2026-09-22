@@ -9,7 +9,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/media/material.dat
 
 :stop media definition:
 

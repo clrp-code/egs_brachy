@@ -739,12 +739,12 @@ geometry is the untransformed plaque, the pose file can instead be
   :stop source:
 
   :start transformations:
-      include file = lib/geometry/transformations/eye_plaques/COMS16mm
+      include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
   :stop transformations:
 
   :start source coordinate transform:
       :start transformation:
-          include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
+          include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
       :stop transformation:
   :stop source coordinate transform:
 
@@ -884,7 +884,7 @@ setting the `source` input block to use the eb_iaeaphsp_source type like so:
     :stop source:
 
     :start transformations :
-        include file = lib/geometry/transformations/125seeds_1cm_grid
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/125seeds_1cm_grid
     :stop transformations:
 
     simulation source = 6702
