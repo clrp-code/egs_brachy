@@ -183,7 +183,7 @@ class MuenDataParser {
                     components.push_back(dummy);
                 }
 
-                double energy, muen;
+                EGS_Float energy, muen;
                 try{
                     switch (components.size())  {
                         case 4:
