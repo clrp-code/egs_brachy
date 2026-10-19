@@ -1,4 +1,4 @@
-The single file here, `brachy2026_1500keV.muendat`, contains a list of mass energy absorption coefficients ($\mu_{en}/\rho$, `muen` for short) at a wide range of energies. These are used by egs_brachy in its tracklength dose estimator, which provides a large speedup compared to the EGSnrc default dose estimation algorithm.
+The single file here, `materials_1500keV.muendat`, contains a list of mass energy absorption coefficients ($\mu_{en}/\rho$, `muen` for short) at a wide range of energies. These are used by egs_brachy in its tracklength dose estimator, which provides a large speedup compared to the EGSnrc default dose estimation algorithm.
 
 This dataset was generated automatically using the `muendat_generation.py` tool, available on GitHub at [clrp-code/muendat-generation](https://github.com/clrp-code/muendat-generation). This tool automatically runs and parses the output of the EGSnrc application `g`.
 

@@ -447,7 +447,7 @@ A sample 'scoring options' block looks like this:
     score tracklength dose = yes # 'yes' (default) or 'no'
     score energy deposition = no # 'no'  (default) or 'yes'
     score scatter dose = yes     # 'no'  (default) or 'yes'
-    muen file = $EGS_HOME/egs_brachy/lib/muen/brachy2026_1500keV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/materials_1500keV.muendat
     muen for media = WATER_0.998, AIR_TG43
 
     dose file format = gzip # text or gzip
