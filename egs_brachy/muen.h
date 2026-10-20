@@ -162,12 +162,17 @@ class MuenDataParser {
                 continue;
             }
 
-            bool new_med = line.find(MUEN_START) != string::npos;
-
-            if (new_med) {
-                /* new medium found. Update the current medium name
-                 * and move file pointer to start of data */
+            if (line.find(MUEN_START) != string::npos) {  // new medium found
+                
+                // extract the name of the medium
                 cur_med_name = trim(split(line, '=')[1]);
+                
+                /* prevent duplicates in .muendat from populating the interpolator */
+                if (med_lines.find(cur_med_name) != med_lines.end()) {
+                    cur_med_name = "ILLEGAL_DUPLICATE";
+                }
+                
+                // move the file pointer to the start of the data
                 for (int i=0; i < NSKIP; i++) {
                     getline(in, dummy);
                     if (trim(dummy).size() == 0 || dummy[0] == '#') {
