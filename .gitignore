@@ -7,6 +7,7 @@
 *.egsdat
 *.mederr
 egsrun_*/
+*.vscode
 
 # Local docs preview (make docs); CI publishes HTML to GitHub Pages
 _site/
