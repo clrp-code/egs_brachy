@@ -747,11 +747,6 @@ mass fractions = 0.105, 0.089, 0.025, 0.774, 0.002, 0.001, 0.002, 0.002
 bremsstrahlung correction = NRC
 
 
-medium = SKIN2_WW86
-bremsstrahlung correction = NRC
-density correction file = skin_icru_1986
-
-
 medium = HEART1_WW86
 rho = 1.05
 elements = H, C, N, O, NA, P, S, CL, K
