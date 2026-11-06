@@ -2495,7 +2495,7 @@ int EB_Application::readData() {
 int EB_Application::combineResults() {
     /* Adapted from egs_application.cpp::combineResults */
     egsInformation(
-        "\n                      Suming the following .egsdat files:\n"
+        "\n                     Summing the following .egsdat files:\n"
         "=======================================================================\n");
     char buf[512];
     resetCounter();
@@ -2510,7 +2510,7 @@ int EB_Application::combineResults() {
         name += (use_gz ? ".gz" : "");
 
         sprintf(buf, name.c_str(), output_file.c_str(), j);
-        string dfile = egsJoinPath(app_dir,buf);
+        string dfile = egsJoinPath(output_dir,buf);
         istream *data;
         ifstream in;
         igzstream gzin;
@@ -2539,6 +2539,8 @@ int EB_Application::combineResults() {
                 ok = false;
                 egsWarning("%2d %-30s error %d\n",ndat,buf,err);
             }
+        } else {
+            egsWarning("Could not open following file for calculation = combine:\n\t%s\n", dfile.c_str());
         }
     }
     if (ndat > 0) {
@@ -2647,7 +2649,7 @@ int EB_Application::howManyJobsDone() {
 
     for (int i = first_parallel; i < first_parallel + n_parallel; i++) {
         sprintf(buf,name.c_str(),final_output_file.c_str(),i);
-        string dfile = egsJoinPath(app_dir,buf);
+        string dfile = egsJoinPath(output_dir,buf);
         if (fileExists(dfile)) {
             n_of_egsdat++;
         }
