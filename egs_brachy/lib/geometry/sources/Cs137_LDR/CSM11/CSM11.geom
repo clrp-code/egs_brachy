@@ -43,7 +43,7 @@
         radii       = 0.0825
         midpoint    = 0 0 0.2275
         :start media input:
-            media = SS_AISI316L_p7.8
+            media = SS_AISI316L_JPC
         :stop media input:
     :stop geometry:
     
@@ -67,27 +67,27 @@
             thickness = 0.06
             top radii = 0.0825
             bottom radii = 0.0825
-            media = SS_AISI316L_p7.8
+            media = SS_AISI316L_JPC
         :stop layer:
         
         :start layer:
             thickness = 0.32
             top radii = 0.0425 0.0825
             bottom radii = 0.0425 0.0825
-            media = Pollucite SS_AISI316L_p7.8
+            media = Pollucite SS_AISI316L_JPC
         :stop layer:
         
         :start layer:
             thickness = 0.0225
             bottom radii = 0.0425 0.0825
-            media = AIR_TG43 SS_AISI316L_p7.8
+            media = AIR_TG43 SS_AISI316L_JPC
         :stop layer:
 
         :start layer:
             thickness = 0.145
             top radii = 0.0825
             bottom radii = 0.0825
-            media = SS_AISI316L_p7.8
+            media = SS_AISI316L_JPC
         :stop layer:
        
     :stop geometry:

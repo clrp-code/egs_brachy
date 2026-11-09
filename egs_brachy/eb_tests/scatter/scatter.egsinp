@@ -9,7 +9,7 @@
     AP = 0.001
     UP = 1.500
 
-    material data file = lib/media/material.dat
+    material data file = $EGS_HOME/egs_brachy/lib/media/material.dat
 
 :stop media definition:
 
@@ -85,7 +85,7 @@
 
         :start spectrum:
             type = tabulated spectrum
-            spectrum file = lib/spectra/Ir192_bare_1993.spectrum
+            spectrum file = $EGS_HOME/egs_brachy/lib/spectra/Ir192_bare_1993.spectrum
         :stop spectrum:
 
     :stop source:
@@ -105,7 +105,7 @@
     output voxel info files = no
     score energy deposition = yes
     score scatter dose =  yes
-    muen file = lib/muen/brachy_xcom_1.5MeV.muendat
+    muen file = $EGS_HOME/egs_brachy/lib/muen/materials_1500keV.muendat
     muen for media = WATER_0.998
 
 :stop scoring options:

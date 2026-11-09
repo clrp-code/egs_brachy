@@ -109,7 +109,7 @@ endif
 endif
 
 test:
-	python run_tests.py
+	python3 run_tests.py
 
 all: eb_iaeaphsp fix_fortran
 
