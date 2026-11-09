@@ -57,8 +57,7 @@
 					
         closed      = 0. 0.028   # width
         :start media input:
-            media = CS10_Organpoly_Pd5% # Third run, It supposed that each Pd region is filled with 5% natural pd and 95% organic polymer Which is consistent with 8  micorgram Pd of Reed et al paper Medphys 2014. 
-			
+            media = CS10_Organpoly_Pd5%
         :stop media input:
     :stop geometry:
 
@@ -68,7 +67,6 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, 0.5 # CS40
-			            # 0., 0.0055, 0.  # CS10
         :stop transformation:
     :stop geometry:
 	:start geometry:
@@ -77,7 +75,6 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, -0.5 # CS40
-			            # 0., 0.0055, 0.   # CS10
         :stop transformation:
     :stop geometry:
 	
@@ -86,8 +83,7 @@
         library = egs_gtransformed
         my geometry = base_marker
         :start transformation:
-            translation = 0., 0.0055, 1.51 # CS40
-			            
+            translation = 0., 0.0055, 1.51 # CS40       
         :stop transformation:
     :stop geometry:
 	:start geometry:
@@ -96,7 +92,6 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, -1.51 # CS40
-			            
         :stop transformation:
     :stop geometry:
     
@@ -105,9 +100,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014 , 0.0035, 0.111      #  
-			            # -0.014 , 0.0035, -0.389     # CS10
-			            # -0.014 , 0.0035, -0.3885    # half of the width should be (-0.014), 0.0035 down, and 0.3885 offset from source center.  
+            translation = -0.014 , 0.0035, 0.111
         :stop transformation:
     :stop geometry:
 
@@ -116,9 +109,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, 0.333      # 
-			             # -0.014, 0.0035, -0.167    # CS10 Reed Dimension 2014 Brachytherapy
-			           
+            translation = -0.014, 0.0035, 0.333	           
         :stop transformation:
     :stop geometry:
 
@@ -127,8 +118,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, 0.667  # 
-			            # -0.014, 0.0035, 0.167  # CS10
+            translation = -0.014, 0.0035, 0.667
         :stop transformation:
     :stop geometry:
 
@@ -137,8 +127,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, 0.889 # 
-			            # -0.014, 0.0035, 0.389 # CS10
+            translation = -0.014, 0.0035, 0.889
         :stop transformation:
     :stop geometry:
 	
@@ -183,7 +172,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014 , 0.0035, -0.111   #
+            translation = -0.014 , 0.0035, -0.111
         :stop transformation:
     :stop geometry:
 	
@@ -192,8 +181,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, -0.333    # 
-			           
+            translation = -0.014, 0.0035, -0.333
         :stop transformation:
     :stop geometry:
 	
@@ -202,7 +190,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, -0.667    # 
+            translation = -0.014, 0.0035, -0.667
         :stop transformation:
     :stop geometry:
 	
@@ -211,7 +199,7 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, -0.889   # 
+            translation = -0.014, 0.0035, -0.889
         :stop transformation:
     :stop geometry:
 	

@@ -52,36 +52,28 @@
         name    = cladding_and_source
         library = egs_cones
         type    = EGS_ConeStack
-        axis    = 0 0 -0.475 0 0 1   # HS
-		        # 0 0 -0.485 0 0 1   # M.Ch
-
+        axis    = 0 0 -0.475 0 0 1
         :start layer:
-            thickness =  0.205   # HS 
-                       # 0.215    # M. Ch
-            top radii = 0.055
+            thickness =  0.205=
+            top radii    = 0.055
             bottom radii = 0.055
             media = SS_AISI304
         :stop layer:
         
         :start layer:
             thickness = 0.095
+            top radii    = 0.055
             bottom radii = 0.055
             media = SS_AISI316L
         :stop layer:
                 
         :start layer:
             thickness = 0.35
-            top radii = 0.03 0.055
-            bottom radii = 0.03 0.055
+            top radii    = 0.030001 0.055
+            bottom radii = 0.030001 0.055
             media = Ir SS_AISI316L
         :stop layer:
         
-  #     :start layer:
-  #          thickness = 0.01  #  M. Ch.
-  #          top radii = 0.055
-  #          bottom radii = 0.055
-  #          media = SS_AISI316L
-  #      :stop layer:
         
     :stop geometry:
 

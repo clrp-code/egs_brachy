@@ -38,16 +38,16 @@
         # end weld cylinder thickness
         :start layer:
             thickness    = 0.025   
-            top radii    = 0.04    
-            bottom radii = 0.04    
+            top radii    = 0.040001
+            bottom radii = 0.040001
             media        = Ti
         :stop layer:
 
         # air gap 
         :start layer:
-           thickness    = 0.012       #  
-           top radii    = 0.035 0.04  #  
-           bottom radii = 0.035 0.04  #  
+           thickness    = 0.012
+           top radii    = 0.035 0.040001  
+           bottom radii = 0.035 0.040001  
            media        = AIR_TG43 Ti
         :stop layer:
  
@@ -55,39 +55,39 @@
        # cone apex to cone base
         :start layer:
            thickness    = 0.065  
-           top radii    = 0.00 0.02159 0.03175 0.03335 0.03385 0.035 0.04
-           bottom radii = 0.0203 0.02159 0.03175 0.03335 0.03385 0.035 0.04 
+           top radii    = 0.0000 0.02159 0.03175 0.03335 0.03385 0.035 0.040001
+           bottom radii = 0.0203 0.02159 0.03175 0.03335 0.03385 0.035 0.040001
            media        = Ag, AIR_TG43, quartz_2.21, IPlant_active, SiO2, AIR_TG43, Ti
         :stop layer:
 
        # cone apex to cone base 
         :start layer:
            thickness    = 0.246 # 
-           bottom radii = 0.0203 0.02159 0.03175 0.03335 0.03385 0.035 0.04 
+           bottom radii = 0.0203 0.02159 0.03175 0.03335 0.03385 0.035 0.040001
            media        = Ag, AIR_TG43, quartz_2.21, IPlant_active, SiO2, AIR_TG43, Ti
         :stop layer:
 
        # cone base to cone apex
         :start layer:
            thickness    = 0.065  
-           bottom radii    = 0.00 0.02159 0.03175 0.03335 0.03385 0.035 0.04
+           bottom radii = 0.00 0.02159 0.03175 0.03335 0.03385 0.035 0.040001
            media        = Ag, AIR_TG43, quartz_2.21, IPlant_active, SiO2, AIR_TG43, Ti
         :stop layer:
 
 
         # air gap
         :start layer:
-           thickness    = 0.012  # 0.009
-           top radii    = 0.035 0.04  # 0.036195 0.04178
-           bottom radii = 0.035 0.04  # 0.036195 0.04178
+           thickness    = 0.012
+           top radii    = 0.035 0.040001
+           bottom radii = 0.035 0.040001
            media        = AIR_TG43 Ti
         :stop layer:
 
         # end weld cylinder
         :start layer:
             thickness    = 0.025   
-            top radii    = 0.04  
-            bottom radii = 0.04   
+            top radii    = 0.040001
+            bottom radii = 0.040001
             media        = Ti
         :stop layer:
 

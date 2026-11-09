@@ -45,7 +45,7 @@
         library = egs_spheres
         name = end_sphere_2
         type = EGS_cSpheres
-        radii = 0.04
+        radii = 0.040001
         midpoint = 0 0 0.185
 
         :start media input:
@@ -132,7 +132,7 @@
     :start geometry:
         library = egs_rz
         name = cylinders
-        radii = 0.025 0.035 0.040
+        radii = 0.025001 0.035 0.040001
         z-planes = -0.185 -0.166 -0.055 0.055 0.166 0.185
 
         :start media input:
@@ -147,7 +147,7 @@
     :start geometry:
         name = end_cyl
         library = egs_rz
-        radii = 0.04
+        radii = 0.040001
         z-planes = -0.185, 0.185
         :start media input:
            media = Ti

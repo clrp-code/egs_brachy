@@ -58,8 +58,7 @@
 					
         closed      = 0. 0.028   # width
         :start media input:
-            media = CS10_Organpoly_Pd5% #  It supposed that each Pd region is filled with 5% natural pd and 95% organic polymer 
-			
+            media = CS10_Organpoly_Pd5%		
         :stop media input:
     :stop geometry:
 
@@ -78,7 +77,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014 , 0.0035, -0.389
-			            # -0.014 , 0.0035, -0.3885    # half of the width should be (-0.014), 0.0035 down, and 0.3885 offset from source center.  
         :stop transformation:
     :stop geometry:
 
@@ -88,7 +86,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, -0.167    # Reed Dimension 2014 Brachytherapy
-			            # -0.014, 0.0035, -0.1665   # Rivard Dimension 2014 med phys
         :stop transformation:
     :stop geometry:
 
@@ -98,7 +95,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.167
-			            # -0.014, 0.0035, 0.1665
         :stop transformation:
     :stop geometry:
 
@@ -108,7 +104,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.389
-			            # -0.014, 0.0035, 0.3885
         :stop transformation:
     :stop geometry:
 

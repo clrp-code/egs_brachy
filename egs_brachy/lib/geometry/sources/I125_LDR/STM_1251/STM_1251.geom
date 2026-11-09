@@ -72,13 +72,11 @@
  # Habib Note: AU and AL thickness- The Correct Au radi= 0.01805 cm while the correct one is 0.01805 cm
  # which is by mistake considered as Diameter in all new and old CLRP data and related publication 
  
-        :start layer: 
-		
-            thickness = 0.381    
-			top radii    = 0.009 0.0255 0.02569 0.02594 0.0259417 0.0325 0.0405 
-			bottom radii = 0.009 0.0255 0.02569 0.02594 0.0259417 0.0325 0.0405 
-            media = Au, Al, Ni, Cu, I, AIR_TG43, Ti 
-			
+        :start layer: 	
+            thickness = 0.381
+            top radii    = 0.009 0.0255 0.02569 0.02594 0.0259417 0.0325 0.0405 
+            bottom radii = 0.009 0.0255 0.02569 0.02594 0.0259417 0.0325 0.0405 
+            media = Au, Al, Ni, Cu, I, AIR_TG43, Ti
         :stop layer:
  
         :start layer:

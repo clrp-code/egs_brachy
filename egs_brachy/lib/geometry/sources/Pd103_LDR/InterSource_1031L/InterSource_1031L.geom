@@ -47,85 +47,85 @@
 
         :start layer:
             thickness    = 0.01 # 0.0265
-            top radii    = 0.025 0.029 0.029 0.033
-            bottom radii = 0.025 0.029 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0290 0.0330
+            bottom radii = 0.025001 0.029 0.0365 0.0405
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.02 #  0.01
-            top radii    = 0.025 0.029 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0365 0.0405
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    =  0.08
-            top radii    = 0.025 0.029 0.0305 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0305 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0305 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0305 0.0365 0.0405
             media        = WATER_0.998 Ti C85.7H14.3 AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.0415
-            top radii    = 0.025 0.029 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0365 0.0405
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.0385
-            top radii    = 0.025 0.029 0.0335 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0335 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0335 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0335 0.0365 0.0405
             media        = WATER_0.998 Ti Pt90Ir10 AIR_TG43 Ti
         :stop layer:
 
         :start layer:
-            thickness    =  0.05
-            top radii    = 0.025 0.029 0.0335 0.0344 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0335 0.0344 0.0365 0.0405
+            thickness    = 0.05
+            top radii    = 0.025001 0.029 0.0335 0.0344 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0335 0.0344 0.0365 0.0405
             media        = WATER_0.998 Ti Pt90Ir10 C85.7H14.3 AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.0385
-            top radii    = 0.025 0.029 0.0335 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0335 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0335 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0335 0.0365 0.0405
             media        = WATER_0.998 Ti Pt90Ir10 AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.0415
-            top radii    = 0.025 0.029 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0365 0.0405
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    =  0.08
-            top radii    = 0.025 0.029 0.0305 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0305 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0305 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0305 0.0365 0.0405
             media        = WATER_0.998 Ti C85.7H14.3 AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.02 # 0.01
-            top radii    = 0.025 0.029 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.0365 0.0405
+            top radii    = 0.025001 0.029 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0365 0.0405
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.01 # 0.0265
-            top radii    = 0.025 0.029 0.0365 0.0405
-            bottom radii = 0.025 0.029 0.029 0.033
+            top radii    = 0.025001 0.029 0.0365 0.0405
+            bottom radii = 0.025001 0.029 0.0290 0.0330
             media        = WATER_0.998 Ti AIR_TG43 Ti
         :stop layer:
 
         :start layer:
             thickness    = 0.01 # 0.035
-            top radii    = 0.025 0.033
-            bottom radii = 0.025 0.033
+            top radii    = 0.025001 0.033
+            bottom radii = 0.025001 0.033
             media        = WATER_0.998 Ti
         :stop layer:
 

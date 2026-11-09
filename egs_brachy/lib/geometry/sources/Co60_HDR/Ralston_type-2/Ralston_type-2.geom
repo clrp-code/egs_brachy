@@ -63,22 +63,22 @@
 
         :start layer:
             thickness = 0.1
-            top radii = 0.05 0.075 0.15
-            bottom radii = 0.05 0.075 0.15
+            top radii = 0.050001 0.0750001 0.150001
+            bottom radii = 0.050001 0.0750001 0.150001
             media = Co , AIR_TG43, SS_SUS316_p8.02
         :stop layer:
 		
-		 :start layer:
+	:start layer:
             thickness = 0.1
-            top radii = 0.05 0.075 0.15
-            bottom radii = 0.05 0.075 0.15
+            top radii = 0.050001 0.0750001 0.150001
+            bottom radii = 0.050001 0.0750001 0.150001
             media =  Co , AIR_TG43, SS_SUS316_p8.02
         :stop layer:
 		
-		:start layer:
+	:start layer:
             thickness = 0.15
-            top radii = 0.15
-            bottom radii = 0.15
+            top radii = 0.150001
+            bottom radii = 0.150001
             media = SS_SUS316_p8.02 
         :stop layer:
       

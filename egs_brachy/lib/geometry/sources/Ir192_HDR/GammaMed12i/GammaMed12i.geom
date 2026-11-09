@@ -54,14 +54,14 @@
         :start layer:
            thickness    = 0.01
            top radii    = 0.035 0.055
-           bottom radii    = 0.035 0.055
+           bottom radii = 0.035 0.055
            media        = AIR_TG43 SS_AISI316L
         :stop layer:
 
         :start layer:
            thickness    = 0.35
-           top radii    = 0.03 0.035 0.055
-           bottom radii = 0.03 0.035 0.055
+           top radii    = 0.030001 0.035 0.055
+           bottom radii = 0.030001 0.035 0.055
            media        = Ir AIR_TG43 SS_AISI316L
         :stop layer:
 

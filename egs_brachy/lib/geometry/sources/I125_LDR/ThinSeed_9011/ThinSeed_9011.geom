@@ -64,7 +64,7 @@
 
         # end cap cylinder
         :start layer: 
-		     thickness    = 0.0020    # From Kennedy et al, Med. Phys., 37 , 1681 - 1688, 2010 
+            thickness    = 0.0020    # From Kennedy et al, Med. Phys., 37 , 1681 - 1688, 2010 
             top radii    = 0.0255
             bottom radii = 0.0255
             media        = Ti
@@ -72,7 +72,7 @@
 
         # air gap
         :start layer:         
-			thickness    = 0.059825       # From Kennedy et al, Med. Phys., 37 , 1681 - 1688, 2010 
+            thickness    = 0.059825       # From Kennedy et al, Med. Phys., 37 , 1681 - 1688, 2010 
             top radii    = 0.0198 0.0255
             bottom radii = 0.0198 0.0255
             media        = Ar Ti
@@ -81,7 +81,7 @@
         # source end cylinder
         :start layer:
             thickness    = 0.000175
-            top radii    = 0.01025 0.0198 0.0255
+            top radii    = 0.010250 0.0198 0.0255
             bottom radii = 0.010425 0.0198 0.0255
             media        = AgBrAgI_6.20 Ar Ti
         :stop layer:
@@ -114,14 +114,13 @@
         :start layer:
             thickness    = 0.000175
             top radii    = 0.010425 0.0198 0.0255
-            bottom radii = 0.01025 0.0198 0.0255
+            bottom radii = 0.010250 0.0198 0.0255
             media        = AgBrAgI_6.20 Ar Ti
         :stop layer:
 
         # air gap
         :start layer:
-           # thickness    = 0.061325
-		    thickness    = 0.059825
+            thickness    = 0.059825
             top radii    = 0.0198 0.0255
             bottom radii = 0.0198 0.0255
             media        = Ar Ti
@@ -129,7 +128,6 @@
 
         # end cap cylinder
         :start layer:
-		 #  thickness    = 0.000175
             thickness    = 0.0020
             top radii    = 0.0255
             bottom radii = 0.0255

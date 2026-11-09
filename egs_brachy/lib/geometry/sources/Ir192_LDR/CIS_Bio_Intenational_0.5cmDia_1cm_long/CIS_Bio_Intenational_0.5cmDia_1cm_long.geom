@@ -33,7 +33,7 @@
     :start geometry:
         name = the_seed
         library = egs_rz
-        radii = 0.015 0.025
+        radii = 0.015 0.025001
         z-planes = -0.5 0.5
         :start media input:
            media = Pt75Ir25 Pt
