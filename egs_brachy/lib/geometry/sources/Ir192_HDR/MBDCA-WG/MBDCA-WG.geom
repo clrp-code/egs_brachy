@@ -34,7 +34,7 @@
         library = egs_planes
         name = the_planes
         type = EGS_Zplanes
-        positions = -0.465 0.185 0.235001
+        positions = -0.465 0.185 0.235
     :stop geometry:
 
     :start geometry:
@@ -42,7 +42,7 @@
         name = end_cap
         midpoint = 0 0 0.185
         type = EGS_cSpheres
-        radii = 0.05
+        radii = 0.050001
 
         :start media input:
             media = SS_AISI316L_p8.02
