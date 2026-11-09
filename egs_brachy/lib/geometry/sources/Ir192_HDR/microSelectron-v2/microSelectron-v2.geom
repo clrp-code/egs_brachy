@@ -40,23 +40,19 @@
         :start layer:
            thickness    = 0.006
            top radii    =  0.0265 0.0325
-		   #0.0265 0.03251  # M. CH
            bottom radii =  0.0325 0.0325
-		   # 0.0265 0.03251   # M.CH
            media        = Ir SS_AISI316L
         :stop layer:
 
         :start layer:
            thickness    = 0.348
            bottom radii = 0.0325 0.0325
-		   # 0.0325 0.03251
            media        = Ir SS_AISI316L
         :stop layer:
 
         :start layer:
            thickness    = 0.006
            bottom radii = 0.0265 0.0325
-		   # 0.0265 0.03251
            media        = Ir SS_AISI316L
         :stop layer:
 
@@ -94,8 +90,7 @@
         :stop layer:
 
         :start layer:
-           thickness = 0.415  # 0.055+0.36=0.415cm correct
-		   #0.40 =0.04 +0.36 M.CH 
+           thickness = 0.415
            bottom radii = 0.045
            media        = SS_AISI316L
         :stop layer:

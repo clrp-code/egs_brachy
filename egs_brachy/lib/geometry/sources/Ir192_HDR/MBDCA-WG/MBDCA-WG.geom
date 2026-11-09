@@ -34,7 +34,7 @@
         library = egs_planes
         name = the_planes
         type = EGS_Zplanes
-        positions = -0.465 0.185 0.235001
+        positions = -0.465 0.185 0.235
     :stop geometry:
 
     :start geometry:
@@ -42,7 +42,7 @@
         name = end_cap
         midpoint = 0 0 0.185
         type = EGS_cSpheres
-        radii = 0.05
+        radii = 0.050001
 
         :start media input:
             media = SS_AISI316L_p8.02
@@ -57,28 +57,29 @@
 
         :start layer:
             thickness = 0.21
-            top radii = 0.05
-            bottom radii = 0.05
+            top radii    = 0.050001
+            bottom radii = 0.050001
             media = SS_AISI316L_p5.0
         :stop layer:
         
         :start layer:
             thickness = 0.09
-            bottom radii = 0.05
+            top radii    = 0.050001
+            bottom radii = 0.050001
             media = SS_AISI316L_p8.02
         :stop layer:
 
         :start layer:
             thickness = 0.35
-            top radii = 0.03 0.05            
-            bottom radii = 0.03 0.05
+            top radii    = 0.030001 0.050001
+            bottom radii = 0.030001 0.050001
             media = Ir, SS_AISI316L_p8.02
         :stop layer:
 
         :start layer:
             thickness = 0.02
-            top radii = 0.05            
-            bottom radii = 0.05
+            top radii    = 0.050001      
+            bottom radii = 0.050001
             media = SS_AISI316L_p8.02
         :stop layer:
 

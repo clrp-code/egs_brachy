@@ -60,7 +60,7 @@
         library = egs_spheres
         name = end_sphere_1
         type = EGS_cSpheres
-        radii = 0.02
+        radii = 0.020001
         midpoint = 0 0  -0.235
 
         :start media input:
@@ -72,7 +72,7 @@
         library = egs_spheres
         name = end_sphere_2
         type = EGS_cSpheres
-        radii = 0.02
+        radii = 0.020001
         midpoint = 0 0  0.235
 
         :start media input:

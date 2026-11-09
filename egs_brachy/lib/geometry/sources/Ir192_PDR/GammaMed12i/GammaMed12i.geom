@@ -67,8 +67,8 @@
 
         :start layer:
            thickness    = 0.05
-           top radii    = 0.03 0.035 0.055
-           bottom radii = 0.03 0.035 0.055
+           top radii    = 0.030001 0.035 0.055
+           bottom radii = 0.030001 0.035 0.055
            media        = Ir70Pt30 AIR_TG43 SS_AISI316L_p7.8
         :stop layer:
 

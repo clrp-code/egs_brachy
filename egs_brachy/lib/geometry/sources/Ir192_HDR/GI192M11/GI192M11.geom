@@ -39,36 +39,36 @@
 
         :start layer:
             thickness    = 0.084
-            top radii    = 0.05
-            bottom radii = 0.05
+            top radii    = 0.050001
+            bottom radii = 0.050001
             media        = SS_AISI316L_p7.8
         :stop layer:
 
         :start layer:
            thickness    = 0.35
-            top radii    = 0.03 0.035 0.05
-           bottom radii = 0.03 0.035 0.05
+            top radii   = 0.030001 0.035 0.050001
+           bottom radii = 0.030001 0.035 0.050001
            media        = Ir AIR_TG43 SS_AISI316L_p7.8
         :stop layer:
 
         :start layer:
            thickness    = 0.02
-           top radii    = 0.035 0.05
-           bottom radii = 0.000 0.05
+           top radii    = 0.035 0.050001
+           bottom radii = 0.000 0.050001
            media        = AIR_TG43 SS_AISI316L_p7.8
         :stop layer:
 
         :start layer:
            thickness    = 0.035
-           top radii    = 0.05
-           bottom radii = 0.05
+           top radii    = 0.050001
+           bottom radii = 0.050001
            media        = SS_AISI316L_p7.8
         :stop layer:
 
         :start layer:
            thickness    = 6.
-           top radii    = 0.05
-           bottom radii = 0.05
+           top radii    = 0.050001
+           bottom radii = 0.050001
            media        = SS_AISI316L_p6.9
         :stop layer:
 

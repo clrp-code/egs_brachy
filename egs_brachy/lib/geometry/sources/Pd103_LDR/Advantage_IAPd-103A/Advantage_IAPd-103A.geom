@@ -124,7 +124,7 @@
     :start geometry:
         name = marker
         library = egs_rz
-        radii =  0.025
+        radii =  0.025001
         z-planes = -0.0625 0.0625
         :start media input:
             media = Ag
@@ -136,7 +136,7 @@
         name = source1
         midpoint = 0 0  -0.1559
         type = EGS_cSpheres
-        radii = 0.025
+        radii = 0.025001
 
         :start media input:
             media = ADV_PD_POLY
@@ -148,7 +148,7 @@
         name = source2
         midpoint = 0 0 -0.0968
         type = EGS_cSpheres
-        radii = 0.025
+        radii = 0.025001
 
         :start media input:
             media = ADV_PD_POLY
@@ -160,7 +160,7 @@
         name = source3
         midpoint = 0 0 0.0968
         type = EGS_cSpheres
-        radii = 0.025
+        radii = 0.025001
 
         :start media input:
             media = ADV_PD_POLY
@@ -172,7 +172,7 @@
         name = source4
         midpoint = 0 0 0.1559
         type = EGS_cSpheres
-        radii = 0.025
+        radii = 0.025001
 
         :start media input:
             media = ADV_PD_POLY

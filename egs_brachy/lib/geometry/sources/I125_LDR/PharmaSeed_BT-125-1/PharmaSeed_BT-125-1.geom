@@ -36,57 +36,57 @@
         library = egs_cones
         type = EGS_ConeStack
         axis = 0 0 -0.225 0 0 1
-        
-		:start layer:
-		    thickness = 0.05
-		    top radii =0.04
-		    bottom radii = 0.04
-		    media = Ti
-		:stop layer:
+
+        :start layer:
+            thickness = 0.05
+            top radii =0.04
+            bottom radii = 0.04
+            media = Ti
+        :stop layer:
 		
-		:start layer:
+        :start layer:
             thickness = 0.01245
-		    top radii = 0.034 0.04
-			bottom radii = 0.034 0.04
-		    media = AIR_TG43, Ti
+            top radii = 0.034 0.04
+            bottom radii = 0.034 0.04
+            media = AIR_TG43, Ti
         :stop layer: 
 		
-		:start layer:
-		    thickness    = 0.00005
-            top radii    = 0.02505 0.034 0.04
-            bottom radii = 0.02505 0.034 0.04
+        :start layer:
+            thickness    = 0.00005
+            top radii    = 0.02505 0.034 0.040001
+            bottom radii = 0.02505 0.034 0.040001
             media        = I AIR_TG43 Ti
         :stop layer:
 
         :start layer:
            thickness    = 0.325
-           top radii    = 0.025 0.02505 0.034 0.04
-           bottom radii = 0.025 0.02505 0.034 0.04
+           top radii    = 0.025001 0.02505 0.034 0.040001
+           bottom radii = 0.025001 0.02505 0.034 0.040001
            media        = Pd I AIR_TG43 Ti
         :stop layer:		
 
-		:start layer:
+        :start layer:
             thickness    = 0.00005
-            top radii    = 0.02505 0.034 0.04
-            bottom radii = 0.02505 0.034 0.04
+            top radii    = 0.02505 0.034 0.040001
+            bottom radii = 0.02505 0.034 0.040001
             media        = I AIR_TG43 Ti
         :stop layer
 		
-		:start layer:
-            thickness = 0.01245
-		    top radii = 0.034 0.04
-			bottom radii = 0.034 0.04
-		    media = AIR_TG43, Ti
+        :start layer:
+            thickness    = 0.01245
+            top radii    = 0.034 0.040001
+            bottom radii = 0.034 0.040001
+            media        = AIR_TG43, Ti
         :stop layer:
 		
-		:start layer:
-		    thickness = 0.05
-		    top radii =0.04
-		    bottom radii = 0.04
-		    media = Ti
-		:stop layer:
+        :start layer:
+            thickness    = 0.05
+            top radii    = 0.040001
+            bottom radii = 0.040001
+            media = Ti
+        :stop layer:
 		
-		:stop geometry:
+    :stop geometry:
 
     simulation geometry = seed
 

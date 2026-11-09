@@ -109,183 +109,183 @@
 
         :start layer:
             thickness = 0.001
-            top radii = 0.026 0.035 0.04
-            bottom radii = 0.026 0.035 0.04
+            top radii    = 0.026 0.035 0.040001
+            bottom radii = 0.026 0.035 0.040001
             media = AgI, AIR_TG43, Ti
         :stop layer:
         
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.0250001 0.026 0.0325 0.0375
+            bottom radii = 0.0250001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.035 0.04
-            bottom radii = 0.025 0.026 0.035 0.04
+            top radii    = 0.0250001 0.026 0.035 0.040001
+            bottom radii = 0.0250001 0.026 0.035 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.0250001 0.026 0.0325 0.0375
+            bottom radii = 0.0250001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.035 0.04
-            bottom radii = 0.025 0.026 0.035 0.04
+            top radii    = 0.0250001 0.026 0.035 0.040001
+            bottom radii = 0.0250001 0.026 0.035 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
  
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.0250001 0.026 0.0325 0.0375
+            bottom radii = 0.0250001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.035 0.04
-            bottom radii = 0.025 0.026 0.035 0.04
+            top radii    = 0.0250001 0.026 0.035 0.040001
+            bottom radii = 0.0250001 0.026 0.035 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.025001 0.026 0.0325 0.0375
+            bottom radii = 0.025001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.035 0.04
-            bottom radii = 0.025 0.026 0.035 0.04
+            top radii    = 0.025001 0.026 0.035 0.040001
+            bottom radii = 0.025001 0.026 0.035 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.025001 0.026 0.0325 0.0375
+            bottom radii = 0.025001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.035 0.04
-            bottom radii = 0.025 0.026 0.035 0.04
+            top radii    = 0.025001 0.026 0.035 0.040001
+            bottom radii = 0.025001 0.026 0.035 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.025001 0.026 0.0325 0.040001
+            bottom radii = 0.025001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0218181818181818
-            top radii = 0.025 0.026 0.0325 0.0375
-            bottom radii = 0.025 0.026 0.0325 0.0375
+            top radii    = 0.0250001 0.026 0.0325 0.0375
+            bottom radii = 0.0250001 0.026 0.0325 0.0375
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.005
-            top radii = 0.025 0.026 0.0325 0.04
-            bottom radii = 0.025 0.026 0.0325 0.04
+            top radii    = 0.0250001 0.026 0.0325 0.040001
+            bottom radii = 0.0250001 0.026 0.0325 0.040001
             media = Ag, AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.001
-            top radii = 0.026 0.035 0.04
-            bottom radii = 0.026 0.035 0.04
+            top radii    = 0.026 0.035 0.040001
+            bottom radii = 0.026 0.035 0.040001
             media = AgI, AIR_TG43, Ti
         :stop layer:
 
         :start layer:
             thickness = 0.0091
-            top radii = 0.035 0.04
-            bottom radii = 0.035 0.04
+            top radii    = 0.035001 0.040001
+            bottom radii = 0.035001 0.040001
             media = AIR_TG43, Ti
         :stop layer:
 

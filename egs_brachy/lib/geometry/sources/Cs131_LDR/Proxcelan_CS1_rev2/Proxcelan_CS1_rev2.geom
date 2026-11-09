@@ -39,35 +39,35 @@
 		  
         :start layer:
             thickness = 0.01
-            top radii = 0.0415
+            top radii    = 0.0415
             bottom radii = 0.0415
             media = Ti
         :stop layer:
         
         :start layer:
             thickness = 0.016
-            top radii = 0.0355 0.0415
+            top radii    = 0.0355 0.0415
             bottom radii = 0.0355 0.0415
             media = Ar Ti
         :stop layer:
 
         :start layer:
             thickness = 0.4
-            top radii = 0.0125 0.015 0.020 0.031 0.0355 0.0415
-            bottom radii = 0.0125 0.015 0.020 0.031 0.0355 0.0415
+            top radii    = 0.0125 0.015 0.020001 0.031 0.0355 0.0415
+            bottom radii = 0.0125 0.015 0.020001 0.031 0.0355 0.0415
             media = Au Ar  Pyrex_2.4 Pyrex_2.4_Cs Ar Ti
         :stop layer:
         
         :start layer:
             thickness = 0.016
-            top radii = 0.0355 0.0415
+            top radii    = 0.0355 0.0415
             bottom radii = 0.0355 0.0415
             media = Ar Ti
         :stop layer:
 
         :start layer:
             thickness = 0.01
-            top radii = 0.0415
+            top radii    = 0.0415
             bottom radii = 0.0415
             media = Ti
         :stop layer:

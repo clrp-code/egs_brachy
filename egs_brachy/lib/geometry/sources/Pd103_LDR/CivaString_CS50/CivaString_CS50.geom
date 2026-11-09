@@ -53,13 +53,11 @@
         name        = base_well
         library     = egs_prism
         type        = EGS_PrismX
-        points      = 0.0125  -0.105   0.0125  0.105   -0.0125  0.097   -0.0125  -0.097
-		            # 0.01232 -0.1047  0.01232 0.1047  -0.01232 0.0965  -0.01232 -0.0965 
-					
+        points      = 0.0125  -0.105   0.0125  0.105   -0.0125  0.097   -0.0125  -0.097					
         closed      = 0. 0.028   # width
         :start media input:
-            media = CS10_Organpoly_Pd5% #  It supposed that each Pd region is filled with 5% natural pd and 95% organic polymer 
-       	   :stop media input:
+            media = CS10_Organpoly_Pd5%
+        :stop media input:
 		   
     :stop geometry:
 
@@ -115,7 +113,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014 , 0.0035, -0.389
-			            # -0.014 , 0.0035, -0.3885    # half of the width should be (-0.014), 0.0035 down, and 0.3885 offset from source center.  
         :stop transformation:
     :stop geometry:
 
@@ -125,7 +122,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, -0.167    # Reed Dimension 2014 Brachytherapy
-			            # -0.014, 0.0035, -0.1665   # Rivard Dimension 2014 med phys
         :stop transformation:
     :stop geometry:
 
@@ -135,7 +131,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.167
-			            # -0.014, 0.0035, 0.1665
         :stop transformation:
     :stop geometry:
 
@@ -145,7 +140,6 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.389
-			            # -0.014, 0.0035, 0.3885
         :stop transformation:
     :stop geometry:
 	
@@ -293,8 +287,6 @@
         :stop transformation:
     :stop geometry:
 	
-	
-
     :start geometry:
         name = the_source
         library = egs_genvelope

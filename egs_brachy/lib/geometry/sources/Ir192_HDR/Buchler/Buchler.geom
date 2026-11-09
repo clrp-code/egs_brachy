@@ -63,47 +63,47 @@
         
         :start layer:
             thickness = 0.134
-            top radii = 0.055 0.08
-            bottom radii = 0.055 0.08
+            top radii    = 0.055 0.080001
+            bottom radii = 0.055 0.080001
             media = SS_AISI301, SS_AISI321
         :stop layer:
 
         :start layer:
             thickness = 0.176
-            top radii = 0.08
-            bottom radii = 0.08
+            top radii    = 0.080001
+            bottom radii = 0.080001
             media = SS_AISI321
         :stop layer:
  
         :start layer:
             thickness = 0.13
-            top radii = 0.05 0.06 0.08
-            bottom radii = 0.05 0.06 0.08
+            top radii    = 0.050001 0.060001 0.080001
+            bottom radii = 0.050001 0.060001 0.080001
             media = Ir, AIR_TG43, SS_AISI321
         :stop layer:
                 
         :start layer:
             thickness = 0.01
-            top radii = 0.06 0.08
-            bottom radii = 0.06 0.08
+            top radii    = 0.060001 0.080001
+            bottom radii = 0.060001 0.080001
             media = AIR_TG43, SS_AISI321
         :stop layer:
  
         :start layer:
             thickness = 0.03
-            top radii = 0.08
-            bottom radii = 0.08
+            top radii    = 0.080001
+            bottom radii = 0.080001
             media = SS_AISI321
         :stop layer:
               
     :stop geometry:
     
     :start geometry:
-		name = the_source
-		library = egs_cdgeometry
-		base geometry = the_planes
-		set geometry = 0 cladding_and_source
-		set geometry = 1 end_cap
+        name = the_source
+        library = egs_cdgeometry
+        base geometry = the_planes
+        set geometry = 0 cladding_and_source
+        set geometry = 1 end_cap
 	:stop geometry:
 	
     simulation geometry = the_source

@@ -42,7 +42,7 @@
         :stop media input:
     :stop geometry:
 	
-	:start geometry:
+    :start geometry:
 
         library = egs_cones
         type    = EGS_ConeStack
@@ -50,43 +50,42 @@
         name    = capsule_and_source
 		
         :start layer:
-			thickness    = 0.01
-            top radii    = 0.035 0.04
-            bottom radii = 0.035 0.04
+            thickness    = 0.01
+            top radii    = 0.035 0.040001
+            bottom radii = 0.035 0.040001
             media        = AIR_TG43 Ti
         :stop layer:
 		
-		:start layer:
+        :start layer:
             thickness    = 0.35
-            top radii    = 0.0085 0.011 0.03 0.035 0.04
-            bottom radii = 0.0085 0.011 0.03 0.035 0.04
- 
-	         media        = Au AIR_TG43 Al2O3 AIR_TG43 Ti
+            top radii    = 0.0085 0.011 0.030001 0.035 0.040001
+            bottom radii = 0.0085 0.011 0.030001 0.035 0.040001
+	    media        = Au AIR_TG43 Al2O3 AIR_TG43 Ti
         :stop layer:
 		
-		:start layer:
-			thickness    = 0.01
+        :start layer:
+            thickness    = 0.01
             top radii    = 0.035 0.04
             bottom radii = 0.035 0.04
             media        = AIR_TG43 Ti
         :stop layer:
 		
-	 :stop geometry:	
+        :stop geometry:	
 	 
-	 :start geometry:
-        library = egs_spheres
-        name = end_cap_2
-        midpoint = 0 0  0.185
-        type = EGS_cSpheres
-        radii = 0.04
+        :start geometry:
+            library = egs_spheres
+            name = end_cap_2
+            midpoint = 0 0  0.185
+            type = EGS_cSpheres
+            radii = 0.040001
 		
-		:start media input:
-            media = Ti
-            set medium = 0 0
+            :start media input:
+                media = Ti
+                set medium = 0 0
         :stop media input:
     :stop geometry:
 	
-	:start geometry:
+    :start geometry:
         library = egs_gunion
         name = seed
         geometries = capsule_and_source end_cap_1 end_cap_2
