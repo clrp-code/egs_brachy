@@ -48,7 +48,7 @@ def read_csv_spectrum(fname):
 
 def doses_approx_equal(d1, d1_unc, d2, d2_unc, max_percent_diff=None, compare_unc=True, max_unc_percent_diff=None):
     if max_percent_diff is None:
-        max_percent_diff = max(d1_unc, d2_unc)
+        max_percent_diff = 3 * ( d1_unc**2 + d2_unc**2 )**0.5  # 99% CI
 
     if max_unc_percent_diff is None:
         max_unc_percent_diff = 0.005
