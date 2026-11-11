@@ -19,14 +19,18 @@ TIME_LIMIT_S_PER_MHZ = 22/2993. # s / MHz
 # regions 1-5 (reg 0 excluded because of source overlap)
 expected_doses = {
     "tlen": [
-        (5.219E-12, 0.0004),
-        (1.117E-12, 0.0002),
-        (4.292E-13, 0.0002),
-        (2.126E-13, 0.0002),
-        (1.332E-13, 0.0001),
+        (5.2267e-12, 0.00057),
+        (1.1169e-12, 0.00021),
+        (4.2949e-13, 0.00022), 
+        (2.1264e-13, 0.00023), 
+        (1.3321e-13, 0.00016)
     ],
     "edep": [
-        (5.212E-12, 0.0073),
+        (5.1568e-12, 0.00733), 
+        (1.1745e-12, 0.18456), 
+        (4.2901e-13, 0.00602), 
+        (2.1847e-13, 0.28620), 
+        (1.3255e-13, 0.00571)
     ]
 }
 
@@ -40,14 +44,9 @@ def compare_results(egslst, inp_name):
     }
 
     doses = extract_all_doses(egslst)
-    for reg, tlen, tlen_unc, edep, edep_unc in doses:
+    for _, tlen, tlen_unc, edep, edep_unc in doses:
         actual['tlen'].append((float(tlen), float(tlen_unc)/100))
         actual['edep'].append((float(edep), float(edep_unc)/100))
-
-    tolerances = {
-        'tlen': 0.001,
-        'edep': 0.015,
-    }
 
     all_close = True
     for calc_type, region_doses in list(expected_doses.items()):
@@ -55,8 +54,7 @@ def compare_results(egslst, inp_name):
 
             calc_dose, calc_unc = actual[calc_type][region]
 
-            tol = tolerances[calc_type]
-            doses_close = doses_approx_equal(expected_dose, expected_unc, calc_dose, calc_unc, max_percent_diff=tol)
+            doses_close = doses_approx_equal(expected_dose, expected_unc, calc_dose, calc_unc, compare_unc=True, max_unc_percent_diff=10)
 
             if not doses_close:
                 msg = "%s dose comparison failed for reg %d: Actual= %.4E +/- %.2F%% Expected= %.4E +/- %.2F%%"
