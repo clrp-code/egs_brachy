@@ -169,6 +169,8 @@ class MuenDataParser {
                 
                 /* prevent duplicates in .muendat from populating the interpolator */
                 if (med_lines.find(cur_med_name) != med_lines.end()) {
+                    egsWarning("Duplicate entry found for medium named %s. ", cur_med_name.c_str());
+                    egsWarning("Only the first entry will be used.\n");
                     cur_med_name = "ILLEGAL_DUPLICATE";
                 }
                 
