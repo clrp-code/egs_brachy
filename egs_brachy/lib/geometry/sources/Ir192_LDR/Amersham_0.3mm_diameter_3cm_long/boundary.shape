@@ -1,4 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Amersham_wire.geom
+# (r_max = 0.015 cm, z from -1.5 to 1.5 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.03001 0.03001 3.00001
+    box size = 0.032000 0.032000 3.002000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

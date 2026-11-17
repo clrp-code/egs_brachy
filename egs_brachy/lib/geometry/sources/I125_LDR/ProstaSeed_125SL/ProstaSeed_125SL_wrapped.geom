@@ -146,7 +146,7 @@
 		library = egs_rz
 		name = wrapper
 		radii = 0.041
-		z-planes = -0.186 0.186
+		z-planes = -0.226 0.226
 		:start media input:
 			media = WATER_0.998
 		:stop media input:

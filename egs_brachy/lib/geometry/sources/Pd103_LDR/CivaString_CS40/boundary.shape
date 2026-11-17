@@ -1,4 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing CivaString_CS40.geom
+# (r_max = 0.0425 cm, z from -2.045 to 2.045 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.08501 0.08501 4.1
+    box size = 0.087000 0.087000 4.092000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

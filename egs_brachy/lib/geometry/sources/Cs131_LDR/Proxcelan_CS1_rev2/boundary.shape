@@ -1,6 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Proxcelan_CS1_rev2.geom
+# (r_max = 0.0415 cm, z from -0.226 to 0.226 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.0831 0.0831 0.4521
+    box size = 0.085000 0.085000 0.454000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:
-
-    

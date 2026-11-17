@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing microSelectron-v1.geom
+# (r_max = 0.055 cm, z from -0.475 to 0.23 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.11001 0.11001 0.70501
+    box size = 0.112000 0.112000 0.707000
     :start transformation:
-        translation = 0, 0, -0.1225   # 0.705/2-0.23 =0.1225
+        translation = 0 0 -0.122500
     :stop transformation:
 :stop shape:

@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing GammaMedPlus.geom
+# (r_max = 0.045 cm, z from -6.055 to 0.237 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.09001 0.09001 6.292001
+    box size = 0.092000 0.092000 6.294000
     :start transformation:
-        translation = 0., 0., -2.9090005
+        translation = 0 0 -2.909000
     :stop transformation:
 :stop shape:

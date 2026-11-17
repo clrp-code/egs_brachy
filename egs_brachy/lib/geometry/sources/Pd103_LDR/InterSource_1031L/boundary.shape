@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing InterSource_1031L.geom
+# (r_max = 0.0405 cm, z from -0.225 to 0.225 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.041
-    height = 0.46
-
+    type = box
+    box size = 0.083000 0.083000 0.452000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

@@ -1,4 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing CT40_CivaThin.geom
+# (r_max = 0.03 cm, z from -2.045 to 2.045 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.06001 0.06001 4.1
+    box size = 0.062000 0.062000 4.092000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

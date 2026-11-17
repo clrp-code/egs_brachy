@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing OptiSeed_1032P_water.geom, Opti_1032P.geom
+# (r_max = 0.04 cm, z from -0.25 to 0.25 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.04
-    height = 0.50
-
+    type = box
+    box size = 0.082000 0.082000 0.502000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

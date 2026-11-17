@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Bebig_Smartseed_S18_Pb18.geom, Bebig_Smartseed_S18_Pb32.geom
+# (r_max = 0.039 cm, z from -0.225 to 0.225 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.0391
-    height = 0.451
-
+    type = box
+    box size = 0.080000 0.080000 0.452000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:
