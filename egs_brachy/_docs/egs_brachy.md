@@ -267,6 +267,66 @@ An (abbreviated) example geometry specification might look like:
 Detailed descriptions of the egs++ geometry classes are available in [PIRS-898](https://nrc-cnrc.github.io/EGSnrc/doc/pirs898/common.html),
 including instructions on how to assign media. Note that vacuum can be assigned to a region by using the egs++ built-in name `vacuum`.
 
+\subsubsection regiondiscovery Region discovery and boundary shapes
+
+An `egs_autoenvelope` geometry needs to know which phantom voxels each source
+occupies; this is set up by the `region discovery` block of each inscribed
+geometry:
+
+\verbatim
+:start region discovery:
+    action = discover                        # always use discover with egs_brachy
+    density of random points (cm^-3) = 1E7   # default 1E8
+    superset = yes                           # default yes
+    include file = $EGS_HOME/egs_brachy/lib/geometry/sources/I125_LDR/OncoSeed_6711/boundary.shape
+:stop region discovery:
+\endverbatim
+
+With `superset = yes`, every voxel (or ring, or spherical shell) that the box
+around the bounding shape touches is registered at each source location, so no
+voxel holding part of a source can be missed, however thin that part. This is
+done for `EGS_XYZGeometry`, `EGS_RZ` and `EGS_cSpheres` base geometries and for
+any base geometry with at most 64 regions. For other base geometries, including
+transformed XYZ phantoms, discovery relies on the random points alone. The log
+reports which method was used.
+
+The bounding shape must enclose the whole source model;
+`egs_autoenvelope` warns at start-up if it does not. Every
+`boundary.shape` file in `lib/geometry/sources/` is a box enclosing the models
+in its directory with a 10 um margin. Prefer box shapes: the Sobol sequence is
+only used for box shapes.
+
+\subsubsection geomerrors Geometry errors
+
+A geometry error (for example
+`EGS_CDGeometry::howfar: ireg<0, but position appears inside`) means that a geometry was asked for the distance to enter it
+from a point already inside it; the particle then crosses that geometry as if
+it were the surrounding medium. Earlier versions had three common causes:
+source surfaces coinciding with voxel boundaries, catheter walls or internal
+planes of the source model; voxels holding a thin sliver of a source being
+missed by region discovery; and library `boundary.shape` files that did not
+enclose their source. All three are addressed by the current egs++ geometry
+libraries and source library (see above). In a test set of 407 clinical
+arrangements and the TG-43 coaxial phantoms of all library sources, no geometry
+error occurred.
+
+A geometry error therefore points to a problem with the input: a user-defined
+bounding shape that does not enclose the source, a base geometry not covered by
+the superset with too low a density of random points, sources intersecting
+each other in `normal` run mode (for example overlapping HDR dwell positions;
+use `superposition` mode), or sources intersecting another structure. The
+`geometry error limit` in the run control block defaults to 0, which stops the
+run at the first error. Keep it while setting up; for long production runs a
+small limit (for example 10) avoids losing a run to a single rare event.
+Investigate any non-zero count rather than raising the limit.
+
+The `_wrapped.geom` models in some source directories place the seed inside a
+10 um water cylinder. They were a workaround for geometry errors and are no
+longer needed; use the unwrapped models for new work. The wrapper is part of
+the source, so energy deposited in it is not scored: without volume
+correction, dose in voxels containing a seed is 1.6-2.9% lower than with the
+unwrapped model, with no difference beyond 5 mm.
+
 
 \subsubsection ctdata Using CT data to create phantoms
 
@@ -800,10 +860,10 @@ A sample `source overlap check` block looks like:
         density of random points (cm^-3) = 1E6  # density of points to use for checking for overlap
 
         # bounding shape to use for generating random points around source
+        # (the library boundary.shape files are enclosing boxes)
         :start shape:
-            type = cylinder
-            radius = 0.04
-            height = 0.46
+            type = box
+            box size = 0.082 0.082 0.452
         :stop shape:
 
     :stop source overlap check:
@@ -1136,11 +1196,11 @@ The input block for this type of volume correction looks like:
         total coverage threshold % = 99.9 # optional level of voxel coverage before it is considered totally covered
                                           # if a voxel is more than 99.9% (default) covered then it's volume is set to 0
 
-        # shape which encompasses source
+        # shape which encloses the whole source: a box, so that Sobol is used
+        # (the library boundary.shape files are such boxes)
         :start shape:
-            type = cylinder
-            radius = 0.04
-            height = 0.45
+            type = box
+            box size = 0.082 0.082 0.452
         :stop shape:
 
         # optional rng definition
