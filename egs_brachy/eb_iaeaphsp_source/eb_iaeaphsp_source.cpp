@@ -199,6 +199,16 @@ IAEA_I64 EB_IAEASource::getNextParticle(EGS_RandomGenerator *rndm, int &q,
     u.x = ui;
     u.y = vi;
     u.z = wi;
+    // The phase space stores the direction in single precision (and the IAEA
+    // reader computes w from u and v in single precision), so it is off unit
+    // length by up to ~1e-7. Geometry distances assume a unit direction: left
+    // as read, intersections computed by different geometries disagree by
+    // ~1e-7 of the step length, enough to cause geometry errors where surfaces
+    // coincide. Renormalize in double precision.
+    EGS_Float ulen2 = u.length2();
+    if (ulen2 > 0) {
+        u *= 1/sqrt(ulen2);
+    }
     count++;
 
     return count;
