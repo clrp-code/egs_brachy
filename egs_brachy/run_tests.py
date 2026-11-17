@@ -165,13 +165,48 @@ def check_material_dat_duplicates():
     
     print(f"PASS - run_tests.check_material_dat_duplicates")
     return 1
+
+
+def check_muendat_duplicates():
+    """
+    Open egs_brachy/lib/media/material.dat file and check for duplicates. Returns the number of passed tests.
+    """
+    print(f"Running test 'run_tests.check_muendat_duplicates'")
     
+    muendat_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "lib",
+        "muen",
+        "materials_1500keV.muendat"
+    )
+
+    known_materials = []
+    duplicates = []
+    with open(muendat_path, 'r') as f:
+        for line in f:
+            if "Muen values for medium MEDIUM = " not in line:
+                continue
+            material_name = line.strip().split()[-1]
+            if material_name in known_materials:
+                duplicates.append(material_name)
+            else:
+                known_materials.append(material_name)
+
+    if len(duplicates) > 0:
+        print(f"materials_1500keV.muendat has duplicates for materials named {duplicates}")
+        print(f"FAIL - run_tests.check_muendat_duplicates")
+        return 0
+    
+    print(f"PASS - run_tests.check_muendat_duplicates")
+    return 1
+
 def run_all_tests():
 
     pass_count = 0
     warn_count = 0
 
     pass_count += check_material_dat_duplicates()
+    pass_count += check_muendat_duplicates()
 
     all_tests = find_tests()
     orig_cwd = os.getcwd()
@@ -230,7 +265,7 @@ def run_all_tests():
         cleanup()
 
     print(("="*80))
-    print(("Tests finished %d/%d passed with %d warnings" % (pass_count, len(all_tests)+1, warn_count)))
+    print(("Tests finished %d/%d passed with %d warnings" % (pass_count, len(all_tests)+2, warn_count)))
 
 if __name__ == "__main__":
     run_all_tests()
