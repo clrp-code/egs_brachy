@@ -58,6 +58,7 @@
         closed      = 0. 0.028   # width
         :start media input:
             media = CS10_Organpoly_Pd5% 
+			# Each Pd region is filled with 5% natural pd and 95% organic polymer Which is consistent with 8  micorgram Pd of Reed et al paper Medphys 2014. {rho = 1.15, elements = H, C, N, O, PD ; mass fractions = 0.08075, 0.6156, 0.0475, 0.20615, 0.05} respectively 
 			
         :stop media input:
     :stop geometry:
@@ -68,6 +69,7 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, 0.5 # CT40
+			            # 0., 0.0055, 0.  # CT10
         :stop transformation:
     :stop geometry:
 	:start geometry:
@@ -76,6 +78,7 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, -0.5 # CT40
+			            # 0., 0.0055, 0.   # CT10
         :stop transformation:
     :stop geometry:
 	
@@ -85,6 +88,7 @@
         my geometry = base_marker
         :start transformation:
             translation = 0., 0.0055, 1.51 # CT40
+			            
         :stop transformation:
     :stop geometry:
 	:start geometry:
@@ -103,6 +107,8 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014 , 0.0035, 0.111      # CT20 
+			            # -0.014 , 0.0035, -0.389     # CT10
+			            # -0.014 , 0.0035, -0.3885    # half of the width should be (-0.014), 0.0035 down, and 0.3885 offset from source center.  
         :stop transformation:
     :stop geometry:
 
@@ -111,7 +117,9 @@
         library = egs_gtransformed
         my geometry = base_well
         :start transformation:
-            translation = -0.014, 0.0035, 0.333      # CT20			           
+            translation = -0.014, 0.0035, 0.333      # CT20
+			             # -0.014, 0.0035, -0.167    # CT10 Reed Dimension 2014 Brachytherapy
+			           
         :stop transformation:
     :stop geometry:
 
@@ -121,6 +129,7 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.667  # CT20
+			            # -0.014, 0.0035, 0.167  # CT10
         :stop transformation:
     :stop geometry:
 
@@ -130,6 +139,7 @@
         my geometry = base_well
         :start transformation:
             translation = -0.014, 0.0035, 0.889 # CT20
+			            # -0.014, 0.0035, 0.389 # CT10
         :stop transformation:
     :stop geometry:
 	
