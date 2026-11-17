@@ -51,37 +51,38 @@
         name    = capsule_and_source
 
         :start layer:
-            thickness    = 0.0149
-            top radii    = 0.0345 0.040001
-            bottom radii = 0.0345 0.040001
+          
+			thickness    = 0.0149
+            top radii    = 0.0345 0.04
+            bottom radii = 0.0345 0.04
             media        = AIR_TG43 Ti_grade2
         :stop layer:
 
         :start layer:
             thickness    = 0.0001
-            top radii    = 0.0256 0.0345 0.040001
-            bottom radii = 0.0256 0.0345 0.040001
+            top radii    = 0.0256 0.0345 0.04
+            bottom radii = 0.0256 0.0345 0.04 
             media        = AgI AIR_TG43 Ti_grade2
         :stop layer:
 
         :start layer:
             thickness    = 0.34
-            top radii    = 0.0255 0.0256 0.0345 0.040001
-            bottom radii = 0.0255 0.0256 0.0345 0.040001
+            top radii    = 0.0255 0.0256 0.0345 0.04
+            bottom radii = 0.0255 0.0256 0.0345 0.04
             media        = Ag AgI AIR_TG43 Ti_grade2
         :stop layer:
 
         :start layer:
             thickness    = 0.0001
-            top radii    = 0.0256 0.0345 0.040001
-            bottom radii = 0.0256 0.0345 0.040001
+            top radii    = 0.0256 0.0345 0.04
+            bottom radii = 0.0256 0.0345 0.04
             media        = AgI AIR_TG43 Ti_grade2
         :stop layer:
 
         :start layer:
             thickness    = 0.0149
-            top radii    = 0.0345 0.040001
-            bottom radii = 0.0345 0.040001
+            top radii    = 0.0345 0.04
+            bottom radii = 0.0345 0.04
             media        = AIR_TG43 Ti_grade2
         :stop layer:
 

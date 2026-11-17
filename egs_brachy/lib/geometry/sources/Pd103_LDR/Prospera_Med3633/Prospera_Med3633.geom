@@ -33,7 +33,9 @@
     :start geometry:
         name = cladding_cyl
         library = egs_rz 
-        radii =  0.035,0.040    # Dimensions are from TG43U1 consensus data which is the last published paper for this source, at this time 2019. See also M.J. Rivard, MedPhys, 28, 629-637-2001
+        radii =  0.035,0.040    # Dimensions are from TG43U1 consensus data which is the last published paper for this source, at this time 2019. 
+		# 0.0355,0.0405         # From M.J. Rivard, MedPhys,28, 629-637-2001
+		# 		
         z-planes = -0.1945, 0.1945
         :start media input:
             media = AIR_TG43, Ti
@@ -46,6 +48,8 @@
         name = base_end_sphere_outer
         type = EGS_cSpheres
         radii = 0.040     # # From M.J. Rivard etal, Med.Phys.,31,633-674,2004  and/or  Li et al study MedPhys, 27, 1108-1112, 2000
+		      # 0.0405    # From M.J. Rivard, MedPhys,28, 629-637-2001
+
         :start media input:
             media = WATER_0.998 Ti
             set medium = 1 1
@@ -57,6 +61,8 @@
         name = base_end_sphere_inner
         type = EGS_cSpheres
         radii = 0.0350
+		# 0.0355 
+
         :start media input:
             media = AIR_TG43
         :stop media input:
@@ -68,6 +74,7 @@
         my geometry = base_end_sphere_outer
         :start transformation:
             translation =  0, 0, -0.1950
+			# 0, 0, -0.1945
         :stop transformation:
     :stop geometry:
 
@@ -77,6 +84,7 @@
         my geometry = base_end_sphere_outer
         :start transformation:
             translation = 0, 0, 0.1950
+			# 0, 0, 0.1945
         :stop transformation:
     :stop geometry:
 
@@ -86,6 +94,7 @@
         my geometry = base_end_sphere_inner
         :start transformation:
             translation = 0, 0, -0.1900
+			# 0, 0, -0.1895
         :stop transformation:
     :stop geometry:
 
@@ -95,14 +104,18 @@
         my geometry = base_end_sphere_inner
         :start transformation:
             translation = 0, 0, 0.1900
+			# 0, 0, 0.1895
         :stop transformation:
     :stop geometry:
+
 
     :start geometry:
         library = egs_spheres
         name = base_source
         type = EGS_cSpheres
-        radii = 0.025  # From M.J. Rivard et al, Update of AAPM Task Group No.43 Report: A revised AAPM protocol for brachytherapy dose calculations, Med. Phys. 31,633-674,2004
+        radii = 0.025  # From M.J. Rivard etal, Update of AAPM Task Group No.43 Report: A revised AAPM protocol for brachytherapy dose calculations, Med.Phys.,31,633-674,2004
+		      # 0.028  # From M.J. Rivard, MedPhys,28, 629-637-2001
+
         :start media input:
             media = SdVBC24H24
         :stop media input:
@@ -126,6 +139,8 @@
         my geometry = base_source
         :start transformation:
             translation = 0, 0, -0.185
+			# 0, 0, -0.1807
+			# 
         :stop transformation:
     :stop geometry:
 
@@ -135,6 +150,8 @@
         my geometry = base_source
         :start transformation:
             translation = 0, 0, -0.111 
+			# 0, 0, -0.1084
+			# 
         :stop transformation:
     :stop geometry:
 
@@ -144,6 +161,8 @@
         my geometry = base_marker
         :start transformation:
             translation = 0 , 0, -0.037   # To be consistent with the leff=4.2 mm which is the distance from edge to edge of the radioactive sphere
+			# 0, 0, -0.0361  # default run
+			# 
         :stop transformation:
     :stop geometry:
 
@@ -153,6 +172,8 @@
         my geometry = base_marker
         :start transformation:
             translation = 0, 0, 0.037
+			# 0 , 0, 0.0361
+			# 
         :stop transformation:
     :stop geometry:
 
@@ -162,6 +183,8 @@
         my geometry = base_source
         :start transformation:
             translation = 0, 0, 0.111
+ 			# 0, 0, 0.1084
+			# 
         :stop transformation:
     :stop geometry:
 
@@ -171,6 +194,8 @@
         my geometry = base_source
         :start transformation:
             translation = 0, 0, 0.185
+			# 0, 0, 0.1807
+			#
         :stop transformation:
     :stop geometry:
 
