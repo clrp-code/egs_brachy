@@ -1,4 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing BEBIG_wire.geom
+# (r_max = 0.015 cm, z from -0.5 to 0.5 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.03001 0.03001 1.00001
+    box size = 0.032000 0.032000 1.002000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

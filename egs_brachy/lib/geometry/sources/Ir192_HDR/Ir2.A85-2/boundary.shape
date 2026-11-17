@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Ir2.A85-2.geom
+# (r_max = 0.045 cm, z from -0.745 to 0.247 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-    type = box 
-    box size = 0.09001 0.09001 0.99201
+    type = box
+    box size = 0.092000 0.092000 0.994000
     :start transformation:
-        translation = 0., 0., -0.249
+        translation = 0 0 -0.249000
     :stop transformation:
 :stop shape:

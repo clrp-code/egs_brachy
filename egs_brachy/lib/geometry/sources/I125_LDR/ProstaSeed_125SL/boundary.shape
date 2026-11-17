@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing ProstaSeed_125SL.geom, ProstaSeed_125SL_wrapped.geom
+# (r_max = 0.041 cm, z from -0.225 to 0.225 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.041
-    height = 0.372
-
+    type = box
+    box size = 0.084000 0.084000 0.452000
+    :start transformation:
+        translation = 0 0 0.000000
+    :stop transformation:
 :stop shape:

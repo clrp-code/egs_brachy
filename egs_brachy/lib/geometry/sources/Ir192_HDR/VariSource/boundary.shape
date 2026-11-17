@@ -1,37 +1,11 @@
-#              Ir192, Varian, VariSource HDR
-#
-#  Copyright (C) 2020, Rowan M Thomson and D.W.O. Rogers
-#
-# This file is part of the egs_brachy package to be used with EGSnrc
-#
-#  egs_brachy is free software: you can redistribute it and/or modify it
-#  under the terms of the GNU Affero General Public License as published
-#  by the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  egs_brachy is distributed in the hope that it will be useful, but
-#  WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-#  Affero General Public License for more details:
-#  <http://www.gnu.org/licenses/>.
-#
-# If you use this file, please cite
-#       M Chamberland, R E P Taylor, D W O Rogers and R M Thomson
-#       egs_brachy: a versatile and fast Monte Carlo code for brachytherapy
-#       Phys Med Biol 61(2016) 8214 -- 8231
-# and
-#       Habib Safigholi, Marc J.P. Chamberland, Randle E.P. Taylor, Martin P. Martinov,
-#       D. W. O. Rogers and Rowan M. Thomson,  Update of the CLRP Monte Carlo TG-43
-#       parameter database for high-energy brachytherapy sources, Med. Phys. 50 (2023)
-#       1928-1941
-#
-#
-#
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing VariSource.geom
+# (r_max = 0.0295 cm, z from -1 to 0.6 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.03
-    height = 5.8
-    midpoint = 0 0 -2.2
-
+    type = box
+    box size = 0.061000 0.061000 1.602000
+    :start transformation:
+        translation = 0 0 -0.200000
+    :stop transformation:
 :stop shape:

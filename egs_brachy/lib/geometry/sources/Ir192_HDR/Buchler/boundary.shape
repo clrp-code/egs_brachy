@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Buchler.geom
+# (r_max = 0.080001 cm, z from -6.241 to 0.175 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.16001 0.16001 6.41601
+    box size = 0.162002 0.162002 6.418000
     :start transformation:
-        translation = 0., 0., -3.033
+        translation = 0 0 -3.033000
     :stop transformation:
 :stop shape:

@@ -1,9 +1,11 @@
-# This defines the bounding volume for volume correction and region discovery
-# for the MBDCA-WG source model
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing MBDCA-WG.geom
+# (r_max = 0.050001 cm, z from -0.465 to 0.235 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.10001 0.10001 0.70001
+    box size = 0.102002 0.102002 0.702000
     :start transformation:
-        translation = 0 0 -0.115
+        translation = 0 0 -0.115000
     :stop transformation:
 :stop shape:

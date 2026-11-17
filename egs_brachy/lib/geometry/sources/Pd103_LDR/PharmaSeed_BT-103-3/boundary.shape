@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing PharmaSeed_BT-103-3.geom
+# (r_max = 0.040001 cm, z from -0.225 to 0.225001 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
-
-    type = cylinder
-    radius = 0.041
-    height = 0.451
-
+    type = box
+    box size = 0.082002 0.082002 0.452001
+    :start transformation:
+        translation = 0 0 0.000001
+    :stop transformation:
 :stop shape:

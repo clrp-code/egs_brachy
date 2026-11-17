@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing M19.geom
+# (r_max = 0.0585 cm, z from -30.341 to 0.24 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.11701 0.11701  30.510001  # 30.510001 for cable effect on F(r,theta) # 0.510001 clrpv2   # 0.58101 Mch?
+    box size = 0.119000 0.119000 30.583000
     :start transformation:
-        translation = 0.0, 0.0, -15.505       # clrpv2 -0.0505    #-15.505 for cable effect 
+        translation = 0 0 -15.050500
     :stop transformation:
 :stop shape:

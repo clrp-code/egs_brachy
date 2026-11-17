@@ -1,7 +1,11 @@
+# Boundary of the source model(s) for region discovery and volume correction.
+# A box enclosing Ralston_type-1.geom
+# (r_max = 0.150001 cm, z from -1.65 to 0.85 cm) with a 0.001 cm margin.
+# A box, not a cylinder, so that the Sobol sequence is used.
 :start shape:
     type = box
-    box size = 0.30 0.30 2.50
+    box size = 0.302002 0.302002 2.502000
     :start transformation:
-        translation = 0., 0., -0.475 
+        translation = 0 0 -0.400000
     :stop transformation:
 :stop shape:
