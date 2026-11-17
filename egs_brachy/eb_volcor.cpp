@@ -370,7 +370,7 @@ double VolumeCorrector::correctPhantomVolumesForSources() {
 
     applyVolumeCorrections(source_opts, hit_counter);
 
-    return source_opts->bounds_volume*(double)n_in_source/(int)source_opts->npoints;
+    return source_opts->bounds_volume*(double)n_in_source/source_opts->npoints;
 
 }
 
@@ -387,7 +387,7 @@ void VolumeCorrector::applyVolumeCorrections(Options *opts, HitCounterT hit_coun
         if (phant_reg < 0) {
             continue;
         }
-        int hits = hi->second;
+        EGS_I64 hits = hi->second;
         double reg_vol = phantoms[phant_idx]->getUncorrectedVolume(phant_reg);
         double corrected_vol = reg_vol - bounds_vol*double(hits)/npoints;
         double unc;
