@@ -445,9 +445,9 @@ A sample 'scoring options' block looks like this:
 :start scoring options:
 
     score tracklength dose = yes # 'yes' (default) or 'no'
-    score energy deposition = no # 'no' (default) or 'yes'
-    score scatter dose = yes # 'no' (default) or 'yes'
-    muen file = /home/randlet/egs/HEN_HOUSE/muen_data/brachy_xcom_1.5MeV.muendat
+    score energy deposition = no # 'no'  (default) or 'yes'
+    score scatter dose = yes     # 'no'  (default) or 'yes'
+    muen file = $EGS_HOME/egs_brachy/lib/muen/materials_1500keV.muendat
     muen for media = WATER_0.998, AIR_TG43
 
     dose file format = gzip # text or gzip
@@ -475,7 +475,7 @@ A sample 'scoring options' block looks like this:
     :stop spectrum scoring:
 
     :start phsp scoring:
-        phsp output directory = /home/randlet/egs/egsnrc/egs_brachy/
+        phsp output directory = $EGS_HOME/egs_brachy/
         access mode = write
         print header = no
         kill after scoring = yes
@@ -597,7 +597,7 @@ A complete phsp scoring block looks like:
 \verbatim
 
     :start phsp scoring:
-        phsp output directory = /home/randlet/egs/egsnrc/egs_brachy/
+        phsp output directory = $EGS_HOME/egs_brachy/
         access mode = write
         print header = no
         kill after scoring = yes
@@ -679,7 +679,7 @@ An example `source definition` block is shown below for a 6702 seed:
 
       :start spectrum:
           type = tabulated spectrum
-          spectrum file = /home/randlet/egs/HEN_HOUSE/spectra/I125_TG43.spectrum
+          spectrum file = $HEN_HOUSE/spectra/I125_TG43.spectrum
       :stop spectrum:
 
   :stop source:
@@ -739,12 +739,12 @@ geometry is the untransformed plaque, the pose file can instead be
   :stop source:
 
   :start transformations:
-      include file = lib/geometry/transformations/eye_plaques/COMS16mm
+      include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm
   :stop transformations:
 
   :start source coordinate transform:
       :start transformation:
-          include file = lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
+          include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/eye_plaques/COMS16mm_example_pose
       :stop transformation:
   :stop source coordinate transform:
 
@@ -830,7 +830,7 @@ activity of the second, you would set the following source input:
 
       :start spectrum:
           type = tabulated spectrum
-          spectrum file = /home/randlet/egs/HEN_HOUSE/spectra/I125_TG43.spectrum
+          spectrum file = $HEN_HOUSE/spectra/I125_TG43.spectrum
       :stop spectrum:
 
   :stop source:
@@ -880,11 +880,11 @@ setting the `source` input block to use the eb_iaeaphsp_source type like so:
     :start source:
         library = eb_iaeaphsp_source
         name = 6702
-        header file = /home/randlet/egs/egsnrc/egs_brachy/iaea.phsp.IAEAheader
+        header file = $EGS_HOME/egs_brachy/iaea.phsp.IAEAheader
     :stop source:
 
     :start transformations :
-        include file = lib/geometry/transformations/125seeds_1cm_grid
+        include file = $EGS_HOME/egs_brachy/lib/geometry/transformations/125seeds_1cm_grid
     :stop transformations:
 
     simulation source = 6702
