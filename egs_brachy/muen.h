@@ -177,6 +177,10 @@ class MuenDataParser {
                 // move the file pointer to the start of the data
                 for (int i=0; i < NSKIP; i++) {
                     getline(in, dummy);
+                    if(!in) {
+                        // guard against the .muendat file terminating inside a header
+                        break;
+                    }
                     if (trim(dummy).size() == 0 || dummy[0] == '#') {
                         i--;
                     }
@@ -208,6 +212,10 @@ class MuenDataParser {
                     }
                 } catch (const invalid_argument&) {
                     // this is thrown by stod if you try to convert something that isn't a double
+                    err_flag = true;
+                }
+                catch (const out_of_range& e) {
+                    // this is thrown by stod if the number is too small or large
                     err_flag = true;
                 } 
 

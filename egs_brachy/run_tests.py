@@ -152,6 +152,8 @@ def check_material_dat_duplicates():
         for line in f:
             if "medium =" not in line:
                 continue
+            if line[0] == "#":
+                continue
             material_name = line.strip().split()[-1]
             if material_name in known_materials:
                 duplicates.append(material_name)
@@ -185,6 +187,8 @@ def check_muendat_duplicates():
     with open(muendat_path, 'r') as f:
         for line in f:
             if "Muen values for medium MEDIUM = " not in line:
+                continue
+            if line[0] == "#":
                 continue
             material_name = line.strip().split()[-1]
             if material_name in known_materials:

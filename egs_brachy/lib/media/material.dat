@@ -940,7 +940,7 @@ bremsstrahlung correction = NRC
 medium = PROSTATE_ICRP23
 rho = 1.045
 elements = H, C, N, O, NA, P, K, CA, MG
-mass fractions = 0.098, 0.091, 0.025, 0.781, 0.021, 0.001, 0.002, 0.0001, 0.0001
+mass fractions = 0.09763, 0.09112, 0.02473, 0.78103, 0.00208, 0.00104, 0.00195, 0.00023, 0.00019
 bremsstrahlung correction = NRC
 
 
