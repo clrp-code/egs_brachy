@@ -519,6 +519,13 @@ elements = NI, FE, MN, CR, SI, C,  P
 mass fractions = 0.095, 0.68375, 0.02, 0.19, 0.01, 0.0008, 0.00045
 bremsstrahlung correction = NRC
 
+
+medium = Ti6Al4V_ELI
+rho = 4.43
+elements = H, C, N, O, AL, TI, V, FE
+mass fractions = 0.00012, 0.00080, 0.00050, 0.00130, 0.06000, 0.89478, 0.04000, 0.00250
+bremsstrahlung correction = NRC
+
 #################################################
 ##
 ##    EYE PLAQUE COMPOUNDS
